@@ -291,6 +291,19 @@ details.topic .topic-body{padding:2px 16px 14px}
 .dict-status{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--mauve);padding:14px 0}
 
 /* toast */
+/* mock interview: all questions list */
+.mi-cat-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--magenta);margin:14px 0 4px}
+details.mi-q{border:1px solid var(--petal);border-radius:12px;background:#fff;margin-bottom:6px;overflow:hidden}
+details.mi-q summary{list-style:none;cursor:pointer;padding:8px 13px;font-size:13.5px;font-weight:600;color:var(--ink);
+  display:flex;gap:8px;align-items:baseline}
+details.mi-q summary::-webkit-details-marker{display:none}
+details.mi-q summary::before{content:"+";color:var(--magenta);font-weight:700;flex:0 0 auto}
+details.mi-q[open] summary::before{content:"\2212"}
+details.mi-q[open] summary{background:var(--petal-soft)}
+.mi-a{padding:9px 14px 11px;font-size:13px;line-height:1.6;border-top:1px dashed var(--petal)}
+.mi-a .mi-hint{font-size:12px;color:var(--mauve);font-style:italic;margin-bottom:6px}
+
 /* chip preview bubble */
 #chip-tip{position:fixed;z-index:95;max-width:320px;background:var(--ink);color:#fff;
   border-radius:12px;padding:10px 14px;font-size:12.5px;line-height:1.5;font-family:'Quicksand',sans-serif;
@@ -324,6 +337,11 @@ details.topic .topic-body{padding:2px 16px 14px}
 #fd-result .voice-note{font-size:11px}
 #fd-result .jl-jp{font-size:16px !important}
 #fd-result .jl-ro{font-size:12px}
+#fd-hist{display:none;gap:5px;overflow-x:auto;padding:7px 10px 2px;scrollbar-width:thin}
+#fd-hist.has{display:flex}
+#fd-hist .fd-hchip{flex:0 0 auto;background:var(--petal-soft);color:var(--plum);border:1px solid var(--petal);
+  border-radius:999px;padding:3px 11px;font-size:11.5px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+#fd-hist .fd-hchip:hover{background:var(--magenta);color:#fff;border-color:var(--magenta)}
 .fd-bar{display:flex;gap:6px;align-items:center;padding:7px 8px 7px 12px}
 .fd-bar .fd-icon{font-size:15px}
 .fd-bar input{border:none;outline:none;font-family:'Quicksand',sans-serif;font-size:13.5px;color:var(--ink);
@@ -361,7 +379,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 06, 2026 · 01:17 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 06, 2026 · 01:24 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1221,6 +1239,9 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <button class="btn btn-soft" id="mi-reveal" style="margin-top:10px">Show a model answer</button>
       <div class="note-box" id="mi-answer" style="display:none"></div>
     </div>
+
+    <h3 style="margin-top:22px">All questions &amp; model answers <small style="font-weight:500;color:var(--mauve)">(click a question to show or hide its answer)</small></h3>
+    <div id="mi-all"></div>
   </div>
 
   <div class="card">
@@ -1556,6 +1577,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
     <button id="fd-min" title="Minimize">−</button>
   </div>
   <div id="fd-result"></div>
+  <div id="fd-hist"></div>
   <div class="fd-bar">
     <span class="fd-icon">🔎</span>
     <input type="text" id="fd-input" placeholder="Type a word…" autocomplete="off">
@@ -2770,6 +2792,14 @@ function histLine(e){
 }
 function renderDictHist(){
   normHist();
+  var fh = document.getElementById('fd-hist');
+  if(fh){
+    var ten = dictHist.slice(0, 10);
+    fh.classList.toggle('has', ten.length > 0);
+    fh.innerHTML = ten.map(function(e){
+      return '<span class="fd-hchip" title="' + esc(e.d || '') + '">' + esc(e.w) + '</span>';
+    }).join('');
+  }
   var wrap = document.getElementById('dict-history-wrap');
   var box = document.getElementById('dict-history');
   if(wrap && box){
@@ -2811,6 +2841,8 @@ document.addEventListener('click', function(e){
 document.addEventListener('click', function(e){
   var h = e.target.closest('.dict-hist-chip');
   if(h){ outEl = dictResult; dictInput.value = h.textContent.trim(); lookup(); return; }
+  var fh = e.target.closest('.fd-hchip');
+  if(fh){ window.dictLookup(fh.textContent.trim(), 'float'); return; }
   if(e.target && e.target.id === 'dict-history-clear'){
     dictHist = []; saveDictHist(); renderDictHist(); toast2('History cleared');
   }
@@ -3732,6 +3764,29 @@ var MIQ = [
  t:"Honesty + resourcefulness + follow-through beats bluffing.",
  a:"I never bluff; students trust tutors who are honest. I'd say: 'That's an excellent question. Let me make sure I give you the correct answer,' check quickly if it's checkable, and if not: 'I'll confirm this and include it in your lesson notes.' Then I actually put the verified answer in the tutoring notes. It turns a gap into proof of reliability."}
 ];
+/* full reference list: every question with its hidden answer */
+function miEsc(t){ var d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; }
+(function renderAllQ(){
+  var box = document.getElementById('mi-all');
+  if(!box) return;
+  var CATS = [
+    {c:'personal', label:'Your story (background)'},
+    {c:'interview', label:'Interview questions'},
+    {c:'bcc', label:'BCC scenarios'},
+    {c:'ftl', label:'Free Trial scenarios'},
+    {c:'youth', label:'Teens & young learners'}
+  ];
+  box.innerHTML = CATS.map(function(cat){
+    var qs = MIQ.filter(function(q){ return q.c === cat.c; });
+    if(!qs.length) return '';
+    return '<div class="mi-cat-label">' + cat.label + '</div>' +
+      qs.map(function(q){
+        return '<details class="mi-q"><summary>' + miEsc(q.q) + '</summary>' +
+          '<div class="mi-a"><div class="mi-hint">' + miEsc(q.t) + '</div>' + miEsc(q.a) + '</div></details>';
+      }).join('');
+  }).join('');
+})();
+
 var lastIdx = -1;
 function drawQ(){
   var cat = document.getElementById('mi-cat').value;
