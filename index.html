@@ -27,11 +27,12 @@ h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;color:var(--ink);font-we
 main.wrap{padding-top:18px}
 
 /* ---------- header ---------- */
-header{padding:16px 0 2px;text-align:center}
+header{padding:10px 0 0;text-align:center}
 .paw-mark{font-size:26px;letter-spacing:8px;color:var(--magenta);opacity:.85}
-header h1{font-size:clamp(34px,5vw,50px);margin:6px 0 2px}
+header h1{font-size:clamp(22px,3.4vw,32px);margin:2px 0 0}
 header h1 em{font-style:italic;color:var(--magenta)}
-.tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--mauve)}
+.tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--mauve)}
+@media(max-width:600px){header h1{font-size:21px}.tagline{font-size:12.5px}}
 .id-pills{margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .pill{background:#fff;border:1px solid var(--petal);border-radius:999px;padding:6px 16px;
   font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--plum)}
@@ -43,11 +44,12 @@ header h1 em{font-style:italic;color:var(--magenta)}
 .paw-divider span{color:var(--magenta);font-size:15px;letter-spacing:6px}
 
 /* ---------- tabs ---------- */
-nav.tabs{margin-top:6px;position:sticky;top:0;z-index:40;background:rgba(255,244,251,.92);backdrop-filter:blur(8px);
-  display:flex;justify-content:center;gap:8px;padding:14px 8px;border-bottom:1px solid var(--petal);flex-wrap:wrap}
-.tab-btn{font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;letter-spacing:.03em;
+nav.tabs{margin-top:4px;position:sticky;top:0;z-index:40;background:rgba(255,244,251,.92);backdrop-filter:blur(8px);
+  display:flex;justify-content:center;gap:5px;padding:7px 6px;border-bottom:1px solid var(--petal);flex-wrap:wrap}
+.tab-btn{font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.02em;
   border:1px solid var(--petal);background:#fff;color:var(--ink-soft);border-radius:999px;
-  padding:9px 20px;cursor:pointer;transition:all .2s}
+  padding:5px 13px;cursor:pointer;transition:all .2s}
+@media(max-width:600px){.tab-btn{font-size:11.5px;padding:4px 10px}nav.tabs{gap:4px;padding:6px 4px}}
 .tab-btn:hover{border-color:var(--magenta);color:var(--magenta)}
 .tab-btn.active{background:var(--magenta);border-color:var(--magenta);color:#fff;box-shadow:0 4px 14px rgba(192,46,128,.3)}
 .tab-btn:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
@@ -285,6 +287,19 @@ details.topic .topic-body{padding:2px 16px 14px}
 .dict-status{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--mauve);padding:14px 0}
 
 /* toast */
+/* floating dictionary */
+#float-dict{position:fixed;bottom:18px;right:18px;z-index:80;display:flex;gap:6px;align-items:center;
+  background:#fff;border:1px solid var(--petal);border-radius:999px;padding:6px 8px 6px 14px;
+  box-shadow:0 8px 26px rgba(128,29,92,.18)}
+#float-dict .fd-icon{font-size:16px}
+#float-dict input{border:none;outline:none;font-family:'Quicksand',sans-serif;font-size:13.5px;color:var(--ink);
+  width:130px;background:transparent;padding:4px 2px;transition:width .2s}
+#float-dict input:focus{width:190px}
+#float-dict button{border:none;background:var(--magenta);color:#fff;border-radius:999px;
+  padding:6px 14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;cursor:pointer}
+#float-dict button:hover{background:var(--plum)}
+#float-dict.hidden{display:none}
+@media(max-width:600px){#float-dict{left:14px;right:14px;bottom:14px}#float-dict input{flex:1;width:auto}#float-dict input:focus{width:auto}}
 #toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);opacity:0;
   background:var(--plum);color:#fff;font-weight:600;font-size:14px;border-radius:999px;padding:10px 24px;
   transition:all .3s;z-index:200;pointer-events:none}
@@ -1497,6 +1512,12 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <button class="btn btn-magenta" id="m-save">Save student</button>
     </div>
   </div>
+</div>
+
+<div id="float-dict">
+  <span class="fd-icon">📖</span>
+  <input type="text" id="fd-input" placeholder="Quick dictionary…" autocomplete="off">
+  <button id="fd-go">Search</button>
 </div>
 
 <div id="toast">Copied ♡</div>
@@ -2909,6 +2930,10 @@ function renderBiz(t, originNote){
 }
 window.speakBizWord = function(word, btn){ speakEn(word, 'en-us', btn); };
 window.kanaRoma = function(t){ return kanaToRomaji(t); };
+window.dictLookup = function(word){
+  dictInput.value = word;
+  lookup();
+};
 
 var dictCache = {};
 var lastDictWord = '';
@@ -4123,6 +4148,34 @@ if(document.getElementById('gr-search')){
   document.getElementById('gr-search').addEventListener('input', renderGrammar);
   renderGrammar();
 }
+})();
+</script>
+<script>
+(function(){
+"use strict";
+var fdInput = document.getElementById('fd-input');
+var fdGo = document.getElementById('fd-go');
+var fdBar = document.getElementById('float-dict');
+function fdSearch(){
+  var w = fdInput.value.trim();
+  if(!w) return;
+  var dictTab = document.querySelector('.tab-btn[data-tab="dictionary"]');
+  if(dictTab) dictTab.click();
+  if(window.dictLookup) window.dictLookup(w);
+  fdInput.value = '';
+  setTimeout(function(){
+    var res = document.getElementById('dict-result');
+    if(res && res.scrollIntoView) res.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 150);
+}
+fdGo.addEventListener('click', fdSearch);
+fdInput.addEventListener('keydown', function(e){ if(e.key === 'Enter') fdSearch(); });
+/* hide the floating bar while on the Dictionary tab itself */
+document.querySelectorAll('.tab-btn').forEach(function(b){
+  b.addEventListener('click', function(){
+    fdBar.classList.toggle('hidden', b.getAttribute('data-tab') === 'dictionary');
+  });
+});
 })();
 </script>
 </body>
