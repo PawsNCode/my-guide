@@ -303,19 +303,42 @@ details.topic .topic-body{padding:2px 16px 14px}
 #chip-tip .tip-label{display:block;font-weight:700;color:var(--petal);font-size:10.5px;
   letter-spacing:.07em;text-transform:uppercase;margin-bottom:4px}
 
-/* floating dictionary */
-#float-dict{position:fixed;bottom:18px;right:18px;z-index:80;display:flex;gap:6px;align-items:center;
-  background:#fff;border:1px solid var(--petal);border-radius:999px;padding:6px 8px 6px 14px;
-  box-shadow:0 8px 26px rgba(128,29,92,.18)}
-#float-dict .fd-icon{font-size:16px}
-#float-dict input{border:none;outline:none;font-family:'Quicksand',sans-serif;font-size:13.5px;color:var(--ink);
-  width:130px;background:transparent;padding:4px 2px;transition:width .2s}
-#float-dict input:focus{width:190px}
-#float-dict button{border:none;background:var(--magenta);color:#fff;border-radius:999px;
+/* floating dictionary chatbox */
+#float-dict{position:fixed;bottom:18px;right:18px;z-index:80;display:flex;flex-direction:column;
+  width:min(370px, calc(100vw - 28px));background:#fff;border:1px solid var(--petal);border-radius:18px;
+  box-shadow:0 10px 34px rgba(128,29,92,.22);overflow:hidden}
+#fd-head{display:flex;align-items:center;gap:8px;background:var(--petal-soft);padding:8px 12px;
+  border-bottom:1px solid var(--petal)}
+#fd-head .fd-title{font-weight:700;font-size:13px;color:var(--plum);margin-right:auto}
+#fd-head button{border:1px solid var(--petal);background:#fff;color:var(--plum);border-radius:999px;
+  padding:3px 11px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:11.5px;cursor:pointer;transition:all .15s}
+#fd-head button:hover{border-color:var(--magenta);color:var(--magenta)}
+#fd-result{display:none;max-height:52vh;overflow:auto;padding:12px 14px}
+#fd-result.open{display:block}
+#fd-result .dict-word{font-size:21px}
+#fd-result .dict-respell{font-size:14px}
+#fd-result .dict-ipa{font-size:11.5px}
+#fd-result .dict-def{font-size:13.5px}
+#fd-result .dict-ex{font-size:12.5px;padding:7px 11px}
+#fd-result .dict-pos{font-size:11px;margin:10px 0 3px;padding:2px 10px}
+#fd-result .voice-note{font-size:11px}
+#fd-result .jl-jp{font-size:16px !important}
+#fd-result .jl-ro{font-size:12px}
+.fd-bar{display:flex;gap:6px;align-items:center;padding:7px 8px 7px 12px}
+.fd-bar .fd-icon{font-size:15px}
+.fd-bar input{border:none;outline:none;font-family:'Quicksand',sans-serif;font-size:13.5px;color:var(--ink);
+  flex:1;background:transparent;padding:4px 2px;min-width:0}
+.fd-bar button{border:none;background:var(--magenta);color:#fff;border-radius:999px;
   padding:6px 14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;cursor:pointer}
-#float-dict button:hover{background:var(--plum)}
+.fd-bar button:hover{background:var(--plum)}
+#fd-restore{display:none;position:fixed;bottom:18px;right:18px;z-index:80;width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--petal);background:var(--magenta);color:#fff;font-size:21px;cursor:pointer;
+  box-shadow:0 8px 26px rgba(128,29,92,.3)}
+#float-dict.mini{display:none}
+#float-dict.mini ~ #fd-restore{display:block}
 #float-dict.hidden{display:none}
-@media(max-width:600px){#float-dict{left:14px;right:14px;bottom:14px}#float-dict input{flex:1;width:auto}#float-dict input:focus{width:auto}}
+#float-dict.hidden ~ #fd-restore{display:none}
+@media(max-width:600px){#float-dict{left:14px;right:14px;bottom:14px;width:auto}}
 #toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);opacity:0;
   background:var(--plum);color:#fff;font-weight:600;font-size:14px;border-radius:999px;padding:10px 24px;
   transition:all .3s;z-index:200;pointer-events:none}
@@ -338,7 +361,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 06, 2026 · 01:08 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 06, 2026 · 01:17 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1527,10 +1550,19 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 </div>
 
 <div id="float-dict">
-  <span class="fd-icon">📖</span>
-  <input type="text" id="fd-input" placeholder="Quick dictionary…" autocomplete="off">
-  <button id="fd-go">Search</button>
+  <div id="fd-head">
+    <span class="fd-title">📖 Dictionary</span>
+    <button id="fd-open-page" title="See this word in the full Dictionary tab">↗ Full page</button>
+    <button id="fd-min" title="Minimize">−</button>
+  </div>
+  <div id="fd-result"></div>
+  <div class="fd-bar">
+    <span class="fd-icon">🔎</span>
+    <input type="text" id="fd-input" placeholder="Type a word…" autocomplete="off">
+    <button id="fd-go">Search</button>
+  </div>
 </div>
+<button id="fd-restore" title="Open the dictionary">📖</button>
 
 <div id="chip-tip"><span class="tip-label">Will be written:</span><span id="chip-tip-text"></span></div>
 
@@ -2676,6 +2708,22 @@ document.addEventListener('click', function(e){
 var dictInput = document.getElementById('dict-input');
 var dictGo = document.getElementById('dict-go');
 var dictResult = document.getElementById('dict-result');
+var floatResult = document.getElementById('fd-result');
+var outEl = dictResult;
+var lastQuery = '';
+function setOut(html){
+  if(outEl === floatResult){
+    dictResult.innerHTML = ''; dictResult.style.display = 'none';
+    floatResult.innerHTML = html;
+    floatResult.classList.add('open');
+    var fd = document.getElementById('float-dict');
+    if(fd) fd.classList.remove('mini');
+  } else {
+    if(floatResult){ floatResult.innerHTML = ''; floatResult.classList.remove('open'); }
+    dictResult.innerHTML = html;
+    dictResult.style.display = 'block';
+  }
+}
 var lastEntry = null;
 
 /* ── search history (last 10) ── */
@@ -2762,7 +2810,7 @@ document.addEventListener('click', function(e){
 });
 document.addEventListener('click', function(e){
   var h = e.target.closest('.dict-hist-chip');
-  if(h){ dictInput.value = h.textContent.trim(); lookup(); return; }
+  if(h){ outEl = dictResult; dictInput.value = h.textContent.trim(); lookup(); return; }
   if(e.target && e.target.id === 'dict-history-clear'){
     dictHist = []; saveDictHist(); renderDictHist(); toast2('History cleared');
   }
@@ -2793,8 +2841,7 @@ function playAudioOr(url, ttsText, langCode, btn){
   }
 }
 function dictStatus(msg){
-  dictResult.style.display = 'block';
-  dictResult.innerHTML = '<div class="dict-status">' + esc(msg) + '</div>';
+  setOut('<div class="dict-status">' + esc(msg) + '</div>');
 }
 /* ═══ Built-in business terms: work fully offline ═══ */
 var BIZTERMS = [
@@ -2927,8 +2974,7 @@ function renderBiz(t, originNote){
     '<div class="dict-pos" style="margin-top:16px">Example sentences</div>' +
     '<div class="dict-ex"><b>1.</b> ' + esc(exs[0]) + '</div>' +
     '<div class="dict-ex"><b>2.</b> ' + esc(exs[1]) + '</div>';
-  dictResult.style.display = 'block';
-  dictResult.innerHTML = html;
+  setOut(html);
   document.getElementById('dict-say-us').addEventListener('click', function(){ speakEn(t.w, 'en-us', this); });
   document.getElementById('dict-say-uk').addEventListener('click', function(){ speakEn(t.w, 'en-gb', this); });
   var line = t.w + (t.r ? ' [' + t.r + ']' : '') + (t.d ? ' - ' + t.d : '');
@@ -2945,10 +2991,12 @@ function renderBiz(t, originNote){
 }
 window.speakBizWord = function(word, btn){ speakEn(word, 'en-us', btn); };
 window.kanaRoma = function(t){ return kanaToRomaji(t); };
-window.dictLookup = function(word){
+window.dictLookup = function(word, target){
+  outEl = (target === 'float' && floatResult) ? floatResult : dictResult;
   dictInput.value = word;
   lookup();
 };
+window.dictLastQuery = function(){ return lastQuery; };
 
 var dictCache = {};
 var lastDictWord = '';
@@ -3017,6 +3065,7 @@ function lookup(){
   if(!w){ toast2('Type a word first \u2661'); return; }
   w = w.split(/\s+/)[0].replace(/[^A-Za-z'\-]/g, '').toLowerCase();
   if(!w){ dictStatus('Please enter an English word using letters only.'); return; }
+  lastQuery = w;
   if(BIZMAP[w]){ renderBiz(BIZMAP[w]); return; }
   if(offCache[w] && offCache[w].d){
     renderBiz(offCache[w], 'From your offline dictionary, saved automatically when you first searched this word.');
@@ -3340,8 +3389,7 @@ function renderDict(word, data){
     }).join(' \u00b7 ') + ' <span style="opacity:.75">(opens in a new tab)</span></div>';
   }
 
-  dictResult.style.display = 'block';
-  dictResult.innerHTML = html;
+  setOut(html);
 
   document.getElementById('dict-say-us').addEventListener('click', function(){
     playAudioOr(audUS, entry.word || word, 'en-us', this);
@@ -3368,8 +3416,8 @@ function renderDict(word, data){
   fetchJapanese(entry.word || word);
 }
 if(dictGo){
-  dictGo.addEventListener('click', lookup);
-  dictInput.addEventListener('keydown', function(e){ if(e.key === 'Enter') lookup(); });
+  dictGo.addEventListener('click', function(){ outEl = dictResult; lookup(); });
+  dictInput.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ outEl = dictResult; lookup(); } });
   loadDictHist();
 }
 
@@ -4182,20 +4230,39 @@ if(document.getElementById('gr-search')){
 var fdInput = document.getElementById('fd-input');
 var fdGo = document.getElementById('fd-go');
 var fdBar = document.getElementById('float-dict');
+var fdRestore = document.getElementById('fd-restore');
 function fdSearch(){
   var w = fdInput.value.trim();
   if(!w) return;
-  var dictTab = document.querySelector('.tab-btn[data-tab="dictionary"]');
-  if(dictTab) dictTab.click();
-  if(window.dictLookup) window.dictLookup(w);
+  /* results render inside the chatbox itself */
+  if(window.dictLookup) window.dictLookup(w, 'float');
   fdInput.value = '';
-  setTimeout(function(){
-    var res = document.getElementById('dict-result');
-    if(res && res.scrollIntoView) res.scrollIntoView({behavior:'smooth', block:'start'});
-  }, 150);
+  fdInput.focus();
 }
 fdGo.addEventListener('click', fdSearch);
 fdInput.addEventListener('keydown', function(e){ if(e.key === 'Enter') fdSearch(); });
+/* minimize to a small round button, and back */
+document.getElementById('fd-min').addEventListener('click', function(){
+  fdBar.classList.add('mini');
+});
+fdRestore.addEventListener('click', function(){
+  fdBar.classList.remove('mini');
+  fdInput.focus();
+});
+/* open the current word in the full Dictionary tab */
+document.getElementById('fd-open-page').addEventListener('click', function(){
+  var dictTab = document.querySelector('.tab-btn[data-tab="dictionary"]');
+  if(dictTab) dictTab.click();
+  var q = window.dictLastQuery ? window.dictLastQuery() : '';
+  if(q && window.dictLookup) window.dictLookup(q, 'page');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+});
+/* hide the whole widget while on the Dictionary tab itself */
+document.querySelectorAll('.tab-btn').forEach(function(b){
+  b.addEventListener('click', function(){
+    fdBar.classList.toggle('hidden', b.getAttribute('data-tab') === 'dictionary');
+  });
+});
 /* chip preview bubble: hover any insert-chip to see exactly what will be written */
 var tip = document.getElementById('chip-tip');
 var tipText = document.getElementById('chip-tip-text');
@@ -4237,12 +4304,7 @@ if(hr){
     window.location.replace(base + '?v=' + Date.now());
   });
 }
-/* hide the floating bar while on the Dictionary tab itself */
-document.querySelectorAll('.tab-btn').forEach(function(b){
-  b.addEventListener('click', function(){
-    fdBar.classList.toggle('hidden', b.getAttribute('data-tab') === 'dictionary');
-  });
-});
+
 })();
 </script>
 </body>
