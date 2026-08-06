@@ -44,12 +44,16 @@ header h1 em{font-style:italic;color:var(--magenta)}
 .paw-divider span{color:var(--magenta);font-size:15px;letter-spacing:6px}
 
 /* ---------- tabs ---------- */
-nav.tabs{margin-top:4px;position:sticky;top:0;z-index:40;background:rgba(255,244,251,.92);backdrop-filter:blur(8px);
+nav.tabs{margin-top:0;position:sticky;top:0;z-index:40;background:rgba(255,244,251,.92);backdrop-filter:blur(8px);
   display:flex;justify-content:center;gap:5px;padding:7px 6px;border-bottom:1px solid var(--petal);flex-wrap:wrap}
 .tab-btn{font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.02em;
   border:1px solid var(--petal);background:#fff;color:var(--ink-soft);border-radius:999px;
   padding:5px 13px;cursor:pointer;transition:all .2s}
 @media(max-width:600px){.tab-btn{font-size:11.5px;padding:4px 10px}nav.tabs{gap:4px;padding:6px 4px}}
+.ver-chip{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--mauve);font-weight:600}
+.ver-chip button{border:1px solid var(--petal);background:#fff;color:var(--magenta);border-radius:999px;
+  padding:4px 12px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:11.5px;cursor:pointer;transition:all .15s}
+.ver-chip button:hover{background:var(--magenta);color:#fff;border-color:var(--magenta)}
 .tab-btn:hover{border-color:var(--magenta);color:var(--magenta)}
 .tab-btn.active{background:var(--magenta);border-color:var(--magenta);color:#fff;box-shadow:0 4px 14px rgba(192,46,128,.3)}
 .tab-btn:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
@@ -311,11 +315,6 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 </head>
 <body>
 
-<header class="wrap">
-  <h1>The Tutor <em>Sanctuary</em></h1>
-  <div class="tagline">Soft is a superpower, even in the lesson room. · Tutor 6348</div>
-</header>
-
 <nav class="tabs">
   <button class="tab-btn active" data-tab="companion">🌷 Lesson Companion</button>
   <button class="tab-btn" data-tab="notes">✒️ Notes Builder</button>
@@ -327,6 +326,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 06, 2026 · 12:57 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -2890,6 +2890,7 @@ function jaBlockHtml(t){
 }
 function renderBiz(t, originNote){
   lastDictWord = t.w;
+  if(!t.r) t.r = naiveRespell(t.w);
   pushDictHist(t.w, t.r || '', t.d || '');
   var exs = (t.e || []).slice(0, 2);
   while(exs.length < 2){
@@ -3048,6 +3049,17 @@ var IPA_MAP = [
   ['i','ee'],['u','oo'],['j','y'],['e','eh'],
   ['\u02d0',''],['\u02d1',''],['\u0329',''],['\u02c8',''],['\u02cc',''],['\u0294','']
 ];
+function naiveRespell(word){
+  var w = (word || '').toLowerCase().replace(/[^a-z'-]/g, '');
+  if(!w) return '';
+  /* split on consonant-vowel boundaries into readable chunks */
+  var sylls = w.match(/[^aeiouy]*[aeiouy]+(?:[^aeiouy]+(?![aeiouy]))?/g);
+  if(!sylls || !sylls.length) return w.toUpperCase();
+  /* re-attach any trailing consonants the regex left behind */
+  var joined = sylls.join('');
+  if(joined.length < w.length) sylls[sylls.length - 1] += w.slice(joined.length);
+  return sylls.map(function(x, i){ return i === 0 ? x.toUpperCase() : x; }).join('-');
+}
 function respellIPA(ipa){
   if(!ipa) return '';
   var t = ipa.replace(/[\/\[\]()]/g, '');
@@ -3247,10 +3259,10 @@ function renderDict(word, data){
 
   var respUS = respellIPA(ipaUS || ipaAny);
   var respUK = respellIPA(ipaUK);
-  var respMain = respUS || respUK || '';
+  var respMain = respUS || respUK || naiveRespell(entry.word || word);
   var respLine = '';
   if(respUS && respUK && respUS !== respUK) respLine = '[US ' + respUS + ' \u00b7 UK ' + respUK + ']';
-  else if(respMain) respLine = '[' + respMain + ']';
+  else respLine = '[' + respMain + ']';
 
   var html = '<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">' +
     '<span class="dict-word">' + esc(entry.word || word) + '</span>' +
@@ -4170,6 +4182,15 @@ function fdSearch(){
 }
 fdGo.addEventListener('click', fdSearch);
 fdInput.addEventListener('keydown', function(e){ if(e.key === 'Enter') fdSearch(); });
+/* hard refresh: bypass caches and pull the newest version */
+var hr = document.getElementById('hard-refresh');
+if(hr){
+  hr.addEventListener('click', function(){
+    hr.textContent = 'Refreshing\u2026';
+    var base = window.location.pathname;
+    window.location.replace(base + '?v=' + Date.now());
+  });
+}
 /* hide the floating bar while on the Dictionary tab itself */
 document.querySelectorAll('.tab-btn').forEach(function(b){
   b.addEventListener('click', function(){
