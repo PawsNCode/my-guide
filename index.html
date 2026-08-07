@@ -380,7 +380,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 07, 2026 · 03:41 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 08, 2026 · 07:45 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1188,7 +1188,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
   <div class="card">
     <h2>Business terms library</h2>
-    <p class="sub">159 essential business and Daily News Article terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
+    <p class="sub">171 essential business and Daily News Article terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
     <input type="text" id="biz-search" placeholder="Filter terms… (e.g., nego, meeting, money)">
     <div id="biz-list" style="margin-top:14px"></div>
   </div>
@@ -1508,7 +1508,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <input type="text" id="dict-input" placeholder="Type a word, e.g., flannel" autocomplete="off">
       <button class="btn btn-magenta" id="dict-go">Search</button>
     </div>
-    <div class="voice-note">Offline-first: 159 built-in business and Daily News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
+    <div class="voice-note">Offline-first: 171 built-in business and Daily News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
     <div id="dict-history-wrap" style="display:none;margin-top:12px">
       <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mauve)">Recent searches</span>
       <button class="copy-mini" id="dict-history-clear" style="margin-left:8px;font-size:11.5px;padding:2px 10px">clear</button>
@@ -3079,7 +3079,19 @@ var BIZTERMS = [
 {w:'pension',r:'PEN-shuhn',p:'noun',d:'money paid regularly to a person after they retire from work',jk:'\u5e74\u91d1',jh:'ねんきん',e:["He receives a small pension from his old company.","The pension reform would gradually raise the retirement age."]},
 {w:'comprehensive',r:'kom-pri-HEN-siv',p:'adjective',d:'complete and including everything that is needed',jk:'\u5305\u62ec\u7684\u306a',jh:'ほうかつてきな',e:["The team prepared a comprehensive report.","The government presented a comprehensive reform package."]},
 {w:'ancestor',r:'AN-ses-ter',p:'noun',d:'a family member or species that lived long ago',jk:'\u7956\u5148',jh:'そせん',e:["Her ancestors came from Okinawa.","Humans and great apes likely had a common ancestor 15 million years ago."]},
-{w:'rhythm',r:'RITH-uhm',p:'noun',d:'a regular, repeated pattern of sound or movement',jk:'リズム',jh:'リズム',e:["The drummer kept a steady rhythm.","Laughter follows a similar rhythm in apes and humans."]}
+{w:'rhythm',r:'RITH-uhm',p:'noun',d:'a regular, repeated pattern of sound or movement',jk:'リズム',jh:'リズム',e:["The drummer kept a steady rhythm.","Laughter follows a similar rhythm in apes and humans."]},
+{w:'reclamation',r:'rek-luh-MEY-shuhn',p:'noun',d:'the process of making land suitable for building or farming (verb form: reclaim)',jk:'\u57cb\u3081\u7acb\u3066',jh:'うめたて',e:["The government started a reclamation project to create new land for the airport.","Land reclamation is one response to the eroding coastline."]},
+{w:'degradation',r:'deg-ruh-DEY-shuhn',p:'noun',d:'the process in which the good quality of something is destroyed (verb form: degrade)',jk:'\u52a3\u5316',jh:'れっか',e:["Pollution leads to the degradation of the environment.","The coastline along Orimedu is facing land degradation."]},
+{w:'cursory',r:'KUR-suh-ree',p:'adjective',d:'quick and likely not detailed (nouns often described as cursory: look, glance, examination)',jk:'ざっとした',jh:'ざっとした',e:["He only gave the report a cursory look before signing it.","A cursory glance at the coast already shows the damage."]},
+{w:'complement',r:'KOM-pluh-muhnt',p:'verb / noun',d:'to make something else better or more attractive (do not confuse with compliment, a comment expressing approval)',jk:'\u88dc\u5b8c\u3059\u308b',jh:'ほかんする',e:["The soup and salad complemented the steak perfectly.","The exhibition is designed to complement conventional research reports."]},
+{w:'urban',r:'UR-buhn',p:'adjective',d:'relating to cities and the people who live in them (antonym: rural, relating to the countryside)',jk:'\u90fd\u5e02\u306e',jh:'としの',e:["More people are moving from the countryside to urban areas.","Landscape architecture can address urban flooding along the coast."]},
+{w:'erosion',r:'ih-ROH-zhuhn',p:'noun',d:'the slow wearing away of land, rock, or soil by water, wind, or weather (verb: erode)',jk:'\u6d78\u98df',jh:'しんしょく',e:["Coastal erosion threatens homes near the shore.","The exhibition highlights the growing threat of sea-level rise and coastal erosion."]},
+{w:'livelihood',r:'LAHYV-lee-hood',p:'noun',d:'the way a person earns money to live, such as a job or trade',jk:'\u751f\u8a08',jh:'せいけい',e:["Fishing is the main livelihood in the coastal village.","The eroding coast threatens homes and livelihoods."]},
+{w:'coastline',r:'KOHST-lain',p:'noun',d:'the land along the edge of the sea',jk:'\u6d77\u5cb8\u7dda',jh:'かいがんせん',e:["The typhoon damaged towns along the coastline.","Communities along the coastline of Nigeria are struggling to cope with heavy rainfall."]},
+{w:'unstable',r:'uhn-STEY-buhl',p:'adjective',d:'likely to change, fall, or fail; not firm or steady',jk:'\u4e0d\u5b89\u5b9a\u306a',jh:'ふあんていな',e:["The old bridge is too unstable to cross.","Heavy rainfall and unstable, sandy soils make life difficult there."]},
+{w:'conventional',r:'kuhn-VEN-shuh-nl',p:'adjective',d:'following the usual or traditional way of doing things',jk:'\u5f93\u6765\u306e',jh:'じゅうらいの',e:["The company still prefers conventional advertising over social media.","The photographs complement conventional research reports."]},
+{w:'landscape',r:'LAND-skeyp',p:'noun',d:'the visible features of an area of land; also, the design of outdoor spaces (landscape architecture)',jk:'\u666f\u89b3',jh:'けいかん',e:["The mountain landscape was breathtaking.","Landscape designs highlight how the coast is changing."]},
+{w:'cope',r:'KOHP',p:'verb',d:'to deal successfully with a difficult situation (usually followed by "with")',jk:'\u5bfe\u51e6\u3059\u308b',jh:'たいしょする',e:["She learned to cope with the stress of her new job.","Communities are struggling to cope with heavy rainfall and unstable soils."]}
 ];
 var BIZMAP = {};
 BIZTERMS.forEach(function(t){ BIZMAP[t.w] = t; });
