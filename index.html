@@ -380,7 +380,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 06, 2026 · 01:28 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 07, 2026 · 02:53 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -686,6 +686,30 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <span class="chip">Please review the sentences we corrected during class:</span>
           <span class="chip">Here is some vocabulary and phrasing we improved today:</span>
           <span class="chip">These are the pronunciation points we practiced:</span>
+        </div>
+
+        <label class="f-label" style="margin-top:14px">3b · Structured corrections <small>(BCC / Jitsuyo Eikaiwa style, all optional; each becomes its own labeled block in the note)</small></label>
+        <div class="gq" style="margin-top:6px">
+          <div class="gq-q" style="font-size:13px">*Vocabulary/Phrases*</div>
+          <textarea id="nb-vocab-pairs" rows="2" placeholder="reunion - a meeting of old friends after a long time&#10;You said: use the connection&#10;Better: leverage the connection"></textarea>
+          <div class="chips">
+            <span class="chip nb-chip" data-target="nb-vocab-pairs" data-ins="You said: &#10;Better: ">+ You said / Better</span>
+            <span class="chip nb-chip" data-target="nb-vocab-pairs" data-ins=" - ">+ word - meaning</span>
+          </div>
+        </div>
+        <div class="gq">
+          <div class="gq-q" style="font-size:13px">*Grammar*</div>
+          <textarea id="nb-gram-pairs" rows="2" placeholder="You said: I go to Kyoto last week.&#10;Correct: I went to Kyoto last week."></textarea>
+          <div class="chips">
+            <span class="chip nb-chip" data-target="nb-gram-pairs" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
+          </div>
+        </div>
+        <div class="gq">
+          <div class="gq-q" style="font-size:13px">*Pronunciation*</div>
+          <textarea id="nb-pron-pairs" rows="2" placeholder="colleague [KAH-leeg]&#10;three [THREE] - tongue between your teeth"></textarea>
+          <div class="chips">
+            <span class="chip nb-chip" data-target="nb-pron-pairs" data-ins=" [] - ">+ word [pronunciation]</span>
+          </div>
         </div>
 
         <label class="f-label" for="nb-good">4 · Good points <small>(be specific!)</small></label>
@@ -1164,7 +1188,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
   <div class="card">
     <h2>Business terms library</h2>
-    <p class="sub">Fifty essential business-conversation terms with readable pronunciation, meaning, and real business examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
+    <p class="sub">86 essential business and Daily News Article terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
     <input type="text" id="biz-search" placeholder="Filter terms… (e.g., nego, meeting, money)">
     <div id="biz-list" style="margin-top:14px"></div>
   </div>
@@ -1484,7 +1508,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <input type="text" id="dict-input" placeholder="Type a word, e.g., flannel" autocomplete="off">
       <button class="btn btn-magenta" id="dict-go">Search</button>
     </div>
-    <div class="voice-note">Offline-first: 82 built-in business terms work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
+    <div class="voice-note">Offline-first: 86 built-in business and news terms work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
     <div id="dict-history-wrap" style="display:none;margin-top:12px">
       <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mauve)">Recent searches</span>
       <button class="copy-mini" id="dict-history-clear" style="margin-left:8px;font-size:11.5px;padding:2px 10px">clear</button>
@@ -1655,7 +1679,13 @@ function fillTokens(str){
 }
 function buildComment(){
   var parts = [];
-  ['nb-greet','nb-feedback','nb-corrections','nb-good','nb-advice'].forEach(function(id){
+  ['nb-greet','nb-feedback','nb-corrections'].forEach(function(id){
+    var v = $(id).value.trim(); if(v) parts.push(v);
+  });
+  var vp = $('nb-vocab-pairs').value.trim(); if(vp) parts.push('*Vocabulary/Phrases*\n' + vp);
+  var gp = $('nb-gram-pairs').value.trim(); if(gp) parts.push('*Grammar*\n' + gp);
+  var pp = $('nb-pron-pairs').value.trim(); if(pp) parts.push('*Pronunciation*\n' + pp);
+  ['nb-good','nb-advice'].forEach(function(id){
     var v = $(id).value.trim(); if(v) parts.push(v);
   });
   var words = $('nb-words').value.trim();
@@ -1732,8 +1762,21 @@ $('nb-copy-memo').addEventListener('click', function(){
   copyText(t, this);
 });
 $('nb-clear').addEventListener('click', function(){
-  nbFields.concat(['nb-name','nb-material','nb-words','nb-memo']).forEach(function(id){ $(id).value=''; });
+  nbFields.concat(['nb-name','nb-material','nb-words','nb-memo','nb-vocab-pairs','nb-gram-pairs','nb-pron-pairs']).forEach(function(id){ $(id).value=''; });
   updatePreview();
+});
+['nb-vocab-pairs','nb-gram-pairs','nb-pron-pairs'].forEach(function(id){
+  $(id).addEventListener('input', updatePreview);
+});
+document.addEventListener('click', function(e){
+  var c = e.target.closest('.nb-chip'); if(!c) return;
+  var t = $(c.getAttribute('data-target'));
+  if(!t) return;
+  var ins = c.getAttribute('data-ins').replace(/&#10;/g, '\n');
+  t.value = t.value.trim() ? (t.value.replace(/\s+$/, '') + '\n' + ins) : ins;
+  t.focus();
+  t.selectionStart = t.selectionEnd = t.value.length;
+  t.dispatchEvent(new Event('input'));
 });
 updatePreview();
 
@@ -2923,7 +2966,7 @@ var BIZTERMS = [
 {w:'streamline',r:'STREEM-lain',p:'verb',d:'to make a process simpler and more efficient',jk:'合理化する',jh:'ごうりかする',e:["We streamlined the approval process.","Streamlining the workflow saved us two days per week."]},
 {w:'prioritize',r:'prai-OR-ih-taiz',p:'verb',d:'to decide which tasks are most important',jk:'優先する',jh:'ゆうせんする',e:["Let's prioritize the client's urgent request.","You need to prioritize your tasks each morning."]},
 {w:'delegate',r:'DEL-uh-gayt',p:'verb',d:'to give part of your work to someone else',jk:'任せる',jh:'まかせる',e:["A good manager knows how to delegate.","I delegated the data entry to my assistant."]},
-{w:'compromise',r:'KAHM-pruh-maiz',p:'noun / verb',d:'an agreement where both sides accept less than they wanted',jk:'妥協',jh:'だきょう',e:["After long talks, we reached a compromise.","We compromised on the delivery schedule."]},
+{w:'compromise',r:'KAHM-pruh-maiz',p:'noun / verb',d:'an agreement where both sides accept less than they wanted; as a verb, also to expose something to risk or danger',jk:'妥協',jh:'だきょう',e:["After long talks, we reached a compromise.","The bank users' personal information was compromised in the recent cyberattack."]},
 {w:'minutes',r:'MIN-its',p:'noun',d:'the official written record of a meeting',jk:'議事録',jh:'ぎじろく',e:["Who will take the minutes today?","Please share the minutes with everyone after the meeting."]},
 {w:'appointment',r:'uh-POINT-muhnt',p:'noun',d:'an arranged meeting at a specific time',jk:'約束',jh:'やくそく',e:["I have an appointment with the client at three.","Can we reschedule our appointment to Tuesday?"]},
 {w:'attachment',r:'uh-TACH-muhnt',p:'noun',d:'a file sent together with an email',jk:'添付ファイル',jh:'てんぷファイル',e:["Please see the attachment for the full report.","The attachment was too large to send."]},
@@ -2959,7 +3002,11 @@ var BIZTERMS = [
 {w:'issue',r:'ISH-oo',p:'noun',d:'an important problem or topic for discussion',jk:'課題',jh:'かだい',e:["There is an issue with the payment system.","Let's address this issue before it grows."]},
 {w:'urgent',r:'UR-juhnt',p:'adjective',d:'needing attention immediately',jk:'緊急の',jh:'きんきゅうの',e:["I received an urgent request from the client.","Please treat this matter as urgent."]},
 {w:'reschedule',r:'ree-SKEJ-ool',p:'verb',d:'to change the time of a planned event',jk:'予定を変更する',jh:'よていをへんこうする',e:["Could we reschedule the call to Thursday?","The interview was rescheduled twice."]},
-{w:'cancel',r:'KAN-suhl',p:'verb',d:'to decide that a planned event will not happen',jk:'キャンセルする',jh:'キャンセルする',e:["We had to cancel the order.","The flight was canceled, so I joined online."]}
+{w:'cancel',r:'KAN-suhl',p:'verb',d:'to decide that a planned event will not happen',jk:'キャンセルする',jh:'キャンセルする',e:["We had to cancel the order.","The flight was canceled, so I joined online."]},
+{w:'rupture',r:'RUHP-cher',p:'noun / verb',d:'a break in a good relationship between people, groups, or countries; as a verb, to break something apart',jk:'決裂',jh:'けつれつ',e:["The big argument caused a sudden rupture in their friendship.","The lawsuit marked a major rupture in the partnership between the two companies."]},
+{w:'confidential',r:'kon-fi-DEN-shuhl',p:'adjective',d:'secret or private, often in a business or military situation',jk:'機密の',jh:'きみつの',e:["Please keep this personal information confidential.","Employees must not share confidential information with other companies."]},
+{w:'scrutiny',r:'SKROOT-n-ee',p:'noun',d:'the careful examination of something to get detailed information about it',jk:'精査',jh:'せいさ',e:["The new plan is under close scrutiny by the team.","The company's hiring practices came under serious scrutiny."]},
+{w:'defendant',r:'dih-FEN-duhnt',p:'noun',d:'a person who is being accused of a crime in a court of law',jk:'被告',jh:'ひこく',e:["The defendant told the judge that he did not steal the money.","Two former employees are named as defendants in the lawsuit."]}
 ];
 var BIZMAP = {};
 BIZTERMS.forEach(function(t){ BIZMAP[t.w] = t; });
@@ -4042,6 +4089,7 @@ $('nh-storage-note').textContent = MODE === 'memory'
 var DRAFT_KEY = 'tutor6348-notes-drafts';
 var DRAFT_IDS = [
   'nb-name','nb-material','nb-greet','nb-feedback','nb-corrections','nb-good','nb-advice','nb-close','nb-words','nb-memo',
+  'nb-vocab-pairs','nb-gram-pairs','nb-pron-pairs',
   'g-name','g-material','g-good-extra','g-corrections','g-advice-extra','g-words',
   'je-greet','je-range-words','je-range-pairs','je-acc-pairs','je-flu-pairs','je-int-pairs','je-close'
 ];
@@ -4346,7 +4394,7 @@ function showTip(chip){
   tip.style.setProperty('--arrow-x', Math.max(14, Math.min(tw - 26, r.left + r.width / 2 - left - 6)) + 'px');
 }
 document.addEventListener('mouseover', function(e){
-  var chip = e.target.closest('.bw-chip, .je-chip, .g-multi[data-adv]');
+  var chip = e.target.closest('.bw-chip, .je-chip, .nb-chip, .g-multi[data-adv]');
   if(chip){ if(chip !== tipChip) showTip(chip); }
   else if(tipChip) hideTip();
 });
