@@ -389,7 +389,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 10, 2026 · 09:04 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 10, 2026 · 09:42 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -686,8 +686,13 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
           <div class="gq">
             <div class="gq-q"><span class="qnum">5</span>Corrections you made <small style="font-weight:500;color:var(--mauve)">(optional)</small></div>
-            <textarea id="g-corrections" rows="2" placeholder="e.g., I go to Kyoto last week. -> I went to Kyoto last week."></textarea>
-            <div class="hint">One per line is prettiest. These appear in the note so the student can review them.</div>
+            <textarea id="g-corrections" rows="2" placeholder="You said: I go to Kyoto last week.&#10;Correct: I went to Kyoto last week."></textarea>
+            <div class="chips">
+              <span class="chip nb-chip" data-target="g-corrections" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
+              <span class="chip nb-chip" data-target="g-corrections" data-ins="You said: &#10;Better: ">+ You said / Better</span>
+              <span class="chip nb-chip" data-target="g-corrections" data-ins=" [] - ">+ word [pronunciation]</span>
+            </div>
+            <div class="hint">Tap a button to add a fresh pair, as many as you need. These appear in the note so the student can review them.</div>
           </div>
 
           <div class="gq">
@@ -730,6 +735,40 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
             <div id="dictpick-guided"></div>
           </div>
 
+          <div class="gq">
+            <div class="gq-q"><span class="qnum">9</span>Greeting &amp; closing <small style="font-weight:500;color:var(--mauve)">(optional; leave on "Surprise me" for a fresh one every time)</small></div>
+            <select id="g-greet-pick">
+              <option value="">Surprise me with a fresh greeting (recommended)</option>
+              <option>Hello! Thank you for joining today's lesson.</option>
+              <option>Hello! Thank you for having another lesson with me.</option>
+              <option>Hello! It was such a pleasure to see you again today.</option>
+              <option>Hello! Thank you for your time and energy in today's session.</option>
+              <option>Hello! I really enjoyed our conversation today.</option>
+              <option>Hello! Welcome back to our classroom. Thank you for another wonderful lesson together.</option>
+              <option>Hello! Thank you for booking my lesson again. Your dedication truly shows.</option>
+              <option>Hello! It's always a happy moment to see your name in my schedule. Thank you for today!</option>
+              <option>Hello! Thank you for spending part of your day learning with me again.</option>
+              <option>Hello! Welcome back! Your consistency is quietly building something great.</option>
+              <option>Hello! It was lovely meeting you for the first time today.</option>
+              <option>Hello! Welcome to RareJob! Thank you for taking my lesson as a trial lesson.</option>
+            </select>
+            <select id="g-close-pick" style="margin-top:8px">
+              <option value="">Surprise me with a fresh closing (recommended)</option>
+              <option>Thank you for your hard work today. Keep practicing a little every day, and I look forward to our next lesson!</option>
+              <option>You are making steady progress. Please keep up the great effort, and see you again soon!</option>
+              <option>It was a joy studying with you. Stay curious and keep speaking English with confidence!</option>
+              <option>Wonderful work today. Every lesson brings you closer to your goal. See you next time!</option>
+              <option>Thank you for today's lesson. Your English grew a little again today, and I noticed. See you soon!</option>
+              <option>Great work today. Learning shows best in small steady steps, and you are taking them beautifully. See you next time!</option>
+              <option>Thank you for studying with me again. Please enjoy using today's expressions in real life. I look forward to our next lesson!</option>
+              <option>That was another lovely lesson. Keep your curiosity shining, and I'll see you again soon!</option>
+              <option>Well done today. Even five minutes of practice a day will keep this momentum going. I can't wait for our next lesson!</option>
+              <option>Thank you for the fun and focused lesson. You should be proud of how far you've come. See you again soon!</option>
+              <option>Great job today. Please do not worry about small mistakes; they are proof that you are learning. See you again!</option>
+              <option>I recommend that you continue having lessons here in RareJob! See you again!</option>
+            </select>
+          </div>
+
           <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
             <button class="btn btn-magenta" id="g-generate" style="font-size:14.5px;padding:11px 26px">🌸 Create my notes</button>
             <button class="btn btn-soft" id="g-reset">Start over</button>
@@ -746,16 +785,22 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
         <input type="text" id="nb-material" placeholder="e.g., Daily News Article: 'Cats in Cafes', finished Discussion Q3">
 
         <label class="f-label" for="nb-greet">1 · Greeting</label>
+        <select id="nb-greet-pick" style="margin-bottom:6px">
+          <option value="">Choose a greeting… (or tap a chip / type your own)</option>
+          <option>Hello! Thank you for joining today's lesson.</option>
+          <option>Hello again! Thank you for having another lesson with me.</option>
+          <option>Hello! It was such a pleasure to see you again today.</option>
+          <option>Hello! Thank you for your time and energy in today's session.</option>
+          <option>Hello! I really enjoyed our conversation today.</option>
+          <option>Hello! Welcome back to our classroom. Thank you for another wonderful lesson together.</option>
+          <option>Hello! Thank you for booking my lesson again. Your dedication truly shows.</option>
+          <option>Hello! It's always a happy moment to see your name in my schedule. Thank you for today!</option>
+          <option>Hello! Thank you for spending part of your day learning with me again.</option>
+          <option>Hello! Welcome back! Your consistency is quietly building something great.</option>
+          <option>Hello! It was lovely meeting you for the first time today.</option>
+          <option>Hello! Welcome to RareJob! Thank you for taking my lesson as a trial lesson.</option>
+        </select>
         <textarea id="nb-greet" rows="2"></textarea>
-        <div class="chips" data-target="nb-greet">
-          <span class="chip">Hello! Thank you for joining today's lesson.</span>
-          <span class="chip">Hello again! Thank you for having another lesson with me.</span>
-          <span class="chip">Hello! It was such a pleasure to see you again today.</span>
-          <span class="chip">Hello! Thank you for your time and energy in today's session.</span>
-          <span class="chip">Hello! I really enjoyed our conversation today.</span>
-          <span class="chip">Hello! It was lovely meeting you for the first time today.</span>
-          <span class="chip">Hello! Welcome to RareJob! Thank you for taking my lesson as a trial lesson.</span>
-        </div>
 
         <label class="f-label" for="nb-feedback">2 · Material-specific feedback</label>
         <textarea id="nb-feedback" rows="3"></textarea>
@@ -771,6 +816,10 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
         <label class="f-label" for="nb-corrections">3 · Corrections made during the lesson <small>(shown in the comment so the student can review)</small></label>
         <textarea id="nb-corrections" rows="3" placeholder="e.g., I go to Kyoto last week. -> I went to Kyoto last week."></textarea>
+        <div class="chips">
+          <span class="chip nb-chip" data-target="nb-corrections" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
+          <span class="chip nb-chip" data-target="nb-corrections" data-ins="You said: &#10;Better: ">+ You said / Better</span>
+        </div>
         <div class="chips" data-target="nb-corrections">
           <span class="chip">Here are some corrections from today's lesson:</span>
           <span class="chip">We polished these sentences together today:</span>
@@ -857,17 +906,22 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
         </div>
 
         <label class="f-label" for="nb-close">6 · Closing &amp; encouragement</label>
+        <select id="nb-close-pick" style="margin-bottom:6px">
+          <option value="">Choose a closing… (or tap a chip / type your own)</option>
+          <option>Thank you for your hard work today. Keep practicing a little every day, and I look forward to our next lesson!</option>
+          <option>You are making steady progress. Please keep up the great effort, and see you again soon!</option>
+          <option>It was a joy studying with you. Stay curious and keep speaking English with confidence!</option>
+          <option>Wonderful work today. Every lesson brings you closer to your goal. See you next time!</option>
+          <option>Thank you for today's lesson. Your English grew a little again today, and I noticed. See you soon!</option>
+          <option>Great work today. Learning shows best in small steady steps, and you are taking them beautifully. See you next time!</option>
+          <option>Thank you for studying with me again. Please enjoy using today's expressions in real life. I look forward to our next lesson!</option>
+          <option>That was another lovely lesson. Keep your curiosity shining, and I'll see you again soon!</option>
+          <option>Well done today. Even five minutes of practice a day will keep this momentum going. I can't wait for our next lesson!</option>
+          <option>Thank you for the fun and focused lesson. You should be proud of how far you've come. See you again soon!</option>
+          <option>Great job today. Please do not worry about small mistakes; they are proof that you are learning. See you again!</option>
+          <option>I recommend that you continue having lessons here in RareJob! See you again!</option>
+        </select>
         <textarea id="nb-close" rows="2"></textarea>
-        <div class="chips" data-target="nb-close">
-          <span class="chip">Thank you for your hard work today. Keep practicing a little every day, and I look forward to our next lesson!</span>
-          <span class="chip">You are making steady progress. Please keep up the great effort, and see you again soon!</span>
-          <span class="chip">It was a joy studying with you. Stay curious and keep speaking English with confidence!</span>
-          <span class="chip">Wonderful work today. Every lesson brings you closer to your goal. See you next time!</span>
-          <span class="chip">Great job today. Please do not worry about small mistakes; they are proof that you are learning. See you again!</span>
-          <span class="chip">Keep up the good work! See you on our next lesson!</span>
-          <span class="chip">I am looking forward to having a lesson with you again! See you!</span>
-          <span class="chip">I recommend that you continue having lessons here in RareJob! See you again!</span>
-        </div>
 
         <label class="f-label" for="nb-words">New words &amp; phrases <small>(also woven into the comment with a practice reminder; the notes page accepts up to 10, entered one at a time)</small></label>
         <textarea id="nb-words" rows="2" placeholder="e.g., cozy [KOH-zee] - warm and comfortable"></textarea>
@@ -1205,8 +1259,34 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
         <label class="f-label" style="display:flex;align-items:center;gap:8px;margin-top:18px">
           <input type="checkbox" id="bw-wrap-on" checked style="width:auto"> Include greeting &amp; closing
         </label>
-        <input type="text" id="bw-greet" value="Hello! Thank you for joining today's business lesson.">
-        <input type="text" id="bw-close" value="Thank you for your hard work today. I look forward to supporting your business English goals in our next lesson!" style="margin-top:8px">
+        <select id="bw-greet-pick" style="margin-top:2px">
+          <option value="">Choose a greeting… (or type your own below)</option>
+          <option>Hello! Thank you for joining today's business lesson.</option>
+          <option>Hello! Thank you for your time today. Shall we begin?</option>
+          <option>Good day! It's a pleasure to have you in today's business lesson.</option>
+          <option>Hello! Welcome back to our business lesson. Let's make today productive.</option>
+          <option>Hello! Thank you for making time for today's lesson in your busy schedule.</option>
+          <option>Hello! It's great to see you again. Thank you for another business lesson together.</option>
+          <option>Hello! Thank you for choosing my lesson today. Let's sharpen your business English.</option>
+          <option>Good to see you again! Thank you for your continued dedication to your business English.</option>
+          <option>Hello! Thank you for today's session. Your consistency is impressive.</option>
+          <option>Hello! Welcome to today's lesson. I'm looking forward to hearing about your progress at work.</option>
+        </select>
+        <input type="text" id="bw-greet" value="Hello! Thank you for joining today's business lesson." style="margin-top:6px">
+        <select id="bw-close-pick" style="margin-top:10px">
+          <option value="">Choose a closing… (or type your own below)</option>
+          <option>Thank you for your hard work today. I look forward to supporting your business English goals in our next lesson!</option>
+          <option>Excellent work today. Please try using today's expressions in your next meeting or email. See you next lesson!</option>
+          <option>Thank you for another productive session. Your business English is becoming more polished with every lesson.</option>
+          <option>Great job today. Keep applying what we practiced at work, and I look forward to hearing how it goes!</option>
+          <option>Thank you for your focus and effort today. It's a pleasure to support your professional growth. See you soon!</option>
+          <option>Well done today. Your communication is sounding more confident and professional each time. See you in our next lesson!</option>
+          <option>Thank you for today's lesson. Small daily practice will keep this momentum going. I look forward to our next session!</option>
+          <option>It was a productive lesson today. Please review the corrections above, and let's build on them next time!</option>
+          <option>Thank you for your hard work. Your dedication to improving your business English truly shows. See you next lesson!</option>
+          <option>Great session today. I'm confident these expressions will serve you well at work. Looking forward to our next lesson!</option>
+        </select>
+        <input type="text" id="bw-close" value="Thank you for your hard work today. I look forward to supporting your business English goals in our next lesson!" style="margin-top:6px">
       </div>
 
       <div>
@@ -1887,6 +1967,17 @@ $('nb-copy-memo').addEventListener('click', function(){
   if(!t){ toast('Memo is empty'); return; }
   copyText(t, this);
 });
+['nb-greet-pick','nb-close-pick'].forEach(function(pid){
+  var sel = $(pid);
+  if(!sel) return;
+  sel.addEventListener('change', function(){
+    if(!sel.value) return;
+    var target = $(pid === 'nb-greet-pick' ? 'nb-greet' : 'nb-close');
+    target.value = sel.value;
+    target.dispatchEvent(new Event('input'));
+    sel.selectedIndex = 0;
+  });
+});
 $('nb-clear').addEventListener('click', function(){
   nbFields.concat(['nb-name','nb-material','nb-words','nb-memo','nb-vocab-pairs','nb-gram-pairs','nb-pron-pairs','nb-wna-range','nb-wna-coh','nb-wna-phon']).forEach(function(id){ $(id).value=''; });
   updatePreview();
@@ -1992,6 +2083,11 @@ document.getElementById('g-generate').addEventListener('click', function(){
     ]
   };
   var greet = pickFrom(GREETS[who]);
+  var gGreetPick = document.getElementById('g-greet-pick');
+  if(gGreetPick && gGreetPick.value){
+    greet = gGreetPick.value;
+    if(nm) greet = greet.replace(/^Hello!/, 'Hello, ' + nm + '!');
+  }
 
   /* feedback */
   var feedback;
@@ -2085,6 +2181,8 @@ document.getElementById('g-generate').addEventListener('click', function(){
     ]
   };
   var close = pickFrom(who === 'trial' ? CLOSES.trial : CLOSES.other);
+  var gClosePick = document.getElementById('g-close-pick');
+  if(gClosePick && gClosePick.value) close = gClosePick.value;
 
   /* pour into the shared fields */
   $('nb-greet').value = greet;
@@ -2104,6 +2202,7 @@ document.getElementById('g-reset').addEventListener('click', function(){
   document.querySelectorAll('.g-multi.sel').forEach(function(c){ c.classList.remove('sel'); });
   ['g-name','g-material','g-good-extra','g-advice-extra'].forEach(function(id){ document.getElementById(id).value = ''; });
   ['g-corrections','g-words'].forEach(function(id){ document.getElementById(id).value = ''; });
+  ['g-greet-pick','g-close-pick'].forEach(function(id){ var el = document.getElementById(id); if(el) el.selectedIndex = 0; });
   nbFields.concat(['nb-words']).forEach(function(id){ $(id).value = ''; });
   updatePreview();
 });
@@ -4479,6 +4578,18 @@ document.addEventListener('click', function(e){
     }
     T('Added \u201C' + t.w + '\u201D to New Words \u2661');
   }
+});
+
+['bw-greet-pick','bw-close-pick'].forEach(function(pid){
+  var sel = $(pid);
+  if(!sel) return;
+  sel.addEventListener('change', function(){
+    if(!sel.value) return;
+    var target = $(pid === 'bw-greet-pick' ? 'bw-greet' : 'bw-close');
+    target.value = sel.value;
+    target.dispatchEvent(new Event('input'));
+    sel.selectedIndex = 0;
+  });
 });
 
 loadDraft();
