@@ -291,6 +291,15 @@ details.topic .topic-body{padding:2px 16px 14px}
 .dict-status{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--mauve);padding:14px 0}
 
 /* toast */
+/* guided good-points skill categories */
+details.gcat{border:1px solid var(--petal);border-radius:12px;margin-bottom:8px;background:#fff;overflow:hidden}
+details.gcat summary{cursor:pointer;padding:9px 13px;font-weight:700;font-size:13px;color:var(--plum);list-style:none;display:flex;gap:8px;align-items:center}
+details.gcat summary::-webkit-details-marker{display:none}
+details.gcat summary::before{content:"+";color:var(--magenta);font-weight:700}
+details.gcat[open] summary::before{content:"\2212"}
+details.gcat[open] summary{background:var(--petal-soft)}
+details.gcat .chips{padding:10px 12px;margin-top:0}
+
 /* mock interview: all questions list */
 .mi-cat-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
   color:var(--magenta);margin:16px 0 6px}
@@ -380,7 +389,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 10, 2026 · 08:53 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 10, 2026 · 09:04 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -585,27 +594,91 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
           <div class="gq">
             <div class="gq-q"><span class="qnum">4</span>What did the student do well? <small style="font-weight:500;color:var(--mauve)">(tap all that apply)</small></div>
-            <div class="chips" id="g-good-chips" style="margin-top:0">
-              <span class="chip g-multi">read the passage clearly</span>
-              <span class="chip g-multi">answered the comprehension questions accurately</span>
-              <span class="chip g-multi">shared opinions with supporting reasons</span>
-              <span class="chip g-multi">pronounced difficult words clearly</span>
-              <span class="chip g-multi">used the new vocabulary right away</span>
-              <span class="chip g-multi">spoke with real confidence</span>
-              <span class="chip g-multi">understood my questions on the first try</span>
-              <span class="chip g-multi">kept the conversation flowing naturally</span>
-              <span class="chip g-multi">summarized the article in your own words</span>
-              <span class="chip g-multi">guessed the meaning of new words from context</span>
-              <span class="chip g-multi">asked thoughtful follow-up questions</span>
-              <span class="chip g-multi">corrected yourself without my help</span>
-              <span class="chip g-multi">gave detailed answers instead of short ones</span>
-              <span class="chip g-multi">remembered expressions from our previous lessons</span>
-              <span class="chip g-multi">used linking words like "however" and "for example"</span>
-              <span class="chip g-multi">explained a difficult idea in simple English</span>
-              <span class="chip g-multi">sounded more natural in your intonation</span>
-              <span class="chip g-multi">opened up new topics to discuss</span>
-              <span class="chip g-multi">stayed relaxed and clearly enjoyed the conversation</span>
-              <span class="chip g-multi">read numbers, dates, and names smoothly</span>
+            <div id="g-good-chips">
+              <details class="gcat"><summary>📖 Reading</summary><div class="chips">
+                <span class="chip g-multi">read the passage clearly</span>
+                <span class="chip g-multi">read numbers, dates, and names smoothly</span>
+                <span class="chip g-multi">read with natural pausing at commas and periods</span>
+                <span class="chip g-multi">kept a steady reading pace without rushing</span>
+                <span class="chip g-multi">read long sentences without losing the meaning</span>
+                <span class="chip g-multi">noticed and fixed your own small reading slips</span>
+                <span class="chip g-multi">read new words bravely instead of skipping them</span>
+                <span class="chip g-multi">matched your reading tone to the article's mood</span>
+                <span class="chip g-multi">read the difficult paragraph smoothly on the first try</span>
+                <span class="chip g-multi">finished the whole article within the lesson time</span>
+              </div></details>
+              <details class="gcat"><summary>🗣 Speaking &amp; Fluency</summary><div class="chips">
+                <span class="chip g-multi">spoke with real confidence</span>
+                <span class="chip g-multi">kept the conversation flowing naturally</span>
+                <span class="chip g-multi">gave detailed answers instead of short ones</span>
+                <span class="chip g-multi">explained a difficult idea in simple English</span>
+                <span class="chip g-multi">spoke in full sentences instead of single words</span>
+                <span class="chip g-multi">answered quickly without long pauses</span>
+                <span class="chip g-multi">found another way to say it when a word didn't come</span>
+                <span class="chip g-multi">kept talking even after making a small mistake</span>
+                <span class="chip g-multi">expanded your answers without being asked</span>
+                <span class="chip g-multi">told a short story with a clear beginning and ending</span>
+              </div></details>
+              <details class="gcat"><summary>🔊 Pronunciation &amp; Intonation</summary><div class="chips">
+                <span class="chip g-multi">pronounced difficult words clearly</span>
+                <span class="chip g-multi">sounded more natural in your intonation</span>
+                <span class="chip g-multi">stressed the important words in your sentences</span>
+                <span class="chip g-multi">pronounced the "th" sound correctly today</span>
+                <span class="chip g-multi">made the /L/ and /R/ sounds clearly</span>
+                <span class="chip g-multi">pronounced word endings like "-ed" and "-s" clearly</span>
+                <span class="chip g-multi">spoke loudly and clearly through the whole lesson</span>
+                <span class="chip g-multi">copied my pronunciation accurately after one model</span>
+                <span class="chip g-multi">improved a word's pronunciation right after my tip</span>
+                <span class="chip g-multi">kept a natural rhythm instead of word-by-word reading</span>
+              </div></details>
+              <details class="gcat"><summary>📚 Vocabulary</summary><div class="chips">
+                <span class="chip g-multi">used the new vocabulary right away</span>
+                <span class="chip g-multi">guessed the meaning of new words from context</span>
+                <span class="chip g-multi">remembered expressions from our previous lessons</span>
+                <span class="chip g-multi">chose precise words instead of easy general ones</span>
+                <span class="chip g-multi">used a natural idiom in the right situation</span>
+                <span class="chip g-multi">made your own example sentences with the new words</span>
+                <span class="chip g-multi">asked smart questions about word nuances</span>
+                <span class="chip g-multi">replaced a simple word with a richer synonym</span>
+                <span class="chip g-multi">used business words accurately in context</span>
+                <span class="chip g-multi">connected today's new words to words you already know</span>
+              </div></details>
+              <details class="gcat"><summary>🧩 Grammar &amp; Sentences</summary><div class="chips">
+                <span class="chip g-multi">used the past tense correctly while telling stories</span>
+                <span class="chip g-multi">built long sentences with correct word order</span>
+                <span class="chip g-multi">used articles like "a" and "the" more accurately</span>
+                <span class="chip g-multi">kept subject-verb agreement in your sentences</span>
+                <span class="chip g-multi">used linking words like "however" and "for example"</span>
+                <span class="chip g-multi">formed questions correctly on your own</span>
+                <span class="chip g-multi">used comparative forms accurately</span>
+                <span class="chip g-multi">used the present perfect naturally</span>
+                <span class="chip g-multi">corrected yourself without my help</span>
+                <span class="chip g-multi">combined short sentences into one smooth sentence</span>
+              </div></details>
+              <details class="gcat"><summary>👂 Listening &amp; Comprehension</summary><div class="chips">
+                <span class="chip g-multi">understood my questions on the first try</span>
+                <span class="chip g-multi">answered the comprehension questions accurately</span>
+                <span class="chip g-multi">summarized the article in your own words</span>
+                <span class="chip g-multi">caught the key numbers and details while listening</span>
+                <span class="chip g-multi">understood my natural speaking speed</span>
+                <span class="chip g-multi">responded correctly to unexpected questions</span>
+                <span class="chip g-multi">picked up the main idea after one reading</span>
+                <span class="chip g-multi">followed my instructions without needing repeats</span>
+                <span class="chip g-multi">noticed the small difference between similar questions</span>
+                <span class="chip g-multi">understood a new phrase from my explanation alone</span>
+              </div></details>
+              <details class="gcat"><summary>💬 Conversation &amp; Attitude</summary><div class="chips">
+                <span class="chip g-multi">shared opinions with supporting reasons</span>
+                <span class="chip g-multi">asked thoughtful follow-up questions</span>
+                <span class="chip g-multi">opened up new topics to discuss</span>
+                <span class="chip g-multi">stayed relaxed and clearly enjoyed the conversation</span>
+                <span class="chip g-multi">reacted naturally with phrases like "Really?" and "I see"</span>
+                <span class="chip g-multi">disagreed politely and explained your view</span>
+                <span class="chip g-multi">kept wonderful eye contact and smiled through the lesson</span>
+                <span class="chip g-multi">showed great focus from start to finish</span>
+                <span class="chip g-multi">took notes actively during the lesson</span>
+                <span class="chip g-multi">welcomed corrections positively and tried again right away</span>
+              </div></details>
             </div>
             <label class="f-label" for="g-good-extra">Anything specific? <small>(recommended: a real moment from today)</small></label>
             <input type="text" id="g-good-extra" placeholder="e.g., your summary of the article was spot on">
@@ -634,7 +707,25 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           </div>
 
           <div class="gq">
-            <div class="gq-q"><span class="qnum">7</span>New words you introduced <small style="font-weight:500;color:var(--mauve)">(optional, up to 10)</small></div>
+            <div class="gq-q"><span class="qnum">7</span>Encouraging advice <small style="font-weight:500;color:var(--mauve)">(short, uplifting; tap all that apply)</small></div>
+            <div class="chips" id="g-cheer-chips" style="margin-top:0">
+              <span class="chip g-multi" data-cheer="Reading one short English article a day will grow your vocabulary faster than you expect, and you are already reading so well.">daily article</span>
+              <span class="chip g-multi" data-cheer="Try shadowing a one-minute clip each day; your ear and mouth will sync beautifully, and you are closer than you think.">daily shadowing</span>
+              <span class="chip g-multi" data-cheer="Keep a small phrase notebook and collect one expression a day; little by little makes a mighty vocabulary.">phrase notebook</span>
+              <span class="chip g-multi" data-cheer="Speak English to yourself for two minutes while cooking or walking; it is a fun secret shortcut to fluency.">self-talk practice</span>
+              <span class="chip g-multi" data-cheer="Watch one favorite show in English with subtitles; learning feels lighter when it is fun, and you have earned the fun.">learn with shows</span>
+              <span class="chip g-multi" data-cheer="Review today's corrections once before bed; your brain will quietly master them while you sleep.">review before bed</span>
+              <span class="chip g-multi" data-cheer="Please don't fear mistakes; every one you make in class is one you won't make in a real conversation. Keep speaking bravely.">brave mistakes</span>
+              <span class="chip g-multi" data-cheer="Try writing three English sentences about your day tonight; small writing builds big speaking.">three sentences a day</span>
+              <span class="chip g-multi" data-cheer="Listen to an English podcast during your commute; even relaxed listening is training your ear.">podcast listening</span>
+              <span class="chip g-multi" data-cheer="Use one new word from today in a real conversation or email this week; used words become yours forever.">use it this week</span>
+              <span class="chip g-multi" data-cheer="Please celebrate your progress; compared to your first lesson, you have grown so much, and it shows.">celebrate progress</span>
+              <span class="chip g-multi" data-cheer="Keep enjoying English the way you did today; joy is the best study plan, and you clearly have it.">keep the joy</span>
+            </div>
+          </div>
+
+          <div class="gq">
+            <div class="gq-q"><span class="qnum">8</span>New words you introduced <small style="font-weight:500;color:var(--mauve)">(optional, up to 10)</small></div>
             <textarea id="g-words" rows="2" placeholder="e.g., cozy [KOH-zee] - warm and comfortable"></textarea>
             <div id="dictpick-guided"></div>
           </div>
@@ -1879,12 +1970,21 @@ document.getElementById('g-generate').addEventListener('click', function(){
       hi + " Welcome back! I always enjoy our lessons together.",
       hi + " Thank you for continuing your lessons with me. Your steady effort is wonderful to see.",
       hi + " It's great to see you again. Thank you for another lovely lesson.",
-      hi + " Thank you for your time today. Studying with you is always the bright part of my schedule."
+      hi + " Thank you for your time today. Studying with you is always the bright part of my schedule.",
+      hi + " Welcome back to our classroom. Thank you for another wonderful lesson together.",
+      hi + " Thank you for booking my lesson again. Your dedication truly shows.",
+      hi + " Another lesson done, and you keep getting better. Thank you for studying with me today.",
+      hi + " It's always a happy moment to see your name in my schedule. Thank you for today!",
+      hi + " Thank you for spending part of your day learning with me again.",
+      hi + " Welcome back! Your consistency is quietly building something great.",
+      hi + " Thank you for another lesson. I could feel your progress from the very first minute today."
     ],
     first: [
       hi + " Thank you for taking my lesson today. It was lovely meeting you!",
       hi + " It was a pleasure to meet you in today's lesson. Thank you for choosing my class!",
-      hi + " Thank you for our first lesson together. I enjoyed getting to know you!"
+      hi + " Thank you for our first lesson together. I enjoyed getting to know you!",
+      hi + " Thank you for our first lesson together. You made it a truly pleasant one!",
+      hi + " I'm happy we finally had a lesson together. Thank you for choosing my class!"
     ],
     trial: [
       "Hello" + (nm ? ', ' + nm : '') + "! Welcome to RareJob! Thank you for taking my lesson as a trial lesson.",
@@ -1952,13 +2052,20 @@ document.getElementById('g-generate').addEventListener('click', function(){
     advice += ".";
     advice = advice.replace(/\.\.+/g, '.');
   }
+  var cheers = [];
+  document.querySelectorAll('#g-cheer-chips .g-multi.sel').forEach(function(c){ cheers.push(c.getAttribute('data-cheer')); });
+  if(cheers.length){
+    advice = (advice ? advice + ' ' : '') + cheers.join(' ');
+  }
 
   /* closing: varied pools */
   var byeName = nm ? ', ' + nm : '';
   var CLOSES = {
     trial: [
       "I think learning in RareJob is the best way to learn English for you. Keep on practicing English! See you next time!",
-      "I hope you enjoyed your trial lesson" + byeName + ". I would be happy to study with you again. See you soon!"
+      "I hope you enjoyed your trial lesson" + byeName + ". I would be happy to study with you again. See you soon!",
+      "Thank you for spending your trial lesson with me" + byeName + ". You have a wonderful foundation, and RareJob is a great place to build on it. I hope to see you again!",
+      "You did a great job in your very first lesson" + byeName + ". Daily practice here will take you far, and I would love to guide you. See you soon!"
     ],
     other: [
       "Thank you for your hard work today" + byeName + ". Keep practicing a little every day, and I look forward to our next lesson!",
@@ -1966,7 +2073,15 @@ document.getElementById('g-generate').addEventListener('click', function(){
       "Thank you for another enjoyable lesson" + byeName + ". Please keep up your steady practice, and see you again soon!",
       "You did a great job today" + byeName + ". Rest well, keep your English close by, and I'll see you in our next lesson!",
       "It was a joy studying with you today" + byeName + ". Stay curious, keep speaking with confidence, and see you soon!",
-      "Thank you for your energy and effort" + byeName + ". I'm already looking forward to hearing about your week next time!"
+      "Thank you for your energy and effort" + byeName + ". I'm already looking forward to hearing about your week next time!",
+      "Thank you for today's lesson" + byeName + ". Your English grew a little again today, and I noticed. See you soon!",
+      "Great work today" + byeName + ". Learning shows best in small steady steps, and you are taking them beautifully. See you next time!",
+      "Thank you for studying with me again" + byeName + ". Please enjoy using today's expressions in real life. I look forward to our next lesson!",
+      "That was another lovely lesson" + byeName + ". Keep your curiosity shining, and I'll see you again soon!",
+      "Thank you for your wonderful effort" + byeName + ". English is becoming more and more yours with every lesson. See you next time!",
+      "Well done today" + byeName + ". Even five minutes of practice a day will keep this momentum going. I can't wait for our next lesson!",
+      "Thank you for the fun and focused lesson" + byeName + ". You should be proud of how far you've come. See you again soon!",
+      "Another great lesson complete" + byeName + ". Keep enjoying English a little every day, and see you in our next class!"
     ]
   };
   var close = pickFrom(who === 'trial' ? CLOSES.trial : CLOSES.other);
@@ -4692,7 +4807,7 @@ var tipText = document.getElementById('chip-tip-text');
 var tipChip = null;
 function hideTip(){ tip.classList.remove('show'); tipChip = null; }
 function showTip(chip){
-  var text = chip.getAttribute('data-ins') || chip.getAttribute('data-adv') || '';
+  var text = chip.getAttribute('data-ins') || chip.getAttribute('data-adv') || chip.getAttribute('data-cheer') || '';
   if(!text.trim()) return;
   tipChip = chip;
   tipText.textContent = text;
@@ -4711,7 +4826,7 @@ function showTip(chip){
   tip.style.setProperty('--arrow-x', Math.max(14, Math.min(tw - 26, r.left + r.width / 2 - left - 6)) + 'px');
 }
 document.addEventListener('mouseover', function(e){
-  var chip = e.target.closest('.bw-chip, .je-chip, .nb-chip, .g-multi[data-adv]');
+  var chip = e.target.closest('.bw-chip, .je-chip, .nb-chip, .g-multi[data-adv], .g-multi[data-cheer]');
   if(chip){ if(chip !== tipChip) showTip(chip); }
   else if(tipChip) hideTip();
 });
