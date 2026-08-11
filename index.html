@@ -291,6 +291,14 @@ details.topic .topic-body{padding:2px 16px 14px}
 .dict-status{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--mauve);padding:14px 0}
 
 /* toast */
+/* collapsible cards */
+details.card > summary{cursor:pointer;list-style:none}
+details.card > summary::-webkit-details-marker{display:none}
+details.card > summary h2{display:inline-block}
+details.card > summary h2::after{content:" \25BE";color:var(--magenta);font-size:.65em;vertical-align:middle}
+details.card[open] > summary h2::after{content:" \25B4"}
+details.card:not([open]) > summary .sub{margin-bottom:0}
+
 /* guided good-points skill categories */
 details.gcat{border:1px solid var(--petal);border-radius:12px;margin-bottom:8px;background:#fff;overflow:hidden}
 details.gcat summary{cursor:pointer;padding:9px 13px;font-weight:700;font-size:13px;color:var(--plum);list-style:none;display:flex;gap:8px;align-items:center}
@@ -389,7 +397,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 11, 2026 · 08:05 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 11, 2026 · 02:51 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1088,25 +1096,14 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 <!-- ══════════════════════ TAB · JITSUYO EIKAIWA ══════════════════════ -->
 <section id="tab-jitsuyo" class="panel">
 
-  <div class="card">
-    <h2>How a Jitsuyo Eikaiwa lesson flows</h2>
-    <p class="sub">The JE curriculum follows the same spine every lesson. Timings are approximate; protect the Challenge and Feedback at the end, since your notes depend on them.</p>
-    <div class="flow-grid">
-      <div class="flow-step"><div class="fs-min">Introduce · ~2 min</div><div class="fs-title">Greet &amp; set the goal</div><div class="fs-body">Warm greeting, then read the lesson goal together ("Today, let's talk about old friends"). Ask the hook question from the material, then move on briskly.</div></div>
-      <div class="flow-step"><div class="fs-min">Present · ~5 min</div><div class="fs-title">Step A Expressions + Step B Pronunciation</div><div class="fs-body">Go over each target expression; have the student read the example dialogues aloud. Then drill the pronunciation point (e.g., the dropped /t/ in "can't believe"). Model it, they echo.</div></div>
-      <div class="flow-step"><div class="fs-min">Understand · ~6 min</div><div class="fs-title">Reading (+ trivia if time)</div><div class="fs-body">Student reads the passage aloud. Check comprehension with the material's questions and confirm they caught the target expressions in context. Trivia is a bonus, not a must.</div></div>
-      <div class="flow-step"><div class="fs-min">Practice · ~5 min</div><div class="fs-title">Step A &amp; Step B exercises</div><div class="fs-body">Step A: choose the best sentence. Step B: complete the posts with the expressions. Correct gently right here; practice is where mistakes are cheapest.</div></div>
-      <div class="flow-step"><div class="fs-min">Challenge · ~4 min</div><div class="fs-title">The real task (your feedback goldmine)</div><div class="fs-body">Challenge 1 is the graded task (e.g., reply to an old friend's email using today's expressions). Let them speak; note their exact words for You said / Better. Challenge 2 only if time truly allows.</div></div>
-      <div class="flow-step"><div class="fs-min">Feedback · ~3 min</div><div class="fs-title">Score + personalized feedback</div><div class="fs-body">Announce the Lesson Goal Achievement score kindly, then walk through Range, Accuracy, Fluency, and Interaction with their own sentences. Build the note below while it's fresh.</div></div>
-    </div>
-    <div class="note-box"><b>During Challenge 1, jot the raw quotes.</b> The JE note lives or dies on real "You said" lines. Keep a scratchpad (or the My Memo box) open and capture 3 or 4 exact sentences while they speak; polishing them comes after.</div>
-  </div>
+  
 
-  <div class="card">
-    <h2>Your JE script, line by line</h2>
-    <p class="sub">The exact sentences to carry you through each stage, with a Japanese lifeline for beginners. Tap 🔊 to hear the Japanese, or Copy to paste it into the chat box. Say the English first; the Japanese is the safety net.</p>
+  <details class="card">
+<summary><h2>Your JE script, line by line</h2>
+    <p class="sub">The exact sentences to carry you through each stage, with a Japanese lifeline for beginners. Tap 🔊 to hear the Japanese, or Copy to paste it into the chat box. Say the English first; the Japanese is the safety net.</p></summary>
+
     <div id="je-script"></div>
-  </div>
+  </details>
 
   <div class="card">
     <h2>Jitsuyo Eikaiwa notes builder</h2>
@@ -1132,6 +1129,14 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <label class="f-label" for="je-range-pairs">Corrections <small>(as many pairs as you need)</small></label>
           <textarea id="je-range-pairs" rows="4" placeholder="You said: I meet my friend long time no see.&#10;Better: It's been a while since I met my friend."></textarea>
           <div class="chips"><span class="chip je-chip" data-target="je-range-pairs" data-ins="You said: &#10;Better: ">+ add another pair</span></div>
+          <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made RANGE feedback</summary><div class="chips">
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You used today's target expressions correctly and naturally in your own sentences. Excellent work!">used targets naturally</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You have a wide vocabulary and chose precise words throughout the lesson. Keep collecting one new expression a day!">wide vocabulary</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You applied all of today's expressions in the exercises without any help. Wonderful!">no help needed</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="Your word choices were natural and fit the topic well. To go further, try upgrading one everyday word into a richer synonym each lesson.">natural word choices</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You remembered and reused expressions from our previous lessons, which shows real progress.">reused past expressions</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="No corrections needed here today. Try using today's expressions in a real conversation this week to make them fully yours!">use them this week</span>
+          </div></details>
         </div>
 
         <div class="gq">
@@ -1139,6 +1144,14 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <label class="f-label" for="je-acc-pairs">Corrections <small>(as many pairs as you need)</small></label>
           <textarea id="je-acc-pairs" rows="4" placeholder="You said: I can't believe it's been three year.&#10;Correct: I can't believe it's been three years."></textarea>
           <div class="chips"><span class="chip je-chip" data-target="je-acc-pairs" data-ins="You said: &#10;Correct: ">+ add another pair</span></div>
+          <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made ACCURACY feedback</summary><div class="chips">
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="Your grammar was accurate throughout the lesson, and I did not need to make any corrections today. Excellent!">no corrections needed</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You built your sentences with correct word order and verb tenses. Keep it up!">correct tenses</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You maintained subject-verb agreement even in long sentences. Impressive accuracy!">subject-verb agreement</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="Your sentences were grammatically solid today. For extra polish, keep an eye on small words like 'a' and 'the' when reading.">solid sentences</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You corrected yourself quickly whenever you noticed a small slip, which is the habit of an advanced learner.">self-corrected</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="No grammar corrections today! Challenge yourself next time with longer, more complex sentences.">try longer sentences</span>
+          </div></details>
         </div>
 
         <div class="gq">
@@ -1146,6 +1159,14 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <label class="f-label" for="je-flu-pairs">Corrections <small>(as many pairs as you need)</small></label>
           <textarea id="je-flu-pairs" rows="4" placeholder="You said: Remember... we... used to... go...&#10;Better: Remember when we used to go to the park?"></textarea>
           <div class="chips"><span class="chip je-chip" data-target="je-flu-pairs" data-ins="You said: &#10;Better: ">+ add another pair</span></div>
+          <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made FLUENCY feedback</summary><div class="chips">
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You spoke smoothly and kept a natural pace through the whole lesson. Wonderful fluency!">smooth and natural</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You answered without long pauses and connected your ideas clearly.">no long pauses</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="Your reading was smooth, with natural pausing and rhythm.">smooth reading</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You kept the conversation flowing even on a new topic. To build further, try shadowing a short clip daily.">flowing conversation</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You expressed your ideas directly in English without translating word by word, which shows growing fluency.">thought in English</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="No fluency issues today! Keep speaking English aloud a little every day to maintain this momentum.">keep the momentum</span>
+          </div></details>
         </div>
 
         <div class="gq">
@@ -1153,6 +1174,14 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <label class="f-label" for="je-int-pairs">Corrections <small>(as many pairs as you need)</small></label>
           <textarea id="je-int-pairs" rows="4" placeholder="You: (answered with one word) Yes.&#10;Better: Yes, I do! Actually, I saw my old classmate last month."></textarea>
           <div class="chips"><span class="chip je-chip" data-target="je-int-pairs" data-ins="You: &#10;Better: ">+ add another pair</span></div>
+          <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made INTERACTION feedback</summary><div class="chips">
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You responded actively to my questions and kept the conversation engaging. Excellent interaction!">active responses</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You asked thoughtful follow-up questions, which made our discussion feel natural.">good follow-ups</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You reacted naturally with phrases like 'I see' and 'Really?', just like a fluent speaker.">natural reactions</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You shared your opinions with clear reasons and invited mine as well. Wonderful two-way conversation!">two-way conversation</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You handled unexpected questions confidently and expanded the topic on your own.">handled surprises</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="Your engagement was excellent today. Next time, try leading the conversation with your own questions from the start!">try leading next time</span>
+          </div></details>
         </div>
 
         <label class="f-label" for="je-close">Closing &amp; encouragement</label>
@@ -1173,6 +1202,21 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       </div>
     </div>
   </div>
+
+<details class="card">
+<summary><h2>How a Jitsuyo Eikaiwa lesson flows</h2>
+    <p class="sub">The JE curriculum follows the same spine every lesson. Timings are approximate; protect the Challenge and Feedback at the end, since your notes depend on them.</p></summary>
+
+    <div class="flow-grid">
+      <div class="flow-step"><div class="fs-min">Introduce · ~2 min</div><div class="fs-title">Greet &amp; set the goal</div><div class="fs-body">Warm greeting, then read the lesson goal together ("Today, let's talk about old friends"). Ask the hook question from the material, then move on briskly.</div></div>
+      <div class="flow-step"><div class="fs-min">Present · ~5 min</div><div class="fs-title">Step A Expressions + Step B Pronunciation</div><div class="fs-body">Go over each target expression; have the student read the example dialogues aloud. Then drill the pronunciation point (e.g., the dropped /t/ in "can't believe"). Model it, they echo.</div></div>
+      <div class="flow-step"><div class="fs-min">Understand · ~6 min</div><div class="fs-title">Reading (+ trivia if time)</div><div class="fs-body">Student reads the passage aloud. Check comprehension with the material's questions and confirm they caught the target expressions in context. Trivia is a bonus, not a must.</div></div>
+      <div class="flow-step"><div class="fs-min">Practice · ~5 min</div><div class="fs-title">Step A &amp; Step B exercises</div><div class="fs-body">Step A: choose the best sentence. Step B: complete the posts with the expressions. Correct gently right here; practice is where mistakes are cheapest.</div></div>
+      <div class="flow-step"><div class="fs-min">Challenge · ~4 min</div><div class="fs-title">The real task (your feedback goldmine)</div><div class="fs-body">Challenge 1 is the graded task (e.g., reply to an old friend's email using today's expressions). Let them speak; note their exact words for You said / Better. Challenge 2 only if time truly allows.</div></div>
+      <div class="flow-step"><div class="fs-min">Feedback · ~3 min</div><div class="fs-title">Score + personalized feedback</div><div class="fs-body">Announce the Lesson Goal Achievement score kindly, then walk through Range, Accuracy, Fluency, and Interaction with their own sentences. Build the note below while it's fresh.</div></div>
+    </div>
+    <div class="note-box"><b>During Challenge 1, jot the raw quotes.</b> The JE note lives or dies on real "You said" lines. Keep a scratchpad (or the My Memo box) open and capture 3 or 4 exact sentences while they speak; polishing them comes after.</div>
+  </details>
 
 </section>
 
