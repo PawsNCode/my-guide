@@ -389,7 +389,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 10, 2026 · 09:42 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 11, 2026 · 08:05 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1386,7 +1386,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
   <div class="card">
     <h2>Business terms library</h2>
-    <p class="sub">366 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
+    <p class="sub">374 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
     <input type="text" id="biz-search" placeholder="Filter terms… (e.g., nego, meeting, money)">
     <div id="biz-list" style="margin-top:14px"></div>
   </div>
@@ -1706,7 +1706,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <input type="text" id="dict-input" placeholder="Type a word, e.g., flannel" autocomplete="off">
       <button class="btn btn-magenta" id="dict-go">Search</button>
     </div>
-    <div class="voice-note">Offline-first: 366 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
+    <div class="voice-note">Offline-first: 374 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
     <div id="dict-history-wrap" style="display:none;margin-top:12px">
       <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mauve)">Recent searches</span>
       <button class="copy-mini" id="dict-history-clear" style="margin-left:8px;font-size:11.5px;padding:2px 10px">clear</button>
@@ -3535,7 +3535,15 @@ var BIZTERMS = [
 {w:'rapport',r:'ra-PAWR',p:'noun',d:'a friendly relationship in which people understand and trust each other',jk:'\u4fe1\u983c\u95a2\u4fc2',jh:'しんらいかんけい',e:["The top sales staff member knows how to build rapport with customers.","The dog programs offered comfort and built rapport with patients and families."]},
 {w:'facility',r:'fuh-SIL-i-tee',p:'noun',d:'a building or place that provides a particular service',jk:'\u65bd\u8a2d',jh:'しせつ',e:["The sports facility has a pool and two gyms.","Facility dogs are helping children feel calmer in hospitals across the United States."]},
 {w:'interaction',r:'in-ter-AK-shuhn',p:'noun',d:'the activity of talking to or spending time with other people or things',jk:'\u4ea4\u6d41',jh:'こうりゅう',e:["Daily interaction with coworkers improves teamwork.","Even short interactions with facility dogs can reduce stress, pain, and blood pressure."]},
-{w:'wheelchair',r:'WEEL-chair',p:'noun',d:'a chair with wheels used by people who cannot walk easily',jk:'\u8eca\u6905\u5b50',jh:'くるまいす',e:["The building has a ramp for wheelchair users.","Calvin stood beside his wheelchair and threw a ball for the dog."]}
+{w:'wheelchair',r:'WEEL-chair',p:'noun',d:'a chair with wheels used by people who cannot walk easily',jk:'\u8eca\u6905\u5b50',jh:'くるまいす',e:["The building has a ramp for wheelchair users.","Calvin stood beside his wheelchair and threw a ball for the dog."]},
+{w:'harness',r:'HAHR-nis',p:'verb',d:'to use something in an effective way to achieve a goal (pattern: harness something for something)',jk:'\u6d3b\u7528\u3059\u308b',jh:'かつようする',e:["Solar energy is harnessed to make electricity in many homes.","The summit is considering how the power of AI can be harnessed for good."]},
+{w:'breakneck',r:'BREYK-nek',p:'adjective',d:'extremely fast and often dangerous (related words: rapid, high-speed)',jk:'\u731b\u70c8\u306a',jh:'もうれつな',e:["Technology is changing at a breakneck pace, so people keep learning new skills.","He has watched AI tech progress at breakneck speed."]},
+{w:'hype',r:'HAHYP',p:'noun',d:'a lot of excitement or attention about something, often more than it deserves (often followed by "about")',jk:'\u8a87\u5927\u5ba3\u4f1d',jh:'こだいせんでん',e:["There was a lot of hype about the new smartphone, so many people want to buy it.","Back then, it was all about the fear, the hype, and the promise of AI."]},
+{w:'autonomously',r:'aw-TON-uh-muhs-lee',p:'adverb',d:'independently, without someone controlling or helping (adjective: autonomous)',jk:'\u81ea\u5f8b\u7684\u306b',jh:'じりつてきに',e:["The computer program worked autonomously and sent a report every morning.","AI agents are acting on our behalf, autonomously."]},
+{w:'implant',r:'im-PLANT',p:'verb / noun',d:'to put something inside a person\u2019s or animal\u2019s body, usually through a medical procedure',jk:'\u57cb\u3081\u8fbc\u3080',jh:'うめこむ',e:["Surgeons implant artificial knees to help some people walk more easily.","With the brain implants, we implant it in the brain and record brain functions."]},
+{w:'summit',r:'SUHM-it',p:'noun',d:'a meeting where important leaders come together to talk about big topics or solve problems; also the top of a mountain',jk:'サミット',jh:'サミット',e:["World leaders gathered at the climate summit.","The AI for Good summit in Geneva follows a meeting of 193 nations."]},
+{w:'interface',r:'IN-ter-feys',p:'noun',d:'a connection point where two systems, or a person and a machine, meet and communicate',jk:'インターフェース',jh:'インターフェース',e:["The app has a simple interface that anyone can use.","The company has been developing its brain-computer interface for over eight years."]},
+{w:'neural',r:'NOOR-uhl',p:'adjective',d:'relating to the nerves or the nervous system',jk:'\u795e\u7d4c\u306e',jh:'しんけいの',e:["The brain sends neural signals throughout the body.","The implant feeds neural signals still intact in patients who\u2019ve lost the ability to speak or move."]}
 ];
 var BIZMAP = {};
 BIZTERMS.forEach(function(t){ BIZMAP[t.w] = t; });
