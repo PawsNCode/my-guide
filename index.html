@@ -397,7 +397,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 12, 2026 · 08:38 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 12, 2026 · 10:11 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -699,7 +699,9 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
               <span class="chip nb-chip" data-target="g-corrections" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
               <span class="chip nb-chip" data-target="g-corrections" data-ins="You said: &#10;Better: ">+ You said / Better</span>
               <span class="chip nb-chip" data-target="g-corrections" data-ins=" [] - ">+ word [pronunciation]</span>
-            </div>
+            
+            <span class="chip fix-btn" data-fix="g-corrections" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
+          </div>
             <div class="hint">Tap a button to add a fresh pair, as many as you need. These appear in the note so the student can review them.</div>
           </div>
 
@@ -827,7 +829,9 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
         <div class="chips">
           <span class="chip nb-chip" data-target="nb-corrections" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
           <span class="chip nb-chip" data-target="nb-corrections" data-ins="You said: &#10;Better: ">+ You said / Better</span>
-        </div>
+        
+            <span class="chip fix-btn" data-fix="nb-corrections" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
+          </div>
         <div class="chips" data-target="nb-corrections">
           <span class="chip">Here are some corrections from today's lesson:</span>
           <span class="chip">We polished these sentences together today:</span>
@@ -843,6 +847,8 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <div class="chips">
             <span class="chip nb-chip" data-target="nb-vocab-pairs" data-ins="You said: &#10;Better: ">+ You said / Better</span>
             <span class="chip nb-chip" data-target="nb-vocab-pairs" data-ins=" - ">+ word - meaning</span>
+          
+            <span class="chip fix-btn" data-fix="nb-vocab-pairs" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
         </div>
         <div class="gq">
@@ -850,6 +856,8 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <textarea id="nb-gram-pairs" rows="2" placeholder="You said: I go to Kyoto last week.&#10;Correct: I went to Kyoto last week."></textarea>
           <div class="chips">
             <span class="chip nb-chip" data-target="nb-gram-pairs" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
+          
+            <span class="chip fix-btn" data-fix="nb-gram-pairs" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
         </div>
         <div class="gq">
@@ -867,6 +875,8 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <div class="chips">
             <span class="chip nb-chip" data-target="nb-wna-range" data-ins=" - ">+ word - meaning</span>
             <span class="chip nb-chip" data-target="nb-wna-range" data-ins="You said: &#10;Better: ">+ You said / Better</span>
+          
+            <span class="chip fix-btn" data-fix="nb-wna-range" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
         </div>
         <div class="gq">
@@ -884,6 +894,8 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <div class="chips">
             <span class="chip nb-chip" data-target="nb-wna-phon" data-ins=" []">+ word [pronunciation]</span>
             <span class="chip nb-chip" data-target="nb-wna-phon" data-ins="You said: &#10;Better: ">+ You said / Better (stress)</span>
+          
+            <span class="chip fix-btn" data-fix="nb-wna-phon" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
         </div>
 
@@ -1128,7 +1140,9 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <textarea id="je-range-words" rows="2" placeholder="reunion - a meeting of old friends after a long time"></textarea>
           <label class="f-label" for="je-range-pairs">Corrections <small>(as many pairs as you need)</small></label>
           <textarea id="je-range-pairs" rows="4" placeholder="You said: I meet my friend long time no see.&#10;Better: It's been a while since I met my friend."></textarea>
-          <div class="chips"><span class="chip je-chip" data-target="je-range-pairs" data-ins="You said: &#10;Better: ">+ add another pair</span></div>
+          <div class="chips"><span class="chip je-chip" data-target="je-range-pairs" data-ins="You said: &#10;Better: ">+ add another pair</span>
+            <span class="chip fix-btn" data-fix="je-range-pairs" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
+          </div>
           <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made RANGE feedback</summary><div class="chips">
             <span class="chip je-chip" data-target="je-range-pairs" data-ins="You used today's target expressions correctly and naturally in your own sentences. Excellent work!">used targets naturally</span>
             <span class="chip je-chip" data-target="je-range-pairs" data-ins="You have a wide vocabulary and chose precise words throughout the lesson. Keep collecting one new expression a day!">wide vocabulary</span>
@@ -1143,7 +1157,9 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <div class="gq-q">ACCURACY <small style="font-weight:500;color:var(--mauve)">(grammar)</small></div>
           <label class="f-label" for="je-acc-pairs">Corrections <small>(as many pairs as you need)</small></label>
           <textarea id="je-acc-pairs" rows="4" placeholder="You said: I can't believe it's been three year.&#10;Correct: I can't believe it's been three years."></textarea>
-          <div class="chips"><span class="chip je-chip" data-target="je-acc-pairs" data-ins="You said: &#10;Correct: ">+ add another pair</span></div>
+          <div class="chips"><span class="chip je-chip" data-target="je-acc-pairs" data-ins="You said: &#10;Correct: ">+ add another pair</span>
+            <span class="chip fix-btn" data-fix="je-acc-pairs" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
+          </div>
           <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made ACCURACY feedback</summary><div class="chips">
             <span class="chip je-chip" data-target="je-acc-pairs" data-ins="Your grammar was accurate throughout the lesson, and I did not need to make any corrections today. Excellent!">no corrections needed</span>
             <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You built your sentences with correct word order and verb tenses. Keep it up!">correct tenses</span>
@@ -1158,7 +1174,9 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <div class="gq-q">FLUENCY <small style="font-weight:500;color:var(--mauve)">(flow and phrasing)</small></div>
           <label class="f-label" for="je-flu-pairs">Corrections <small>(as many pairs as you need)</small></label>
           <textarea id="je-flu-pairs" rows="4" placeholder="You said: Remember... we... used to... go...&#10;Better: Remember when we used to go to the park?"></textarea>
-          <div class="chips"><span class="chip je-chip" data-target="je-flu-pairs" data-ins="You said: &#10;Better: ">+ add another pair</span></div>
+          <div class="chips"><span class="chip je-chip" data-target="je-flu-pairs" data-ins="You said: &#10;Better: ">+ add another pair</span>
+            <span class="chip fix-btn" data-fix="je-flu-pairs" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
+          </div>
           <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made FLUENCY feedback</summary><div class="chips">
             <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You spoke smoothly and kept a natural pace through the whole lesson. Wonderful fluency!">smooth and natural</span>
             <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You answered without long pauses and connected your ideas clearly.">no long pauses</span>
@@ -1257,6 +1275,8 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <div class="chips">
             <span class="chip bw-chip" data-target="bw-vocab" data-ins="You said: &#10;Better: ">+ You said / Better</span>
             <span class="chip bw-chip" data-target="bw-vocab" data-ins=" - ">+ word - meaning</span>
+          
+            <span class="chip fix-btn" data-fix="bw-vocab" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
         </div>
 
@@ -1265,6 +1285,8 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <textarea id="bw-grammar" rows="3" placeholder="You said: The meeting have started.&#10;Correct: The meeting has started."></textarea>
           <div class="chips">
             <span class="chip bw-chip" data-target="bw-grammar" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
+          
+            <span class="chip fix-btn" data-fix="bw-grammar" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
         </div>
 
@@ -5019,6 +5041,216 @@ if(hr){
   });
 }
 
+})();
+</script>
+<script>
+(function(){
+"use strict";
+function $(id){ return document.getElementById(id); }
+function T(msg){
+  var t = $('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(function(){ t.classList.remove('show'); }, 2200);
+}
+
+/* ═══════════ offline correction rules for common Japanese-learner errors ═══════════ */
+var IRREG = {go:'went',have:'had',has:'had',do:'did',does:'did',eat:'ate',see:'saw',come:'came',take:'took',
+  make:'made',get:'got',give:'gave',buy:'bought',bring:'brought',think:'thought',teach:'taught',catch:'caught',
+  meet:'met',read:'read',write:'wrote',speak:'spoke',drink:'drank',drive:'drove',run:'ran',swim:'swam',
+  begin:'began',break:'broke',choose:'chose',feel:'felt',find:'found',forget:'forgot',hear:'heard',keep:'kept',
+  know:'knew',leave:'left',lose:'lost',pay:'paid',put:'put',say:'said',sell:'sold',send:'sent',sit:'sat',
+  sleep:'slept',spend:'spent',stand:'stood',teach2:'taught',tell:'told',wear:'wore',win:'won',am:'was',is:'was',are:'were'};
+var THIRD = {go:'goes',do:'does',have:'has',watch:'watches',teach:'teaches',study:'studies',fly:'flies',
+  try:'tries',finish:'finishes',wash:'washes',miss:'misses',pass:'passes',push:'pushes',fix:'fixes'};
+function toPast(v){
+  var lv = v.toLowerCase();
+  if(IRREG[lv]) return IRREG[lv];
+  if(/e$/.test(lv)) return lv + 'd';
+  if(/[^aeiou]y$/.test(lv)) return lv.slice(0, -1) + 'ied';
+  return lv + 'ed';
+}
+function toThird(v){
+  var lv = v.toLowerCase();
+  if(THIRD[lv]) return THIRD[lv];
+  if(/(s|x|z|ch|sh|o)$/.test(lv)) return lv + 'es';
+  if(/[^aeiou]y$/.test(lv)) return lv.slice(0, -1) + 'ies';
+  return lv + 's';
+}
+var UNCOUNT = ['information','advice','furniture','equipment','homework','news','luggage','baggage','staff','research','knowledge','feedback','software','traffic','weather','money'];
+var RULES = [
+  /* uncountable nouns pluralized */
+  {re: new RegExp('\\b(' + UNCOUNT.join('|') + ')s\\b', 'gi'), fn: function(m, w){ return w; }, note:'uncountable noun (no -s)'},
+  {re: /\b(a|an)\s+(information|advice|furniture|equipment|homework|news|luggage|research|knowledge|feedback|money)\b/gi,
+   fn: function(m, a, n){ return 'some ' + n; }, note:'uncountable noun (no a/an)'},
+  {re: /\ba\s+work\b/gi, fn: function(){ return 'a job'; }, note:'"work" is uncountable; use "a job"'},
+  /* much / many */
+  {re: /\bmuch\s+(students|people|friends|books|words|things|questions|mistakes|lessons|years|hours|times|customers|clients|children|men|women)\b/gi,
+   fn: function(m, n){ return 'many ' + n; }, note:'many + countable nouns'},
+  {re: /\bmany\s+(information|advice|money|time|homework|furniture|equipment)\b/gi,
+   fn: function(m, n){ return 'much ' + n; }, note:'much + uncountable nouns'},
+  /* double comparatives */
+  {re: /\bmore\s+(better|easier|faster|bigger|smaller|higher|lower|older|younger|stronger|harder|cheaper|longer|shorter|happier|busier)\b/gi,
+   fn: function(m, w){ return w; }, note:'one comparative only (not "more better")'},
+  {re: /\bmost\s+(best|easiest|biggest|fastest|highest|longest)\b/gi, fn: function(m, w){ return w; }, note:'one superlative only'},
+  /* have/has + -ing → present perfect continuous */
+  {re: /\b(have|has)\s+(facing|working|studying|living|doing|going|waiting|trying|using|learning|teaching)\b/gi,
+   fn: function(m, h, v){ return h + ' been ' + v; }, note:'have/has + been + -ing'},
+  /* am/is/are agree */
+  {re: /\b(am|is|are)\s+agree\b/gi, fn: function(m, b){ return b === 'am' ? '' : ''; }, note:'"agree" is a verb: "I agree"'},
+  /* -ing vs -ed feelings */
+  {re: /\b(I|he|she|we|they|you)\s+(am|is|are|was|were)\s+(boring|interesting|exciting|tiring|confusing|surprising|satisfying|relaxing|frustrating)\b/gi,
+   fn: function(m, subj, be, adj){ return subj + ' ' + be + ' ' + adj.replace(/ing$/, '') .replace(/([^e])$/, '$1e') + 'd'; },
+   note:'-ed for how you feel (bored, interested)'},
+  /* verb patterns */
+  {re: /\benjoy\s+to\s+([a-z]+)\b/gi, fn: function(m, v){ return 'enjoy ' + v.replace(/e$/, '') + 'ing'; }, note:'enjoy + -ing'},
+  {re: /\bdiscuss\s+about\b/gi, fn: function(){ return 'discuss'; }, note:'discuss (no "about")'},
+  {re: /\bmarried\s+with\b/gi, fn: function(){ return 'married to'; }, note:'married to'},
+  {re: /\bexplain\s+me\b/gi, fn: function(){ return 'explain to me'; }, note:'explain to someone'},
+  {re: /\b(said|says|say)\s+me\b/gi, fn: function(m, v){ return (v === 'said' ? 'told' : v === 'says' ? 'tells' : 'tell') + ' me'; }, note:'tell someone / say to someone'},
+  /* don't/doesn't + verb-s */
+  {re: /\b(don'?t|doesn'?t|didn'?t|does not|do not|did not)\s+([a-z]+)(s|es)\b/gi,
+   fn: function(m, aux, stem, end){
+     if(/^(s|is|was|has|goes|does|this|less|business|address|process)$/i.test(stem + end)) return m;
+     return aux + ' ' + stem;
+   }, note:'base verb after don\u2019t / doesn\u2019t'},
+  /* third person -s */
+  {re: /\b(he|she|it|my (?:friend|teacher|mother|father|boss|manager|colleague|student))\s+(go|have|do|work|live|study|like|want|need|take|make|know|think|speak|watch|play|come|say|see|use|try|feel|help|start|finish|teach)\b(?!\s+(?:to\s+)?(?:not))/gi,
+   fn: function(m, subj, v){ return subj + ' ' + (v.toLowerCase() === 'have' ? 'has' : toThird(v)); }, note:'he/she/it + verb-s'},
+  /* past-time markers with present verbs */
+  {re: /\b(I|we|they|he|she|you|it)\s+(go|goes|eat|eats|see|sees|take|takes|make|makes|meet|meets|buy|buys|come|comes|watch|watches|study|studies|visit|visits|start|starts|finish|finishes|call|calls|talk|talks|work|works|play|plays)\b(?=[^.!?]*\b(yesterday|last (?:week|month|year|night|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)|ago)\b)/gi,
+   fn: function(m, subj, v){ return subj + ' ' + toPast(v.replace(/(es|s)$/, function(x, e){ return /(ches|shes|sses|xes|oes)$/.test(v) ? '' : (e === 'es' ? '' : ''); })); },
+   note:'past tense with past time words'},
+  /* a / an */
+  {re: /\ba\s+([aeiou][a-z]*)\b/gi, fn: function(m, w){
+     if(/^(university|user|useful|unique|european|one|uniform)/i.test(w)) return m;
+     return 'an ' + w;
+   }, note:'an before a vowel sound'},
+  {re: /\ban\s+([bcdfgjklmnpqrstvwxyz][a-z]*)\b/gi, fn: function(m, w){
+     if(/^(hour|honest|honor)/i.test(w)) return m;
+     return 'a ' + w;
+   }, note:'a before a consonant sound'},
+  /* number + singular noun */
+  {re: /\b(two|three|four|five|six|seven|eight|nine|ten|[2-9]|[1-9][0-9])\s+(cat|dog|book|student|friend|year|hour|minute|day|week|month|time|person|child|question|word|lesson|customer|client|meeting|email|report)\b/gi,
+   fn: function(m, num, n){
+     var pl = {person:'people', child:'children'};
+     return num + ' ' + (pl[n.toLowerCase()] || (/(s|x|ch|sh)$/.test(n) ? n + 'es' : n + 's'));
+   }, note:'plural noun after a number'},
+  /* misc */
+  {re: /\balmost\s+(people|students|friends|companies|customers)\b/gi, fn: function(m, n){ return 'most ' + n; }, note:'most + noun'},
+  {re: /\bI\s+very\s+(like|love|enjoy|want)\b/gi, fn: function(m, v){ return 'I really ' + v; }, note:'really + verb'},
+  {re: /\bevery\s?day\s+(I|we|he|she|they)\b/gi, fn: function(m, s2){ return 'Every day ' + s2; }, note:'"every day" (two words) for time'},
+  {re: /\bin\s+(yesterday|today|tomorrow|last week|next week)\b/gi, fn: function(m, t){ return t; }, note:'no preposition before yesterday/today'},
+  {re: /\bfun\s+of\b/gi, fn: function(){ return 'fan of'; }, note:'fan (a supporter), not fun'},
+  {re: /\bnice\s+to\s+meet\s+you\s+too\b/gi, fn: function(m){ return m; }, note:''}
+];
+function applyRules(text){
+  var out = text, notes = [];
+  RULES.forEach(function(r){
+    if(!r.re.test(out)){ r.re.lastIndex = 0; return; }
+    r.re.lastIndex = 0;
+    var before = out;
+    out = out.replace(r.re, r.fn);
+    out = out.replace(/\s{2,}/g, ' ').replace(/\s+([.,!?])/g, '$1');
+    if(out !== before && r.note && notes.indexOf(r.note) === -1) notes.push(r.note);
+  });
+  /* tidy: capitalize first letter, capitalize I, end punctuation */
+  out = out.replace(/\bi\b/g, 'I').trim();
+  if(out) out = out.charAt(0).toUpperCase() + out.slice(1);
+  if(out && !/[.!?]$/.test(out)) out += '.';
+  return {text: out, notes: notes};
+}
+
+/* ═══════════ online polish via LanguageTool (free, no key) ═══════════ */
+function languageTool(text){
+  var body = 'text=' + encodeURIComponent(text) + '&language=en-US&enabledOnly=false';
+  var ctl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+  var timer = setTimeout(function(){ if(ctl) ctl.abort(); }, 8000);
+  return fetch('https://api.languagetool.org/v2/check', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: body,
+    signal: ctl ? ctl.signal : undefined
+  }).then(function(r){
+    clearTimeout(timer);
+    if(!r.ok) throw {};
+    return r.json();
+  }).then(function(j){
+    var matches = (j && j.matches) || [];
+    var edits = [];
+    matches.forEach(function(m){
+      if(!m.replacements || !m.replacements.length) return;
+      var id = (m.rule && m.rule.id) || '';
+      if(/WHITESPACE|UPPERCASE_SENTENCE_START/.test(id)) return;
+      edits.push({o: m.offset, l: m.length, r: m.replacements[0].value, msg: m.shortMessage || m.message || ''});
+    });
+    edits.sort(function(a, b){ return b.o - a.o; });
+    var out = text, notes = [];
+    edits.forEach(function(e){
+      out = out.slice(0, e.o) + e.r + out.slice(e.o + e.l);
+      if(e.msg && notes.indexOf(e.msg) === -1) notes.push(e.msg);
+    });
+    return {text: out, notes: notes};
+  });
+}
+
+/* ═══════════ find the pending "You said" line in a field ═══════════ */
+function findPending(el){
+  var lines = el.value.split('\n');
+  for(var i = lines.length - 1; i >= 0; i--){
+    var m = /^\s*(You said|You)\s*:\s*(.+?)\s*$/i.exec(lines[i]);
+    if(m){
+      var next = lines[i + 1] || '';
+      var filled = /^\s*(Correct|Better)\s*:\s*\S/i.test(next);
+      return {idx: i, sentence: m[2], hasLabel: /^\s*(Correct|Better)\s*:/i.test(next), filled: filled, lines: lines};
+    }
+  }
+  return null;
+}
+function writeSuggestion(el, found, suggestion, label){
+  var lines = found.lines;
+  var line = label + ': ' + suggestion;
+  if(found.hasLabel) lines[found.idx + 1] = line;
+  else lines.splice(found.idx + 1, 0, line);
+  el.value = lines.join('\n');
+  el.dispatchEvent(new Event('input'));
+}
+
+document.addEventListener('click', function(e){
+  var btn = e.target.closest('.fix-btn');
+  if(!btn) return;
+  var el = $(btn.getAttribute('data-fix'));
+  if(!el) return;
+  var found = findPending(el);
+  if(!found){
+    T('Type a line starting with "You said:" first \u2661');
+    return;
+  }
+  if(found.filled){
+    T('That pair already has a correction. Add a new "You said:" line first.');
+    return;
+  }
+  var label = /je-range|je-flu|nb-vocab|nb-wna|bw-vocab/.test(el.id) ? 'Better' : 'Correct';
+  var offline = applyRules(found.sentence);
+  writeSuggestion(el, found, offline.text, label);
+  var original = btn.textContent;
+  btn.textContent = '\u2728 Polishing\u2026';
+  languageTool(found.sentence).then(function(res){
+    btn.textContent = original;
+    var better = applyRules(res.text).text;
+    if(better && better.toLowerCase() !== offline.text.toLowerCase()){
+      var again = findPending(el);
+      if(again) writeSuggestion(el, again, better, label);
+      T('Suggestion ready. Please review it before sending \u2661');
+    } else {
+      T(offline.notes.length ? 'Suggested: ' + offline.notes[0] + '. Please review.' : 'Suggestion ready. Please review it before sending \u2661');
+    }
+  }).catch(function(){
+    btn.textContent = original;
+    T(offline.notes.length
+      ? 'Offline suggestion: ' + offline.notes[0] + '. Please review.'
+      : 'Offline check found nothing to change. Please edit the line yourself.');
+  });
+});
 })();
 </script>
 </body>
