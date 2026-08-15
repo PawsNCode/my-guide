@@ -397,7 +397,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 14, 2026 · 08:31 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 15, 2026 · 08:55 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1452,7 +1452,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
   <div class="card">
     <h2>Business terms library</h2>
-    <p class="sub">419 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
+    <p class="sub">430 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
     <input type="text" id="biz-search" placeholder="Filter terms… (e.g., nego, meeting, money)">
     <div id="biz-list" style="margin-top:14px"></div>
   </div>
@@ -1772,7 +1772,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <input type="text" id="dict-input" placeholder="Type a word, e.g., flannel" autocomplete="off">
       <button class="btn btn-magenta" id="dict-go">Search</button>
     </div>
-    <div class="voice-note">Offline-first: 419 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
+    <div class="voice-note">Offline-first: 430 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
     <div id="dict-history-wrap" style="display:none;margin-top:12px">
       <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mauve)">Recent searches</span>
       <button class="copy-mini" id="dict-history-clear" style="margin-left:8px;font-size:11.5px;padding:2px 10px">clear</button>
@@ -3372,7 +3372,7 @@ var BIZTERMS = [
 {w:'nourish',r:'NUR-ish',p:'verb',d:'to give a person or thing the food or support needed to grow and stay healthy',jk:'\u990a\u3046',jh:'やしなう',e:["A balanced diet nourishes the body.","Delivering healthy food nourished her own mental health, too."]},
 {w:'recreational',r:'rek-ree-EY-shuh-nl',p:'adjective',d:'done for fun and relaxation, not as a job or competition',jk:'\u5a2f\u697d\u306e',jh:'ごらくの',e:["He plays recreational football on weekends.","The app helps ordinary people who play recreational sport."]},
 {w:'humidity',r:'hyoo-MID-i-tee',p:'noun',d:'the amount of water vapor in the air',jk:'\u6e7f\u5ea6',jh:'しつど',e:["The humidity is very high in Manila during summer.","The app considers humidity, airflow, and wind speed."]},
-{w:'herd',r:'HURD',p:'noun',d:'a large group of animals of one kind that live or move together',jk:'\u7fa4\u308c',jh:'むれ',e:["A herd of cattle grazed on the hill.","The royal herd is treated to poetry and music."]},
+{w:'herd',r:'HURD',p:'noun / verb',d:'a large group of animals that live or move together; as a verb, to gather, direct, or move a group of animals in a specific direction',jk:'\u7fa4\u308c',jh:'むれ',e:["A herd of cattle grazed on the hill.","The farmer is practicing with his puppy, herding farm animals around the yard."]},
 {w:'pamper',r:'PAM-per',p:'verb',d:'to treat a person or animal with extreme care, attention, or kindness',jk:'\u7518\u3084\u304b\u3059',jh:'あまやかす',e:["The hotel pampers guests with excellent service.","The cows are pampered with melodious poetry describing their beauty."]},
 {w:'heritage',r:'HER-i-tij',p:'noun',d:'the traditions, culture, and history passed down in a family or country',jk:'\u907a\u7523',jh:'いさん',e:["Kyoto is famous for its rich cultural heritage.","The cows symbolize the nation\u2019s rich cultural heritage."]},
 {w:'felony',r:'FEL-uh-nee',p:'noun',d:'a serious crime that can be punished with more than a year in prison',jk:'\u91cd\u7f6a',jh:'じゅうざい',e:["He was charged with a felony after the robbery.","The couple was charged with felonies for the climb."]},
@@ -3654,7 +3654,18 @@ var BIZTERMS = [
 {w:'escape',r:'ih-SKEYP',p:'verb / noun',d:'to get away from something dangerous, unpleasant, or uncomfortable',jk:'\u9003\u308c\u308b',jh:'のがれる',e:["The family decided to stay indoors to escape the heavy rain.","The sea is another important way for residents to escape the heat."]},
 {w:'insulate',r:'IN-suh-leyt',p:'verb',d:'to cover or build something so heat, cold, or sound cannot pass through easily (noun: insulation)',jk:'\u65ad\u71b1\u3059\u308b',jh:'だんねつする',e:["Thick walls insulate the house from summer heat.","Thick stone walls and small windows keep the summer heat out."]},
 {w:'generation',r:'jen-uh-REY-shuhn',p:'noun',d:'all the people born and living at about the same time; one step in a family line',jk:'\u4e16\u4ee3',jh:'せだい',e:["Three generations live together in that house.","Locals follow habits passed down through generations."]},
-{w:'tradition',r:'truh-DISH-uhn',p:'noun',d:'a belief or way of doing things that a group has followed for a long time (adjective: traditional)',jk:'\u4f1d\u7d71',jh:'でんとう',e:["Eating soba on New Year's Eve is a Japanese tradition.","Residents are using traditional ways to stay cool as Europe faces another heatwave."]}
+{w:'tradition',r:'truh-DISH-uhn',p:'noun',d:'a belief or way of doing things that a group has followed for a long time (adjective: traditional)',jk:'\u4f1d\u7d71',jh:'でんとう',e:["Eating soba on New Year's Eve is a Japanese tradition.","Residents are using traditional ways to stay cool as Europe faces another heatwave."]},
+{w:'seagull',r:'SEE-guhl',p:'noun',d:'a common gray and white bird with long wings and short legs that lives near the sea or ocean',jk:'カモメ',jh:'カモメ',e:["You can always hear the loud cries of seagulls near the fish market.","Dogs on patrol deter swooping seagulls from snack theft at the Sydney Opera House."]},
+{w:'creep',r:'KREEP',p:'verb',d:'to move slowly, quietly, and carefully to avoid being noticed or heard',jk:'\u5fcd\u3073\u5bc4\u308b',jh:'しのびよる',e:["The cat crept low to the ground to creep through the tall grass toward its target.","The dogs creep up quietly and hold their gaze on the birds."]},
+{w:'gimmick',r:'GIM-ik',p:'noun',d:'an unusual trick or idea used to attract people\u2019s attention or interest, but having little real value or practical use',jk:'\u5238\u5148\u306e\u3044\u3044\u4f01\u753b',jh:'めさきのいいきかく',e:["Critics argued that the company\u2019s low price promise was just an advertising gimmick, as hidden fees made the final cost much higher.","There was skepticism about whether they would be successful or a gimmick."]},
+{w:'patrol',r:'puh-TROHL',p:'noun / verb',d:'the act of regularly walking or traveling around an area to watch for problems or keep it safe',jk:'\u5de1\u56de',jh:'じゅんかい',e:["Security guards patrol the shopping mall every hour.","Dogs on patrol deter swooping seagulls from snack theft."]},
+{w:'swoop',r:'SWOOP',p:'verb',d:'to move down through the air suddenly and quickly, especially to attack or grab something',jk:'\u6025\u964d\u4e0b\u3059\u308b',jh:'きゅうこうかする',e:["The eagle swooped down to catch a fish.","Swooping seagulls have long been a familiar frustration for anyone trying to enjoy a meal by Sydney Harbour."]},
+{w:'theft',r:'THEFT',p:'noun',d:'the crime of stealing something (verb: steal)',jk:'\u7a83\u76d7',jh:'せっとう',e:["The store installed cameras to prevent theft.","The dogs are trained to stop the seagulls from snack theft."]},
+{w:'instinct',r:'IN-stingkt',p:'noun',d:'a natural ability or behavior that a person or animal is born with (adjective: instinctive)',jk:'\u672c\u80fd',jh:'ほんのう',e:["Birds build nests by instinct.","The reward is getting to chase the seagulls, so we get dogs that just love doing it, using their natural herding instincts."]},
+{w:'skepticism',r:'SKEP-tuh-siz-uhm',p:'noun',d:'a feeling of doubt about whether something is true or will work (adjective: skeptical)',jk:'\u61d0\u7591',jh:'かいぎ',e:["There was skepticism about the new plan at first.","There was skepticism about whether they would be successful or a gimmick."]},
+{w:'expand',r:'ik-SPAND',p:'verb',d:'to make or become larger in size, number, or amount (noun: expansion)',jk:'\u62e1\u5927\u3059\u308b',jh:'かくだいする',e:["The bakery plans to expand to three more cities.","The program has expanded to as many as five locations."]},
+{w:'harbour',r:'HAHR-ber',p:'noun',d:'a sheltered area of water near land where ships can stay safely (American spelling: harbor)',jk:'\u6e2f',jh:'みなと',e:["The boats returned to the harbour before the storm.","Swooping seagulls frustrate anyone trying to enjoy a meal by Sydney Harbour."]},
+{w:'anticipate',r:'an-TIS-uh-peyt',p:'verb',d:'to expect something to happen and prepare for it',jk:'\u4e88\u6e2c\u3059\u308b',jh:'よそくする',e:["We anticipate a busy season this December.","The dogs are trained to anticipate the birds\u2019 movements."]}
 ];
 var BIZMAP = {};
 BIZTERMS.forEach(function(t){ BIZMAP[t.w] = t; });
