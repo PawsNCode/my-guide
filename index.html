@@ -397,7 +397,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 15, 2026 · 08:55 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 16, 2026 · 08:52 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1452,7 +1452,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
   <div class="card">
     <h2>Business terms library</h2>
-    <p class="sub">430 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
+    <p class="sub">442 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
     <input type="text" id="biz-search" placeholder="Filter terms… (e.g., nego, meeting, money)">
     <div id="biz-list" style="margin-top:14px"></div>
   </div>
@@ -1772,7 +1772,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <input type="text" id="dict-input" placeholder="Type a word, e.g., flannel" autocomplete="off">
       <button class="btn btn-magenta" id="dict-go">Search</button>
     </div>
-    <div class="voice-note">Offline-first: 430 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
+    <div class="voice-note">Offline-first: 442 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
     <div id="dict-history-wrap" style="display:none;margin-top:12px">
       <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mauve)">Recent searches</span>
       <button class="copy-mini" id="dict-history-clear" style="margin-left:8px;font-size:11.5px;padding:2px 10px">clear</button>
@@ -3665,7 +3665,19 @@ var BIZTERMS = [
 {w:'skepticism',r:'SKEP-tuh-siz-uhm',p:'noun',d:'a feeling of doubt about whether something is true or will work (adjective: skeptical)',jk:'\u61d0\u7591',jh:'かいぎ',e:["There was skepticism about the new plan at first.","There was skepticism about whether they would be successful or a gimmick."]},
 {w:'expand',r:'ik-SPAND',p:'verb',d:'to make or become larger in size, number, or amount (noun: expansion)',jk:'\u62e1\u5927\u3059\u308b',jh:'かくだいする',e:["The bakery plans to expand to three more cities.","The program has expanded to as many as five locations."]},
 {w:'harbour',r:'HAHR-ber',p:'noun',d:'a sheltered area of water near land where ships can stay safely (American spelling: harbor)',jk:'\u6e2f',jh:'みなと',e:["The boats returned to the harbour before the storm.","Swooping seagulls frustrate anyone trying to enjoy a meal by Sydney Harbour."]},
-{w:'anticipate',r:'an-TIS-uh-peyt',p:'verb',d:'to expect something to happen and prepare for it',jk:'\u4e88\u6e2c\u3059\u308b',jh:'よそくする',e:["We anticipate a busy season this December.","The dogs are trained to anticipate the birds\u2019 movements."]}
+{w:'anticipate',r:'an-TIS-uh-peyt',p:'verb',d:'to expect something to happen and prepare for it',jk:'\u4e88\u6e2c\u3059\u308b',jh:'よそくする',e:["We anticipate a busy season this December.","The dogs are trained to anticipate the birds\u2019 movements."]},
+{w:'rein in',r:'reyn in',p:'phrasal verb',d:'to control or limit something or someone that is becoming too powerful, too large, or difficult to manage',jk:'\u6291\u5236\u3059\u308b',jh:'よくせいする',e:["The government wants to rein in rising grocery prices to help families.","The new rules aim to rein in the tech industry\u2019s deep control of the digital economy."]},
+{w:'juggernaut',r:'JUHG-er-nawt',p:'noun',d:'a very large, powerful, and successful person, company, or organization that is difficult to stop',jk:'\u5de8\u5927\u306a\u5b58\u5728',jh:'きょだいなそんざい',e:["Our small shop could not compete with the big online juggernaut, so we eventually closed down.","This word is often used with juggernaut as commercial and economic."]},
+{w:'vet',r:'VET',p:'verb / noun',d:'to carefully check or examine someone or something before deciding if they are suitable, safe, or good enough; as a noun, an animal doctor',jk:'\u5be9\u67fb\u3059\u308b',jh:'しんさする',e:["Companies should vet new apps before their children use them.","The vetting of new apps helps parents choose safe apps for their children."]},
+{w:'infinite',r:'IN-fuh-nit',p:'adjective',d:'having no limit or end (adverb: infinitely)',jk:'\u7121\u9650\u306e',jh:'むげんの',e:["The universe seems to have infinite space.","The vetting of new apps helps limit infinite scrolling, which can be used as a gerund as well."]},
+{w:'antitrust',r:'an-tee-TRUHST',p:'adjective',d:'relating to laws that stop companies from unfairly controlling a market or blocking competition',jk:'\u72ec\u5360\u7981\u6b62\u306e',jh:'どくせんきんしの',e:["The company faced an antitrust investigation in Europe.","The measure is the latest advancement of Brussels\u2019 growing rules and regulations that have given the tech giants a bloc-wide antitrust position."]},
+{w:'rival',r:'RAHY-vuhl',p:'noun / adjective',d:'a person, company, or group that competes with another',jk:'\u7af6\u5408\u76f8\u624b',jh:'きょうごうあいて',e:["The two rival stores lowered their prices at the same time.","The EU forces Google to share search data and open Android to rival AI companies."]},
+{w:'regulator',r:'REG-yuh-ley-ter',p:'noun',d:'an official person or organization that makes sure companies follow the rules',jk:'\u898f\u5236\u5f53\u5c40',jh:'きせいとうきょく',e:["The regulator fined the bank for breaking privacy rules.","Regulators in Brussels have pushed through efforts to ensure Google gives access to Gemini AI services."]},
+{w:'compliance',r:'kuhm-PLAHY-uhns',p:'noun',d:'the act of obeying a rule, law, or official order (verb: comply)',jk:'\u9075\u5b88',jh:'じゅんしゅ',e:["The factory passed its safety compliance check.","The commission ordered compliance with the new interoperability rules."]},
+{w:'alternative',r:'awl-TUR-nuh-tiv',p:'noun / adjective',d:'another choice or option that can be used instead',jk:'\u4ee3\u66ff\u6848',jh:'だいたいあん',e:["Tea is a good alternative to coffee in the afternoon.","Regulators hope to see emerging alternatives to Google Search and Google\u2019s AI services."]},
+{w:'default',r:'dih-FAWLT',p:'noun / adjective / verb',d:'the setting or option that is used automatically unless you choose something else',jk:'\u521d\u671f\u8a2d\u5b9a',jh:'しょきせってい',e:["The app opens in dark mode by default.","Google must now allow voice activation of these alternative AI agents and make them run in background tasks like booking restaurants via third-party apps."]},
+{w:'commission',r:'kuh-MISH-uhn',p:'noun',d:'an official group appointed to control something or make decisions; also money paid for selling something',jk:'\u59d4\u54e1\u4f1a',jh:'いいんかい',e:["The commission published its findings last week.","The European Commission oversaw the order requiring the changes."]},
+{w:'giant',r:'JAHY-uhnt',p:'noun / adjective',d:'a very large and powerful company or organization; something very big',jk:'\u5de8\u5927\u4f01\u696d',jh:'きょだいきぎょう',e:["The tech giant announced record profits.","The rules aim to check the power of tech juggernauts or gatekeepers like TikTok."]}
 ];
 var BIZMAP = {};
 BIZTERMS.forEach(function(t){ BIZMAP[t.w] = t; });
