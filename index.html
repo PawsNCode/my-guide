@@ -397,7 +397,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 16, 2026 · 08:52 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 17, 2026 · 09:18 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1452,7 +1452,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
   <div class="card">
     <h2>Business terms library</h2>
-    <p class="sub">442 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
+    <p class="sub">460 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
     <input type="text" id="biz-search" placeholder="Filter terms… (e.g., nego, meeting, money)">
     <div id="biz-list" style="margin-top:14px"></div>
   </div>
@@ -1772,7 +1772,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <input type="text" id="dict-input" placeholder="Type a word, e.g., flannel" autocomplete="off">
       <button class="btn btn-magenta" id="dict-go">Search</button>
     </div>
-    <div class="voice-note">Offline-first: 442 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
+    <div class="voice-note">Offline-first: 460 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
     <div id="dict-history-wrap" style="display:none;margin-top:12px">
       <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mauve)">Recent searches</span>
       <button class="copy-mini" id="dict-history-clear" style="margin-left:8px;font-size:11.5px;padding:2px 10px">clear</button>
@@ -3677,7 +3677,25 @@ var BIZTERMS = [
 {w:'alternative',r:'awl-TUR-nuh-tiv',p:'noun / adjective',d:'another choice or option that can be used instead',jk:'\u4ee3\u66ff\u6848',jh:'だいたいあん',e:["Tea is a good alternative to coffee in the afternoon.","Regulators hope to see emerging alternatives to Google Search and Google\u2019s AI services."]},
 {w:'default',r:'dih-FAWLT',p:'noun / adjective / verb',d:'the setting or option that is used automatically unless you choose something else',jk:'\u521d\u671f\u8a2d\u5b9a',jh:'しょきせってい',e:["The app opens in dark mode by default.","Google must now allow voice activation of these alternative AI agents and make them run in background tasks like booking restaurants via third-party apps."]},
 {w:'commission',r:'kuh-MISH-uhn',p:'noun',d:'an official group appointed to control something or make decisions; also money paid for selling something',jk:'\u59d4\u54e1\u4f1a',jh:'いいんかい',e:["The commission published its findings last week.","The European Commission oversaw the order requiring the changes."]},
-{w:'giant',r:'JAHY-uhnt',p:'noun / adjective',d:'a very large and powerful company or organization; something very big',jk:'\u5de8\u5927\u4f01\u696d',jh:'きょだいきぎょう',e:["The tech giant announced record profits.","The rules aim to check the power of tech juggernauts or gatekeepers like TikTok."]}
+{w:'giant',r:'JAHY-uhnt',p:'noun / adjective',d:'a very large and powerful company or organization; something very big',jk:'\u5de8\u5927\u4f01\u696d',jh:'きょだいきぎょう',e:["The tech giant announced record profits.","The rules aim to check the power of tech juggernauts or gatekeepers like TikTok."]},
+{w:'index',r:'IN-deks',p:'noun',d:'a list of prices, shares, or business values that shows how an economy or market is changing over time (also a list at the back of a book)',jk:'\u6307\u6570',jh:'しすう',e:["Business owners use the market index to see if the economy is doing better or worse.","The S&P 500 index fell 4.2%, and the Dow Jones Industrial Average dipped 1.05%."]},
+{w:'punch',r:'PUHNCH',p:'noun / verb',d:'a powerful effect, strong influence, or big impact on something',jk:'\u8feb\u529b',jh:'はくりょく',e:["A number in oil prices can pack a punch, which means a group of persons at the gas station.","Abbott jumped 10.7% after the healthcare company delivered a fatter profit than expected and raised its forecast."]},
+{w:'unusual',r:'uhn-YOO-zhoo-uhl',p:'adjective',d:'extremely good or unusually high in quality (antonym: ordinary)',jk:'\u7570\u4f8b\u306e',jh:'いれいの',e:["The tech company reported unusual sales growth after releasing its new smartphone.","Prices also rose too high and the unusual demand for computer memory could not be sustainable."]},
+{w:'voracious',r:'vaw-REY-shuhs',p:'adjective',d:'wanting, needing, or consuming a very large amount of something',jk:'\u65fa\u76db\u306a',jh:'おうせいな',e:["Tech companies have a voracious demand for electricity to power their data centers.","Micron, SanDisk, and Western Digital came under pressure because prices rose too high and demand was voracious."]},
+{w:'slump',r:'SLUHMP',p:'verb / noun',d:'to fall suddenly in value, price, or amount; a period of poor performance',jk:'\u4e0b\u843d\u3059\u308b',jh:'げらくする',e:["Sales slumped after the store moved to a quieter street.","Slumping AI stocks drag down markets around the world."]},
+{w:'stock',r:'STOK',p:'noun',d:'a share in the ownership of a company that can be bought and sold',jk:'\u682a\u5f0f',jh:'かぶしき',e:["He bought stock in a small technology company.","Slumping AI stocks drag down markets around the world."]},
+{w:'boom',r:'BOOM',p:'noun / verb',d:'a period of rapid growth in business, sales, or activity',jk:'\u597d\u666f\u6c17',jh:'こうけいき',e:["The country experienced a housing boom last year.","Drops for computer chipmakers and other winners of the artificial intelligence boom dragged down stock markets worldwide."]},
+{w:'earnings',r:'UR-ningz',p:'noun',d:'the profit that a company makes, or the money a person is paid for work',jk:'\u53ce\u76ca',jh:'しゅうえき',e:["The company reports its earnings every three months.","Abbott raised its forecast for earnings over the full year."]},
+{w:'sustainable',r:'suh-STEY-nuh-buhl',p:'adjective',d:'able to continue at the same level for a long time without causing problems',jk:'\u6301\u7d9a\u53ef\u80fd\u306a',jh:'じぞくかのうな',e:["The business needs a sustainable plan for growth.","Analysts said the unusual demand for computer memory may not be sustainable."]},
+{w:'analyst',r:'AN-l-ist',p:'noun',d:'a person whose job is to study information carefully and explain what it means',jk:'\u30a2\u30ca\u30ea\u30b9\u30c8',jh:'アナリスト',e:["Analysts expect prices to rise later this year.","Analysts said prices rose too high and the demand may not be sustainable."]},
+{w:'scroll',r:'SKROHL',p:'verb',d:'to move text or images up or down on a screen to see more',jk:'スクロールする',jh:'スクロールする',e:["He scrolled down the webpage until he found the information he needed.","Do your hands hurt when you text or scroll on your phone?"]},
+{w:'tendon',r:'TEN-duhn',p:'noun',d:'a strong band of tissue in the body that connects a muscle to a bone',jk:'\u814f',jh:'けん',e:["Mary rested her arm because the tendon in her wrist was sore.","Common signs include stiffness and a clicking feeling when you bend your thumb."]},
+{w:'joint',r:'JOINT',p:'noun',d:'a place in the body where two bones meet, such as a knee or knuckle',jk:'\u95a2\u7bc0',jh:'かんせつ',e:["My finger joint hurts after I typed on the computer all day.","Your hands can hurt a tendon or joint from too much texting."]},
+{w:'stiffness',r:'STIF-nis',p:'noun',d:'the feeling of being hard to move or bend (adjective: stiff)',jk:'\u3053\u308a',jh:'こり',e:["I felt stiffness in my neck after sitting at my desk for a long time.","Common signs include stiffness and a clicking feeling when you bend your thumb."]},
+{w:'gently',r:'JENT-lee',p:'adverb',d:'in a soft, careful, and kind way (adjective: gentle)',jk:'\u512a\u3057\u304f',jh:'やさしく',e:["The doctor gently moved my arm to check for pain.","Gently move your thumb away from your other fingers."]},
+{w:'posture',r:'POS-cher',p:'noun',d:'the way you hold your body when sitting or standing',jk:'\u59ff\u52e2',jh:'しせい',e:["Good posture helps prevent back pain.","Experts say you should change your posture while using your phone."]},
+{w:'wrist',r:'RIST',p:'noun',d:'the joint that connects the hand to the arm',jk:'\u624b\u9996',jh:'てくび',e:["She wears a watch on her left wrist.","You can also put your hand flat on a table and gently move your thumb away from your other fingers."]},
+{w:'stretch',r:'STRECH',p:'verb / noun',d:'to extend your body or a part of it to make muscles longer and looser',jk:'\u4f38\u3070\u3059',jh:'のばす',e:["Remember to stretch before you exercise.","Doctors say you can make small circles with your thumbs or stretch your wrists slowly."]}
 ];
 var BIZMAP = {};
 BIZTERMS.forEach(function(t){ BIZMAP[t.w] = t; });
