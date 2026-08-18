@@ -397,7 +397,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 17, 2026 · 09:18 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 18, 2026 · 08:51 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1452,7 +1452,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
   <div class="card">
     <h2>Business terms library</h2>
-    <p class="sub">460 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
+    <p class="sub">477 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
     <input type="text" id="biz-search" placeholder="Filter terms… (e.g., nego, meeting, money)">
     <div id="biz-list" style="margin-top:14px"></div>
   </div>
@@ -1772,7 +1772,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <input type="text" id="dict-input" placeholder="Type a word, e.g., flannel" autocomplete="off">
       <button class="btn btn-magenta" id="dict-go">Search</button>
     </div>
-    <div class="voice-note">Offline-first: 460 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
+    <div class="voice-note">Offline-first: 477 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
     <div id="dict-history-wrap" style="display:none;margin-top:12px">
       <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mauve)">Recent searches</span>
       <button class="copy-mini" id="dict-history-clear" style="margin-left:8px;font-size:11.5px;padding:2px 10px">clear</button>
@@ -3695,7 +3695,24 @@ var BIZTERMS = [
 {w:'gently',r:'JENT-lee',p:'adverb',d:'in a soft, careful, and kind way (adjective: gentle)',jk:'\u512a\u3057\u304f',jh:'やさしく',e:["The doctor gently moved my arm to check for pain.","Gently move your thumb away from your other fingers."]},
 {w:'posture',r:'POS-cher',p:'noun',d:'the way you hold your body when sitting or standing',jk:'\u59ff\u52e2',jh:'しせい',e:["Good posture helps prevent back pain.","Experts say you should change your posture while using your phone."]},
 {w:'wrist',r:'RIST',p:'noun',d:'the joint that connects the hand to the arm',jk:'\u624b\u9996',jh:'てくび',e:["She wears a watch on her left wrist.","You can also put your hand flat on a table and gently move your thumb away from your other fingers."]},
-{w:'stretch',r:'STRECH',p:'verb / noun',d:'to extend your body or a part of it to make muscles longer and looser',jk:'\u4f38\u3070\u3059',jh:'のばす',e:["Remember to stretch before you exercise.","Doctors say you can make small circles with your thumbs or stretch your wrists slowly."]}
+{w:'stretch',r:'STRECH',p:'verb / noun',d:'to extend your body or a part of it to make muscles longer and looser',jk:'\u4f38\u3070\u3059',jh:'のばす',e:["Remember to stretch before you exercise.","Doctors say you can make small circles with your thumbs or stretch your wrists slowly."]},
+{w:'asthma',r:'AZ-muh',p:'noun',d:'a medical condition that makes it difficult to breathe because the airways become narrow or swollen (used in a medical context)',jk:'\u55d8\u606f',jh:'ぜんそく',e:["The doctor gave her medicine to help control her asthma.","Wildfire smoke can prepare for wildfires, and inhaling it can worsen asthma."]},
+{w:'swamp',r:'SWOMP',p:'verb / noun',d:'to give someone or something such a large amount of work, people, or things that it becomes difficult to manage (as a noun: an area of soft wet land)',jk:'\u6df1\u523b\u306a\u8ca0\u62c5\u3092\u304b\u3051\u308b',jh:'しんこくなふたんをかける',e:["Too much homework sometimes swamps students.","Increased emissions rose within hours, swamping emergency rooms in a day or so with people suffering from heart attacks and other cardiovascular and lung issues."]},
+{w:'prolonged',r:'pruh-LAWNGD',p:'adjective',d:'continuing for a longer time than usual or expected (verb: prolong)',jk:'\u9577\u5f15\u3044\u305f',jh:'ながびいた',e:["Prolonged exposure to loud noise can damage your hearing.","Doctors warn that even prolonged exposure to smoke can be harmful."]},
+{w:'irritant',r:'IR-i-tuhnt',p:'noun',d:'a substance or thing that causes discomfort, irritation, or an unpleasant reaction (used in a medical context)',jk:'\u523a\u6fc0\u7269',jh:'しげきぶつ',e:["Dust can irritate the eyes, nose, and throat.","Wildfire smoke is the toxic product of combustion of whatever burned, which could include houses and cars."]},
+{w:'combustion',r:'kuhm-BUHS-chuhn',p:'noun',d:'the process of burning that produces heat, light, or energy (adjective: combustible)',jk:'\u71c3\u713c',jh:'ねんしょう',e:["The engine uses combustible fuel to produce energy.","Wildfire smoke is the toxic product of combustion of whatever burned."]},
+{w:'wildfire',r:'WAHYLD-fahyuhr',p:'noun',d:'a large, uncontrolled fire that spreads quickly through forests or grassland',jk:'\u5c71\u706b\u4e8b',jh:'やまかじ',e:["The wildfire destroyed hundreds of homes near the forest.","Wildfire smoke kills tens of thousands of people a year."]},
+{w:'emission',r:'ih-MISH-uhn',p:'noun',d:'a gas or substance sent out into the air, especially one that causes pollution',jk:'\u6392\u51fa',jh:'はいしゅつ',e:["The factory reduced its carbon emissions last year.","Increased emissions rose within hours, swamping emergency rooms."]},
+{w:'toxin',r:'TOK-sin',p:'noun',d:'a poisonous substance that can harm the body (adjective: toxic)',jk:'\u6bd2\u7d20',jh:'どくそ',e:["Some plants produce natural toxins to protect themselves.","There are a lot of toxins in wildfire smoke, so it is made from a lot more than wood."]},
+{w:'exposure',r:'ik-SPOH-zher',p:'noun',d:'the state of being in contact with something harmful or being affected by it (verb: expose)',jk:'\u3055\u3089\u3055\u308c\u308b\u3053\u3068',jh:'さらされること',e:["Long exposure to the sun can damage your skin.","Prolonged exposure to loud noise can damage your hearing."]},
+{w:'premature',r:'pree-muh-CHOOR',p:'adjective',d:'happening earlier than the normal or expected time',jk:'\u65e9\u7523\u306e',jh:'そうざんの',e:["The baby was premature but healthy.","Studies increased the risk of premature births and low-weight babies."]},
+{w:'dementia',r:'dih-MEN-shuh',p:'noun',d:'a medical condition that slowly reduces a person\u2019s memory and thinking ability',jk:'\u8a8d\u77e5\u75c7',jh:'にんちしょう',e:["Regular exercise may lower the risk of dementia.","Studies found a link between smoke exposure and dementia."]},
+{w:'trigger',r:'TRIG-er',p:'verb / noun',d:'to cause something to start or happen suddenly',jk:'\u5f15\u304d\u8d77\u3053\u3059',jh:'ひきおこす',e:["The loud noise triggered the alarm.","Smoke causes inflammation by triggering the body\u2019s immune system to go into overdrive to fight the irritant."]},
+{w:'inflammation',r:'in-fluh-MEY-shuhn',p:'noun',d:'a painful red or swollen condition in part of the body, caused by injury or illness',jk:'\u708e\u75c7',jh:'えんしょう',e:["The doctor gave him medicine to reduce the inflammation.","Smoke causes inflammation by triggering the body\u2019s immune system."]},
+{w:'cardiovascular',r:'kahr-dee-oh-VAS-kyuh-ler',p:'adjective',d:'relating to the heart and blood vessels',jk:'\u5fc3\u8840\u7ba1\u306e',jh:'しんけっかんの',e:["Walking every day improves cardiovascular health.","Emergency rooms filled with people suffering from heart attacks and other cardiovascular and lung issues."]},
+{w:'immune system',r:'ih-MYOON SIS-tuhm',p:'noun',d:'the body\u2019s natural defense that fights illness and infection',jk:'\u514d\u75ab\u30b7\u30b9\u30c6\u30e0',jh:'めんえきシステム',e:["Sleep and good food strengthen your immune system.","Smoke causes inflammation by triggering the body\u2019s immune system to go into overdrive."]},
+{w:'evacuation',r:'ih-vak-yoo-EY-shuhn',p:'noun',d:'the act of moving people away from a dangerous place to somewhere safe (verb: evacuate)',jk:'\u907f\u96e3',jh:'ひなん',e:["The city ordered an evacuation before the typhoon arrived.","Do you think wildfire-related deaths can be prevented if people are prepared enough for it?"]},
+{w:'inhale',r:'in-HEYL',p:'verb',d:'to breathe in air, smoke, or gas (opposite: exhale)',jk:'\u5438\u3044\u8fbc\u3080',jh:'すいこむ',e:["Try not to inhale the dust while cleaning.","Inhaling wildfire smoke can worsen asthma and harm the lungs."]}
 ];
 var BIZMAP = {};
 BIZTERMS.forEach(function(t){ BIZMAP[t.w] = t; });
