@@ -397,7 +397,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 18, 2026 · 08:51 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 19, 2026 · 09:03 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1452,7 +1452,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
   <div class="card">
     <h2>Business terms library</h2>
-    <p class="sub">477 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
+    <p class="sub">488 essential business, DNA, and WNA terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
     <input type="text" id="biz-search" placeholder="Filter terms… (e.g., nego, meeting, money)">
     <div id="biz-list" style="margin-top:14px"></div>
   </div>
@@ -1772,7 +1772,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <input type="text" id="dict-input" placeholder="Type a word, e.g., flannel" autocomplete="off">
       <button class="btn btn-magenta" id="dict-go">Search</button>
     </div>
-    <div class="voice-note">Offline-first: 477 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
+    <div class="voice-note">Offline-first: 488 built-in business, Daily News Article, and Weekly News Article terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
     <div id="dict-history-wrap" style="display:none;margin-top:12px">
       <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mauve)">Recent searches</span>
       <button class="copy-mini" id="dict-history-clear" style="margin-left:8px;font-size:11.5px;padding:2px 10px">clear</button>
@@ -3712,7 +3712,18 @@ var BIZTERMS = [
 {w:'cardiovascular',r:'kahr-dee-oh-VAS-kyuh-ler',p:'adjective',d:'relating to the heart and blood vessels',jk:'\u5fc3\u8840\u7ba1\u306e',jh:'しんけっかんの',e:["Walking every day improves cardiovascular health.","Emergency rooms filled with people suffering from heart attacks and other cardiovascular and lung issues."]},
 {w:'immune system',r:'ih-MYOON SIS-tuhm',p:'noun',d:'the body\u2019s natural defense that fights illness and infection',jk:'\u514d\u75ab\u30b7\u30b9\u30c6\u30e0',jh:'めんえきシステム',e:["Sleep and good food strengthen your immune system.","Smoke causes inflammation by triggering the body\u2019s immune system to go into overdrive."]},
 {w:'evacuation',r:'ih-vak-yoo-EY-shuhn',p:'noun',d:'the act of moving people away from a dangerous place to somewhere safe (verb: evacuate)',jk:'\u907f\u96e3',jh:'ひなん',e:["The city ordered an evacuation before the typhoon arrived.","Do you think wildfire-related deaths can be prevented if people are prepared enough for it?"]},
-{w:'inhale',r:'in-HEYL',p:'verb',d:'to breathe in air, smoke, or gas (opposite: exhale)',jk:'\u5438\u3044\u8fbc\u3080',jh:'すいこむ',e:["Try not to inhale the dust while cleaning.","Inhaling wildfire smoke can worsen asthma and harm the lungs."]}
+{w:'inhale',r:'in-HEYL',p:'verb',d:'to breathe in air, smoke, or gas (opposite: exhale)',jk:'\u5438\u3044\u8fbc\u3080',jh:'すいこむ',e:["Try not to inhale the dust while cleaning.","Inhaling wildfire smoke can worsen asthma and harm the lungs."]},
+{w:'unsure',r:'uhn-SHOOR',p:'adjective',d:'not certain about something; having doubts',jk:'\u78ba\u4fe1\u304c\u306a\u3044',jh:'かくしんがない',e:["He was unsure whether to accept the job offer.","Behavior experts say too many choices can make people feel stressed and unsure."]},
+{w:'indecisive',r:'in-di-SAHY-siv',p:'adjective',d:'not able to make decisions quickly or easily',jk:'\u512a\u67d4\u4e0d\u65ad\u306a',jh:'ゆうじゅうふだんな',e:["He was indecisive, so it took him a long time to choose a restaurant.","Too many options can make people feel indecisive."]},
+{w:'end up',r:'end uhp',p:'phrasal verb',d:'to finally be in a particular place or situation, often without planning it',jk:'\u7d50\u5c40\u3053\u3046\u306a\u308b',jh:'けっきょくこうなる',e:["We missed the last bus, so we ended up walking home.","People often end up making worse decisions with more options."]},
+{w:'problem-solving',r:'PROB-luhm-sol-ving',p:'noun / adjective',d:'the process of finding answers to difficult situations or questions',jk:'\u554f\u984c\u89e3\u6c7a',jh:'もんだいかいけつ',e:["The game helps children develop problem-solving skills.","Usually, the problem-solving part of the brain only kicks in after a decision is made."]},
+{w:'kick in',r:'kik in',p:'phrasal verb',d:'to start working or having an effect',jk:'\u52b9\u304d\u59cb\u3081\u308b',jh:'ききはじめる',e:["The medicine will kick in after about 30 minutes.","The problem-solving part of the brain kicks in after a decision is made."]},
+{w:'psychologist',r:'sahy-KOL-uh-jist',p:'noun',d:'a person who studies how the mind works and how people behave',jk:'\u5fc3\u7406\u5b66\u8005',jh:'しんりがくしゃ',e:["The psychologist explained why people feel nervous before a test.","Psychologist Barry Schwartz said there have been hundreds of studies showing that there can be too much of a good thing."]},
+{w:'behavior',r:'bih-HEYV-yer',p:'noun',d:'the way a person or animal acts (British spelling: behaviour)',jk:'\u884c\u52d5',jh:'こうどう',e:["The teacher praised the students\u2019 good behavior.","Behavior experts say too many choices can make people feel stressed."]},
+{w:'option',r:'OP-shuhn',p:'noun',d:'a thing that you can choose (adjective: optional)',jk:'\u9078\u629e\u80a2',jh:'せんたくし',e:["The restaurant has many vegetarian options.","People often end up making worse decisions when there are more options."]},
+{w:'habit',r:'HAB-it',p:'noun',d:'something you do regularly, often without thinking about it',jk:'\u7fd2\u6163',jh:'しゅうかん',e:["Reading before bed is a good habit.","Some people suggest changing your habits to make daily life easier."]},
+{w:'limit',r:'LIM-it',p:'verb / noun',d:'to keep something within a certain amount or size; the greatest amount allowed',jk:'\u5236\u9650\u3059\u308b',jh:'せいげんする',e:["Try to limit your coffee to two cups a day.","Author David Epstein now limits small decisions by buying the same style of T-shirt in different colors."]},
+{w:'stress',r:'STRES',p:'noun / verb',d:'a feeling of worry or pressure caused by a difficult situation (adjective: stressed)',jk:'\u30b9\u30c8\u30ec\u30b9',jh:'ストレス',e:["Exercise is a good way to reduce stress.","Making a lot of choices every day can make people feel stressed."]}
 ];
 var BIZMAP = {};
 BIZTERMS.forEach(function(t){ BIZMAP[t.w] = t; });
