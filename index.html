@@ -397,7 +397,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 22, 2026 · 08:56 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 23, 2026 · 08:37 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1452,7 +1452,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
   <div class="card">
     <h2>Business terms library</h2>
-    <p class="sub">560 essential business, DNA, WNA, and NHK news terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
+    <p class="sub">577 essential business, DNA, WNA, and NHK news terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
     <input type="text" id="biz-search" placeholder="Filter terms… (e.g., nego, meeting, money)">
     <div id="biz-list" style="margin-top:14px"></div>
   </div>
@@ -1772,7 +1772,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <input type="text" id="dict-input" placeholder="Type a word, e.g., flannel" autocomplete="off">
       <button class="btn btn-magenta" id="dict-go">Search</button>
     </div>
-    <div class="voice-note">Offline-first: 560 built-in business, Daily News Article, Weekly News Article, and NHK news terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
+    <div class="voice-note">Offline-first: 577 built-in business, Daily News Article, Weekly News Article, and NHK news terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
     <div id="dict-history-wrap" style="display:none;margin-top:12px">
       <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mauve)">Recent searches</span>
       <button class="copy-mini" id="dict-history-clear" style="margin-left:8px;font-size:11.5px;padding:2px 10px">clear</button>
@@ -3795,7 +3795,24 @@ var BIZTERMS = [
 {w:'enforcement',r:'en-FAWRS-muhnt',p:'noun',d:'the act of making sure that laws or rules are obeyed (verb: enforce)',jk:'\u53d6\u308a\u7de0\u307e\u308a',jh:'とりしまり',e:["Stricter enforcement reduced speeding on the highway.","The FBI is the top U.S. law enforcement agency."]},
 {w:'cryptocurrency',r:'KRIP-toh-kur-uhn-see',p:'noun',d:'digital money that exists only online and is not controlled by a government or bank',jk:'\u6697\u53f7\u8cc7\u7523',jh:'あんごうしさん',e:["He invested a small amount in cryptocurrency last year.","Criminal groups use online methods, including romance and cryptocurrency scams, to target victims."]},
 {w:'vulnerable',r:'VUHL-ner-uh-buhl',p:'adjective',d:'easily harmed, attacked, or tricked (noun: vulnerability)',jk:'\u4ed8\u3051\u8fbc\u307e\u308c\u3084\u3059\u3044',jh:'つけこまれやすい',e:["Elderly people are often vulnerable to phone scams.","Do you think technology has made people more vulnerable to crime?"]},
-{w:'hub',r:'HUHB',p:'noun',d:'a central place where a lot of activity happens',jk:'\u62e0\u70b9',jh:'きょてん',e:["The city is a hub for international trade.","Cambodia has become a hub for scam centers and other transnational crimes."]}
+{w:'hub',r:'HUHB',p:'noun',d:'a central place where a lot of activity happens',jk:'\u62e0\u70b9',jh:'きょてん',e:["The city is a hub for international trade.","Cambodia has become a hub for scam centers and other transnational crimes."]},
+{w:'mythological',r:'mith-uh-LOJ-i-kuhl',p:'adjective',d:'relating to myths, which are old traditional stories about gods, heroes, and magic (do not confuse with mythical, which means imaginary or unreal)',jk:'\u795e\u8a71\u306e',jh:'しんわの',e:["Zeus, Poseidon, and Apollo are mythological gods of ancient Greece.","Mount Olympus is the mythological home of ancient Greece\u2019s 12 Olympian gods."]},
+{w:'craggy',r:'KRAG-ee',p:'adjective',d:'rough, steep, and covered with rocks',jk:'\u5ca9\u3060\u3089\u3051\u306e',jh:'いわだらけの',e:["They carefully climbed up the craggy mountain path.","The ancient Greeks believed the throne of Zeus stood on the highest of its craggy, often mist-shrouded peaks."]},
+{w:'induct',r:'in-DUHKT',p:'verb',d:'to officially bring or add a person, place, or thing into a special group, list, or organization, often during a special ceremony or event (noun: induction)',jk:'\u6b63\u5f0f\u306b\u52a0\u3048\u308b',jh:'せいしきにくわえる',e:["The national park was inducted into the list of protected nature areas.","Modern-day Greeks hoped their tallest mountain would be inducted into UNESCO\u2019s World Heritage List."]},
+{w:'excavation',r:'eks-kuh-VEY-shuhn',p:'noun',d:'the act of carefully digging up earth to find old buildings, tools, or objects buried for a long time (verb: excavate)',jk:'\u767a\u6398',jh:'はっくつ',e:["Recent excavations near the temple uncovered ancient pottery and old coins.","On one of Olympus\u2019s lower peaks, excavations have uncovered an open-air sanctuary."]},
+{w:'sanctuary',r:'SANGK-choo-er-ee',p:'noun',d:'a holy or special religious place where people go to pray, such as a temple, small church, or open-air area; also an area where birds or animals are protected',jk:'\u8056\u57df',jh:'せいいき',e:["Visitors must remove their shoes before entering the sacred sanctuary.","Excavations have uncovered an open-air sanctuary, with the oldest finds dating to the Hellenistic period."]},
+{w:'vie',r:'VAHY',p:'verb',d:'to compete strongly with others to get or achieve something',jk:'\u7af6\u3046',jh:'きそう',e:["Three cities are vying to host the next Olympics.","Mount Olympus vies for World Heritage status."]},
+{w:'nomination',r:'nom-uh-NEY-shuhn',p:'noun',d:'the act of officially suggesting someone or something for a position, prize, or special list (verb: nominate)',jk:'\u63a8\u85a6',jh:'すいせん',e:["Her film received three award nominations.","The nomination was discussed when the World Heritage Committee met in Busan, South Korea."]},
+{w:'biodiversity',r:'bahy-oh-di-VUR-si-tee',p:'noun',d:'the variety of plants and animals living in a particular area',jk:'\u751f\u7269\u591a\u69d8\u6027',jh:'せいぶつたようせい',e:["The rainforest is famous for its rich biodiversity.","It is a place which carries with it myth, history, biodiversity, and extraordinary beauty."]},
+{w:'peak',r:'PEEK',p:'noun / verb',d:'the pointed top of a mountain; also the highest point of something',jk:'\u5c71\u9802',jh:'さんちょう',e:["Snow covered the mountain peak all winter.","The throne of Zeus stood on the highest of its craggy peaks."]},
+{w:'monastery',r:'MON-uh-ster-ee',p:'noun',d:'a building where monks live and pray',jk:'\u4fee\u9053\u9662',jh:'しゅうどういん',e:["The old monastery is open to visitors on weekends.","The remains of a monastery founded in 1542 lie on the mountain."]},
+{w:'deal with',r:'deel with',p:'phrasal verb',d:'to take action in order to handle a problem, situation, or difficulty',jk:'\u5bfe\u51e6\u3059\u308b',jh:'たいしょする',e:["He is dealing with a bad back injury and needs to rest.","Learning from athletes\u2019 experiences can help anyone dealing with chronic pain."]},
+{w:'inspirational',r:'in-spuh-REY-shuh-nl',p:'adjective',d:'making you feel excited, hopeful, or motivated to do something (noun: inspiration)',jk:'\u52b1\u307f\u306b\u306a\u308b',jh:'はげみになる',e:["Reading an inspirational book can motivate you when you feel down.","A skier had to stop sports after a head injury, but is now a successful inspirational speaker."]},
+{w:'expectation',r:'ek-spek-TEY-shuhn',p:'noun',d:'a belief about what will or should happen (verb: expect)',jk:'\u671f\u5f85',jh:'きたい',e:["It is important to set clear expectations before starting a group project.","Experts say that having patience and changing expectations are the most important steps toward moving forward."]},
+{w:'disrupt',r:'dis-RUHPT',p:'verb',d:'to interrupt or seriously change something so it cannot continue normally (noun: disruption)',jk:'\u4e71\u3059',jh:'みだす',e:["The storm disrupted train services all morning.","Serious injuries can disrupt a person\u2019s life and confidence."]},
+{w:'therapy',r:'THER-uh-pee',p:'noun',d:'treatment that helps someone recover from an illness or injury',jk:'\u6cbb\u7642',jh:'ちりょう',e:["She goes to physical therapy twice a week.","It requires them to do physical therapy, but it is uncertain whether they can compete again."]},
+{w:'surgery',r:'SUR-juh-ree',p:'noun',d:'a medical operation in which a doctor cuts into the body to treat a problem',jk:'\u624b\u8853',jh:'しゅじゅつ',e:["He needed surgery on his knee.","Athletes know how difficult it is to get injured, whether dealing with chronic pain or recovering from surgery."]},
+{w:'recovery',r:'ri-KUHV-uh-ree',p:'noun',d:'the process of becoming healthy or normal again after illness or difficulty (verb: recover)',jk:'\u56de\u5fa9',jh:'かいふく',e:["His recovery took three months.","What injured athletes can teach us about recovery."]}
 ];
 var BIZMAP = {};
 BIZTERMS.forEach(function(t){ BIZMAP[t.w] = t; });
