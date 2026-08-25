@@ -397,7 +397,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 24, 2026 · 08:11 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 25, 2026 · 10:31 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -1529,7 +1529,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
   <div class="card">
     <h2>Business terms library</h2>
-    <p class="sub">596 essential business, DNA, WNA, and NHK news terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
+    <p class="sub">616 essential business, DNA, WNA, and NHK news terms with readable pronunciation, meaning, Japanese, and real examples. They're also built into the Dictionary tab, so searching any of them works even with no internet.</p>
     <input type="text" id="biz-search" placeholder="Filter terms… (e.g., nego, meeting, money)">
     <div id="biz-list" style="margin-top:14px"></div>
   </div>
@@ -1849,7 +1849,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <input type="text" id="dict-input" placeholder="Type a word, e.g., flannel" autocomplete="off">
       <button class="btn btn-magenta" id="dict-go">Search</button>
     </div>
-    <div class="voice-note">Offline-first: 596 built-in business, Daily News Article, Weekly News Article, and NHK news terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
+    <div class="voice-note">Offline-first: 616 built-in business, Daily News Article, Weekly News Article, and NHK news terms (including phrases like "blind spot" and "on the hook for") work with no internet at all, and every word you look up online is saved into your offline dictionary automatically, so it works offline forever after. Only brand-new words need a connection. If recorded audio is missing, the 🔊 buttons use your device's English voices.</div>
     <div id="dict-history-wrap" style="display:none;margin-top:12px">
       <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mauve)">Recent searches</span>
       <button class="copy-mini" id="dict-history-clear" style="margin-left:8px;font-size:11.5px;padding:2px 10px">clear</button>
@@ -3908,7 +3908,27 @@ var BIZTERMS = [
 {w:'bicyclist',r:'BAHY-si-klist',p:'noun',d:'a person who rides a bicycle',jk:'\u81ea\u8ee2\u8eca\u306b\u4e57\u308b\u4eba',jh:'じてんしゃにのるひと',e:["The bicyclist wore a helmet for safety while riding through the city.","A bicyclist should attach front and back lights to their bike."]},
 {w:'reflector',r:'ri-FLEK-ter',p:'noun',d:'a small object that sends back light so it can be seen at night',jk:'\u53cd\u5c04\u677f',jh:'はんしゃばん',e:["The workers placed reflectors along the road to guide drivers at night.","Riders should use a bright reflector and lights for safety."]},
 {w:'helmet',r:'HEL-mit',p:'noun',d:'a hard hat worn to protect the head',jk:'ヘルメット',jh:'ヘルメット',e:["Always wear a helmet when you ride.","Wear a bright helmet to protect your head."]},
-{w:'fuel cost',r:'FYOO-uhl kawst',p:'noun',d:'the money spent on gasoline, electricity, or other energy to run a vehicle',jk:'\u71c3\u6599\u8cbb',jh:'ねんりょうひ',e:["Rising fuel costs made deliveries more expensive.","Biking to work can save money, improve health, and reduce fuel costs."]}
+{w:'fuel cost',r:'FYOO-uhl kawst',p:'noun',d:'the money spent on gasoline, electricity, or other energy to run a vehicle',jk:'\u71c3\u6599\u8cbb',jh:'ねんりょうひ',e:["Rising fuel costs made deliveries more expensive.","Biking to work can save money, improve health, and reduce fuel costs."]},
+{w:'rugged',r:'RUHG-id',p:'adjective',d:'having a rough, uneven surface with rocks, hills, or mountains (a related adjective is rough)',jk:'\u5ce8\u3005\u3057\u3044',jh:'けわしい',e:["The hikers crossed the rugged path to reach the campsite.","Hauling water across rugged landscapes has become a daily chore for many ranchers."]},
+{w:'rancher',r:'RAN-cher',p:'noun',d:'a person whose job is raising cattle or other farm animals over a large area of land (the ranchers check the cattle every morning; the place where a rancher works is called a ranch)',jk:'\u7267\u5834\u7d4c\u55b6\u8005',jh:'ぼくじょうけいえいしゃ',e:["The ranchers check the cattle every morning.","Water hauling is the new chore no rancher asked for."]},
+{w:'lackluster',r:'LAK-luhs-ter',p:'adjective',d:'not interesting, exciting, or successful (British English: lacklustre)',jk:'\u3055\u3048\u306a\u3044',jh:'さえない',e:["The team gave a lackluster performance and lost the match.","They historically relied on snowmelt to sustain stock ponds, but a lackluster monsoon season is requiring more time."]},
+{w:'monsoon',r:'mon-SOON',p:'noun',d:'a season of heavy rain and strong winds, especially in southern Asia; also the wind that brings it',jk:'\u30e2\u30f3\u30b9\u30fc\u30f3',jh:'モンスーン',e:["The monsoon usually starts in June in that country.","A lackluster monsoon season, a trickle soaked the dusty earth below."]},
+{w:'spillage',r:'SPIL-ij',p:'noun',d:'the accidental spilling of a liquid or other substance (verb: spill)',jk:'\u3053\u307c\u308c',jh:'こぼれ',e:["Workers cleaned up the oil spillage as quickly as possible.","Scott Snyder rose from the shade to fasten a hose and stop the spillage."]},
+{w:'haul',r:'HAWL',p:'verb / noun',d:'to pull or carry something heavy over a distance',jk:'\u904b\u3076',jh:'はこぶ',e:["The truck hauled water to the farm every week.","Water hauling is the new chore no rancher asked for."]},
+{w:'chore',r:'CHAWR',p:'noun',d:'a small job that has to be done regularly, especially around the home or farm',jk:'\u96d1\u7528',jh:'ざつよう',e:["Washing dishes is my least favorite chore.","Water hauling is the new chore no rancher asked for."]},
+{w:'drought',r:'DROUT',p:'noun',d:'a long period with little or no rain',jk:'\u5e72\u3070\u3064',jh:'かんばつ',e:["The drought damaged crops across the region.","Ranchers face increasing dry spells and drought conditions in the West."]},
+{w:'livestock',r:'LAHYV-stok',p:'noun',d:'farm animals such as cattle, sheep, and pigs, kept for use or profit',jk:'\u5bb6\u755c',jh:'かちく',e:["The farm keeps livestock and grows vegetables.","Snowmelt sustains stock ponds and creeks for livestock to drink through the summer."]},
+{w:'snowmelt',r:'SNOH-melt',p:'noun',d:'water produced when snow melts, often used as a water supply',jk:'\u96ea\u3069\u3051\u6c34',jh:'ゆきどけみず',e:["Spring snowmelt fills the rivers.","They historically relied on snowmelt to sustain stock ponds."]},
+{w:'trickle',r:'TRIK-uhl',p:'noun / verb',d:'a very small, slow flow of liquid; to flow slowly in small amounts',jk:'\u3061\u3087\u308d\u3061\u3087\u308d\u6d41\u308c',jh:'ちょろちょろながれ',e:["Only a trickle of water came from the tap.","A trickle soaked the dusty earth below."]},
+{w:'reservoir',r:'REZ-er-vwahr',p:'noun',d:'a natural or artificial lake where water is stored for later use',jk:'\u8caf\u6c34\u6c60',jh:'ちょすいち',e:["The city\u2019s reservoir is low after months without rain.","Ranchers depend on ponds and reservoirs during dry summers."]},
+{w:'typhoon',r:'tahy-FOON',p:'noun',d:'a very strong tropical storm with powerful winds, common in the western Pacific',jk:'\u53f0\u98a8',jh:'たいふう',e:["The typhoon closed schools across the prefecture.","A very strong typhoon is likely to approach Japan\u2019s southern regions of Okinawa and Amami."]},
+{w:'atmospheric pressure',r:'at-muhs-FEER-ik PRESH-er',p:'noun',d:'the weight of the air pressing down on the earth, used to measure storms',jk:'\u6c17\u5727',jh:'きあつ',e:["Low atmospheric pressure often brings bad weather.","The typhoon had a central atmospheric pressure of 940 hectopascals."]},
+{w:'gust',r:'GUHST',p:'noun',d:'a sudden strong rush of wind',jk:'\u7a81\u98a8',jh:'とっぷう',e:["A gust of wind blew my umbrella away.","It was packing winds of up to 162 kilometers per hour, with gusts peaking at 234 kilometers per hour."]},
+{w:'intensify',r:'in-TEN-suh-fahy',p:'verb',d:'to become or make stronger, greater, or more extreme',jk:'\u5f37\u307e\u308b',jh:'つよまる',e:["The rain intensified in the afternoon.","On Tuesday, winds are likely to rapidly intensify."]},
+{w:'swell',r:'SWEL',p:'noun / verb',d:'a long, rolling wave on the sea; to become larger or rounder',jk:'\u3046\u306d\u308a',jh:'うねり',e:["Surfers waited for the big swell to arrive.","Rough seas with heavy swells are expected."]},
+{w:'on high alert',r:'on hahy uh-LURT',p:'phrase',d:'in a state of being fully ready and watchful because danger is expected',jk:'\u8b66\u6212\u614b\u52e2\u3067',jh:'けいかいたいせいで',e:["The hospital was on high alert during the storm.","Weather officials are calling on people to stay on high alert for violent winds and high waves."]},
+{w:'meteorological',r:'mee-tee-er-uh-LOJ-i-kuhl',p:'adjective',d:'relating to the study of weather and the atmosphere',jk:'\u6c17\u8c61\u306e',jh:'きしょうの',e:["The meteorological agency issued a warning.","The Japan Meteorological Agency said the typhoon was moving west-northwest."]},
+{w:'in advance',r:'in ad-VANS',p:'phrase',d:'before something happens; ahead of time',jk:'\u4e8b\u524d\u306b',jh:'じぜんに',e:["Please book your seat in advance.","Weather authorities are urging people to prepare for the storm in advance."]}
 ];
 var BIZMAP = {};
 BIZTERMS.forEach(function(t){ BIZMAP[t.w] = t; });
