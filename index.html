@@ -397,7 +397,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 26, 2026 · 11:05 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 27, 2026 · 09:12 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -597,6 +597,17 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
               <button class="opt-pill sel" data-g3="great">Great energy</button>
               <button class="opt-pill" data-g3="steady">Steady and calm</button>
               <button class="opt-pill" data-g3="shy">A little shy at first</button>
+              <button class="opt-pill" data-g3="thoughtful">Thoughtful and reflective</button>
+              <button class="opt-pill" data-g3="curious">Curious, full of questions</button>
+              <button class="opt-pill" data-g3="chatty">Talkative and warm</button>
+              <button class="opt-pill" data-g3="focused">Focused and serious</button>
+              <button class="opt-pill" data-g3="confident">Confident and clear</button>
+              <button class="opt-pill" data-g3="relaxed">Relaxed and easy</button>
+              <button class="opt-pill" data-g3="challenged">Challenged but persistent</button>
+              <button class="opt-pill" data-g3="tired">Tired but tried hard</button>
+              <button class="opt-pill" data-g3="brisk">Fast-paced and productive</button>
+              <button class="opt-pill" data-g3="playful">Light and full of laughter</button>
+              <button class="opt-pill" data-g3="rusty">Rusty at first, then back</button>
             </div>
           </div>
 
@@ -2420,17 +2431,142 @@ document.getElementById('g-generate').addEventListener('click', function(){
     great: [
       "You joined with wonderful energy and stayed engaged from start to finish.",
       "Your enthusiasm today made the lesson a real joy to teach.",
-      "You brought great energy to every part of the lesson."
+      "You brought great energy to every part of the lesson.",
+      "Your bright energy kept our whole 25 minutes moving beautifully.",
+      "You were lively and involved in every activity, and it made the time fly.",
+      "There was such good momentum in today's lesson, and you created it.",
+      "You met every question with energy, and that made our discussion rich.",
+      "Your spirit today was wonderful, and it made teaching you a pleasure."
     ],
     steady: [
       "You worked through everything calmly and thoughtfully.",
       "You took your time with each part and gave careful, thoughtful answers.",
-      "Your calm and focused attitude carried us smoothly through the lesson."
+      "Your calm and focused attitude carried us smoothly through the lesson.",
+      "You kept a steady, unhurried pace, and your answers were all the clearer for it.",
+      "There was a lovely calm to your work today, and nothing felt rushed.",
+      "You moved through each section with quiet confidence.",
+      "Your composure made even the harder parts feel manageable.",
+      "You stayed even and settled from the first minute to the last."
     ],
     shy: [
       "You seemed a little shy at first, but you warmed up beautifully as we went along, and I'm proud of you for that.",
       "Even though you were a bit nervous at the start, your voice grew more confident with every answer.",
-      "You pushed through the early nervousness and finished the lesson smiling, which shows real courage."
+      "You pushed through the early nervousness and finished the lesson smiling, which shows real courage.",
+      "The first few minutes were quiet, but by the middle of the lesson you were speaking freely.",
+      "You started carefully and ended confidently, and that change was lovely to watch.",
+      "A little hesitation at the beginning is completely natural, and you moved past it quickly today.",
+      "You were softer at the start, then found your voice, and your best answers came near the end.",
+      "It took a moment to settle in, but once you did, you spoke with real ease."
+    ],
+    thoughtful: [
+      "You gave each question real thought before answering, and your answers had genuine depth.",
+      "You took time to reflect, and what you shared was thoughtful and personal.",
+      "Your answers today came from real reflection rather than quick reaction.",
+      "I appreciated the pauses you took to think; they always led somewhere interesting.",
+      "You considered each question carefully, and the discussion was richer for it.",
+      "There was real depth in the way you approached today's topic.",
+      "You looked at the topic from more than one angle before deciding what you thought.",
+      "Your reflective answers made this a genuinely interesting conversation for me too."
+    ],
+    curious: [
+      "You asked wonderful questions throughout, and your curiosity made the lesson lively.",
+      "Your questions today showed real interest in the language, not just the answers.",
+      "You kept asking why, and that curiosity is exactly what makes English stick.",
+      "You wanted to understand the details, and those questions led us to good discoveries.",
+      "Your curiosity turned a simple article into a really interesting discussion.",
+      "You asked about nuances that many learners never think to ask about.",
+      "The questions you raised today showed how actively you were thinking.",
+      "You treated every new word as something worth exploring, which I loved."
+    ],
+    chatty: [
+      "You spoke warmly and freely, and our conversation flowed the whole time.",
+      "You had so much to share today, and the lesson felt like a real conversation.",
+      "Your talkative, friendly mood made our 25 minutes pass very quickly.",
+      "You kept the conversation going naturally, and I barely needed to prompt you.",
+      "It was a wonderfully chatty lesson, and your English carried all of it comfortably.",
+      "You shared openly and warmly, which made the discussion genuinely enjoyable.",
+      "There was never a quiet moment today, and that is a great sign for your fluency.",
+      "You filled the lesson with easy, natural conversation."
+    ],
+    focused: [
+      "You stayed focused and serious about your goals throughout the lesson.",
+      "Your concentration today was excellent; nothing pulled your attention away.",
+      "You approached the lesson with real purpose and made every minute count.",
+      "You worked with quiet determination from beginning to end.",
+      "Your focus was steady, and it showed clearly in the quality of your answers.",
+      "You treated the lesson seriously, and that discipline is paying off.",
+      "You stayed locked in on the material, even through the demanding parts.",
+      "Your attention did not drift once, which made our progress today very efficient."
+    ],
+    confident: [
+      "You spoke with real confidence today, and it came through in every answer.",
+      "There was a clear self-assurance in your speaking that I really enjoyed hearing.",
+      "You answered without hesitation, and your ideas came out clearly.",
+      "Your confidence made the whole lesson feel smooth and natural.",
+      "You said what you meant clearly and directly, which is a real skill.",
+      "You sounded sure of yourself, and that made your English easy to follow.",
+      "You spoke up readily and did not second-guess yourself, which was wonderful.",
+      "Your confident delivery today made even complex ideas easy to understand."
+    ],
+    relaxed: [
+      "The lesson had a relaxed, easy feeling, and your English flowed naturally because of it.",
+      "You seemed comfortable and at ease, which always brings out better speaking.",
+      "It was a lovely, unhurried lesson, and you spoke very naturally throughout.",
+      "You looked relaxed from the start, and that comfort showed in your fluency.",
+      "There was no tension in today's lesson, and your English was all the more natural for it.",
+      "You settled in immediately and stayed comfortable the whole time.",
+      "The easy atmosphere today let you speak more freely than usual.",
+      "You were calm and comfortable, and our conversation felt effortless."
+    ],
+    challenged: [
+      "Today's material was demanding, and you kept working at it without giving up.",
+      "Some parts were genuinely difficult, but you stayed with them until they made sense.",
+      "You met a challenging lesson head on, and your persistence really showed.",
+      "The topic asked a lot of you today, and you rose to it.",
+      "You did not shy away from the hard parts, and that is how real progress happens.",
+      "This was not an easy lesson, and I was impressed by how steadily you worked through it.",
+      "You kept trying through the difficult sections, and you got there.",
+      "Difficult material did not discourage you, and that attitude matters more than any single answer."
+    ],
+    tired: [
+      "I could tell you were tired today, and I truly appreciate you still giving your best.",
+      "Even on a tiring day, you showed up and worked hard, and that deserves real credit.",
+      "You were clearly a little worn out, yet you still stayed with every activity.",
+      "Coming to a lesson when you are tired takes discipline, and you did it beautifully.",
+      "Despite a long day, you kept going, and your effort did not slip.",
+      "You may have been low on energy, but your commitment was completely there.",
+      "Thank you for making time for our lesson even on a busy, tiring day.",
+      "You pushed through tiredness today, and you still made good progress."
+    ],
+    brisk: [
+      "We moved at a good pace today and covered a lot of ground together.",
+      "The lesson moved quickly, and you kept up with every part of it.",
+      "We got through a great deal today because you were so quick to respond.",
+      "It was a productive lesson, and your speed of understanding made that possible.",
+      "You kept things moving efficiently, and we finished more than I expected.",
+      "The pace today was brisk, and you handled it comfortably.",
+      "We used our 25 minutes really well thanks to how quickly you engaged.",
+      "You responded fast and clearly, so we covered a lot in a short time."
+    ],
+    playful: [
+      "There was a lot of laughter in today's lesson, and it made the English come easily.",
+      "We had fun today, and you learned just as much because of it.",
+      "Your good humor made this a genuinely enjoyable lesson.",
+      "You brought lightness to the lesson, and that made even the harder parts feel easy.",
+      "The lesson was full of smiles today, and your English flowed better for it.",
+      "We laughed a lot, and you still covered everything we planned.",
+      "Your playful mood made the conversation lively and natural.",
+      "It was a cheerful lesson from start to finish, and I enjoyed it very much."
+    ],
+    rusty: [
+      "It had been a little while, so the first minutes felt slower, but your English came back quickly.",
+      "You felt a bit out of practice at the start, and within minutes you were back in rhythm.",
+      "After a break from lessons, you found your footing again very fast.",
+      "The first few answers were careful, then your usual fluency returned.",
+      "A short pause in studying is normal, and you recovered your pace impressively quickly.",
+      "You warmed up faster than you expected, and by the middle you sounded like yourself again.",
+      "The rust wore off quickly today, and your last answers were your strongest.",
+      "It took a moment to shake off the break, and then everything came back naturally."
     ]
   };
   feedback += ' ' + pickFrom(MOODS[mood]);
@@ -3568,7 +3704,7 @@ var BIZTERMS = [
 {w:'opportunity',r:'ah-per-TOO-nih-tee',p:'noun',d:'a chance to do something good or useful',jk:'機会',jh:'きかい',e:["This project is a great opportunity for growth.","Thank you for the opportunity to present today."]},
 {w:'responsibility',r:'rih-spahn-sih-BIL-ih-tee',p:'noun',d:'a duty that you are expected to do',jk:'責任',jh:'せきにん',e:["Quality control is my main responsibility.","With promotion comes more responsibility."]},
 {w:'solution',r:'suh-LOO-shuhn',p:'noun',d:'a way of solving a problem',jk:'解決策',jh:'かいけつさく',e:["We found a solution that satisfies both sides.","Let's brainstorm solutions this afternoon."]},
-{w:'issue',r:'ISH-oo',p:'noun',d:'an important problem or topic for discussion',jk:'課題',jh:'かだい',e:["There is an issue with the payment system.","Let's address this issue before it grows."]},
+{w:'issue',r:'ISH-oo',p:'noun / verb',d:'an important problem or topic for discussion; also, to officially announce or give out something such as a warning',jk:'課題／発表する',jh:'かだい／はっぴょうする',e:["There is an issue with the payment system.","The Japan Meteorological Agency has issued a Level 5 Emergency Warning."]},
 {w:'urgent',r:'UR-juhnt',p:'adjective',d:'needing attention immediately',jk:'緊急の',jh:'きんきゅうの',e:["I received an urgent request from the client.","Please treat this matter as urgent."]},
 {w:'reschedule',r:'ree-SKEJ-ool',p:'verb',d:'to change the time of a planned event',jk:'予定を変更する',jh:'よていをへんこうする',e:["Could we reschedule the call to Thursday?","The interview was rescheduled twice."]},
 {w:'cancel',r:'KAN-suhl',p:'verb',d:'to decide that a planned event will not happen',jk:'キャンセルする',jh:'キャンセルする',e:["We had to cancel the order.","The flight was canceled, so I joined online."]},
@@ -3822,7 +3958,7 @@ var BIZTERMS = [
 {w:'vomiting',r:'VOM-it-ing',p:'noun',d:'the act of bringing food back up from the stomach through the mouth',jk:'\u5613\u5410',jh:'おうと',e:["Bad food can cause vomiting and stomach pain.","The illness brings sudden vomiting but usually lasts about three days."]},
 {w:'disinfect',r:'dis-in-FEKT',p:'verb',d:'to clean something with chemicals that kill germs',jk:'\u6d88\u6bd2\u3059\u308b',jh:'しょうどくする',e:["The nurse disinfected the table before the next patient came in.","The ship will be deeply cleaned and disinfected before its next trip."]},
 {w:'sanitizer',r:'SAN-i-tahy-zer',p:'noun',d:'a liquid or gel used to kill germs, especially on the hands',jk:'\u6d88\u6bd2\u5264',jh:'しょうどくざい',e:["Please use hand sanitizer before eating your lunch.","Hand sanitizer does not work well against this virus, so wash with soap."]},
-{w:'outbreak',r:'OUT-breyk',p:'noun',d:'the sudden start or spread of a disease or something dangerous',jk:'\u96c6\u56e3\u767a\u751f',jh:'しゅうだんはっせい',e:["The school closed for a week because of a flu outbreak.","More than 120 people got sick during the outbreak on the cruise ship."]},
+{w:'outbreak',r:'OUT-breyk',p:'noun',d:'the sudden start or spread of a disease or something dangerous (usually followed by "of")',jk:'\u96c6\u56e3\u767a\u751f',jh:'しゅうだんはっせい',e:["The local health department is trying to stop a sudden outbreak of the flu.","Restaurants are dealing with the fallout from an outbreak linked to shredded lettuce."]},
 {w:'crew',r:'KROO',p:'noun',d:'the people who work together on a ship, plane, or project',jk:'\u4e57\u7d44\u54e1',jh:'のりくみいん',e:["The flight crew welcomed the passengers aboard.","102 passengers and 23 crew members were hurt by the stomach virus."]},
 {w:'symptom',r:'SIMP-tuhm',p:'noun',d:'a sign of an illness that you can feel or see',jk:'\u75c7\u72b6',jh:'しょうじょう',e:["A high fever is a common symptom of the flu.","The main symptoms are stomach pain, diarrhea, and sudden vomiting."]},
 {w:'mandatory',r:'MAN-duh-tawr-ee',p:'adjective',d:'required by a rule or law; something you must do',jk:'\u7fa9\u52d9\u306e',jh:'ぎむの',e:["The school uniform is mandatory, so every student must wear it.","FIFA introduced mandatory hydration breaks at the World Cup for the first time."]},
@@ -4148,7 +4284,54 @@ var BIZTERMS = [
 {w:'natural spaces',r:'NACH-er-uhl SPEY-siz',p:'phrase',d:'outdoor areas such as parks, forests, and beaches that are not built on',jk:'自然空間',jh:'しぜんくうかん',e:["Cities need more natural spaces for families.","They feel natural spaces should be free for everyone to enjoy."]},
 {w:'private management',r:'PRAHY-vit MAN-ij-muhnt',p:'phrase',d:'control of a place or service by a company rather than by the government',jk:'民間運営',jh:'みんかんうんえい',e:["The park moved to private management last year.","Officials say private management keeps the beaches cleaner and safer."]},
 {w:'public land',r:'PUHB-lik LAND',p:'phrase',d:'land owned by the government and meant for everyone to use',jk:'公有地',jh:'こうゆうち',e:["The park was built on public land.","The government gives away public land to private owners."]},
-{w:'destination',r:'des-tuh-NEY-shuhn',p:'noun',d:'the place someone is traveling to, especially a popular place to visit',jk:'目的地',jh:'もくてきち',e:["Kyoto is a famous destination for foreign tourists.","What is a famous beach destination in your country?"]}
+{w:'destination',r:'des-tuh-NEY-shuhn',p:'noun',d:'the place someone is traveling to, especially a popular place to visit',jk:'目的地',jh:'もくてきち',e:["Kyoto is a famous destination for foreign tourists.","What is a famous beach destination in your country?"]},
+{w:'sicken',r:'SIK-uhn',p:'verb',d:'to make someone sick or ill',jk:'病気にさせる',jh:'びょうきにさせる',e:["The dirty drinking water sickened many local residents with stomach flu last week.","The outbreak has sickened thousands of Americans."]},
+{w:'recall',r:'ri-KAWL',p:'verb / noun',d:'to officially ask customers to return a product, or to remove it from stores because it is broken or not safe',jk:'回収する',jh:'かいしゅうする',e:["The toy maker recalled the plastic action figures because of small, dangerous parts.","Taylor Farms recalled iceberg lettuce grown in central Mexico."]},
+{w:'entice',r:'en-TAHYS',p:'verb',d:'to attract or persuade someone to do something by offering them something pleasant or attractive',jk:'誘い込む',jh:'さそいこむ',e:["Store owners enticed shoppers with big discounts and special rewards.","The brand enticed fans with daily specials like a one-dollar Mexican Pizza."]},
+{w:'sentiment',r:'SEN-tuh-muhnt',p:'noun',d:'a general feeling, opinion, or attitude that people have about a situation or topic',jk:'世論',jh:'よろん',e:["Public sentiment changed quickly after the company apologized for its mistake.","With respect to consumer sentiment, the company has seen real improvement."]},
+{w:'parasite',r:'PAR-uh-sahyt',p:'noun',d:'a small living thing that lives on or inside another living thing and takes food from it, often causing illness',jk:'寄生虫',jh:'きせいちゅう',e:["Doctors found a parasite in the patient's stomach.","Lettuce is causing hard times at some restaurants because of a diarrhea-causing parasite."]},
+{w:'choppy',r:'CHOP-ee',p:'adjective',d:'unsteady and full of sudden ups and downs, without a smooth flow',jk:'不安定な',jh:'ふあんていな',e:["The boat ride was rough because the sea was choppy.","It has been a choppy year for restaurants that serve a lot of lettuce."]},
+{w:'lean into',r:'LEEN IN-too',p:'phrasal verb',d:'to depend heavily on something, or to accept and use it fully as a strength',jk:'力を入れる',jh:'ちからをいれる',e:["The company leaned into online sales during the pandemic.","It has been a difficult year for restaurants that lean into lettuce."]},
+{w:'shredded',r:'SHRED-id',p:'adjective',d:'cut or torn into long, thin pieces',jk:'細切りの',jh:'こまぎりの',e:["She topped the tacos with shredded cheese.","The outbreak was linked to shredded lettuce."]},
+{w:'iceberg lettuce',r:'AHYS-burg LET-is',p:'noun',d:'a common type of lettuce with a round shape and crisp, pale green leaves',jk:'レタス',jh:'レタス',e:["I always put iceberg lettuce in my sandwiches.","Taco Bell removed shredded iceberg lettuce from its restaurants."]},
+{w:'same-store sales',r:'SEYM-stor SEYLZ',p:'phrase',d:'a business measure comparing sales at the same shops this year with sales at those shops last year',jk:'既存店売上',jh:'きぞんてんうりあげ',e:["Same-store sales are a key number for investors in retail.","Taco Bell's U.S. same-store sales grew four percent in the July-September period."]},
+{w:'bottom out',r:'BOT-uhm OUT',p:'phrasal verb',d:'to reach the lowest point before starting to improve again',jk:'底を打つ',jh:'そこをうつ',e:["Housing prices bottomed out last spring and are now rising.","Taco Bell's sales bottomed out the weekend of July 18-19 but have been steadily improving."]},
+{w:'chief financial officer',r:'CHEEF fi-NAN-shuhl OF-uh-ser',p:'noun',d:'the top manager in charge of a company\u2019s money and financial planning (often shortened to CFO)',jk:'最高財務責任者',jh:'さいこうざいむせきにんしゃ',e:["The chief financial officer presented the annual budget.","Chief Financial Officer Ranjith Roy spoke in a conference call with investors."]},
+{w:'conference call',r:'KON-fer-uhns KAWL',p:'noun',d:'a phone or online meeting with three or more people joining at the same time',jk:'電話会議',jh:'でんわかいぎ',e:["We have a conference call with the Tokyo office at three.","He said it in a conference call with investors."]},
+{w:'investor',r:'in-VES-ter',p:'noun',d:'a person or company that puts money into a business hoping to earn more money later',jk:'投資家',jh:'とうしか',e:["Investors were pleased with the quarterly results.","The company explained the situation to its investors."]},
+{w:'contain',r:'kuhn-TEYN',p:'verb',d:'to stop a problem, disease, or situation from spreading or getting worse',jk:'封じ込める',jh:'ふうじこめる',e:["Firefighters worked all night to contain the fire.","Quick action to contain the issue helped bring diners back."]},
+{w:'food safety',r:'FOOD SEYF-tee',p:'phrase',d:'the practice of handling, preparing, and storing food so that it does not make people sick',jk:'食品安全',jh:'しょくひんあんぜん',e:["Restaurants must follow strict food safety rules.","Talk about a restaurant in your country that had a food safety issue."]},
+{w:'foot traffic',r:'FUUT TRAF-ik',p:'phrase',d:'the number of customers who come into a shop or restaurant',jk:'来客数',jh:'らいきゃくすう',e:["The new station brought more foot traffic to the shopping street.","The chain expects slower growth because of lower traffic due to the outbreak."]},
+{w:'chain',r:'CHEYN',p:'noun',d:'a group of shops, restaurants, or hotels owned by the same company',jk:'チェーン店',jh:'チェーンてん',e:["That coffee chain has more than 500 branches in Japan.","Other chains are also feeling some impact from the outbreak."]},
+{w:'federal',r:'FED-er-uhl',p:'adjective',d:'relating to the central government of a country rather than to a state or local government',jk:'連邦の',jh:'れんぽうの',e:["Federal law applies across the whole country.","Federal health officials first tied the outbreak to shredded lettuce."]},
+{w:'tie to',r:'TAHY too',p:'phrasal verb',d:'to connect one thing to another as the cause or source',jk:'関連付ける',jh:'かんれんづける',e:["Researchers tied the illness to contaminated water.","Officials tied the diarrhea-causing outbreak to shredded lettuce."]},
+{w:'affected',r:'uh-FEK-tid',p:'adjective',d:'changed or harmed by something that has happened',jk:'影響を受けた',jh:'えいきょうをうけた',e:["Affected residents were moved to a nearby shelter.","Customers in Illinois, Kansas, Oklahoma, and Pennsylvania were also affected."]},
+{w:'consumer',r:'kuhn-SOO-mer',p:'noun',d:'a person who buys and uses goods or services',jk:'消費者',jh:'しょうひしゃ',e:["Consumers are choosing cheaper brands this year.","Consumers have understood better the nature of the issue."]},
+{w:'crisis',r:'KRAHY-sis',p:'noun',d:'a time of serious difficulty or danger that needs quick decisions',jk:'危機',jh:'きき',e:["The company handled the crisis calmly and honestly.","Is it easier to forgive a business because of how well they handled a crisis?"]},
+{w:'at fault',r:'at FAWLT',p:'phrase',d:'responsible for something bad that happened; to blame',jk:'落ち度がある',jh:'おちどがある',e:["The report said the driver was not at fault.","Recalls hurt farmers who might not be directly at fault."]},
+{w:'bacteria',r:'bak-TEER-ee-uh',p:'noun',d:'very small living things that can cause disease, seen only with a microscope',jk:'細菌',jh:'さいきん',e:["Washing your hands removes most bacteria.","Foods eaten raw can carry bacteria and parasites."]},
+{w:'raw',r:'RAW',p:'adjective',d:'not cooked',jk:'生の',jh:'なまの',e:["Many Japanese dishes use raw fish.","How do you prepare foods at home that are meant to be eaten raw?"]},
+{w:'daily specials',r:'DEY-lee SPESH-uhlz',p:'phrase',d:'dishes or deals offered by a restaurant at a reduced price on a particular day',jk:'日替わりの特別メニュー',jh:'ひがわりのとくべつメニュー',e:["The cafe posts its daily specials on a board outside.","The brand enticed fans with daily specials."]},
+{w:'steadily',r:'STED-uh-lee',p:'adverb',d:'in a gradual and continuous way, without sudden changes',jk:'着実に',jh:'ちゃくじつに',e:["Her English has improved steadily this year.","Sales have been steadily improving since then."]},
+{w:'emergency warning',r:'ih-MUR-juhn-see WOR-ning',p:'phrase',d:'an official message telling people that a very dangerous situation is happening now',jk:'緊急警報',jh:'きんきゅうけいほう',e:["An emergency warning appeared on every television channel.","The agency issued a Level 5 Emergency Warning for heavy rain."]},
+{w:'alert',r:'uh-LURT',p:'noun / adjective',d:'a warning about possible danger; watchful and ready to act',jk:'警報',jh:'けいほう',e:["The city sent a flood alert to every mobile phone.","That is the highest level of alert on the agency's scale of 1 to 5."]},
+{w:'disaster',r:'dih-ZAS-ter',p:'noun',d:'a sudden event that causes great damage, injury, or loss of life',jk:'災害',jh:'さいがい',e:["The country is well prepared for natural disasters.","Serious rain-triggered disasters have already occurred in the areas."]},
+{w:'flooding',r:'FLUHD-ing',p:'noun',d:'a large amount of water covering land that is usually dry',jk:'洪水',jh:'こうずい',e:["Heavy rain caused flooding in the city center.","That could include flooding of some rivers and low-lying areas."]},
+{w:'low-lying',r:'LOH-LAHY-ing',p:'adjective',d:'not high above sea level or the surrounding land, and therefore easy to flood',jk:'低地の',jh:'ていちの',e:["Low-lying farms were the first to flood.","Flooding may affect low-lying or underground areas."]},
+{w:'urge',r:'URJ',p:'verb',d:'to strongly advise or encourage someone to do something',jk:'強く促す',jh:'つよくうながす',e:["Doctors urge everyone to get enough sleep.","Agency officials are urging people to take immediate survival actions."]},
+{w:'immediate',r:'ih-MEE-dee-it',p:'adjective',d:'happening or done at once, without any delay',jk:'即時の',jh:'そくじの',e:["The situation requires immediate attention.","Officials are urging people to take immediate survival actions."]},
+{w:'evacuate',r:'ih-VAK-yoo-eyt',p:'verb',d:'to leave a dangerous place and move to a safer one',jk:'避難する',jh:'ひなんする',e:["Families were told to evacuate before the storm arrived.","People should evacuate to any safer location."]},
+{w:'evacuation site',r:'ih-vak-yoo-EY-shuhn SAHYT',p:'phrase',d:'a place officially prepared for people to stay safely during a disaster',jk:'避難所',jh:'ひなんじょ',e:["The school gymnasium is our neighborhood evacuation site.","Move to higher floors if getting to designated evacuation sites is dangerous."]},
+{w:'prefecture',r:'PREE-fek-cher',p:'noun',d:'a regional division of a country, used for local government in Japan',jk:'県',jh:'けん',e:["She grew up in Nagano Prefecture.","The warning covers cities in Ishikawa Prefecture and Toyama Prefecture."]},
+{w:'torrential',r:'taw-REN-shuhl',p:'adjective',d:'falling very heavily and in large amounts, used about rain',jk:'激しい',jh:'はげしい',e:["Torrential rain delayed all the afternoon flights.","Torrential rain pounds Toyama and Ishikawa prefectures."]},
+{w:'flash flood',r:'FLASH FLUHD',p:'noun',d:'a sudden flood that happens very quickly, usually after very heavy rain',jk:'鉄砲水',jh:'てっぽうみず',e:["A flash flood swept through the valley within minutes.","Hundreds are unaccounted for after the flash floods."]},
+{w:'unaccounted for',r:'uhn-uh-KOUN-tid for',p:'phrase',d:'missing, with no information about where the person or thing is',jk:'行方不明の',jh:'ゆくえふめいの',e:["Three hikers are still unaccounted for.","At least 98 are dead and over 740 unaccounted for after the floods."]},
+{w:'pound',r:'POUND',p:'verb',d:'to hit something repeatedly with great force',jk:'激しく打ちつける',jh:'はげしくうちつける',e:["Waves pounded the seawall all night.","Torrential rain pounds Toyama and Ishikawa prefectures."]},
+{w:'survival action',r:'ser-VAHY-vuhl AK-shuhn',p:'phrase',d:'something you do immediately to protect your life in an emergency',jk:'命を守る行動',jh:'いのちをまもるこうどう',e:["Officials explained the survival actions to take during an earthquake.","People are urged to take immediate survival actions."]},
+{w:'occur',r:'uh-KUR',p:'verb',d:'to happen, especially without being planned',jk:'発生する',jh:'はっせいする',e:["The accident occurred just after midnight.","It is extremely likely that serious disasters have already occurred."]},
+{w:'agency',r:'EY-juhn-see',p:'noun',d:'an official organization that provides a particular service, often part of a government',jk:'庁',jh:'ちょう',e:["The space agency announced a new mission.","The Japan Meteorological Agency has issued an emergency warning."]},
+{w:'scale',r:'SKEYL',p:'noun',d:'a system of numbers or levels used to measure or compare something',jk:'段階',jh:'だんかい',e:["Please rate your pain on a scale of one to ten.","That is the highest level of alert on the agency's scale of 1 to 5."]},
+{w:'extremely likely',r:'ik-STREEM-lee LAHYK-lee',p:'phrase',d:'almost certain to be true or to happen',jk:'極めて可能性が高い',jh:'きわめてかのうせいがたかい',e:["It is extremely likely that the flight will be delayed.","It is extremely likely that serious rain-triggered disasters have already occurred."]}
 ];
 var BIZMAP = {};
 BIZTERMS.forEach(function(t){ BIZMAP[t.w] = t; });
