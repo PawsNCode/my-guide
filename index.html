@@ -307,6 +307,64 @@ details.gcat summary::before{content:"+";color:var(--magenta);font-weight:700}
 details.gcat[open] summary::before{content:"\2212"}
 details.gcat[open] summary{background:var(--petal-soft)}
 details.gcat .chips{padding:10px 12px;margin-top:0}
+details.gcat summary .cat-title{flex:1}
+.cat-count{background:var(--magenta);color:#fff;border-radius:999px;font-size:11px;font-weight:800;
+  min-width:21px;text-align:center;padding:2px 7px;line-height:1.35}
+.cat-count[hidden]{display:none}
+.pickwrap{padding:10px 12px}
+select.g-picker{width:100%;font-weight:600}
+.picked{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.picked:empty{margin-top:0}
+.picked-chip{font-size:12.5px;background:var(--magenta);color:#fff;border:1px solid var(--magenta);
+  border-radius:999px;padding:5px 8px 5px 12px;cursor:pointer;font-weight:600;transition:all .15s}
+.picked-chip:hover{background:var(--plum);border-color:var(--plum)}
+.picked-chip .x{margin-left:7px;font-weight:800;opacity:.9}
+.sec-count{background:var(--magenta);color:#fff;border-radius:999px;font-size:11px;font-weight:800;
+  padding:2px 8px;margin-left:7px;vertical-align:middle}
+.sec-count[hidden]{display:none}
+.pick-hint{font-size:12px;color:var(--mauve);margin-top:6px}
+/* ── Japanese Lines: voice + quiz ── */
+.jl-actions .rec-btn,.jl-actions .del-rec{font-size:13px;background:#fff;border:1px solid var(--petal);
+  color:var(--mauve);border-radius:999px;padding:4px 9px;cursor:pointer;transition:all .15s}
+.jl-actions .rec-btn:hover,.jl-actions .del-rec:hover{border-color:var(--magenta);color:var(--magenta)}
+.jl-actions .rec-btn.recording{background:#c0392b;border-color:#c0392b;color:#fff;animation:recpulse 1s infinite}
+@keyframes recpulse{0%,100%{opacity:1}50%{opacity:.55}}
+.jp-line.has-clip .jl-en::after{content:"\1F3A4";font-size:11px;margin-left:6px;opacity:.75}
+.jp-line.has-clip{background:linear-gradient(90deg,rgba(214,51,132,.05),transparent)}
+.voice-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.vb-toggle{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--plum);cursor:pointer}
+.vb-toggle input{width:auto;margin:0}
+.vb-count{font-size:12.5px;color:var(--mauve);font-weight:700}
+.jq-btn{font-size:14px;font-weight:800;background:var(--magenta);color:#fff;border:none;border-radius:999px;
+  padding:10px 20px;cursor:pointer;transition:all .15s}
+.jq-btn:hover{background:var(--plum)}
+.jq-btn.ghost{background:#fff;color:var(--magenta);border:1px solid var(--petal)}
+.jq-btn.ghost:hover{border-color:var(--magenta)}
+#jp-quiz{display:none}
+#jp-quiz.open{display:block}
+.jq-setup{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.jq-setup select{width:auto;min-width:180px}
+.jq-prog{font-size:13px;font-weight:700;color:var(--mauve);margin-bottom:6px}
+.jq-bar{height:7px;background:var(--petal-soft);border-radius:999px;overflow:hidden;margin-bottom:14px}
+.jq-bar i{display:block;height:100%;background:var(--magenta);width:0;transition:width .3s}
+.jq-en{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--plum);line-height:1.35;margin-bottom:4px}
+.jq-hintline{font-size:13px;color:var(--mauve);margin-bottom:12px;min-height:18px}
+.jq-input{font-size:19px !important;text-align:center;padding:14px !important}
+.jq-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:11px}
+.jq-verdict{margin-top:14px;border-radius:12px;padding:13px 15px;font-size:14.5px;display:none}
+.jq-verdict.show{display:block}
+.jq-verdict.ok{background:rgba(126,163,120,.13);border:1px solid rgba(126,163,120,.4);color:#40663a}
+.jq-verdict.no{background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.3);color:#8e3b31}
+.jq-verdict .ans{font-size:21px;font-weight:700;margin:7px 0 3px}
+.jq-verdict .ro{font-style:italic;opacity:.85;font-size:13.5px}
+.jq-score{text-align:center;padding:10px 0}
+.jq-score .big{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--magenta);line-height:1}
+.jq-missed{margin-top:16px}
+.jq-missed h4{font-size:14px;color:var(--plum);margin:0 0 8px}
+.jq-missed .m-row{border-top:1px solid var(--petal);padding:9px 0;font-size:14px}
+.jq-missed .m-en{color:var(--ink-soft)}
+.jq-missed .m-jp{color:var(--plum);font-weight:700}
+.jq-missed .m-ro{font-style:italic;color:var(--mauve);font-size:12.5px}
 
 /* mock interview: all questions list */
 .mi-cat-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
@@ -397,7 +455,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 28, 2026 · 10:20 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 28, 2026 · 08:50 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -594,364 +652,394 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <div class="gq">
             <div class="gq-q"><span class="qnum">3</span>How did the lesson feel?</div>
             <div class="chips" style="margin-top:0">
-              <button class="opt-pill sel" data-g3="great">Great energy</button>
-              <button class="opt-pill" data-g3="steady">Steady and calm</button>
-              <button class="opt-pill" data-g3="shy">A little shy at first</button>
-              <button class="opt-pill" data-g3="thoughtful">Thoughtful and reflective</button>
-              <button class="opt-pill" data-g3="curious">Curious, full of questions</button>
-              <button class="opt-pill" data-g3="chatty">Talkative and warm</button>
-              <button class="opt-pill" data-g3="focused">Focused and serious</button>
-              <button class="opt-pill" data-g3="confident">Confident and clear</button>
-              <button class="opt-pill" data-g3="relaxed">Relaxed and easy</button>
-              <button class="opt-pill" data-g3="challenged">Challenged but persistent</button>
-              <button class="opt-pill" data-g3="tired">Tired but tried hard</button>
-              <button class="opt-pill" data-g3="brisk">Fast-paced and productive</button>
-              <button class="opt-pill" data-g3="playful">Light and full of laughter</button>
-              <button class="opt-pill" data-g3="rusty">Rusty at first, then back</button>
+              <select id="g-mood">
+                <option value="great">Great energy</option>
+                <option value="steady">Steady and calm</option>
+                <option value="shy">A little shy at first</option>
+                <option value="thoughtful">Thoughtful and reflective</option>
+                <option value="curious">Curious, full of questions</option>
+                <option value="chatty">Talkative and warm</option>
+                <option value="focused">Focused and serious</option>
+                <option value="confident">Confident and clear</option>
+                <option value="relaxed">Relaxed and easy</option>
+                <option value="challenged">Challenged but persistent</option>
+                <option value="tired">Tired but tried hard</option>
+                <option value="brisk">Fast-paced and productive</option>
+                <option value="playful">Light and full of laughter</option>
+                <option value="rusty">Rusty at first, then back</option>
+              </select>
             </div>
           </div>
 
           <div class="gq">
-            <div class="gq-q"><span class="qnum">4</span>What did the student do well? <small style="font-weight:500;color:var(--mauve)">(tap all that apply)</small></div>
+            <div class="gq-q"><span class="qnum">4</span>What did the student do well? <small style="font-weight:500;color:var(--mauve)">(choose from each list)</small><span class="sec-count" id="cnt-good" hidden>0</span></div>
             <div id="g-good-chips">
-              <details class="gcat"><summary>📖 Reading</summary><div class="chips">
-                <span class="chip g-multi">read the passage clearly</span>
-                <span class="chip g-multi">read numbers, dates, and names smoothly</span>
-                <span class="chip g-multi">read with natural pausing at commas and periods</span>
-                <span class="chip g-multi">kept a steady reading pace without rushing</span>
-                <span class="chip g-multi">read long sentences without losing the meaning</span>
-                <span class="chip g-multi">noticed and fixed your own small reading slips</span>
-                <span class="chip g-multi">read new words bravely instead of skipping them</span>
-                <span class="chip g-multi">matched your reading tone to the article's mood</span>
-                <span class="chip g-multi">read the difficult paragraph smoothly on the first try</span>
-                <span class="chip g-multi">finished the whole article within the lesson time</span>
-              
-                <span class="chip g-multi">read the passage with clear expression</span>
-                <span class="chip g-multi">sounded confident while reading aloud</span>
-                <span class="chip g-multi">kept going smoothly through unfamiliar names</span>
-                <span class="chip g-multi">understood the article without needing translation</span>
-                <span class="chip g-multi">read the whole passage without losing focus</span>
-                <span class="chip g-multi">used punctuation to guide your phrasing</span>
-                <span class="chip g-multi">self-corrected a misread word right away</span>
-                <span class="chip g-multi">improved noticeably from the first paragraph to the last</span>
-                <span class="chip g-multi">read the dialogue parts with natural feeling</span>
-                <span class="chip g-multi">handled long numbers and statistics accurately</span>
-
-                <span class="chip g-multi">moved through the article at a comfortable, natural pace</span>
-                <span class="chip g-multi">pronounced the technical terms in the article carefully</span>
-                <span class="chip g-multi">paused in the right places to make the meaning clear</span>
-                <span class="chip g-multi">kept your voice steady to the end of every sentence</span>
-                <span class="chip g-multi">read the headline and predicted the topic accurately</span>
-                <span class="chip g-multi">picked out the key sentence in each paragraph</span>
-                <span class="chip g-multi">read quoted speech with natural feeling</span>
-                <span class="chip g-multi">did not stop even when a word looked unfamiliar</span>
-                <span class="chip g-multi">checked back in the text to support your answer</span>
-                <span class="chip g-multi">read the second time much more smoothly than the first</span>
-                <span class="chip g-multi">kept your eyes moving ahead instead of stopping at each word</span>
-                <span class="chip g-multi">handled the long noun phrases in the article well</span>
-                <span class="chip g-multi">read the closing paragraph with real confidence</span>
-                <span class="chip g-multi">understood the writer&rsquo;s main point straight away</span>
-              </div></details>
-              <details class="gcat"><summary>🗣 Speaking &amp; Fluency</summary><div class="chips">
-                <span class="chip g-multi">spoke with real confidence</span>
-                <span class="chip g-multi">kept the conversation flowing naturally</span>
-                <span class="chip g-multi">gave detailed answers instead of short ones</span>
-                <span class="chip g-multi">explained a difficult idea in simple English</span>
-                <span class="chip g-multi">spoke in full sentences instead of single words</span>
-                <span class="chip g-multi">answered quickly without long pauses</span>
-                <span class="chip g-multi">found another way to say it when a word didn't come</span>
-                <span class="chip g-multi">kept talking even after making a small mistake</span>
-                <span class="chip g-multi">expanded your answers without being asked</span>
-                <span class="chip g-multi">told a short story with a clear beginning and ending</span>
-              
-                <span class="chip g-multi">spoke at a comfortable, natural speed</span>
-                <span class="chip g-multi">shared your thoughts without waiting to be asked</span>
-                <span class="chip g-multi">kept your answers going for several sentences</span>
-                <span class="chip g-multi">described something unfamiliar using words you already knew</span>
-                <span class="chip g-multi">sounded relaxed and natural throughout the lesson</span>
-                <span class="chip g-multi">started your sentences confidently instead of hesitating</span>
-                <span class="chip g-multi">gave a clear opinion and then supported it</span>
-                <span class="chip g-multi">moved smoothly from one topic to the next</span>
-                <span class="chip g-multi">spoke even more than in our previous lessons</span>
-                <span class="chip g-multi">recovered quickly whenever you paused to think</span>
-
-                <span class="chip g-multi">built your answer step by step instead of stopping at the first idea</span>
-                <span class="chip g-multi">used a natural filler phrase while thinking</span>
-                <span class="chip g-multi">restated your point clearly when I asked for more</span>
-                <span class="chip g-multi">spoke for a full minute without losing the thread</span>
-                <span class="chip g-multi">adjusted your wording when it sounded unclear to you</span>
-                <span class="chip g-multi">gave examples to make your point easier to follow</span>
-                <span class="chip g-multi">balanced speaking and listening beautifully</span>
-                <span class="chip g-multi">answered a difficult question without switching to Japanese</span>
-                <span class="chip g-multi">used your own words rather than repeating the article&rsquo;s</span>
-                <span class="chip g-multi">carried the conversation forward whenever I paused</span>
-                <span class="chip g-multi">kept your ideas organized from start to finish</span>
-                <span class="chip g-multi">spoke more and more freely as the lesson went on</span>
-                <span class="chip g-multi">explained a Japanese custom clearly in English</span>
-                <span class="chip g-multi">summed up your opinion in one clean sentence</span>
-              </div></details>
-              <details class="gcat"><summary>🔊 Pronunciation &amp; Intonation</summary><div class="chips">
-                <span class="chip g-multi">pronounced difficult words clearly</span>
-                <span class="chip g-multi">sounded more natural in your intonation</span>
-                <span class="chip g-multi">stressed the important words in your sentences</span>
-                <span class="chip g-multi">pronounced the "th" sound correctly today</span>
-                <span class="chip g-multi">made the /L/ and /R/ sounds clearly</span>
-                <span class="chip g-multi">pronounced word endings like "-ed" and "-s" clearly</span>
-                <span class="chip g-multi">spoke loudly and clearly through the whole lesson</span>
-                <span class="chip g-multi">copied my pronunciation accurately after one model</span>
-                <span class="chip g-multi">improved a word's pronunciation right after my tip</span>
-                <span class="chip g-multi">kept a natural rhythm instead of word-by-word reading</span>
-              
-                <span class="chip g-multi">pronounced today’s new vocabulary accurately</span>
-                <span class="chip g-multi">used rising intonation naturally in questions</span>
-                <span class="chip g-multi">separated similar sounds clearly</span>
-                <span class="chip g-multi">kept your voice clear and easy to understand</span>
-                <span class="chip g-multi">linked words together smoothly</span>
-                <span class="chip g-multi">placed the stress correctly in long words</span>
-                <span class="chip g-multi">pronounced consonant clusters clearly</span>
-                <span class="chip g-multi">corrected your pronunciation right after hearing the model</span>
-                <span class="chip g-multi">read numbers, dates, and place names clearly</span>
-                <span class="chip g-multi">sounded noticeably more natural than in earlier lessons</span>
-
-                <span class="chip g-multi">kept the /v/ and /b/ sounds clearly separate</span>
-                <span class="chip g-multi">pronounced silent letters correctly</span>
-                <span class="chip g-multi">avoided adding extra vowel sounds at the end of words</span>
-                <span class="chip g-multi">shortened the unstressed syllables naturally</span>
-                <span class="chip g-multi">used falling intonation to sound confident and finished</span>
-                <span class="chip g-multi">paused naturally between thought groups</span>
-                <span class="chip g-multi">pronounced the &ldquo;-tion&rdquo; ending accurately</span>
-                <span class="chip g-multi">kept your volume steady through the whole lesson</span>
-                <span class="chip g-multi">pronounced medical and technical vocabulary carefully</span>
-                <span class="chip g-multi">matched the rhythm of my model sentence</span>
-                <span class="chip g-multi">pronounced difficult place names clearly</span>
-                <span class="chip g-multi">said long compound words smoothly</span>
-                <span class="chip g-multi">used stress to highlight exactly the word you meant</span>
-                <span class="chip g-multi">were easy to understand from the first minute to the last</span>
-              </div></details>
-              <details class="gcat"><summary>📚 Vocabulary</summary><div class="chips">
-                <span class="chip g-multi">used the new vocabulary right away</span>
-                <span class="chip g-multi">guessed the meaning of new words from context</span>
-                <span class="chip g-multi">remembered expressions from our previous lessons</span>
-                <span class="chip g-multi">chose precise words instead of easy general ones</span>
-                <span class="chip g-multi">used a natural idiom in the right situation</span>
-                <span class="chip g-multi">made your own example sentences with the new words</span>
-                <span class="chip g-multi">asked smart questions about word nuances</span>
-                <span class="chip g-multi">replaced a simple word with a richer synonym</span>
-                <span class="chip g-multi">used business words accurately in context</span>
-                <span class="chip g-multi">connected today's new words to words you already know</span>
-              
-                <span class="chip g-multi">used today’s target words in your own original sentences</span>
-                <span class="chip g-multi">recalled vocabulary from previous lessons without hints</span>
-                <span class="chip g-multi">chose the perfect word for the situation</span>
-                <span class="chip g-multi">used a phrasal verb naturally in conversation</span>
-                <span class="chip g-multi">understood a new word from my explanation alone</span>
-                <span class="chip g-multi">upgraded a simple word into a more advanced one</span>
-                <span class="chip g-multi">used word combinations that sounded very natural</span>
-                <span class="chip g-multi">asked about the difference between two similar words</span>
-                <span class="chip g-multi">used descriptive adjectives to make your answers vivid</span>
-                <span class="chip g-multi">noticed and used the correct form of a word</span>
-
-                <span class="chip g-multi">explained a new word&rsquo;s meaning back to me correctly</span>
-                <span class="chip g-multi">chose a formal word where the situation needed one</span>
-                <span class="chip g-multi">noticed the word family, for example the noun and verb forms</span>
-                <span class="chip g-multi">used today&rsquo;s words again later in the discussion</span>
-                <span class="chip g-multi">guessed the part of speech correctly</span>
-                <span class="chip g-multi">built a natural word partnership without any help</span>
-                <span class="chip g-multi">used a good synonym when the exact word would not come</span>
-                <span class="chip g-multi">remembered a word from several lessons ago</span>
-                <span class="chip g-multi">used vocabulary from your own field accurately</span>
-                <span class="chip g-multi">understood the nuance between a positive and a negative word</span>
-                <span class="chip g-multi">expanded a basic word into a full natural expression</span>
-                <span class="chip g-multi">used a word Japanese speakers often confuse, correctly</span>
-                <span class="chip g-multi">picked up a phrase from my speech and used it yourself</span>
-                <span class="chip g-multi">showed a noticeably wider vocabulary range today</span>
-              </div></details>
-              <details class="gcat"><summary>🧩 Grammar &amp; Sentences</summary><div class="chips">
-                <span class="chip g-multi">used the past tense correctly while telling stories</span>
-                <span class="chip g-multi">built long sentences with correct word order</span>
-                <span class="chip g-multi">used articles like "a" and "the" more accurately</span>
-                <span class="chip g-multi">kept subject-verb agreement in your sentences</span>
-                <span class="chip g-multi">used linking words like "however" and "for example"</span>
-                <span class="chip g-multi">formed questions correctly on your own</span>
-                <span class="chip g-multi">used comparative forms accurately</span>
-                <span class="chip g-multi">used the present perfect naturally</span>
-                <span class="chip g-multi">corrected yourself without my help</span>
-                <span class="chip g-multi">combined short sentences into one smooth sentence</span>
-              
-                <span class="chip g-multi">used a variety of sentence structures</span>
-                <span class="chip g-multi">kept your tenses consistent throughout your story</span>
-                <span class="chip g-multi">used prepositions accurately today</span>
-                <span class="chip g-multi">formed negative sentences correctly</span>
-                <span class="chip g-multi">used conditional sentences naturally</span>
-                <span class="chip g-multi">used modal verbs like "should" and "would" accurately</span>
-                <span class="chip g-multi">kept correct word order even in longer sentences</span>
-                <span class="chip g-multi">used plural and singular forms accurately</span>
-                <span class="chip g-multi">applied a grammar point right after we reviewed it</span>
-                <span class="chip g-multi">made noticeably fewer grammar slips than before</span>
-
-                <span class="chip g-multi">used relative clauses to add detail smoothly</span>
-                <span class="chip g-multi">kept your pronouns clear and consistent</span>
-                <span class="chip g-multi">used the passive voice correctly where it fit</span>
-                <span class="chip g-multi">formed indirect questions politely</span>
-                <span class="chip g-multi">used gerunds and infinitives correctly</span>
-                <span class="chip g-multi">used &ldquo;that&rdquo; clauses to report ideas naturally</span>
-                <span class="chip g-multi">used quantifiers like &ldquo;most&rdquo; and &ldquo;a few&rdquo; accurately</span>
-                <span class="chip g-multi">kept your articles correct even in longer sentences</span>
-                <span class="chip g-multi">matched time expressions with the right tense</span>
-                <span class="chip g-multi">built a clear cause-and-effect sentence</span>
-                <span class="chip g-multi">used &ldquo;used to&rdquo; naturally for past habits</span>
-                <span class="chip g-multi">kept parallel structure when listing ideas</span>
-                <span class="chip g-multi">expressed a hypothetical situation correctly</span>
-                <span class="chip g-multi">noticed a grammar slip in your own speech and fixed it</span>
-              </div></details>
-              <details class="gcat"><summary>👂 Listening &amp; Comprehension</summary><div class="chips">
-                <span class="chip g-multi">understood my questions on the first try</span>
-                <span class="chip g-multi">answered the comprehension questions accurately</span>
-                <span class="chip g-multi">summarized the article in your own words</span>
-                <span class="chip g-multi">caught the key numbers and details while listening</span>
-                <span class="chip g-multi">understood my natural speaking speed</span>
-                <span class="chip g-multi">responded correctly to unexpected questions</span>
-                <span class="chip g-multi">picked up the main idea after one reading</span>
-                <span class="chip g-multi">followed my instructions without needing repeats</span>
-                <span class="chip g-multi">noticed the small difference between similar questions</span>
-                <span class="chip g-multi">understood a new phrase from my explanation alone</span>
-              
-                <span class="chip g-multi">understood every question without repetition</span>
-                <span class="chip g-multi">answered follow-up questions accurately</span>
-                <span class="chip g-multi">caught the details in my longer explanations</span>
-                <span class="chip g-multi">understood me even when I spoke quickly</span>
-                <span class="chip g-multi">identified the main point of each paragraph</span>
-                <span class="chip g-multi">answered deeper thinking questions thoughtfully</span>
-                <span class="chip g-multi">noticed my correction and applied it immediately</span>
-                <span class="chip g-multi">followed the article from start to finish</span>
-                <span class="chip g-multi">asked for clarification politely when needed</span>
-                <span class="chip g-multi">understood new expressions from context alone</span>
-
-                <span class="chip g-multi">caught the correction I slipped into my reply</span>
-                <span class="chip g-multi">understood a question with unfamiliar vocabulary in it</span>
-                <span class="chip g-multi">inferred the writer&rsquo;s opinion from the wording</span>
-                <span class="chip g-multi">told the difference between fact and opinion in the article</span>
-                <span class="chip g-multi">followed a multi-part question and answered every part</span>
-                <span class="chip g-multi">understood my example even when the idea was abstract</span>
-                <span class="chip g-multi">recognized a word by sound alone</span>
-                <span class="chip g-multi">kept up when I spoke at natural native speed</span>
-                <span class="chip g-multi">understood the joke and laughed at just the right moment</span>
-                <span class="chip g-multi">rephrased my question to confirm your understanding</span>
-                <span class="chip g-multi">connected today&rsquo;s article to something we read before</span>
-                <span class="chip g-multi">remembered details from earlier in the lesson</span>
-                <span class="chip g-multi">understood the instruction on the very first listen</span>
-                <span class="chip g-multi">picked up the meaning of an idiom from the situation</span>
-              </div></details>
-              <details class="gcat"><summary>💬 Conversation &amp; Attitude</summary><div class="chips">
-                <span class="chip g-multi">shared opinions with supporting reasons</span>
-                <span class="chip g-multi">asked thoughtful follow-up questions</span>
-                <span class="chip g-multi">opened up new topics to discuss</span>
-                <span class="chip g-multi">stayed relaxed and clearly enjoyed the conversation</span>
-                <span class="chip g-multi">reacted naturally with phrases like "Really?" and "I see"</span>
-                <span class="chip g-multi">disagreed politely and explained your view</span>
-                <span class="chip g-multi">kept wonderful eye contact and smiled through the lesson</span>
-                <span class="chip g-multi">showed great focus from start to finish</span>
-                <span class="chip g-multi">took notes actively during the lesson</span>
-                <span class="chip g-multi">welcomed corrections positively and tried again right away</span>
-              
-                <span class="chip g-multi">connected the topic to your own experiences</span>
-                <span class="chip g-multi">gave honest and thoughtful opinions</span>
-                <span class="chip g-multi">asked me questions to keep the conversation going</span>
-                <span class="chip g-multi">showed genuine curiosity about the topic</span>
-                <span class="chip g-multi">stayed positive even with difficult questions</span>
-                <span class="chip g-multi">smiled and looked relaxed throughout our lesson</span>
-                <span class="chip g-multi">joined the discussion with real energy</span>
-                <span class="chip g-multi">listened carefully and responded to what I said</span>
-                <span class="chip g-multi">shared an interesting story I really enjoyed hearing</span>
-                <span class="chip g-multi">came to the lesson prepared and ready to speak</span>
-
-                <span class="chip g-multi">kept the conversation warm and friendly throughout</span>
-                <span class="chip g-multi">shared a personal example that fit the topic perfectly</span>
-                <span class="chip g-multi">took a challenging question with a smile</span>
-                <span class="chip g-multi">kept trying even when the word was hard to find</span>
-                <span class="chip g-multi">responded to my opinion instead of only stating your own</span>
-                <span class="chip g-multi">brought real curiosity to a topic outside your usual interests</span>
-                <span class="chip g-multi">made me laugh with a very natural joke</span>
-                <span class="chip g-multi">used our 25 minutes efficiently and calmly</span>
-                <span class="chip g-multi">came back to an earlier point to explain it better</span>
-                <span class="chip g-multi">were open about which parts felt difficult</span>
-                <span class="chip g-multi">thanked me for a correction and used it immediately</span>
-                <span class="chip g-multi">kept great energy right to the last minute</span>
-                <span class="chip g-multi">treated every mistake as practice rather than failure</span>
-                <span class="chip g-multi">made this lesson a real joy with your positive attitude</span>
-              </div></details>
-              <details class="gcat"><summary>🎯 Discussion &amp; Opinion</summary><div class="chips">
-                <span class="chip g-multi">took a clear position and defended it well</span>
-                <span class="chip g-multi">considered both sides before giving your opinion</span>
-                <span class="chip g-multi">used &ldquo;in my opinion&rdquo; and &ldquo;I believe&rdquo; naturally</span>
-                <span class="chip g-multi">supported your argument with a real example</span>
-                <span class="chip g-multi">politely challenged an idea in the article</span>
-                <span class="chip g-multi">suggested a practical solution to the problem</span>
-                <span class="chip g-multi">compared the situation in Japan with the article&rsquo;s country</span>
-                <span class="chip g-multi">explained clearly why you changed your mind</span>
-                <span class="chip g-multi">answered a hypothetical question thoughtfully</span>
-                <span class="chip g-multi">gave a balanced answer instead of a simple yes or no</span>
-                <span class="chip g-multi">linked the topic to a bigger social issue</span>
-                <span class="chip g-multi">asked a question I had not thought of myself</span>
-                <span class="chip g-multi">gave a concise answer and then expanded when asked</span>
-                <span class="chip g-multi">explained a complex idea in clear, simple English</span>
-                <span class="chip g-multi">reached a thoughtful conclusion at the end of the discussion</span>
-                <span class="chip g-multi">kept your reasoning easy to follow throughout</span>
-              </div></details>
-              <details class="gcat"><summary>🌱 Progress &amp; Consistency</summary><div class="chips">
-                <span class="chip g-multi">showed clear improvement since our last lesson</span>
-                <span class="chip g-multi">used the phrase we practiced last time correctly</span>
-                <span class="chip g-multi">made far fewer of the mistakes we worked on before</span>
-                <span class="chip g-multi">remembered vocabulary from our earlier lessons</span>
-                <span class="chip g-multi">have grown noticeably more confident over our lessons</span>
-                <span class="chip g-multi">kept up your wonderful habit of coming prepared</span>
-                <span class="chip g-multi">applied last lesson&rsquo;s feedback right away</span>
-                <span class="chip g-multi">speak at a much more natural speed now</span>
-                <span class="chip g-multi">handled a topic that used to feel difficult for you</span>
-                <span class="chip g-multi">reached a level of detail you would not have tried before</span>
-                <span class="chip g-multi">now pronounce a long-difficult word solidly</span>
-                <span class="chip g-multi">have kept a steady lesson rhythm week after week</span>
-                <span class="chip g-multi">give longer and richer answers each time we meet</span>
-                <span class="chip g-multi">built on what we discussed in our previous lesson</span>
-                <span class="chip g-multi">need far fewer repeats than before when listening</span>
-                <span class="chip g-multi">are clearly seeing your consistency pay off</span>
-              </div></details>
-              <details class="gcat"><summary>💼 Business &amp; Professional English</summary><div class="chips">
-                <span class="chip g-multi">used polite business expressions naturally</span>
-                <span class="chip g-multi">explained your work clearly to someone outside your field</span>
-                <span class="chip g-multi">gave a short, well-structured explanation</span>
-                <span class="chip g-multi">handled the roleplay meeting confidently</span>
-                <span class="chip g-multi">used softening phrases to disagree politely</span>
-                <span class="chip g-multi">explained a process step by step clearly</span>
-                <span class="chip g-multi">described data and numbers accurately</span>
-                <span class="chip g-multi">used professional, email-appropriate language</span>
-                <span class="chip g-multi">made a clear request using polite forms</span>
-                <span class="chip g-multi">summarized a business situation concisely</span>
-                <span class="chip g-multi">asked clarifying questions the way a native speaker would</span>
-                <span class="chip g-multi">kept a professional tone throughout the roleplay</span>
-                <span class="chip g-multi">described your role and responsibilities clearly</span>
-                <span class="chip g-multi">stayed polite while holding firm on your point</span>
-                <span class="chip g-multi">used industry vocabulary accurately</span>
-                <span class="chip g-multi">closed the discussion with a clear next step</span>
-              </div></details>
-              <details class="gcat"><summary>✨ Effort &amp; Character</summary><div class="chips">
-                <span class="chip g-multi">stayed focused even when the topic was demanding</span>
-                <span class="chip g-multi">kept a calm, steady pace when things got tricky</span>
-                <span class="chip g-multi">asked for help at exactly the right moment</span>
-                <span class="chip g-multi">showed real patience while working out a hard sentence</span>
-                <span class="chip g-multi">were honest about what you did not understand yet</span>
-                <span class="chip g-multi">kept your sense of humor through a challenging article</span>
-                <span class="chip g-multi">pushed yourself to try the harder answer</span>
-                <span class="chip g-multi">stayed curious and asked &ldquo;why&rdquo; more than once</span>
-                <span class="chip g-multi">listened to feedback openly and without discouragement</span>
-                <span class="chip g-multi">kept going after a small stumble, which is real strength</span>
-                <span class="chip g-multi">made time for this lesson despite a busy schedule</span>
-                <span class="chip g-multi">took notes you can genuinely use later</span>
-                <span class="chip g-multi">showed lovely respect and warmth throughout our lesson</span>
-                <span class="chip g-multi">brought your full attention to every activity</span>
-                <span class="chip g-multi">were a pleasure to teach from beginning to end</span>
-                <span class="chip g-multi">set a clear goal for yourself and worked toward it</span>
-              </div></details>
+              <details class="gcat"><summary><span class="cat-title">📖 Reading</span><span class="cat-count" hidden>0</span></summary>
+                <div class="pickwrap">
+                  <select class="g-picker" data-pick="good-reading">
+                    <option value="">Choose a strength…</option>
+                    <option value="read the passage clearly">read the passage clearly</option>
+                    <option value="read numbers, dates, and names smoothly">read numbers, dates, and names smoothly</option>
+                    <option value="read with natural pausing at commas and periods">read with natural pausing at commas and periods</option>
+                    <option value="kept a steady reading pace without rushing">kept a steady reading pace without rushing</option>
+                    <option value="read long sentences without losing the meaning">read long sentences without losing the meaning</option>
+                    <option value="noticed and fixed your own small reading slips">noticed and fixed your own small reading slips</option>
+                    <option value="read new words bravely instead of skipping them">read new words bravely instead of skipping them</option>
+                    <option value="matched your reading tone to the article's mood">matched your reading tone to the article's mood</option>
+                    <option value="read the difficult paragraph smoothly on the first try">read the difficult paragraph smoothly on the first try</option>
+                    <option value="finished the whole article within the lesson time">finished the whole article within the lesson time</option>
+                    <option value="read the passage with clear expression">read the passage with clear expression</option>
+                    <option value="sounded confident while reading aloud">sounded confident while reading aloud</option>
+                    <option value="kept going smoothly through unfamiliar names">kept going smoothly through unfamiliar names</option>
+                    <option value="understood the article without needing translation">understood the article without needing translation</option>
+                    <option value="read the whole passage without losing focus">read the whole passage without losing focus</option>
+                    <option value="used punctuation to guide your phrasing">used punctuation to guide your phrasing</option>
+                    <option value="self-corrected a misread word right away">self-corrected a misread word right away</option>
+                    <option value="improved noticeably from the first paragraph to the last">improved noticeably from the first paragraph to the last</option>
+                    <option value="read the dialogue parts with natural feeling">read the dialogue parts with natural feeling</option>
+                    <option value="handled long numbers and statistics accurately">handled long numbers and statistics accurately</option>
+                    <option value="moved through the article at a comfortable, natural pace">moved through the article at a comfortable, natural pace</option>
+                    <option value="pronounced the technical terms in the article carefully">pronounced the technical terms in the article carefully</option>
+                    <option value="paused in the right places to make the meaning clear">paused in the right places to make the meaning clear</option>
+                    <option value="kept your voice steady to the end of every sentence">kept your voice steady to the end of every sentence</option>
+                    <option value="read the headline and predicted the topic accurately">read the headline and predicted the topic accurately</option>
+                    <option value="picked out the key sentence in each paragraph">picked out the key sentence in each paragraph</option>
+                    <option value="read quoted speech with natural feeling">read quoted speech with natural feeling</option>
+                    <option value="did not stop even when a word looked unfamiliar">did not stop even when a word looked unfamiliar</option>
+                    <option value="checked back in the text to support your answer">checked back in the text to support your answer</option>
+                    <option value="read the second time much more smoothly than the first">read the second time much more smoothly than the first</option>
+                    <option value="kept your eyes moving ahead instead of stopping at each word">kept your eyes moving ahead instead of stopping at each word</option>
+                    <option value="handled the long noun phrases in the article well">handled the long noun phrases in the article well</option>
+                    <option value="read the closing paragraph with real confidence">read the closing paragraph with real confidence</option>
+                    <option value="understood the writer&rsquo;s main point straight away">understood the writer&rsquo;s main point straight away</option>
+                  </select>
+                  <div class="picked" id="good-reading"></div>
+                </div>
+              </details>
+              <details class="gcat"><summary><span class="cat-title">🗣 Speaking &amp; Fluency</span><span class="cat-count" hidden>0</span></summary>
+                <div class="pickwrap">
+                  <select class="g-picker" data-pick="good-speaking-fluency">
+                    <option value="">Choose a strength…</option>
+                    <option value="spoke with real confidence">spoke with real confidence</option>
+                    <option value="kept the conversation flowing naturally">kept the conversation flowing naturally</option>
+                    <option value="gave detailed answers instead of short ones">gave detailed answers instead of short ones</option>
+                    <option value="explained a difficult idea in simple English">explained a difficult idea in simple English</option>
+                    <option value="spoke in full sentences instead of single words">spoke in full sentences instead of single words</option>
+                    <option value="answered quickly without long pauses">answered quickly without long pauses</option>
+                    <option value="found another way to say it when a word didn't come">found another way to say it when a word didn't come</option>
+                    <option value="kept talking even after making a small mistake">kept talking even after making a small mistake</option>
+                    <option value="expanded your answers without being asked">expanded your answers without being asked</option>
+                    <option value="told a short story with a clear beginning and ending">told a short story with a clear beginning and ending</option>
+                    <option value="spoke at a comfortable, natural speed">spoke at a comfortable, natural speed</option>
+                    <option value="shared your thoughts without waiting to be asked">shared your thoughts without waiting to be asked</option>
+                    <option value="kept your answers going for several sentences">kept your answers going for several sentences</option>
+                    <option value="described something unfamiliar using words you already knew">described something unfamiliar using words you already knew</option>
+                    <option value="sounded relaxed and natural throughout the lesson">sounded relaxed and natural throughout the lesson</option>
+                    <option value="started your sentences confidently instead of hesitating">started your sentences confidently instead of hesitating</option>
+                    <option value="gave a clear opinion and then supported it">gave a clear opinion and then supported it</option>
+                    <option value="moved smoothly from one topic to the next">moved smoothly from one topic to the next</option>
+                    <option value="spoke even more than in our previous lessons">spoke even more than in our previous lessons</option>
+                    <option value="recovered quickly whenever you paused to think">recovered quickly whenever you paused to think</option>
+                    <option value="built your answer step by step instead of stopping at the first idea">built your answer step by step instead of stopping at the first idea</option>
+                    <option value="used a natural filler phrase while thinking">used a natural filler phrase while thinking</option>
+                    <option value="restated your point clearly when I asked for more">restated your point clearly when I asked for more</option>
+                    <option value="spoke for a full minute without losing the thread">spoke for a full minute without losing the thread</option>
+                    <option value="adjusted your wording when it sounded unclear to you">adjusted your wording when it sounded unclear to you</option>
+                    <option value="gave examples to make your point easier to follow">gave examples to make your point easier to follow</option>
+                    <option value="balanced speaking and listening beautifully">balanced speaking and listening beautifully</option>
+                    <option value="answered a difficult question without switching to Japanese">answered a difficult question without switching to Japanese</option>
+                    <option value="used your own words rather than repeating the article&rsquo;s">used your own words rather than repeating the article&rsquo;s</option>
+                    <option value="carried the conversation forward whenever I paused">carried the conversation forward whenever I paused</option>
+                    <option value="kept your ideas organized from start to finish">kept your ideas organized from start to finish</option>
+                    <option value="spoke more and more freely as the lesson went on">spoke more and more freely as the lesson went on</option>
+                    <option value="explained a Japanese custom clearly in English">explained a Japanese custom clearly in English</option>
+                    <option value="summed up your opinion in one clean sentence">summed up your opinion in one clean sentence</option>
+                  </select>
+                  <div class="picked" id="good-speaking-fluency"></div>
+                </div>
+              </details>
+              <details class="gcat"><summary><span class="cat-title">🔊 Pronunciation &amp; Intonation</span><span class="cat-count" hidden>0</span></summary>
+                <div class="pickwrap">
+                  <select class="g-picker" data-pick="good-pronunciation-intonation">
+                    <option value="">Choose a strength…</option>
+                    <option value="pronounced difficult words clearly">pronounced difficult words clearly</option>
+                    <option value="sounded more natural in your intonation">sounded more natural in your intonation</option>
+                    <option value="stressed the important words in your sentences">stressed the important words in your sentences</option>
+                    <option value="pronounced the "th" sound correctly today">pronounced the "th" sound correctly today</option>
+                    <option value="made the /L/ and /R/ sounds clearly">made the /L/ and /R/ sounds clearly</option>
+                    <option value="pronounced word endings like "-ed" and "-s" clearly">pronounced word endings like "-ed" and "-s" clearly</option>
+                    <option value="spoke loudly and clearly through the whole lesson">spoke loudly and clearly through the whole lesson</option>
+                    <option value="copied my pronunciation accurately after one model">copied my pronunciation accurately after one model</option>
+                    <option value="improved a word's pronunciation right after my tip">improved a word's pronunciation right after my tip</option>
+                    <option value="kept a natural rhythm instead of word-by-word reading">kept a natural rhythm instead of word-by-word reading</option>
+                    <option value="pronounced today’s new vocabulary accurately">pronounced today’s new vocabulary accurately</option>
+                    <option value="used rising intonation naturally in questions">used rising intonation naturally in questions</option>
+                    <option value="separated similar sounds clearly">separated similar sounds clearly</option>
+                    <option value="kept your voice clear and easy to understand">kept your voice clear and easy to understand</option>
+                    <option value="linked words together smoothly">linked words together smoothly</option>
+                    <option value="placed the stress correctly in long words">placed the stress correctly in long words</option>
+                    <option value="pronounced consonant clusters clearly">pronounced consonant clusters clearly</option>
+                    <option value="corrected your pronunciation right after hearing the model">corrected your pronunciation right after hearing the model</option>
+                    <option value="read numbers, dates, and place names clearly">read numbers, dates, and place names clearly</option>
+                    <option value="sounded noticeably more natural than in earlier lessons">sounded noticeably more natural than in earlier lessons</option>
+                    <option value="kept the /v/ and /b/ sounds clearly separate">kept the /v/ and /b/ sounds clearly separate</option>
+                    <option value="pronounced silent letters correctly">pronounced silent letters correctly</option>
+                    <option value="avoided adding extra vowel sounds at the end of words">avoided adding extra vowel sounds at the end of words</option>
+                    <option value="shortened the unstressed syllables naturally">shortened the unstressed syllables naturally</option>
+                    <option value="used falling intonation to sound confident and finished">used falling intonation to sound confident and finished</option>
+                    <option value="paused naturally between thought groups">paused naturally between thought groups</option>
+                    <option value="pronounced the &ldquo;-tion&rdquo; ending accurately">pronounced the &ldquo;-tion&rdquo; ending accurately</option>
+                    <option value="kept your volume steady through the whole lesson">kept your volume steady through the whole lesson</option>
+                    <option value="pronounced medical and technical vocabulary carefully">pronounced medical and technical vocabulary carefully</option>
+                    <option value="matched the rhythm of my model sentence">matched the rhythm of my model sentence</option>
+                    <option value="pronounced difficult place names clearly">pronounced difficult place names clearly</option>
+                    <option value="said long compound words smoothly">said long compound words smoothly</option>
+                    <option value="used stress to highlight exactly the word you meant">used stress to highlight exactly the word you meant</option>
+                    <option value="were easy to understand from the first minute to the last">were easy to understand from the first minute to the last</option>
+                  </select>
+                  <div class="picked" id="good-pronunciation-intonation"></div>
+                </div>
+              </details>
+              <details class="gcat"><summary><span class="cat-title">📚 Vocabulary</span><span class="cat-count" hidden>0</span></summary>
+                <div class="pickwrap">
+                  <select class="g-picker" data-pick="good-vocabulary">
+                    <option value="">Choose a strength…</option>
+                    <option value="used the new vocabulary right away">used the new vocabulary right away</option>
+                    <option value="guessed the meaning of new words from context">guessed the meaning of new words from context</option>
+                    <option value="remembered expressions from our previous lessons">remembered expressions from our previous lessons</option>
+                    <option value="chose precise words instead of easy general ones">chose precise words instead of easy general ones</option>
+                    <option value="used a natural idiom in the right situation">used a natural idiom in the right situation</option>
+                    <option value="made your own example sentences with the new words">made your own example sentences with the new words</option>
+                    <option value="asked smart questions about word nuances">asked smart questions about word nuances</option>
+                    <option value="replaced a simple word with a richer synonym">replaced a simple word with a richer synonym</option>
+                    <option value="used business words accurately in context">used business words accurately in context</option>
+                    <option value="connected today's new words to words you already know">connected today's new words to words you already know</option>
+                    <option value="used today’s target words in your own original sentences">used today’s target words in your own original sentences</option>
+                    <option value="recalled vocabulary from previous lessons without hints">recalled vocabulary from previous lessons without hints</option>
+                    <option value="chose the perfect word for the situation">chose the perfect word for the situation</option>
+                    <option value="used a phrasal verb naturally in conversation">used a phrasal verb naturally in conversation</option>
+                    <option value="understood a new word from my explanation alone">understood a new word from my explanation alone</option>
+                    <option value="upgraded a simple word into a more advanced one">upgraded a simple word into a more advanced one</option>
+                    <option value="used word combinations that sounded very natural">used word combinations that sounded very natural</option>
+                    <option value="asked about the difference between two similar words">asked about the difference between two similar words</option>
+                    <option value="used descriptive adjectives to make your answers vivid">used descriptive adjectives to make your answers vivid</option>
+                    <option value="noticed and used the correct form of a word">noticed and used the correct form of a word</option>
+                    <option value="explained a new word&rsquo;s meaning back to me correctly">explained a new word&rsquo;s meaning back to me correctly</option>
+                    <option value="chose a formal word where the situation needed one">chose a formal word where the situation needed one</option>
+                    <option value="noticed the word family, for example the noun and verb forms">noticed the word family, for example the noun and verb forms</option>
+                    <option value="used today&rsquo;s words again later in the discussion">used today&rsquo;s words again later in the discussion</option>
+                    <option value="guessed the part of speech correctly">guessed the part of speech correctly</option>
+                    <option value="built a natural word partnership without any help">built a natural word partnership without any help</option>
+                    <option value="used a good synonym when the exact word would not come">used a good synonym when the exact word would not come</option>
+                    <option value="remembered a word from several lessons ago">remembered a word from several lessons ago</option>
+                    <option value="used vocabulary from your own field accurately">used vocabulary from your own field accurately</option>
+                    <option value="understood the nuance between a positive and a negative word">understood the nuance between a positive and a negative word</option>
+                    <option value="expanded a basic word into a full natural expression">expanded a basic word into a full natural expression</option>
+                    <option value="used a word Japanese speakers often confuse, correctly">used a word Japanese speakers often confuse, correctly</option>
+                    <option value="picked up a phrase from my speech and used it yourself">picked up a phrase from my speech and used it yourself</option>
+                    <option value="showed a noticeably wider vocabulary range today">showed a noticeably wider vocabulary range today</option>
+                  </select>
+                  <div class="picked" id="good-vocabulary"></div>
+                </div>
+              </details>
+              <details class="gcat"><summary><span class="cat-title">🧩 Grammar &amp; Sentences</span><span class="cat-count" hidden>0</span></summary>
+                <div class="pickwrap">
+                  <select class="g-picker" data-pick="good-grammar-sentences">
+                    <option value="">Choose a strength…</option>
+                    <option value="used the past tense correctly while telling stories">used the past tense correctly while telling stories</option>
+                    <option value="built long sentences with correct word order">built long sentences with correct word order</option>
+                    <option value="used articles like "a" and "the" more accurately">used articles like "a" and "the" more accurately</option>
+                    <option value="kept subject-verb agreement in your sentences">kept subject-verb agreement in your sentences</option>
+                    <option value="used linking words like "however" and "for example"">used linking words like "however" and "for example"</option>
+                    <option value="formed questions correctly on your own">formed questions correctly on your own</option>
+                    <option value="used comparative forms accurately">used comparative forms accurately</option>
+                    <option value="used the present perfect naturally">used the present perfect naturally</option>
+                    <option value="corrected yourself without my help">corrected yourself without my help</option>
+                    <option value="combined short sentences into one smooth sentence">combined short sentences into one smooth sentence</option>
+                    <option value="used a variety of sentence structures">used a variety of sentence structures</option>
+                    <option value="kept your tenses consistent throughout your story">kept your tenses consistent throughout your story</option>
+                    <option value="used prepositions accurately today">used prepositions accurately today</option>
+                    <option value="formed negative sentences correctly">formed negative sentences correctly</option>
+                    <option value="used conditional sentences naturally">used conditional sentences naturally</option>
+                    <option value="used modal verbs like "should" and "would" accurately">used modal verbs like "should" and "would" accurately</option>
+                    <option value="kept correct word order even in longer sentences">kept correct word order even in longer sentences</option>
+                    <option value="used plural and singular forms accurately">used plural and singular forms accurately</option>
+                    <option value="applied a grammar point right after we reviewed it">applied a grammar point right after we reviewed it</option>
+                    <option value="made noticeably fewer grammar slips than before">made noticeably fewer grammar slips than before</option>
+                    <option value="used relative clauses to add detail smoothly">used relative clauses to add detail smoothly</option>
+                    <option value="kept your pronouns clear and consistent">kept your pronouns clear and consistent</option>
+                    <option value="used the passive voice correctly where it fit">used the passive voice correctly where it fit</option>
+                    <option value="formed indirect questions politely">formed indirect questions politely</option>
+                    <option value="used gerunds and infinitives correctly">used gerunds and infinitives correctly</option>
+                    <option value="used &ldquo;that&rdquo; clauses to report ideas naturally">used &ldquo;that&rdquo; clauses to report ideas naturally</option>
+                    <option value="used quantifiers like &ldquo;most&rdquo; and &ldquo;a few&rdquo; accurately">used quantifiers like &ldquo;most&rdquo; and &ldquo;a few&rdquo; accurately</option>
+                    <option value="kept your articles correct even in longer sentences">kept your articles correct even in longer sentences</option>
+                    <option value="matched time expressions with the right tense">matched time expressions with the right tense</option>
+                    <option value="built a clear cause-and-effect sentence">built a clear cause-and-effect sentence</option>
+                    <option value="used &ldquo;used to&rdquo; naturally for past habits">used &ldquo;used to&rdquo; naturally for past habits</option>
+                    <option value="kept parallel structure when listing ideas">kept parallel structure when listing ideas</option>
+                    <option value="expressed a hypothetical situation correctly">expressed a hypothetical situation correctly</option>
+                    <option value="noticed a grammar slip in your own speech and fixed it">noticed a grammar slip in your own speech and fixed it</option>
+                  </select>
+                  <div class="picked" id="good-grammar-sentences"></div>
+                </div>
+              </details>
+              <details class="gcat"><summary><span class="cat-title">👂 Listening &amp; Comprehension</span><span class="cat-count" hidden>0</span></summary>
+                <div class="pickwrap">
+                  <select class="g-picker" data-pick="good-listening-comprehension">
+                    <option value="">Choose a strength…</option>
+                    <option value="understood my questions on the first try">understood my questions on the first try</option>
+                    <option value="answered the comprehension questions accurately">answered the comprehension questions accurately</option>
+                    <option value="summarized the article in your own words">summarized the article in your own words</option>
+                    <option value="caught the key numbers and details while listening">caught the key numbers and details while listening</option>
+                    <option value="understood my natural speaking speed">understood my natural speaking speed</option>
+                    <option value="responded correctly to unexpected questions">responded correctly to unexpected questions</option>
+                    <option value="picked up the main idea after one reading">picked up the main idea after one reading</option>
+                    <option value="followed my instructions without needing repeats">followed my instructions without needing repeats</option>
+                    <option value="noticed the small difference between similar questions">noticed the small difference between similar questions</option>
+                    <option value="understood a new phrase from my explanation alone">understood a new phrase from my explanation alone</option>
+                    <option value="understood every question without repetition">understood every question without repetition</option>
+                    <option value="answered follow-up questions accurately">answered follow-up questions accurately</option>
+                    <option value="caught the details in my longer explanations">caught the details in my longer explanations</option>
+                    <option value="understood me even when I spoke quickly">understood me even when I spoke quickly</option>
+                    <option value="identified the main point of each paragraph">identified the main point of each paragraph</option>
+                    <option value="answered deeper thinking questions thoughtfully">answered deeper thinking questions thoughtfully</option>
+                    <option value="noticed my correction and applied it immediately">noticed my correction and applied it immediately</option>
+                    <option value="followed the article from start to finish">followed the article from start to finish</option>
+                    <option value="asked for clarification politely when needed">asked for clarification politely when needed</option>
+                    <option value="understood new expressions from context alone">understood new expressions from context alone</option>
+                    <option value="caught the correction I slipped into my reply">caught the correction I slipped into my reply</option>
+                    <option value="understood a question with unfamiliar vocabulary in it">understood a question with unfamiliar vocabulary in it</option>
+                    <option value="inferred the writer&rsquo;s opinion from the wording">inferred the writer&rsquo;s opinion from the wording</option>
+                    <option value="told the difference between fact and opinion in the article">told the difference between fact and opinion in the article</option>
+                    <option value="followed a multi-part question and answered every part">followed a multi-part question and answered every part</option>
+                    <option value="understood my example even when the idea was abstract">understood my example even when the idea was abstract</option>
+                    <option value="recognized a word by sound alone">recognized a word by sound alone</option>
+                    <option value="kept up when I spoke at natural native speed">kept up when I spoke at natural native speed</option>
+                    <option value="understood the joke and laughed at just the right moment">understood the joke and laughed at just the right moment</option>
+                    <option value="rephrased my question to confirm your understanding">rephrased my question to confirm your understanding</option>
+                    <option value="connected today&rsquo;s article to something we read before">connected today&rsquo;s article to something we read before</option>
+                    <option value="remembered details from earlier in the lesson">remembered details from earlier in the lesson</option>
+                    <option value="understood the instruction on the very first listen">understood the instruction on the very first listen</option>
+                    <option value="picked up the meaning of an idiom from the situation">picked up the meaning of an idiom from the situation</option>
+                  </select>
+                  <div class="picked" id="good-listening-comprehension"></div>
+                </div>
+              </details>
+              <details class="gcat"><summary><span class="cat-title">💬 Conversation &amp; Attitude</span><span class="cat-count" hidden>0</span></summary>
+                <div class="pickwrap">
+                  <select class="g-picker" data-pick="good-conversation-attitude">
+                    <option value="">Choose a strength…</option>
+                    <option value="shared opinions with supporting reasons">shared opinions with supporting reasons</option>
+                    <option value="asked thoughtful follow-up questions">asked thoughtful follow-up questions</option>
+                    <option value="opened up new topics to discuss">opened up new topics to discuss</option>
+                    <option value="stayed relaxed and clearly enjoyed the conversation">stayed relaxed and clearly enjoyed the conversation</option>
+                    <option value="reacted naturally with phrases like "Really?" and "I see"">reacted naturally with phrases like "Really?" and "I see"</option>
+                    <option value="disagreed politely and explained your view">disagreed politely and explained your view</option>
+                    <option value="kept wonderful eye contact and smiled through the lesson">kept wonderful eye contact and smiled through the lesson</option>
+                    <option value="showed great focus from start to finish">showed great focus from start to finish</option>
+                    <option value="took notes actively during the lesson">took notes actively during the lesson</option>
+                    <option value="welcomed corrections positively and tried again right away">welcomed corrections positively and tried again right away</option>
+                    <option value="connected the topic to your own experiences">connected the topic to your own experiences</option>
+                    <option value="gave honest and thoughtful opinions">gave honest and thoughtful opinions</option>
+                    <option value="asked me questions to keep the conversation going">asked me questions to keep the conversation going</option>
+                    <option value="showed genuine curiosity about the topic">showed genuine curiosity about the topic</option>
+                    <option value="stayed positive even with difficult questions">stayed positive even with difficult questions</option>
+                    <option value="smiled and looked relaxed throughout our lesson">smiled and looked relaxed throughout our lesson</option>
+                    <option value="joined the discussion with real energy">joined the discussion with real energy</option>
+                    <option value="listened carefully and responded to what I said">listened carefully and responded to what I said</option>
+                    <option value="shared an interesting story I really enjoyed hearing">shared an interesting story I really enjoyed hearing</option>
+                    <option value="came to the lesson prepared and ready to speak">came to the lesson prepared and ready to speak</option>
+                    <option value="kept the conversation warm and friendly throughout">kept the conversation warm and friendly throughout</option>
+                    <option value="shared a personal example that fit the topic perfectly">shared a personal example that fit the topic perfectly</option>
+                    <option value="took a challenging question with a smile">took a challenging question with a smile</option>
+                    <option value="kept trying even when the word was hard to find">kept trying even when the word was hard to find</option>
+                    <option value="responded to my opinion instead of only stating your own">responded to my opinion instead of only stating your own</option>
+                    <option value="brought real curiosity to a topic outside your usual interests">brought real curiosity to a topic outside your usual interests</option>
+                    <option value="made me laugh with a very natural joke">made me laugh with a very natural joke</option>
+                    <option value="used our 25 minutes efficiently and calmly">used our 25 minutes efficiently and calmly</option>
+                    <option value="came back to an earlier point to explain it better">came back to an earlier point to explain it better</option>
+                    <option value="were open about which parts felt difficult">were open about which parts felt difficult</option>
+                    <option value="thanked me for a correction and used it immediately">thanked me for a correction and used it immediately</option>
+                    <option value="kept great energy right to the last minute">kept great energy right to the last minute</option>
+                    <option value="treated every mistake as practice rather than failure">treated every mistake as practice rather than failure</option>
+                    <option value="made this lesson a real joy with your positive attitude">made this lesson a real joy with your positive attitude</option>
+                  </select>
+                  <div class="picked" id="good-conversation-attitude"></div>
+                </div>
+              </details>
+              <details class="gcat"><summary><span class="cat-title">🎯 Discussion &amp; Opinion</span><span class="cat-count" hidden>0</span></summary>
+                <div class="pickwrap">
+                  <select class="g-picker" data-pick="good-discussion-opinion">
+                    <option value="">Choose a strength…</option>
+                    <option value="took a clear position and defended it well">took a clear position and defended it well</option>
+                    <option value="considered both sides before giving your opinion">considered both sides before giving your opinion</option>
+                    <option value="used &ldquo;in my opinion&rdquo; and &ldquo;I believe&rdquo; naturally">used &ldquo;in my opinion&rdquo; and &ldquo;I believe&rdquo; naturally</option>
+                    <option value="supported your argument with a real example">supported your argument with a real example</option>
+                    <option value="politely challenged an idea in the article">politely challenged an idea in the article</option>
+                    <option value="suggested a practical solution to the problem">suggested a practical solution to the problem</option>
+                    <option value="compared the situation in Japan with the article&rsquo;s country">compared the situation in Japan with the article&rsquo;s country</option>
+                    <option value="explained clearly why you changed your mind">explained clearly why you changed your mind</option>
+                    <option value="answered a hypothetical question thoughtfully">answered a hypothetical question thoughtfully</option>
+                    <option value="gave a balanced answer instead of a simple yes or no">gave a balanced answer instead of a simple yes or no</option>
+                    <option value="linked the topic to a bigger social issue">linked the topic to a bigger social issue</option>
+                    <option value="asked a question I had not thought of myself">asked a question I had not thought of myself</option>
+                    <option value="gave a concise answer and then expanded when asked">gave a concise answer and then expanded when asked</option>
+                    <option value="explained a complex idea in clear, simple English">explained a complex idea in clear, simple English</option>
+                    <option value="reached a thoughtful conclusion at the end of the discussion">reached a thoughtful conclusion at the end of the discussion</option>
+                    <option value="kept your reasoning easy to follow throughout">kept your reasoning easy to follow throughout</option>
+                  </select>
+                  <div class="picked" id="good-discussion-opinion"></div>
+                </div>
+              </details>
+              <details class="gcat"><summary><span class="cat-title">🌱 Progress &amp; Consistency</span><span class="cat-count" hidden>0</span></summary>
+                <div class="pickwrap">
+                  <select class="g-picker" data-pick="good-progress-consistency">
+                    <option value="">Choose a strength…</option>
+                    <option value="showed clear improvement since our last lesson">showed clear improvement since our last lesson</option>
+                    <option value="used the phrase we practiced last time correctly">used the phrase we practiced last time correctly</option>
+                    <option value="made far fewer of the mistakes we worked on before">made far fewer of the mistakes we worked on before</option>
+                    <option value="remembered vocabulary from our earlier lessons">remembered vocabulary from our earlier lessons</option>
+                    <option value="have grown noticeably more confident over our lessons">have grown noticeably more confident over our lessons</option>
+                    <option value="kept up your wonderful habit of coming prepared">kept up your wonderful habit of coming prepared</option>
+                    <option value="applied last lesson&rsquo;s feedback right away">applied last lesson&rsquo;s feedback right away</option>
+                    <option value="speak at a much more natural speed now">speak at a much more natural speed now</option>
+                    <option value="handled a topic that used to feel difficult for you">handled a topic that used to feel difficult for you</option>
+                    <option value="reached a level of detail you would not have tried before">reached a level of detail you would not have tried before</option>
+                    <option value="now pronounce a long-difficult word solidly">now pronounce a long-difficult word solidly</option>
+                    <option value="have kept a steady lesson rhythm week after week">have kept a steady lesson rhythm week after week</option>
+                    <option value="give longer and richer answers each time we meet">give longer and richer answers each time we meet</option>
+                    <option value="built on what we discussed in our previous lesson">built on what we discussed in our previous lesson</option>
+                    <option value="need far fewer repeats than before when listening">need far fewer repeats than before when listening</option>
+                    <option value="are clearly seeing your consistency pay off">are clearly seeing your consistency pay off</option>
+                  </select>
+                  <div class="picked" id="good-progress-consistency"></div>
+                </div>
+              </details>
+              <details class="gcat"><summary><span class="cat-title">✨ Effort &amp; Character</span><span class="cat-count" hidden>0</span></summary>
+                <div class="pickwrap">
+                  <select class="g-picker" data-pick="good-effort-character">
+                    <option value="">Choose a strength…</option>
+                    <option value="stayed focused even when the topic was demanding">stayed focused even when the topic was demanding</option>
+                    <option value="kept a calm, steady pace when things got tricky">kept a calm, steady pace when things got tricky</option>
+                    <option value="asked for help at exactly the right moment">asked for help at exactly the right moment</option>
+                    <option value="showed real patience while working out a hard sentence">showed real patience while working out a hard sentence</option>
+                    <option value="were honest about what you did not understand yet">were honest about what you did not understand yet</option>
+                    <option value="kept your sense of humor through a challenging article">kept your sense of humor through a challenging article</option>
+                    <option value="pushed yourself to try the harder answer">pushed yourself to try the harder answer</option>
+                    <option value="stayed curious and asked &ldquo;why&rdquo; more than once">stayed curious and asked &ldquo;why&rdquo; more than once</option>
+                    <option value="listened to feedback openly and without discouragement">listened to feedback openly and without discouragement</option>
+                    <option value="kept going after a small stumble, which is real strength">kept going after a small stumble, which is real strength</option>
+                    <option value="made time for this lesson despite a busy schedule">made time for this lesson despite a busy schedule</option>
+                    <option value="took notes you can genuinely use later">took notes you can genuinely use later</option>
+                    <option value="showed lovely respect and warmth throughout our lesson">showed lovely respect and warmth throughout our lesson</option>
+                    <option value="brought your full attention to every activity">brought your full attention to every activity</option>
+                    <option value="were a pleasure to teach from beginning to end">were a pleasure to teach from beginning to end</option>
+                    <option value="set a clear goal for yourself and worked toward it">set a clear goal for yourself and worked toward it</option>
+                  </select>
+                  <div class="picked" id="good-effort-character"></div>
+                </div>
+              </details>
             </div>
             <label class="f-label" for="g-good-extra">Anything specific? <small>(recommended: a real moment from today)</small></label>
             <input type="text" id="g-good-extra" placeholder="e.g., your summary of the article was spot on">
@@ -962,7 +1050,6 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
             <textarea id="g-corrections" rows="2" placeholder="You said: I go to Kyoto last week.&#10;Correct: I went to Kyoto last week."></textarea>
             <div class="chips">
               <span class="chip nb-chip" data-target="g-corrections" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
-              <span class="chip nb-chip" data-target="g-corrections" data-ins="You said: &#10;Better: ">+ You said / Better</span>
               <span class="chip nb-chip" data-target="g-corrections" data-ins=" [] - ">+ word [pronunciation]</span>
             
             <span class="chip fix-btn" data-fix="g-corrections" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
@@ -971,36 +1058,82 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           </div>
 
           <div class="gq">
-            <div class="gq-q"><span class="qnum">6</span>What should they practice next? <small style="font-weight:500;color:var(--mauve)">(tap all that apply)</small></div>
-            <div class="chips" id="g-advice-chips" style="margin-top:0">
-              <span class="chip g-multi" data-adv="the past tense when telling stories, for example 'I went' instead of 'I go'">past tense</span>
-              <span class="chip g-multi" data-adv="articles such as 'a', 'an', and 'the'">articles (a/the)</span>
-              <span class="chip g-multi" data-adv="the plural 's' at the end of words, for example 'two cats'">plural "s"</span>
-              <span class="chip g-multi" data-adv="the /L/ and /R/ sounds in words like 'collect' and 'correct'">/L/ and /R/</span>
-              <span class="chip g-multi" data-adv="the 'th' sound in words like 'think' and 'birthday'">"th" sound</span>
-              <span class="chip g-multi" data-adv="adding 'because' to give longer, richer answers">longer answers</span>
-              <span class="chip g-multi" data-adv="today's new words by making one sentence with each">review new words</span>
-              <span class="chip g-multi" data-adv="moving smoothly from one topic to another during conversations">topic transitions</span>
+            <div class="gq-q"><span class="qnum">6</span>What should they practice next? <small style="font-weight:500;color:var(--mauve)">(choose as many as you need)</small><span class="sec-count" id="cnt-adv" hidden>0</span></div>
+            <div id="g-advice-chips" style="margin-top:0">
+              <select class="g-picker" data-pick="adv-list">
+                <option value="">Choose something to practice…</option>
+                <option value="the past tense when telling stories, for example 'I went' instead of 'I go'">past tense</option>
+                <option value="articles such as 'a', 'an', and 'the'">articles (a/the)</option>
+                <option value="the plural 's' at the end of words, for example 'two cats'">plural "s"</option>
+                <option value="the /L/ and /R/ sounds in words like 'collect' and 'correct'">/L/ and /R/</option>
+                <option value="the 'th' sound in words like 'think' and 'birthday'">"th" sound</option>
+                <option value="adding 'because' to give longer, richer answers">longer answers</option>
+                <option value="today's new words by making one sentence with each">review new words</option>
+                <option value="moving smoothly from one topic to another during conversations">topic transitions</option>
+                <option value="subject-verb agreement, for example 'he goes' instead of 'he go'">subject-verb agreement</option>
+                <option value="prepositions such as 'in', 'on', and 'at' for time and place">prepositions</option>
+                <option value="word stress, so the strongest syllable stands out clearly">word stress</option>
+                <option value="the natural rhythm of English by reading one short passage aloud each day">sentence rhythm</option>
+                <option value="forming questions naturally, for example 'Do you think...?' and 'Have you ever...?'">question forms</option>
+                <option value="linking words such as 'however', 'also', and 'for example'">linking words</option>
+                <option value="long and short vowel sounds in pairs like 'ship' and 'sheep'">vowel length</option>
+                <option value="clear word endings such as '-ed' and '-s', which are easy to drop">word endings</option>
+                <option value="giving your opinion with phrases like 'In my opinion' and 'I feel that'">giving opinions</option>
+                <option value="adding one extra detail to each answer so your ideas feel complete">describing details</option>
+                <option value="polite forms such as 'Could you...?' and 'Would it be possible to...?'">polite requests</option>
+                <option value="speaking a little more slowly so every word stays clear">speaking speed</option>
+                <option value="natural thinking phrases such as 'Let me see' and 'That's a good question'">filler phrases</option>
+                <option value="summarizing an article in three sentences after you read it">summarizing</option>
+                <option value="comparing things with 'more than', 'less than', and 'the most'">comparatives</option>
+                <option value="talking about plans with 'will', 'be going to', and the present continuous">future forms</option>
+                <option value="common phrasal verbs such as 'find out', 'look for', and 'come up with'">phrasal verbs</option>
+                <option value="listening for specific details rather than only the general meaning">listening for details</option>
+              </select>
+              <div class="picked" id="adv-list"></div>
             </div>
             <label class="f-label" for="g-advice-extra">Anything else to suggest?</label>
             <input type="text" id="g-advice-extra" placeholder="e.g., try shadowing short news clips for intonation">
           </div>
 
           <div class="gq">
-            <div class="gq-q"><span class="qnum">7</span>Encouraging advice <small style="font-weight:500;color:var(--mauve)">(short, uplifting; tap all that apply)</small></div>
-            <div class="chips" id="g-cheer-chips" style="margin-top:0">
-              <span class="chip g-multi" data-cheer="Reading one short English article a day will grow your vocabulary faster than you expect, and you are already reading so well.">daily article</span>
-              <span class="chip g-multi" data-cheer="Try shadowing a one-minute clip each day; your ear and mouth will sync beautifully, and you are closer than you think.">daily shadowing</span>
-              <span class="chip g-multi" data-cheer="Keep a small phrase notebook and collect one expression a day; little by little makes a mighty vocabulary.">phrase notebook</span>
-              <span class="chip g-multi" data-cheer="Speak English to yourself for two minutes while cooking or walking; it is a fun secret shortcut to fluency.">self-talk practice</span>
-              <span class="chip g-multi" data-cheer="Watch one favorite show in English with subtitles; learning feels lighter when it is fun, and you have earned the fun.">learn with shows</span>
-              <span class="chip g-multi" data-cheer="Review today's corrections once before bed; your brain will quietly master them while you sleep.">review before bed</span>
-              <span class="chip g-multi" data-cheer="Please don't fear mistakes; every one you make in class is one you won't make in a real conversation. Keep speaking bravely.">brave mistakes</span>
-              <span class="chip g-multi" data-cheer="Try writing three English sentences about your day tonight; small writing builds big speaking.">three sentences a day</span>
-              <span class="chip g-multi" data-cheer="Listen to an English podcast during your commute; even relaxed listening is training your ear.">podcast listening</span>
-              <span class="chip g-multi" data-cheer="Use one new word from today in a real conversation or email this week; used words become yours forever.">use it this week</span>
-              <span class="chip g-multi" data-cheer="Please celebrate your progress; compared to your first lesson, you have grown so much, and it shows.">celebrate progress</span>
-              <span class="chip g-multi" data-cheer="Keep enjoying English the way you did today; joy is the best study plan, and you clearly have it.">keep the joy</span>
+            <div class="gq-q"><span class="qnum">7</span>Encouraging advice <small style="font-weight:500;color:var(--mauve)">(short, uplifting)</small><span class="sec-count" id="cnt-cheer" hidden>0</span></div>
+            <div id="g-cheer-chips" style="margin-top:0">
+              <select class="g-picker" data-pick="cheer-list">
+                <option value="">Choose an encouraging line…</option>
+                <option value="Reading one short English article a day will grow your vocabulary faster than you expect, and you are already reading so well.">daily article</option>
+                <option value="Try shadowing a one-minute clip each day; your ear and mouth will sync beautifully, and you are closer than you think.">daily shadowing</option>
+                <option value="Keep a small phrase notebook and collect one expression a day; little by little makes a mighty vocabulary.">phrase notebook</option>
+                <option value="Speak English to yourself for two minutes while cooking or walking; it is a fun secret shortcut to fluency.">self-talk practice</option>
+                <option value="Watch one favorite show in English with subtitles; learning feels lighter when it is fun, and you have earned the fun.">learn with shows</option>
+                <option value="Review today's corrections once before bed; your brain will quietly master them while you sleep.">review before bed</option>
+                <option value="Please don't fear mistakes; every one you make in class is one you won't make in a real conversation. Keep speaking bravely.">brave mistakes</option>
+                <option value="Try writing three English sentences about your day tonight; small writing builds big speaking.">three sentences a day</option>
+                <option value="Listen to an English podcast during your commute; even relaxed listening is training your ear.">podcast listening</option>
+                <option value="Use one new word from today in a real conversation or email this week; used words become yours forever.">use it this week</option>
+                <option value="Please celebrate your progress; compared to your first lesson, you have grown so much, and it shows.">celebrate progress</option>
+                <option value="Keep enjoying English the way you did today; joy is the best study plan, and you clearly have it.">keep the joy</option>
+                <option value="Five minutes every day will take you further than two hours once a week; small and steady always wins.">five minutes daily</option>
+                <option value="Read one paragraph aloud each morning; your mouth needs practice just as much as your memory does.">read aloud</option>
+                <option value="Record yourself speaking for one minute and listen back; you will notice your own growth clearly.">record yourself</option>
+                <option value="Learn the words to one English song you love; music makes pronunciation stick without any effort.">one song</option>
+                <option value="Describe the room around you in English for one minute; everyday practice needs no special material.">describe your room</option>
+                <option value="Read one English news headline each morning and say what you think about it in a sentence or two.">news headline</option>
+                <option value="Write new words on sticky notes around your home; seeing them often turns them into old friends.">keep a word wall</option>
+                <option value="Try thinking in English for just one small task a day, like making tea; it builds fluency quietly.">think in English</option>
+                <option value="Practice one answer in the mirror before your next lesson; confidence grows where nobody is watching.">talk to yourself in the mirror</option>
+                <option value="Look back at your notes every weekend for ten minutes; review is where learning becomes permanent.">weekend review</option>
+                <option value="Prepare one English question to ask me each lesson; curiosity is the fastest teacher there is.">one question a day</option>
+                <option value="Keep your lesson rhythm steady; consistency is quietly your greatest strength, and it is already showing.">keep booking</option>
+                <option value="Please be patient with yourself; language grows like a garden, slowly and then all at once.">be patient</option>
+                <option value="Trust your ear more; you understand far more English than you give yourself credit for.">trust your ear</option>
+                <option value="Say your idea first and fix it after; fluency comes from speaking, not from waiting for the perfect sentence.">speak first, perfect later</option>
+                <option value="Read one page of an easy English book each night; you will finish more books than you expect this year.">one page a night</option>
+                <option value="Name the things you use each day in English; your kitchen and desk can become a free classroom.">label your world</option>
+                <option value="I am genuinely proud of the effort you put in today, and I hope you feel proud of yourself too.">proud of you</option>
+                <option value="You are more ready for real English conversations than you believe; please give yourself that credit.">you are ready</option>
+                <option value="Please keep going exactly as you are; the progress you cannot see yet is already happening.">keep going</option>
+              </select>
+              <div class="picked" id="cheer-list"></div>
             </div>
           </div>
 
@@ -1090,10 +1223,9 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
         </div>
 
         <label class="f-label" for="nb-corrections">3 · Corrections made during the lesson <small>(shown in the comment so the student can review)</small></label>
-        <textarea id="nb-corrections" rows="3" placeholder="e.g., I go to Kyoto last week. -> I went to Kyoto last week."></textarea>
+        <textarea id="nb-corrections" rows="3" placeholder="You said: I go to Kyoto last week.&#10;Correct: I went to Kyoto last week."></textarea>
         <div class="chips">
           <span class="chip nb-chip" data-target="nb-corrections" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
-          <span class="chip nb-chip" data-target="nb-corrections" data-ins="You said: &#10;Better: ">+ You said / Better</span>
         
             <span class="chip fix-btn" data-fix="nb-corrections" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
@@ -1108,9 +1240,9 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
         <label class="f-label" style="margin-top:14px">3b · Structured corrections <small>(BCC / Jitsuyo Eikaiwa style, all optional; each becomes its own labeled block in the note)</small></label>
         <div class="gq" style="margin-top:6px">
           <div class="gq-q" style="font-size:13px">*Vocabulary/Phrases*</div>
-          <textarea id="nb-vocab-pairs" rows="2" placeholder="reunion - a meeting of old friends after a long time&#10;You said: use the connection&#10;Better: leverage the connection"></textarea>
+          <textarea id="nb-vocab-pairs" rows="2" placeholder="reunion - a meeting of old friends after a long time&#10;You said: use the connection&#10;Correct: leverage the connection"></textarea>
           <div class="chips">
-            <span class="chip nb-chip" data-target="nb-vocab-pairs" data-ins="You said: &#10;Better: ">+ You said / Better</span>
+            <span class="chip nb-chip" data-target="nb-vocab-pairs" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
             <span class="chip nb-chip" data-target="nb-vocab-pairs" data-ins=" - ">+ word - meaning</span>
           
             <span class="chip fix-btn" data-fix="nb-vocab-pairs" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
@@ -1139,26 +1271,26 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <textarea id="nb-wna-range" rows="2" placeholder="overcharge - set the price too high&#10;plus tax - used for prices that don't have tax included"></textarea>
           <div class="chips">
             <span class="chip nb-chip" data-target="nb-wna-range" data-ins=" - ">+ word - meaning</span>
-            <span class="chip nb-chip" data-target="nb-wna-range" data-ins="You said: &#10;Better: ">+ You said / Better</span>
+            <span class="chip nb-chip" data-target="nb-wna-range" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
           
             <span class="chip fix-btn" data-fix="nb-wna-range" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
         </div>
         <div class="gq">
           <div class="gq-q" style="font-size:13px">*COHERENCE* <small style="font-weight:500;color:var(--mauve)">(answer length and connectors like "but" and "because")</small></div>
-          <textarea id="nb-wna-coh" rows="2" placeholder="You: Gave short answers.&#10;Better: Expand your answers by adding more details."></textarea>
+          <textarea id="nb-wna-coh" rows="2" placeholder="You: Gave short answers.&#10;Correct: Expand your answers by adding more details."></textarea>
           <div class="chips">
-            <span class="chip nb-chip" data-target="nb-wna-coh" data-ins="You: &#10;Better: ">+ You / Better</span>
-            <span class="chip nb-chip" data-target="nb-wna-coh" data-ins="You: Gave short answers.&#10;Better: Expand your answers by adding more details. ">short answers</span>
-            <span class="chip nb-chip" data-target="nb-wna-coh" data-ins="You: Did not connect sentences.&#10;Better: Use connectors like 'but' and 'because' to link sentences together. ">use connectors</span>
+            <span class="chip nb-chip" data-target="nb-wna-coh" data-ins="You: &#10;Correct: ">+ You / Correct</span>
+            <span class="chip nb-chip" data-target="nb-wna-coh" data-ins="You: Gave short answers.&#10;Correct: Expand your answers by adding more details. ">short answers</span>
+            <span class="chip nb-chip" data-target="nb-wna-coh" data-ins="You: Did not connect sentences.&#10;Correct: Use connectors like 'but' and 'because' to link sentences together. ">use connectors</span>
           </div>
         </div>
         <div class="gq">
           <div class="gq-q" style="font-size:13px">*PHONOLOGY* <small style="font-weight:500;color:var(--mauve)">(pronunciation mistakes and unnatural stress)</small></div>
-          <textarea id="nb-wna-phon" rows="2" placeholder="investigation [in-ves-tih-GAY-shun]&#10;You said: BECAUSE of this, ...&#10;Better: Because of THIS, ..."></textarea>
+          <textarea id="nb-wna-phon" rows="2" placeholder="investigation [in-ves-tih-GAY-shun]&#10;You said: BECAUSE of this, ...&#10;Correct: Because of THIS, ..."></textarea>
           <div class="chips">
             <span class="chip nb-chip" data-target="nb-wna-phon" data-ins=" []">+ word [pronunciation]</span>
-            <span class="chip nb-chip" data-target="nb-wna-phon" data-ins="You said: &#10;Better: ">+ You said / Better (stress)</span>
+            <span class="chip nb-chip" data-target="nb-wna-phon" data-ins="You said: &#10;Correct: ">+ You said / Correct (stress)</span>
           
             <span class="chip fix-btn" data-fix="nb-wna-phon" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
@@ -1404,8 +1536,8 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <label class="f-label" for="je-range-words">Word(s) with meaning <small>(one per line: word - meaning)</small></label>
           <textarea id="je-range-words" rows="2" placeholder="reunion - a meeting of old friends after a long time"></textarea>
           <label class="f-label" for="je-range-pairs">Corrections <small>(as many pairs as you need)</small></label>
-          <textarea id="je-range-pairs" rows="4" placeholder="You said: I meet my friend long time no see.&#10;Better: It's been a while since I met my friend."></textarea>
-          <div class="chips"><span class="chip je-chip" data-target="je-range-pairs" data-ins="You said: &#10;Better: ">+ add another pair</span>
+          <textarea id="je-range-pairs" rows="4" placeholder="You said: I meet my friend long time no see.&#10;Correct: It's been a while since I met my friend."></textarea>
+          <div class="chips"><span class="chip je-chip" data-target="je-range-pairs" data-ins="You said: &#10;Correct: ">+ add another pair</span>
             <span class="chip fix-btn" data-fix="je-range-pairs" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
           <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made RANGE feedback</summary><div class="chips">
@@ -1438,8 +1570,8 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
         <div class="gq">
           <div class="gq-q">FLUENCY <small style="font-weight:500;color:var(--mauve)">(flow and phrasing)</small></div>
           <label class="f-label" for="je-flu-pairs">Corrections <small>(as many pairs as you need)</small></label>
-          <textarea id="je-flu-pairs" rows="4" placeholder="You said: Remember... we... used to... go...&#10;Better: Remember when we used to go to the park?"></textarea>
-          <div class="chips"><span class="chip je-chip" data-target="je-flu-pairs" data-ins="You said: &#10;Better: ">+ add another pair</span>
+          <textarea id="je-flu-pairs" rows="4" placeholder="You said: Remember... we... used to... go...&#10;Correct: Remember when we used to go to the park?"></textarea>
+          <div class="chips"><span class="chip je-chip" data-target="je-flu-pairs" data-ins="You said: &#10;Correct: ">+ add another pair</span>
             <span class="chip fix-btn" data-fix="je-flu-pairs" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
           <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made FLUENCY feedback</summary><div class="chips">
@@ -1455,8 +1587,8 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
         <div class="gq">
           <div class="gq-q">INTERACTION <small style="font-weight:500;color:var(--mauve)">(responding and engaging)</small></div>
           <label class="f-label" for="je-int-pairs">Corrections <small>(as many pairs as you need)</small></label>
-          <textarea id="je-int-pairs" rows="4" placeholder="You: (answered with one word) Yes.&#10;Better: Yes, I do! Actually, I saw my old classmate last month."></textarea>
-          <div class="chips"><span class="chip je-chip" data-target="je-int-pairs" data-ins="You: &#10;Better: ">+ add another pair</span></div>
+          <textarea id="je-int-pairs" rows="4" placeholder="You: (answered with one word) Yes.&#10;Correct: Yes, I do! Actually, I saw my old classmate last month."></textarea>
+          <div class="chips"><span class="chip je-chip" data-target="je-int-pairs" data-ins="You: &#10;Correct: ">+ add another pair</span></div>
           <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made INTERACTION feedback</summary><div class="chips">
             <span class="chip je-chip" data-target="je-int-pairs" data-ins="You responded actively to my questions and kept the conversation engaging. Excellent interaction!">active responses</span>
             <span class="chip je-chip" data-target="je-int-pairs" data-ins="You asked thoughtful follow-up questions, which made our discussion feel natural.">good follow-ups</span>
@@ -1495,7 +1627,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <div class="flow-step"><div class="fs-min">Present · ~5 min</div><div class="fs-title">Step A Expressions + Step B Pronunciation</div><div class="fs-body">Go over each target expression; have the student read the example dialogues aloud. Then drill the pronunciation point (e.g., the dropped /t/ in "can't believe"). Model it, they echo.</div></div>
       <div class="flow-step"><div class="fs-min">Understand · ~6 min</div><div class="fs-title">Reading (+ trivia if time)</div><div class="fs-body">Student reads the passage aloud. Check comprehension with the material's questions and confirm they caught the target expressions in context. Trivia is a bonus, not a must.</div></div>
       <div class="flow-step"><div class="fs-min">Practice · ~5 min</div><div class="fs-title">Step A &amp; Step B exercises</div><div class="fs-body">Step A: choose the best sentence. Step B: complete the posts with the expressions. Correct gently right here; practice is where mistakes are cheapest.</div></div>
-      <div class="flow-step"><div class="fs-min">Challenge · ~4 min</div><div class="fs-title">The real task (your feedback goldmine)</div><div class="fs-body">Challenge 1 is the graded task (e.g., reply to an old friend's email using today's expressions). Let them speak; note their exact words for You said / Better. Challenge 2 only if time truly allows.</div></div>
+      <div class="flow-step"><div class="fs-min">Challenge · ~4 min</div><div class="fs-title">The real task (your feedback goldmine)</div><div class="fs-body">Challenge 1 is the graded task (e.g., reply to an old friend's email using today's expressions). Let them speak; note their exact words for You said / Correct. Challenge 2 only if time truly allows.</div></div>
       <div class="flow-step"><div class="fs-min">Feedback · ~3 min</div><div class="fs-title">Score + personalized feedback</div><div class="fs-body">Announce the Lesson Goal Achievement score kindly, then walk through Range, Accuracy, Fluency, and Interaction with their own sentences. Build the note below while it's fresh.</div></div>
     </div>
     <div class="note-box"><b>During Challenge 1, jot the raw quotes.</b> The JE note lives or dies on real "You said" lines. Keep a scratchpad (or the My Memo box) open and capture 3 or 4 exact sentences while they speak; polishing them comes after.</div>
@@ -1513,7 +1645,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <div class="flow-step"><div class="fs-min">Min 0–1</div><div class="fs-title">Professional open</div><div class="fs-body">"Hello! Thank you for joining today's lesson. Shall we begin?" Confirm the material briskly; business students value momentum.</div></div>
       <div class="flow-step"><div class="fs-min">Min 1–10</div><div class="fs-title">Present &amp; practice</div><div class="fs-body">Follow the Jissen structure faithfully. Checkpoint: know where the material says you should be by minute 10.</div></div>
       <div class="flow-step"><div class="fs-min">Throughout</div><div class="fs-title">Silent capture</div><div class="fs-body">Never interrupt. Type every notable error into the scratchpad below as they speak; deliver corrections at natural pauses via the chat box.</div></div>
-      <div class="flow-step"><div class="fs-min">Min 10–18</div><div class="fs-title">The main task / role play</div><div class="fs-body">Their real performance happens here; this is where your best "You said / Better" evidence comes from. Checkpoint at minute 18.</div></div>
+      <div class="flow-step"><div class="fs-min">Min 10–18</div><div class="fs-title">The main task / role play</div><div class="fs-body">Their real performance happens here; this is where your best "You said / Correct" evidence comes from. Checkpoint at minute 18.</div></div>
       <div class="flow-step"><div class="fs-min">Min 22</div><div class="fs-title">Begin closing, no matter what</div><div class="fs-body">An unfinished exercise is fine; missing feedback is not. Paste the accomplished score note into the chat box FIRST.</div></div>
       <div class="flow-step"><div class="fs-min">Min 22–25</div><div class="fs-title">Verbal feedback &amp; close</div><div class="fs-body">Walk through the note: score, strengths with evidence, one or two sharp improvements. Thank them formally and end exactly on time.</div></div>
     </div>
@@ -1536,9 +1668,9 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
         <div class="gq">
           <div class="gq-q">Vocabulary / Phrases</div>
-          <textarea id="bw-vocab" rows="3" placeholder="leverage - to use something to gain an advantage&#10;You said: use the connection&#10;Better: leverage the connection"></textarea>
+          <textarea id="bw-vocab" rows="3" placeholder="leverage - to use something to gain an advantage&#10;You said: use the connection&#10;Correct: leverage the connection"></textarea>
           <div class="chips">
-            <span class="chip bw-chip" data-target="bw-vocab" data-ins="You said: &#10;Better: ">+ You said / Better</span>
+            <span class="chip bw-chip" data-target="bw-vocab" data-ins="You said: &#10;Correct: ">+ You said / Correct</span>
             <span class="chip bw-chip" data-target="bw-vocab" data-ins=" - ">+ word - meaning</span>
           
             <span class="chip fix-btn" data-fix="bw-vocab" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
@@ -1700,7 +1832,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
         <ul class="soft">
           <li><b>Camera on in every premium lesson</b>, at eye level, smart casual attire, clean and quiet background. Non-negotiable.</li>
           <li>Honor the student's request and use the exact requested material; never modify or rebrand it.</li>
-          <li>Never interrupt; capture silently, correct at pauses, always through the chat box with "You said / Better".</li>
+          <li>Never interrupt; capture silently, correct at pauses, always through the chat box with "You said / Correct".</li>
           <li>Praise precisely ("Your phrasing of the counteroffer was very natural"), never generic "very good" on repeat.</li>
         </ul>
       </div>
@@ -2008,6 +2140,71 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
     <h2>Japanese lifelines for beginner lessons</h2>
     <p class="sub">Gentle, polite classroom Japanese for students who can barely follow English yet. Tap 🔊 to hear it, or Copy to paste the Japanese straight into the chat box.</p>
     <div class="note-box"><b>A soft reminder:</b> use these as bridges, not crutches. Say the English first, then the Japanese, then return to English. Beginners grow fastest when Japanese is the safety net underneath, not the floor they walk on.</div>
+
+    <div class="voice-bar">
+      <label class="vb-toggle"><input type="checkbox" id="jp-use-mine" checked> Play my own recording when I have one</label>
+      <span class="vb-count" id="jp-clip-count">No recordings yet</span>
+    </div>
+    <div class="hint" style="margin-top:8px">Tap 🎙 on any line to record your own voice, then tap it again to stop. After that, 🔊 plays your recording instead of the robot voice. Your clips stay on this device, so please back them up.</div>
+
+    <div class="voice-bar" style="margin-top:12px">
+      <button class="jq-btn ghost" id="jp-backup" style="padding:8px 16px;font-size:13px">⬇ Back up everything</button>
+      <button class="jq-btn ghost" id="jp-restore" style="padding:8px 16px;font-size:13px">⬆ Restore from a backup</button>
+      <input type="file" id="jp-restore-file" accept="application/json" style="display:none">
+    </div>
+    <div class="hint" style="margin-top:6px">The backup file holds your voice recordings, note drafts, notes history, saved students, and quiz scores. Keep a copy somewhere safe; if this browser ever clears its data, restoring the file brings it all back.</div>
+
+    <div class="voice-bar" style="margin-top:14px">
+      <button class="jq-btn" id="jp-quiz-open">🧠 Quiz me on these phrases</button>
+    </div>
+  </div>
+
+  <div class="card" id="jp-quiz">
+    <h2 style="font-size:23px">🧠 Phrase quiz</h2>
+    <p class="sub" id="jq-sub">I show you the English, you type the Japanese. Kana, kanji, or romaji all count as correct.</p>
+
+    <div id="jq-setup-view">
+      <div class="jq-setup">
+        <select id="jq-group"></select>
+        <select id="jq-count">
+          <option value="10">10 questions</option>
+          <option value="20">20 questions</option>
+          <option value="0">All of them</option>
+        </select>
+        <button class="jq-btn" id="jq-start">Start</button>
+        <button class="jq-btn ghost" id="jq-close">Close</button>
+      </div>
+      <div class="hint" style="margin-top:10px">No Japanese keyboard? Just type the romaji, for example <b>kikoemasu ka</b>. It still counts.</div>
+      <div class="hint" id="jq-best" style="margin-top:6px"></div>
+    </div>
+
+    <div id="jq-play-view" style="display:none">
+      <div class="jq-prog" id="jq-prog"></div>
+      <div class="jq-bar"><i id="jq-fill"></i></div>
+      <div class="jq-en" id="jq-en"></div>
+      <div class="jq-hintline" id="jq-hint"></div>
+      <input type="text" class="jq-input" id="jq-answer" placeholder="Type the Japanese (or romaji)" autocomplete="off" autocorrect="off" spellcheck="false">
+      <div class="jq-actions">
+        <button class="jq-btn" id="jq-check">Check</button>
+        <button class="jq-btn ghost" id="jq-hint-btn">Hint</button>
+        <button class="jq-btn ghost" id="jq-skip">Skip</button>
+        <button class="jq-btn ghost" id="jq-quit">Quit</button>
+      </div>
+      <div class="jq-verdict" id="jq-verdict"></div>
+    </div>
+
+    <div id="jq-done-view" style="display:none">
+      <div class="jq-score">
+        <div class="big" id="jq-final"></div>
+        <div id="jq-final-msg" style="margin-top:6px;color:var(--mauve);font-weight:700"></div>
+      </div>
+      <div class="jq-actions" style="justify-content:center">
+        <button class="jq-btn" id="jq-again">Try again</button>
+        <button class="jq-btn ghost" id="jq-retry-missed">Practice the missed ones</button>
+        <button class="jq-btn ghost" id="jq-back">Back</button>
+      </div>
+      <div class="jq-missed" id="jq-missed"></div>
+    </div>
   </div>
 
   <div id="jp-groups"></div>
@@ -2275,7 +2472,9 @@ nbFields.concat(['nb-name','nb-material','nb-words']).forEach(function(id){
 document.querySelectorAll('.chips').forEach(function(group){
   group.addEventListener('click', function(e){
     var chip = e.target.closest('.chip'); if(!chip) return;
+    if(!group.getAttribute('data-target')) return;
     var target = $(group.getAttribute('data-target'));
+    if(!target) return;
     var txt = fillTokens(chip.textContent.trim());
     target.value = target.value.trim() ? (target.value.trim() + ' ' + txt) : txt;
     updatePreview();
@@ -2340,7 +2539,7 @@ modeG.addEventListener('click', function(){ setMode(false); });
 modeA.addEventListener('click', function(){ setMode(true); });
 
 /* single-select pill groups */
-['data-g1','data-g2','data-g3'].forEach(function(attr){
+['data-g1','data-g2'].forEach(function(attr){
   document.querySelectorAll('[' + attr + ']').forEach(function(p){
     p.addEventListener('click', function(){
       document.querySelectorAll('[' + attr + ']').forEach(function(x){ x.classList.remove('sel'); });
@@ -2361,6 +2560,73 @@ modeA.addEventListener('click', function(){ setMode(true); });
 document.querySelectorAll('.g-multi').forEach(function(c){
   c.addEventListener('click', function(){ c.classList.toggle('sel'); });
 });
+
+/* ── dropdown pickers: choose from a list, chosen items appear as removable chips ── */
+function pickedValues(boxId){
+  var box = document.getElementById(boxId);
+  if(!box) return [];
+  return Array.prototype.map.call(box.querySelectorAll('.picked-chip'), function(c){
+    return c.getAttribute('data-v');
+  });
+}
+function refreshPickCounts(){
+  /* per-category badges inside "What did the student do well" */
+  document.querySelectorAll('#g-good-chips details.gcat').forEach(function(d){
+    var box = d.querySelector('.picked');
+    var badge = d.querySelector('.cat-count');
+    if(!box || !badge) return;
+    var n = box.querySelectorAll('.picked-chip').length;
+    badge.textContent = n;
+    if(n > 0){ badge.removeAttribute('hidden'); } else { badge.setAttribute('hidden',''); }
+  });
+  /* section totals */
+  [['cnt-good', null], ['cnt-adv', 'adv-list'], ['cnt-cheer', 'cheer-list']].forEach(function(pair){
+    var badge = document.getElementById(pair[0]);
+    if(!badge) return;
+    var n;
+    if(pair[1]){
+      n = pickedValues(pair[1]).length;
+    } else {
+      n = document.querySelectorAll('#g-good-chips .picked-chip').length;
+    }
+    badge.textContent = n;
+    if(n > 0){ badge.removeAttribute('hidden'); } else { badge.setAttribute('hidden',''); }
+  });
+}
+function addPick(boxId, value, label){
+  var box = document.getElementById(boxId);
+  if(!box || !value) return;
+  var existing = pickedValues(boxId);
+  if(existing.indexOf(value) > -1) return;
+  var chip = document.createElement('span');
+  chip.className = 'picked-chip';
+  chip.setAttribute('data-v', value);
+  chip.setAttribute('title', 'Tap to remove');
+  chip.textContent = label || value;
+  var x = document.createElement('span');
+  x.className = 'x';
+  x.textContent = '\u2715';
+  chip.appendChild(x);
+  box.appendChild(chip);
+  refreshPickCounts();
+}
+document.addEventListener('change', function(e){
+  var sel = e.target;
+  if(!sel || !sel.classList || !sel.classList.contains('g-picker')) return;
+  var boxId = sel.getAttribute('data-pick');
+  var val = sel.value;
+  if(val){
+    var label = sel.options[sel.selectedIndex].textContent.trim();
+    addPick(boxId, val, label);
+  }
+  sel.selectedIndex = 0;
+});
+document.addEventListener('click', function(e){
+  var chip = e.target.closest ? e.target.closest('.picked-chip') : null;
+  if(!chip) return;
+  chip.parentNode.removeChild(chip);
+  refreshPickCounts();
+});
 function gPick(attr){
   var el = document.querySelector('[' + attr + '].sel');
   return el ? el.getAttribute(attr) : '';
@@ -2380,7 +2646,8 @@ function gName(){
 document.getElementById('g-generate').addEventListener('click', function(){
   var who = gPick('data-g1') || 'returning';
   var kind = gPick('data-g2') || 'material';
-  var mood = gPick('data-g3') || 'great';
+  var moodEl = document.getElementById('g-mood');
+  var mood = (moodEl && moodEl.value) || 'great';
   var mat = document.getElementById('g-material').value.trim();
   var nm = gName();
   var hi = nm ? 'Hello, ' + nm + '!' : 'Hello!';
@@ -2573,7 +2840,7 @@ document.getElementById('g-generate').addEventListener('click', function(){
 
   /* good points: numbered so they're easy to scan */
   var goods = [];
-  document.querySelectorAll('#g-good-chips .g-multi.sel').forEach(function(c){ goods.push(c.textContent.trim()); });
+  document.querySelectorAll('#g-good-chips .picked-chip').forEach(function(c){ goods.push(c.getAttribute('data-v')); });
   var goodExtra = document.getElementById('g-good-extra').value.trim();
   var good = '';
   function toSentence(p){
@@ -2593,8 +2860,7 @@ document.getElementById('g-generate').addEventListener('click', function(){
   var corr = corrRaw ? "Here are some corrections from today's lesson:\n" + corrRaw : '';
 
   /* advice */
-  var advs = [];
-  document.querySelectorAll('#g-advice-chips .g-multi.sel').forEach(function(c){ advs.push(c.getAttribute('data-adv')); });
+  var advs = pickedValues('adv-list');
   var advExtra = document.getElementById('g-advice-extra').value.trim();
   var advice = '';
   if(advs.length || advExtra){
@@ -2604,8 +2870,7 @@ document.getElementById('g-generate').addEventListener('click', function(){
     advice += ".";
     advice = advice.replace(/\.\.+/g, '.');
   }
-  var cheers = [];
-  document.querySelectorAll('#g-cheer-chips .g-multi.sel').forEach(function(c){ cheers.push(c.getAttribute('data-cheer')); });
+  var cheers = pickedValues('cheer-list');
   if(cheers.length){
     advice = (advice ? advice + ' ' : '') + cheers.join(' ');
   }
@@ -2656,6 +2921,11 @@ document.getElementById('g-generate').addEventListener('click', function(){
 });
 document.getElementById('g-reset').addEventListener('click', function(){
   document.querySelectorAll('.g-multi.sel').forEach(function(c){ c.classList.remove('sel'); });
+  document.querySelectorAll('.picked').forEach(function(b){ b.innerHTML = ''; });
+  document.querySelectorAll('select.g-picker').forEach(function(sel){ sel.selectedIndex = 0; });
+  var mEl = document.getElementById('g-mood'); if(mEl) mEl.selectedIndex = 0;
+  document.querySelectorAll('#g-good-chips details.gcat').forEach(function(d){ d.removeAttribute('open'); });
+  refreshPickCounts();
   ['g-name','g-material','g-good-extra','g-advice-extra'].forEach(function(id){ document.getElementById(id).value = ''; });
   ['g-corrections','g-words'].forEach(function(id){ document.getElementById(id).value = ''; });
   ['g-greet-pick','g-close-pick'].forEach(function(id){ var el = document.getElementById(id); if(el) el.selectedIndex = 0; });
@@ -3380,7 +3650,15 @@ var JPLINES = [
 {en:"Shall we begin?", jp:"はじめましょうか？", ro:"Hajimemashou ka?"},
 {en:"Please relax. Let's enjoy the lesson.", jp:"リラックスしてください。たのしく べんきょうしましょう。", ro:"Rirakkusu shite kudasai. Tanoshiku benkyou shimashou."},
 {en:"Is this material okay?", jp:"この きょうざいで いいですか？", ro:"Kono kyouzai de ii desu ka?"},
-{en:"Do you have any requests today?", jp:"きょうは なにか リクエストが ありますか？", ro:"Kyou wa nanika rikuesuto ga arimasu ka?"}
+{en:"Do you have any requests today?", jp:"きょうは なにか リクエストが ありますか？", ro:"Kyou wa nanika rikuesuto ga arimasu ka?"},
+{en:"How are you today?", jp:"きょうは おげんきですか？", ro:"Kyou wa ogenki desu ka?"},
+{en:"How was your day?", jp:"きょうは どうでしたか？", ro:"Kyou wa dou deshita ka?"},
+{en:"It's nice to see you again.", jp:"また おあいできて うれしいです。", ro:"Mata oaidekite ureshii desu."},
+{en:"How was your weekend?", jp:"しゅうまつは どうでしたか？", ro:"Shuumatsu wa dou deshita ka?"},
+{en:"Did you sleep well?", jp:"よく ねむれましたか？", ro:"Yoku nemuremashita ka?"},
+{en:"How is the weather there?", jp:"そちらの てんきは どうですか？", ro:"Sochira no tenki wa dou desu ka?"},
+{en:"Are you busy these days?", jp:"さいきん いそがしいですか？", ro:"Saikin isogashii desu ka?"},
+{en:"Are you tired today?", jp:"きょうは つかれていますか？", ro:"Kyou wa tsukarete imasu ka?"}
 ]},
 {group:'Instructions during the lesson', icon:'📖', items:[
 {en:"Please look at the material.", jp:"きょうざいを みてください。", ro:"Kyouzai o mite kudasai."},
@@ -3392,7 +3670,15 @@ var JPLINES = [
 {en:"Please try to make a sentence.", jp:"ぶんを つくってみてください。", ro:"Bun o tsukutte mite kudasai."},
 {en:"Let's try saying it in English.", jp:"えいごで いってみましょう。", ro:"Eigo de itte mimashou."},
 {en:"Please speak slowly. There's no need to hurry.", jp:"ゆっくり はなしてください。いそがなくて いいですよ。", ro:"Yukkuri hanashite kudasai. Isoganakute ii desu yo."},
-{en:"Let's move to the next page.", jp:"つぎの ページに いきましょう。", ro:"Tsugi no peeji ni ikimashou."}
+{en:"Let's move to the next page.", jp:"つぎの ページに いきましょう。", ro:"Tsugi no peeji ni ikimashou."},
+{en:"Please read this sentence aloud.", jp:"この ぶんを こえに だして よんでください。", ro:"Kono bun o koe ni dashite yonde kudasai."},
+{en:"Please listen carefully.", jp:"よく きいてください。", ro:"Yoku kiite kudasai."},
+{en:"Please listen first, then repeat.", jp:"さきに きいて、それから くりかえしてください。", ro:"Saki ni kiite, sorekara kurikaeshite kudasai."},
+{en:"Please answer in a full sentence.", jp:"ぶんで こたえてください。", ro:"Bun de kotaete kudasai."},
+{en:"Let's start the discussion.", jp:"ディスカッションを はじめましょう。", ro:"Disukasshon o hajimemashou."},
+{en:"Please write it down.", jp:"メモを とってください。", ro:"Memo o totte kudasai."},
+{en:"I will type it in the chat box.", jp:"チャットボックスに かきますね。", ro:"Chatto bokkusu ni kakimasu ne."},
+{en:"Let's try together.", jp:"いっしょに やってみましょう。", ro:"Issho ni yatte mimashou."}
 ]},
 {group:'Checking understanding', icon:'💭', items:[
 {en:"Do you understand?", jp:"わかりますか？", ro:"Wakarimasu ka?"},
@@ -3426,6 +3712,102 @@ var JPLINES = [
 {en:"Thank you very much for today.", jp:"きょうは ありがとうございました。", ro:"Kyou wa arigatou gozaimashita."},
 {en:"Please keep practicing a little every day.", jp:"まいにち すこしずつ れんしゅうしてくださいね。", ro:"Mainichi sukoshi zutsu renshuu shite kudasai ne."},
 {en:"See you next time! Take care.", jp:"また あいましょう！おげんきで。", ro:"Mata aimashou! Ogenki de."}
+]},
+{group:'Reading & pronunciation practice', icon:'🔤', items:[
+{en:"Please watch my mouth.", jp:"わたしの くちもとを みてください。", ro:"Watashi no kuchimoto o mite kudasai."},
+{en:"The stress is here.", jp:"アクセントは ここです。", ro:"Akusento wa koko desu."},
+{en:"Please say it a little louder.", jp:"もうすこし おおきな こえで おねがいします。", ro:"Mou sukoshi ookina koe de onegaishimasu."},
+{en:"Please read slowly and clearly.", jp:"ゆっくり はっきり よんでください。", ro:"Yukkuri hakkiri yonde kudasai."},
+{en:"Almost! One more try.", jp:"おしいです！もういちど。", ro:"Oshii desu! Mou ichido."},
+{en:"Let's practice this word together.", jp:"この たんごを いっしょに れんしゅうしましょう。", ro:"Kono tango o issho ni renshuu shimashou."},
+{en:"Your pronunciation is getting better.", jp:"はつおんが よくなって きましたね。", ro:"Hatsuon ga yoku natte kimashita ne."},
+{en:"Please make this sound longer.", jp:"この おとを ながく のばしてください。", ro:"Kono oto o nagaku nobashite kudasai."},
+{en:"Listen to the difference, please.", jp:"ちがいを きいてみてください。", ro:"Chigai o kiite mite kudasai."},
+{en:"Let's read it one more time together.", jp:"もういちど いっしょに よみましょう。", ro:"Mou ichido issho ni yomimashou."}
+]},
+{group:'Explaining words & grammar', icon:'📝', items:[
+{en:"Shall I explain it in Japanese?", jp:"にほんごで せつめいしましょうか？", ro:"Nihongo de setsumei shimashou ka?"},
+{en:"Do you know this word?", jp:"この たんごを しっていますか？", ro:"Kono tango o shitte imasu ka?"},
+{en:"Let me give you an example.", jp:"れいを あげますね。", ro:"Rei o agemasu ne."},
+{en:"This is the past tense.", jp:"これは かこけいです。", ro:"Kore wa kakokei desu."},
+{en:"This is a polite expression.", jp:"これは ていねいな ひょうげんです。", ro:"Kore wa teinei na hyougen desu."},
+{en:"This is a casual expression.", jp:"これは カジュアルな ひょうげんです。", ro:"Kore wa kajuaru na hyougen desu."},
+{en:"You can use this in daily conversation.", jp:"にちじょうかいわで つかえますよ。", ro:"Nichijou kaiwa de tsukaemasu yo."},
+{en:"These two words are similar.", jp:"この ふたつの たんごは にています。", ro:"Kono futatsu no tango wa nite imasu."},
+{en:"Please make one sentence with this word.", jp:"この たんごで ぶんを ひとつ つくってください。", ro:"Kono tango de bun o hitotsu tsukutte kudasai."},
+{en:"Shall I say it in an easier way?", jp:"もっと かんたんに いいましょうか？", ro:"Motto kantan ni iimashou ka?"}
+]},
+{group:'Gentle corrections', icon:'✏️', items:[
+{en:"That's close. Let's fix one small thing.", jp:"おしいです。ひとつだけ なおしましょう。", ro:"Oshii desu. Hitotsu dake naoshimashou."},
+{en:"It sounds more natural this way.", jp:"こう いうほうが しぜんです。", ro:"Kou iu hou ga shizen desu."},
+{en:"Mistakes are okay. Please don't worry.", jp:"まちがえても だいじょうぶですよ。しんぱいしないでください。", ro:"Machigaetemo daijoubu desu yo. Shinpai shinaide kudasai."},
+{en:"Let's try that sentence one more time.", jp:"その ぶんを もういちど いってみましょう。", ro:"Sono bun o mou ichido itte mimashou."},
+{en:"I will correct it a little, okay?", jp:"すこしだけ なおしますね。", ro:"Sukoshi dake naoshimasu ne."},
+{en:"Please say it again with me.", jp:"いっしょに もういちど いいましょう。", ro:"Issho ni mou ichido iimashou."},
+{en:"That's a very common mistake.", jp:"よくある まちがいですよ。", ro:"Yoku aru machigai desu yo."},
+{en:"I wrote the correct sentence in the chat box.", jp:"ただしい ぶんを チャットボックスに かきました。", ro:"Tadashii bun o chatto bokkusu ni kakimashita."}
+]},
+{group:'Encouraging a shy student', icon:'🌱', items:[
+{en:"It's okay. Take your time.", jp:"だいじょうぶです。ゆっくりで いいですよ。", ro:"Daijoubu desu. Yukkuri de ii desu yo."},
+{en:"Please don't be shy.", jp:"はずかしがらないで ください。", ro:"Hazukashigaranaide kudasai."},
+{en:"Even one word is fine.", jp:"ひとことでも だいじょうぶですよ。", ro:"Hitokoto demo daijoubu desu yo."},
+{en:"There is no wrong answer.", jp:"まちがった こたえは ありませんよ。", ro:"Machigatta kotae wa arimasen yo."},
+{en:"I will wait, so please take your time.", jp:"まちますので、ゆっくり どうぞ。", ro:"Machimasu node, yukkuri douzo."},
+{en:"You can do it!", jp:"できますよ！", ro:"Dekimasu yo!"},
+{en:"You are doing very well.", jp:"とても よく できていますよ。", ro:"Totemo yoku dekite imasu yo."},
+{en:"Please try without worrying about grammar.", jp:"ぶんぽうは きにしないで はなしてみてください。", ro:"Bunpou wa ki ni shinaide hanashite mite kudasai."},
+{en:"It's okay to think for a moment.", jp:"すこし かんがえても だいじょうぶですよ。", ro:"Sukoshi kangaetemo daijoubu desu yo."}
+]},
+{group:'Asking about goals & level', icon:'🎯', items:[
+{en:"Why are you studying English?", jp:"なぜ えいごを べんきょうして いますか？", ro:"Naze eigo o benkyou shite imasu ka?"},
+{en:"What would you like to practice today?", jp:"きょうは なにを れんしゅうしたいですか？", ro:"Kyou wa nani o renshuu shitai desu ka?"},
+{en:"Do you use English at work?", jp:"しごとで えいごを つかいますか？", ro:"Shigoto de eigo o tsukaimasu ka?"},
+{en:"Is this level okay for you?", jp:"この レベルで だいじょうぶですか？", ro:"Kono reberu de daijoubu desu ka?"},
+{en:"Is it too difficult?", jp:"むずかしすぎますか？", ro:"Muzukashisugimasu ka?"},
+{en:"Is it too easy?", jp:"かんたんすぎますか？", ro:"Kantan sugimasu ka?"},
+{en:"How long have you been studying English?", jp:"えいごを どのくらい べんきょうして いますか？", ro:"Eigo o donokurai benkyou shite imasu ka?"},
+{en:"Would you like more speaking practice?", jp:"もっと はなす れんしゅうを したいですか？", ro:"Motto hanasu renshuu o shitai desu ka?"},
+{en:"Do you want me to correct you a lot?", jp:"たくさん なおしたほうが いいですか？", ro:"Takusan naoshita hou ga ii desu ka?"}
+]},
+{group:'Time, pace & lesson flow', icon:'⏱', items:[
+{en:"We have ten minutes left.", jp:"のこり じゅっぷんです。", ro:"Nokori juppun desu."},
+{en:"We have five minutes left.", jp:"のこり ごふんです。", ro:"Nokori gofun desu."},
+{en:"Shall we move on?", jp:"つぎに いきましょうか？", ro:"Tsugi ni ikimashou ka?"},
+{en:"Shall we continue this topic?", jp:"この トピックを つづけましょうか？", ro:"Kono topikku o tsuzukemashou ka?"},
+{en:"Let's do one more question.", jp:"もう ひとつ しつもんを しましょう。", ro:"Mou hitotsu shitsumon o shimashou."},
+{en:"Shall we go slowly today?", jp:"きょうは ゆっくり すすめましょうか？", ro:"Kyou wa yukkuri susumemashou ka?"},
+{en:"We still have time.", jp:"まだ じかんが ありますよ。", ro:"Mada jikan ga arimasu yo."},
+{en:"Time is almost up.", jp:"そろそろ じかんです。", ro:"Sorosoro jikan desu."}
+]},
+{group:'Homework & next lesson', icon:'📅', items:[
+{en:"Please review today's words.", jp:"きょうの たんごを ふくしゅうして ください。", ro:"Kyou no tango o fukushuu shite kudasai."},
+{en:"Please practice this at home.", jp:"いえで れんしゅうして みてください。", ro:"Ie de renshuu shite mite kudasai."},
+{en:"I will write your feedback after the lesson.", jp:"レッスンの あとで フィードバックを かきます。", ro:"Ressun no ato de fiidobakku o kakimasu."},
+{en:"Please check the chat box later.", jp:"あとで チャットボックスを かくにんして ください。", ro:"Ato de chatto bokkusu o kakunin shite kudasai."},
+{en:"Shall we continue this next lesson?", jp:"つぎの レッスンで つづけましょうか？", ro:"Tsugi no ressun de tsuzukemashou ka?"},
+{en:"Please book me again anytime.", jp:"いつでも また よやくして くださいね。", ro:"Itsudemo mata yoyaku shite kudasai ne."},
+{en:"See you next time!", jp:"また つぎの レッスンで！", ro:"Mata tsugi no ressun de!"}
+]},
+{group:'Polite phrases & classroom manners', icon:'🙇', items:[
+{en:"Thank you very much.", jp:"ありがとうございます。", ro:"Arigatou gozaimasu."},
+{en:"I'm sorry.", jp:"すみません。", ro:"Sumimasen."},
+{en:"Excuse me for a moment.", jp:"すこし しつれいします。", ro:"Sukoshi shitsurei shimasu."},
+{en:"Please wait a moment.", jp:"すこし おまちください。", ro:"Sukoshi omachi kudasai."},
+{en:"Thank you for waiting.", jp:"おまたせしました。", ro:"Omatase shimashita."},
+{en:"Is that okay?", jp:"よろしいですか？", ro:"Yoroshii desu ka?"},
+{en:"Please don't hesitate to ask.", jp:"えんりょなく きいてくださいね。", ro:"Enryonaku kiite kudasai ne."},
+{en:"Thank you for your hard work today.", jp:"きょうも おつかれさまでした。", ro:"Kyou mo otsukaresama deshita."},
+{en:"Please tell me anytime if something is unclear.", jp:"わからないことが あれば いつでも いってくださいね。", ro:"Wakaranai koto ga areba itsudemo itte kudasai ne."}
+]},
+{group:'More tech trouble help', icon:'🛠', items:[
+{en:"Your voice is breaking up.", jp:"こえが とぎれています。", ro:"Koe ga togirete imasu."},
+{en:"Please turn on your microphone.", jp:"マイクを オンに してください。", ro:"Maiku o on ni shite kudasai."},
+{en:"Please check your headset.", jp:"ヘッドセットを かくにんして ください。", ro:"Heddosetto o kakunin shite kudasai."},
+{en:"Shall we continue by chat?", jp:"チャットで つづけましょうか？", ro:"Chatto de tsuzukemashou ka?"},
+{en:"Please reload the page.", jp:"ページを さいよみこみ して ください。", ro:"Peeji o saiyomikomi shite kudasai."},
+{en:"Please leave the room and enter again.", jp:"いちど たいしつして、もういちど はいって みてください。", ro:"Ichido taishitsu shite, mou ichido haitte mite kudasai."},
+{en:"I can hear you now.", jp:"いま きこえます。", ro:"Ima kikoemasu."},
+{en:"I'm sorry, my connection was unstable.", jp:"すみません、せつぞくが ふあんていでした。", ro:"Sumimasen, setsuzoku ga fuantei deshita."}
 ]}
 ];
 
@@ -3450,17 +3832,29 @@ FREETALK.forEach(function(t){
   ftWrap.appendChild(d);
 });
 
+function jpKey(jp){
+  var h = 5381, i;
+  for(i = 0; i < jp.length; i++){ h = ((h << 5) + h + jp.charCodeAt(i)) | 0; }
+  return 'jl' + (h >>> 0).toString(36);
+}
+var JP_INDEX = {};
+JPLINES.forEach(function(g){
+  g.items.forEach(function(it){ it._k = jpKey(it.jp); it._g = g.group; JP_INDEX[it._k] = it; });
+});
+
 var jpWrap = document.getElementById('jp-groups');
 JPLINES.forEach(function(g){
   var card = document.createElement('div');
   card.className = 'card';
   var rows = g.items.map(function(it){
-    return '<div class="jp-line">' +
+    return '<div class="jp-line" data-key="' + it._k + '">' +
       '<div><div class="jl-en">' + esc(it.en) + '</div>' +
       '<div class="jl-jp">' + esc(it.jp) + '</div>' +
       '<div class="jl-ro">' + esc(it.ro) + '</div></div>' +
       '<div class="jl-actions">' +
-      '<button class="say-btn" data-say="' + esc(it.jp) + '">🔊</button>' +
+      '<button class="say-btn" data-say="' + esc(it.jp) + '" data-key="' + it._k + '">🔊</button>' +
+      '<button class="rec-btn" data-key="' + it._k + '" title="Record your own voice">🎙</button>' +
+      '<button class="del-rec" data-key="' + it._k + '" title="Delete my recording" hidden>🗑</button>' +
       '<button class="copy-mini" data-copytext="' + esc(it.jp) + '">Copy</button>' +
       '</div></div>';
   }).join('');
@@ -3468,12 +3862,477 @@ JPLINES.forEach(function(g){
   jpWrap.appendChild(card);
 });
 
+/* small self-contained prefs store for this tab */
+function jpStore(k, v){ try{ window.localStorage.setItem(k, v); }catch(e){} }
+function jpRead(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
+
+/* ═══════════ my own voice: recording + storage ═══════════ */
+var VDB = null, VDB_TRIED = false;
+function vdb(cb){
+  if(VDB) return cb(VDB);
+  if(VDB_TRIED) return cb(null);
+  if(!('indexedDB' in window) || !window.indexedDB){ VDB_TRIED = true; return cb(null); }
+  try{
+    var rq = indexedDB.open('tutor6348-voice', 1);
+    rq.onupgradeneeded = function(e){
+      var db = e.target.result;
+      if(!db.objectStoreNames.contains('clips')) db.createObjectStore('clips');
+    };
+    rq.onsuccess = function(){ VDB = rq.result; cb(VDB); };
+    rq.onerror = function(){ cb(null); };
+  }catch(err){ cb(null); }
+}
+function vPut(key, blob, cb){
+  vdb(function(db){
+    if(!db) return cb && cb(false);
+    try{
+      var tx = db.transaction('clips', 'readwrite');
+      tx.objectStore('clips').put(blob, key);
+      tx.oncomplete = function(){ cb && cb(true); };
+      tx.onerror = function(){ cb && cb(false); };
+    }catch(e){ cb && cb(false); }
+  });
+}
+function vGet(key, cb){
+  vdb(function(db){
+    if(!db) return cb(null);
+    try{
+      var r = db.transaction('clips', 'readonly').objectStore('clips').get(key);
+      r.onsuccess = function(){ cb(r.result || null); };
+      r.onerror = function(){ cb(null); };
+    }catch(e){ cb(null); }
+  });
+}
+function vDel(key, cb){
+  vdb(function(db){
+    if(!db) return cb && cb();
+    try{
+      var tx = db.transaction('clips', 'readwrite');
+      tx.objectStore('clips').delete(key);
+      tx.oncomplete = function(){ cb && cb(); };
+      tx.onerror = function(){ cb && cb(); };
+    }catch(e){ cb && cb(); }
+  });
+}
+function vKeys(cb){
+  vdb(function(db){
+    if(!db) return cb([]);
+    try{
+      var r = db.transaction('clips', 'readonly').objectStore('clips').getAllKeys();
+      r.onsuccess = function(){ cb(r.result || []); };
+      r.onerror = function(){ cb([]); };
+    }catch(e){ cb([]); }
+  });
+}
+var HAVE_CLIP = {};
+function markClips(){
+  vKeys(function(keys){
+    HAVE_CLIP = {};
+    keys.forEach(function(k){ HAVE_CLIP[k] = true; });
+    document.querySelectorAll('.jp-line[data-key]').forEach(function(row){
+      var has = !!HAVE_CLIP[row.getAttribute('data-key')];
+      row.classList.toggle('has-clip', has);
+      var del = row.querySelector('.del-rec');
+      if(del){ if(has) del.removeAttribute('hidden'); else del.setAttribute('hidden',''); }
+    });
+    var c = document.getElementById('jp-clip-count');
+    if(c) c.textContent = keys.length ? (keys.length + (keys.length === 1 ? ' recording saved' : ' recordings saved')) : 'No recordings yet';
+  });
+}
+var jpUseMine = document.getElementById('jp-use-mine');
+if(jpUseMine && jpRead('tutor6348-jp-usemine') === '0') jpUseMine.checked = false;
+if(jpUseMine) jpUseMine.addEventListener('change', function(){
+  jpStore('tutor6348-jp-usemine', jpUseMine.checked ? '1' : '0');
+});
+var curAudio = null;
+function playClip(key, btn, fallbackText){
+  vGet(key, function(blob){
+    if(!blob){ speakJa(fallbackText, btn); return; }
+    try{
+      if(curAudio){ curAudio.pause(); curAudio = null; }
+      var url = URL.createObjectURL(blob);
+      curAudio = new Audio(url);
+      if(btn) btn.classList.add('speaking');
+      curAudio.onended = curAudio.onerror = function(){
+        if(btn) btn.classList.remove('speaking');
+        URL.revokeObjectURL(url);
+      };
+      curAudio.play().catch(function(){
+        if(btn) btn.classList.remove('speaking');
+        speakJa(fallbackText, btn);
+      });
+    }catch(e){ speakJa(fallbackText, btn); }
+  });
+}
+var mediaRec = null, recKey = null, recBtn = null, recChunks = [], recStream = null, recTimer = null;
+function stopRec(){
+  if(mediaRec && mediaRec.state !== 'inactive'){ try{ mediaRec.stop(); }catch(e){} }
+  clearTimeout(recTimer);
+}
+function startRec(key, btn){
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || typeof MediaRecorder === 'undefined'){
+    toast2('Recording is not supported in this browser.');
+    return;
+  }
+  navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream){
+    recStream = stream; recChunks = []; recKey = key; recBtn = btn;
+    var opts = {};
+    if(MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported('audio/webm')) opts.mimeType = 'audio/webm';
+    try{ mediaRec = new MediaRecorder(stream, opts); }catch(e){ mediaRec = new MediaRecorder(stream); }
+    mediaRec.ondataavailable = function(ev){ if(ev.data && ev.data.size) recChunks.push(ev.data); };
+    mediaRec.onstop = function(){
+      var blob = new Blob(recChunks, {type: mediaRec.mimeType || 'audio/webm'});
+      if(recBtn) recBtn.classList.remove('recording');
+      if(recStream){ recStream.getTracks().forEach(function(t){ t.stop(); }); recStream = null; }
+      if(blob.size < 400){ toast2('That clip was too short. Please try again.'); mediaRec = null; return; }
+      vPut(recKey, blob, function(ok){
+        mediaRec = null;
+        if(ok){ markClips(); toast2('Saved your voice for this line \u2661'); }
+        else toast2('Sorry, saving failed on this device.');
+      });
+    };
+    mediaRec.start();
+    btn.classList.add('recording');
+    btn.textContent = '⏹';
+    recTimer = setTimeout(stopRec, 20000);
+  }).catch(function(){
+    toast2('Please allow microphone access to record.');
+  });
+}
+document.addEventListener('click', function(e){
+  var rb = e.target.closest('.rec-btn');
+  if(rb){
+    var k = rb.getAttribute('data-key');
+    if(mediaRec && mediaRec.state !== 'inactive'){
+      var wasSame = (recKey === k);
+      stopRec();
+      if(!wasSame) setTimeout(function(){ startRec(k, rb); }, 350);
+      rb.textContent = '🎙';
+      if(recBtn && recBtn !== rb) recBtn.textContent = '🎙';
+      return;
+    }
+    startRec(k, rb);
+    return;
+  }
+  var dr = e.target.closest('.del-rec');
+  if(dr){
+    vDel(dr.getAttribute('data-key'), function(){ markClips(); toast2('Recording deleted.'); });
+    return;
+  }
+});
+/* ── full backup: recordings + everything saved in this browser ── */
+function blobToB64(blob){
+  return new Promise(function(res, rej){
+    var r = new FileReader();
+    r.onload = function(){ res(String(r.result).split(',')[1] || ''); };
+    r.onerror = rej;
+    r.readAsDataURL(blob);
+  });
+}
+function b64ToBlob(b64, type){
+  var bin = atob(b64), len = bin.length, arr = new Uint8Array(len), i;
+  for(i = 0; i < len; i++) arr[i] = bin.charCodeAt(i);
+  return new Blob([arr], {type: type || 'audio/webm'});
+}
+function collectPrefs(){
+  var o = {}, i, k;
+  try{
+    for(i = 0; i < window.localStorage.length; i++){
+      k = window.localStorage.key(i);
+      if(k && k.indexOf('tutor6348') === 0) o[k] = window.localStorage.getItem(k);
+    }
+  }catch(e){}
+  return o;
+}
+var backupBtn = document.getElementById('jp-backup');
+if(backupBtn) backupBtn.addEventListener('click', function(){
+  backupBtn.disabled = true;
+  var original = backupBtn.textContent;
+  backupBtn.textContent = 'Preparing\u2026';
+  vKeys(function(keys){
+    var clips = {}, jobs = [];
+    keys.forEach(function(k){
+      jobs.push(new Promise(function(res){
+        vGet(k, function(blob){
+          if(!blob){ res(); return; }
+          blobToB64(blob).then(function(b64){
+            clips[k] = {type: blob.type || 'audio/webm', data: b64};
+            res();
+          }).catch(function(){ res(); });
+        });
+      }));
+    });
+    Promise.all(jobs).then(function(){
+      var payload = {
+        app: 'Tutor Sanctuary',
+        kind: 'full-backup',
+        version: 1,
+        savedAt: new Date().toISOString(),
+        clipCount: Object.keys(clips).length,
+        prefs: collectPrefs(),
+        clips: clips
+      };
+      var blob = new Blob([JSON.stringify(payload)], {type: 'application/json'});
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      var d = new Date();
+      var pad = function(n){ return (n < 10 ? '0' : '') + n; };
+      a.download = 'tutor-sanctuary-backup-' + d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + '.json';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(a.href); }, 800);
+      backupBtn.disabled = false;
+      backupBtn.textContent = original;
+      toast2('Backup downloaded: ' + payload.clipCount + ' recordings \u2661');
+    }).catch(function(){
+      backupBtn.disabled = false;
+      backupBtn.textContent = original;
+      toast2('Sorry, the backup could not be built.');
+    });
+  });
+});
+var restoreBtn = document.getElementById('jp-restore');
+var restoreFile = document.getElementById('jp-restore-file');
+if(restoreBtn && restoreFile){
+  restoreBtn.addEventListener('click', function(){ restoreFile.click(); });
+  restoreFile.addEventListener('change', function(){
+    var f = this.files[0];
+    this.value = '';
+    if(!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      var data;
+      try{ data = JSON.parse(r.result); }catch(e){ toast2('That file could not be read.'); return; }
+      if(!data || data.kind !== 'full-backup'){ toast2('That does not look like a Tutor Sanctuary backup.'); return; }
+      var nClips = data.clips ? Object.keys(data.clips).length : 0;
+      var nPrefs = data.prefs ? Object.keys(data.prefs).length : 0;
+      var when = data.savedAt ? new Date(data.savedAt).toLocaleString() : 'an earlier date';
+      if(!window.confirm('Restore this backup from ' + when + '?\n\n' +
+        nClips + ' recordings and ' + nPrefs + ' saved items will be added back.\n' +
+        'Anything already here with the same name will be replaced.')) return;
+      try{
+        Object.keys(data.prefs || {}).forEach(function(k){
+          window.localStorage.setItem(k, data.prefs[k]);
+        });
+      }catch(e){}
+      var keys = Object.keys(data.clips || {});
+      if(!keys.length){ markClips(); afterRestore(0); return; }
+      var left = keys.length;
+      keys.forEach(function(k){
+        var c = data.clips[k];
+        var blob;
+        try{ blob = b64ToBlob(c.data, c.type); }catch(e){ blob = null; }
+        if(!blob){ if(--left === 0){ markClips(); afterRestore(keys.length); } return; }
+        vPut(k, blob, function(){ if(--left === 0){ markClips(); afterRestore(keys.length); } });
+      });
+    };
+    r.readAsText(f);
+  });
+}
+function afterRestore(n){
+  toast2('Restored ' + n + ' recordings \u2661');
+  setTimeout(function(){
+    if(window.confirm('Restore finished. Reload the page now so your notes, history, and students all appear?')){
+      window.location.reload();
+    }
+  }, 600);
+}
+markClips();
+
 document.addEventListener('click', function(e){
   var sb = e.target.closest('.say-btn');
-  if(sb && sb.hasAttribute('data-say')){ speakJa(sb.getAttribute('data-say'), sb); return; }
+  if(sb && sb.hasAttribute('data-say')){
+    var sk = sb.getAttribute('data-key');
+    var mine = document.getElementById('jp-use-mine');
+    if(sk && HAVE_CLIP[sk] && (!mine || mine.checked)) playClip(sk, sb, sb.getAttribute('data-say'));
+    else speakJa(sb.getAttribute('data-say'), sb);
+    return;
+  }
   var cb = e.target.closest('.copy-mini');
   if(cb && cb.hasAttribute('data-copytext')){ copy2(cb.getAttribute('data-copytext')); }
 });
+
+/* ═══════════ Japanese phrase quiz ═══════════ */
+(function(){
+  var box = document.getElementById('jp-quiz');
+  if(!box) return;
+  var $q = function(id){ return document.getElementById(id); };
+  var setupV = $q('jq-setup-view'), playV = $q('jq-play-view'), doneV = $q('jq-done-view');
+  var BEST_KEY = 'tutor6348-jp-quiz-best';
+  var best = {};
+  (function(){ var v = jpRead(BEST_KEY); if(v){ try{ best = JSON.parse(v) || {}; }catch(e){ best = {}; } } })();
+
+  /* group picker */
+  var gsel = $q('jq-group');
+  gsel.innerHTML = '<option value="*">All groups (' + Object.keys(JP_INDEX).length + ' phrases)</option>' +
+    JPLINES.map(function(g){
+      return '<option value="' + esc(g.group) + '">' + esc(g.icon + ' ' + g.group) + ' (' + g.items.length + ')</option>';
+    }).join('');
+
+  function showBest(){
+    var el = $q('jq-best'); if(!el) return;
+    var g = gsel.value || '*';
+    var b = best[g];
+    el.textContent = b ? ('Your best on this set: ' + b.score + ' out of ' + b.total + '.') : '';
+  }
+  gsel.addEventListener('change', showBest);
+
+  /* ── answer matching ── */
+  var MACRON = {'\u0101':'a','\u012b':'i','\u016b':'u','\u0113':'e','\u014d':'o',
+                '\u00e2':'a','\u00ee':'i','\u00fb':'u','\u00ea':'e','\u00f4':'o'};
+  function stripMacrons(t){
+    return t.replace(/[\u0101\u012b\u016b\u0113\u014d\u00e2\u00ee\u00fb\u00ea\u00f4]/g, function(c){ return MACRON[c] || c; });
+  }
+  function kataToHira(t){
+    return t.replace(/[\u30a1-\u30f6]/g, function(c){ return String.fromCharCode(c.charCodeAt(0) - 0x60); });
+  }
+  function normJa(t){
+    t = (t || '').replace(/[\s\u3000]/g, '');
+    t = t.replace(/[\uff01-\uff5e]/g, function(c){ return String.fromCharCode(c.charCodeAt(0) - 0xfee0); });
+    t = t.replace(/[?!.,\u3002\u3001\u30fb\u2026~\-]/g, '');
+    return kataToHira(t);
+  }
+  function normRo(t){
+    t = stripMacrons((t || '').toLowerCase());
+    t = t.replace(/[^a-z]/g, '');
+    /* forgive the usual romanisation splits */
+    t = t.replace(/oh/g, 'o').replace(/ou/g, 'o').replace(/oo/g, 'o').replace(/uu/g, 'u').replace(/ii/g, 'i');
+    t = t.replace(/shi/g, 'si').replace(/chi/g, 'ti').replace(/tsu/g, 'tu').replace(/fu/g, 'hu');
+    t = t.replace(/ja/g, 'zya').replace(/ji/g, 'zi').replace(/n(?=[bmp])/g, 'm');
+    return t;
+  }
+  function isRight(typed, item){
+    if(!typed || !typed.trim()) return false;
+    if(normJa(typed) === normJa(item.jp)) return true;
+    var r = normRo(typed);
+    return r.length > 2 && r === normRo(item.ro);
+  }
+
+  /* ── quiz state ── */
+  var deck = [], idx = 0, score = 0, missed = [], setLabel = '*', revealed = false;
+
+  function shuffle(a){
+    var i, j, t;
+    for(i = a.length - 1; i > 0; i--){ j = Math.floor(Math.random() * (i + 1)); t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  function view(which){
+    setupV.style.display = which === 'setup' ? '' : 'none';
+    playV.style.display  = which === 'play'  ? '' : 'none';
+    doneV.style.display  = which === 'done'  ? '' : 'none';
+  }
+  function begin(items, label){
+    deck = items.slice(); idx = 0; score = 0; missed = []; setLabel = label || '*';
+    view('play'); render();
+  }
+  function render(){
+    revealed = false;
+    var it = deck[idx];
+    $q('jq-prog').textContent = 'Question ' + (idx + 1) + ' of ' + deck.length + '  \u00b7  Score ' + score;
+    $q('jq-fill').style.width = (idx / deck.length * 100) + '%';
+    $q('jq-en').textContent = it.en;
+    $q('jq-hint').textContent = '';
+    var a = $q('jq-answer');
+    a.value = ''; a.disabled = false;
+    $q('jq-verdict').className = 'jq-verdict';
+    $q('jq-check').textContent = 'Check';
+    try{ a.focus(); }catch(e){}
+  }
+  function verdict(ok, it, note){
+    var v = $q('jq-verdict');
+    v.className = 'jq-verdict show ' + (ok ? 'ok' : 'no');
+    v.innerHTML = '<b>' + (ok ? 'Correct \u2661' : (note || 'Not quite.')) + '</b>' +
+      '<div class="ans">' + esc(it.jp) + '</div>' +
+      '<div class="ro">' + esc(it.ro) + '</div>';
+  }
+  function advance(){
+    idx++;
+    if(idx >= deck.length){ finish(); return; }
+    render();
+  }
+  function grade(){
+    var it = deck[idx];
+    var a = $q('jq-answer');
+    if($q('jq-check').textContent === 'Next'){ advance(); return; }
+    var ok = !revealed && isRight(a.value, it);
+    if(ok) score++; else missed.push(it);
+    verdict(ok, it, revealed ? 'Here it is again.' : 'Not quite.');
+    a.disabled = true;
+    $q('jq-check').textContent = 'Next';
+    $q('jq-fill').style.width = ((idx + 1) / deck.length * 100) + '%';
+    $q('jq-prog').textContent = 'Question ' + (idx + 1) + ' of ' + deck.length + '  \u00b7  Score ' + score;
+  }
+  function finish(){
+    view('done');
+    var pct = deck.length ? Math.round(score / deck.length * 100) : 0;
+    $q('jq-final').textContent = score + ' / ' + deck.length;
+    var msg = pct === 100 ? 'Perfect. Every single one.'
+      : pct >= 80 ? 'Lovely work. These are nearly yours.'
+      : pct >= 50 ? 'Good progress. The missed ones are below.'
+      : 'Early days with this set. Practice the missed ones below.';
+    $q('jq-final-msg').textContent = msg;
+    var prev = best[setLabel];
+    if(!prev || score > prev.score || (score === prev.score && deck.length > prev.total)){
+      best[setLabel] = {score: score, total: deck.length};
+      jpStore(BEST_KEY, JSON.stringify(best));
+    }
+    var m = $q('jq-missed');
+    if(missed.length){
+      m.innerHTML = '<h4>Worth another look (' + missed.length + ')</h4>' + missed.map(function(it){
+        return '<div class="m-row"><div class="m-en">' + esc(it.en) + '</div>' +
+               '<div class="m-jp">' + esc(it.jp) + '</div>' +
+               '<div class="m-ro">' + esc(it.ro) + '</div></div>';
+      }).join('');
+    } else m.innerHTML = '';
+    $q('jq-retry-missed').style.display = missed.length ? '' : 'none';
+  }
+
+  /* ── buttons ── */
+  $q('jp-quiz-open').addEventListener('click', function(){
+    box.classList.add('open'); view('setup'); showBest();
+    if(box.scrollIntoView) box.scrollIntoView({behavior: 'smooth', block: 'start'});
+  });
+  $q('jq-close').addEventListener('click', function(){ box.classList.remove('open'); });
+  $q('jq-back').addEventListener('click', function(){ view('setup'); showBest(); });
+  $q('jq-start').addEventListener('click', function(){
+    var g = gsel.value, pool = [];
+    JPLINES.forEach(function(grp){
+      if(g === '*' || grp.group === g) grp.items.forEach(function(it){ pool.push(it); });
+    });
+    if(!pool.length){ toast2('That set is empty.'); return; }
+    shuffle(pool);
+    var n = parseInt($q('jq-count').value, 10);
+    if(n > 0 && pool.length > n) pool = pool.slice(0, n);
+    begin(pool, g);
+  });
+  $q('jq-check').addEventListener('click', grade);
+  $q('jq-answer').addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); grade(); }
+  });
+  $q('jq-hint-btn').addEventListener('click', function(){
+    var it = deck[idx]; if(!it) return;
+    var head = it.jp.replace(/\s/g, '').slice(0, 2);
+    $q('jq-hint').textContent = 'It starts with \u201c' + head + '\u2026\u201d  (' + it.ro.split(' ')[0] + '\u2026)';
+  });
+  $q('jq-skip').addEventListener('click', function(){
+    var it = deck[idx]; if(!it) return;
+    if($q('jq-check').textContent === 'Next'){ advance(); return; }
+    revealed = true;
+    missed.push(it);
+    verdict(false, it, 'Skipped.');
+    $q('jq-answer').disabled = true;
+    $q('jq-check').textContent = 'Next';
+  });
+  $q('jq-quit').addEventListener('click', function(){
+    if(idx > 0 || score > 0) finish(); else view('setup');
+  });
+  $q('jq-again').addEventListener('click', function(){
+    var pool = deck.slice(); shuffle(pool); begin(pool, setLabel);
+  });
+  $q('jq-retry-missed').addEventListener('click', function(){
+    if(!missed.length) return;
+    var pool = missed.slice(); shuffle(pool); begin(pool, setLabel + ' (missed)');
+  });
+})();
 
 /* ═══════════════ DICTIONARY ═══════════════ */
 var dictInput = document.getElementById('dict-input');
@@ -5127,7 +5986,7 @@ var MIQ = [
  a:"With regular students, rapport and comfort lead; with business students, efficiency and precision lead. I stay warm, but I trim small talk, follow the material's structure closely, correct at pauses instead of interrupting, and give scored, specific feedback they can act on immediately. A business learner's time is expensive, so every minute must visibly move them forward."},
 {c:'bcc', q:"Your business student gives a long answer full of errors. How do you correct them?",
  t:"Never interrupt. Prioritize. Notepad. Chat box.",
- a:"I let them finish completely; interrupting an executive damages trust. While they speak, I note errors in my notepad. Then I pick the two or three that most affect clarity or professionalism, acknowledge the strength of their answer first, and deliver the corrections through the chat box: 'You said... / Better...'. Everything I noted goes into their feedback so nothing is lost, but the flow of their thinking is never broken."},
+ a:"I let them finish completely; interrupting an executive damages trust. While they speak, I note errors in my notepad. Then I pick the two or three that most affect clarity or professionalism, acknowledge the strength of their answer first, and deliver the corrections through the chat box: 'You said... / Correct...'. Everything I noted goes into their feedback so nothing is lost, but the flow of their thinking is never broken."},
 {c:'bcc', q:"How do you manage time so the lesson ends with proper scores and feedback?",
  t:"Time management is an explicit BCC scoring criterion. Give checkpoints.",
  a:"I set mental checkpoints from the material before the lesson: where I should be at minute 10 and minute 18. I keep the feedback template open from the start and fill it as we go, so feedback needs no preparation time. At the 22-minute mark I begin closing regardless of where we are, paste the accomplished note in the chat, then deliver it verbally. An unfinished exercise is fine; missing feedback is not."},
@@ -5471,8 +6330,8 @@ function read(key, cb){
   } else cb(null);
 }
 $('nh-storage-note').textContent = MODE === 'memory'
-  ? 'Heads up: saving isn\u2019t available in this view, so drafts and history last only for this session. Open the file directly in your browser for full protection, and use Export history as a backup.'
-  : 'Drafts and history are saved in this browser on this device; they survive restarts as long as you open this same file in the same browser and don\u2019t clear browsing data. Export a backup now and then, just in case.';
+  ? 'Heads up: saving isn\u2019t available in this view, so drafts and history last only for this session. Open the file directly in your browser for full protection, and use “Back up everything” in the Japanese Lines tab to keep a copy.'
+  : 'Drafts and history are saved in this browser on this device; they survive restarts as long as you open this same file in the same browser and don\u2019t clear browsing data. Use “Back up everything” in the Japanese Lines tab now and then, just in case.';
 
 /* ═══ 1. auto-draft for the Notes Builder and JE builder fields ═══ */
 var DRAFT_KEY = 'tutor6348-notes-drafts';
@@ -5764,8 +6623,10 @@ var tipText = document.getElementById('chip-tip-text');
 var tipChip = null;
 function hideTip(){ tip.classList.remove('show'); tipChip = null; }
 function showTip(chip){
-  var text = chip.getAttribute('data-ins') || chip.getAttribute('data-adv') || chip.getAttribute('data-cheer') || '';
+  var text = chip.getAttribute('data-ins') || chip.getAttribute('data-adv') || chip.getAttribute('data-cheer') || chip.getAttribute('data-v') || '';
   if(!text.trim()) return;
+  /* nothing to preview when the chip already shows its full text */
+  if(text.trim() === chip.textContent.replace(/\u2715/g,'').trim()) return;
   tipChip = chip;
   tipText.textContent = text;
   tip.classList.add('show');
@@ -5783,7 +6644,7 @@ function showTip(chip){
   tip.style.setProperty('--arrow-x', Math.max(14, Math.min(tw - 26, r.left + r.width / 2 - left - 6)) + 'px');
 }
 document.addEventListener('mouseover', function(e){
-  var chip = e.target.closest('.bw-chip, .je-chip, .nb-chip, .g-multi[data-adv], .g-multi[data-cheer]');
+  var chip = e.target.closest('.bw-chip, .je-chip, .nb-chip, .picked-chip');
   if(chip){ if(chip !== tipChip) showTip(chip); }
   else if(tipChip) hideTip();
 });
@@ -5988,7 +6849,7 @@ document.addEventListener('click', function(e){
     T('That pair already has a correction. Add a new "You said:" line first.');
     return;
   }
-  var label = /je-range|je-flu|nb-vocab|nb-wna|bw-vocab/.test(el.id) ? 'Better' : 'Correct';
+  var label = 'Correct';
   var offline = applyRules(found.sentence);
   writeSuggestion(el, found, offline.text, label);
   var original = btn.textContent;
