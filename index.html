@@ -44,15 +44,20 @@ header h1 em{font-style:italic;color:var(--magenta)}
 .paw-divider span{color:var(--magenta);font-size:15px;letter-spacing:6px}
 
 /* ---------- tabs ---------- */
-nav.tabs{margin-top:0;position:sticky;top:0;z-index:40;background:rgba(255,244,251,.92);backdrop-filter:blur(8px);
-  display:flex;justify-content:center;gap:5px;padding:7px 6px;border-bottom:1px solid var(--petal);flex-wrap:wrap}
-.tab-btn{font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.02em;
+nav.tabs{margin-top:0;position:sticky;top:0;z-index:40;background:rgba(255,244,251,.94);backdrop-filter:blur(8px);
+  display:flex;align-items:center;gap:8px;padding:5px 8px;border-bottom:1px solid var(--petal)}
+.tab-strip{flex:1 1 auto;min-width:0;display:flex;gap:5px;overflow-x:auto;overflow-y:hidden;
+  scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding:1px 0}
+.tab-strip::-webkit-scrollbar{display:none}
+.tab-btn{font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.02em;
   border:1px solid var(--petal);background:#fff;color:var(--ink-soft);border-radius:999px;
-  padding:5px 13px;cursor:pointer;transition:all .2s}
-@media(max-width:600px){.tab-btn{font-size:11.5px;padding:4px 10px}nav.tabs{gap:4px;padding:6px 4px}}
-.ver-chip{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--mauve);font-weight:600}
+  padding:5px 12px;cursor:pointer;transition:all .2s;white-space:nowrap;flex:0 0 auto}
+@media(max-width:600px){.tab-btn{font-size:11.5px;padding:4px 10px}nav.tabs{gap:6px;padding:4px 6px}}
+.ver-chip{flex:0 0 auto;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--mauve);font-weight:600}
+@media(max-width:820px){.ver-chip #app-version{display:none}}
 .ver-chip button{border:1px solid var(--petal);background:#fff;color:var(--magenta);border-radius:999px;
-  padding:4px 12px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:11.5px;cursor:pointer;transition:all .15s}
+  padding:4px 11px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:11.5px;cursor:pointer;
+  transition:all .15s;white-space:nowrap}
 .ver-chip button:hover{background:var(--magenta);color:#fff;border-color:var(--magenta)}
 .tab-btn:hover{border-color:var(--magenta);color:var(--magenta)}
 .tab-btn.active{background:var(--magenta);border-color:var(--magenta);color:#fff;box-shadow:0 4px 14px rgba(192,46,128,.3)}
@@ -368,6 +373,25 @@ select.g-picker{width:100%;font-weight:600}
 .jq-missed .m-jp{color:var(--plum);font-weight:700}
 .jq-missed .m-ro{font-style:italic;color:var(--mauve);font-size:12.5px}
 .jq-missed .jq-listen{margin-top:7px}
+/* ── play selected lines ── */
+.jl-pick{width:18px !important;height:18px;margin:0 !important;padding:0 !important;
+  accent-color:var(--magenta);cursor:pointer;flex:none}
+.jp-line.playing{background:rgba(214,51,132,.10);border-radius:8px;
+  box-shadow:inset 3px 0 0 var(--magenta)}
+.jp-line.playing .jl-jp{font-weight:700}
+.play-bar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.97);
+  border:1px solid var(--petal);border-radius:14px;padding:11px 14px;margin-bottom:14px;
+  display:flex;flex-wrap:wrap;gap:9px;align-items:center;backdrop-filter:blur(6px)}
+.play-bar .pb-count{font-size:13px;font-weight:800;color:var(--plum);margin-right:2px}
+.play-bar select{width:auto;min-width:0;padding:6px 10px;font-size:12.5px}
+.play-bar label{font-size:12.5px;font-weight:700;color:var(--mauve);display:flex;align-items:center;gap:6px}
+.play-bar label input{width:auto;margin:0}
+.pb-mini{font-size:12.5px;font-weight:700;background:#fff;border:1px solid var(--petal);
+  color:var(--mauve);border-radius:999px;padding:6px 13px;cursor:pointer;transition:all .15s}
+.pb-mini:hover{border-color:var(--magenta);color:var(--magenta)}
+.grp-pick{font-size:12px;font-weight:700;background:var(--petal-soft);border:1px solid transparent;
+  color:var(--plum);border-radius:999px;padding:4px 11px;cursor:pointer;margin-left:10px;vertical-align:middle}
+.grp-pick:hover{border-color:var(--magenta);color:var(--magenta);background:#fff}
 
 /* mock interview: all questions list */
 .mi-cat-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
@@ -448,6 +472,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 <body>
 
 <nav class="tabs">
+  <div class="tab-strip" id="tab-strip">
   <button class="tab-btn active" data-tab="companion">🌷 Lesson Companion</button>
   <button class="tab-btn" data-tab="notes">✒️ Notes Builder</button>
   <button class="tab-btn" data-tab="jitsuyo">📗 Jitsuyo Eikaiwa</button>
@@ -458,7 +483,8 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 28, 2026 · 09:30 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  </div>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 28, 2026 · 11:05 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -2210,6 +2236,23 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
     </div>
   </div>
 
+  <div class="play-bar" id="jp-play-bar">
+    <span class="pb-count" id="pb-count">Nothing selected</span>
+    <button class="jq-btn" id="pb-play" style="padding:8px 18px;font-size:13px">▶ Play selected</button>
+    <button class="jq-btn ghost" id="pb-stop" style="padding:8px 16px;font-size:13px" hidden>⏹ Stop</button>
+    <button class="pb-mini" id="pb-all">Select all</button>
+    <button class="pb-mini" id="pb-none">Clear</button>
+    <label>Gap
+      <select id="pb-gap">
+        <option value="600">short</option>
+        <option value="1500" selected>1.5s</option>
+        <option value="3000">3s</option>
+        <option value="5000">5s</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="pb-twice"> Say each twice</label>
+  </div>
+
   <div id="jp-groups"></div>
 
 </section>
@@ -2393,9 +2436,26 @@ tabBtns.forEach(function(btn){
     btn.classList.add('active');
     document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
     document.getElementById('tab-' + btn.getAttribute('data-tab')).classList.add('active');
+    centerTab(btn);
     window.scrollTo({top:0, behavior:'smooth'});
   });
 });
+/* keep the chosen tab visible inside the scrolling strip */
+function centerTab(btn){
+  var strip = document.getElementById('tab-strip');
+  if(!strip || !btn) return;
+  var left = btn.offsetLeft - (strip.clientWidth / 2) + (btn.offsetWidth / 2);
+  if(strip.scrollTo) strip.scrollTo({left: Math.max(0, left), behavior: 'smooth'});
+  else strip.scrollLeft = Math.max(0, left);
+}
+/* the version text is hidden on narrow screens, so keep it on the Refresh button */
+(function(){
+  var v = document.getElementById('app-version');
+  var hr = document.getElementById('hard-refresh');
+  if(v && hr) hr.title = v.textContent + ' \u00b7 Reload the newest version from GitHub';
+  var act = document.querySelector('.tab-btn.active');
+  if(act) setTimeout(function(){ centerTab(act); }, 60);
+})();
 
 /* ═══════════════ NOTES BUILDER ═══════════════ */
 var nbFields = ['nb-greet','nb-feedback','nb-corrections','nb-good','nb-advice','nb-close'];
@@ -3855,15 +3915,160 @@ JPLINES.forEach(function(g){
       '<div class="jl-jp">' + esc(it.jp) + '</div>' +
       '<div class="jl-ro">' + esc(it.ro) + '</div></div>' +
       '<div class="jl-actions">' +
+      '<input type="checkbox" class="jl-pick" data-key="' + it._k + '" title="Select this line for playback">' +
       '<button class="say-btn" data-say="' + esc(it.jp) + '" data-key="' + it._k + '">🔊</button>' +
       '<button class="rec-btn" data-key="' + it._k + '" title="Record your own voice">🎙</button>' +
       '<button class="del-rec" data-key="' + it._k + '" title="Delete my recording" hidden>🗑</button>' +
       '<button class="copy-mini" data-copytext="' + esc(it.jp) + '">Copy</button>' +
       '</div></div>';
   }).join('');
-  card.innerHTML = '<h2 style="font-size:23px">' + g.icon + ' ' + esc(g.group) + '</h2>' + rows;
+  card.innerHTML = '<h2 style="font-size:23px">' + g.icon + ' ' + esc(g.group) +
+    '<button class="grp-pick" data-grp="1">select these</button></h2>' + rows;
   jpWrap.appendChild(card);
 });
+
+/* ═══════════ play the selected lines, one after another ═══════════ */
+function pickedKeys(){
+  return Array.prototype.map.call(
+    document.querySelectorAll('#jp-groups .jl-pick:checked'),
+    function(c){ return c.getAttribute('data-key'); });
+}
+function refreshPickBar(){
+  var n = pickedKeys().length;
+  var c = document.getElementById('pb-count');
+  if(c) c.textContent = n ? (n + (n === 1 ? ' line selected' : ' lines selected')) : 'Nothing selected';
+}
+var seqStop = false, seqRunning = false;
+function playOnce(key, jp){
+  return new Promise(function(resolve){
+    var useMine = document.getElementById('jp-use-mine');
+    var wantMine = HAVE_CLIP[key] && (!useMine || useMine.checked);
+    if(wantMine){
+      vGet(key, function(blob){
+        if(!blob || seqStop) return ttsOnce(jp, resolve);
+        try{
+          if(curAudio){ curAudio.pause(); curAudio = null; }
+          var url = URL.createObjectURL(blob);
+          curAudio = new Audio(url);
+          var done = function(){ URL.revokeObjectURL(url); resolve(); };
+          curAudio.onended = done;
+          curAudio.onerror = function(){ URL.revokeObjectURL(url); ttsOnce(jp, resolve); };
+          curAudio.play().catch(function(){ URL.revokeObjectURL(url); ttsOnce(jp, resolve); });
+        }catch(e){ ttsOnce(jp, resolve); }
+      });
+    } else ttsOnce(jp, resolve);
+  });
+}
+function ttsOnce(jp, resolve){
+  if(!('speechSynthesis' in window)){ setTimeout(resolve, 400); return; }
+  try{
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(jp);
+    u.lang = 'ja-JP';
+    if(jaVoice) u.voice = jaVoice;
+    u.rate = 0.85;
+    var fired = false;
+    var finish = function(){ if(!fired){ fired = true; resolve(); } };
+    u.onend = finish; u.onerror = finish;
+    /* safety net: some browsers never fire onend */
+    setTimeout(finish, Math.max(2500, jp.length * 260));
+    window.speechSynthesis.speak(u);
+  }catch(e){ setTimeout(resolve, 400); }
+}
+function wait(ms){
+  return new Promise(function(r){ setTimeout(r, ms); });
+}
+function highlight(key){
+  document.querySelectorAll('#jp-groups .jp-line.playing').forEach(function(el){ el.classList.remove('playing'); });
+  if(!key) return;
+  var row = document.querySelector('#jp-groups .jp-line[data-key="' + key + '"]');
+  if(row){
+    row.classList.add('playing');
+    if(row.scrollIntoView) row.scrollIntoView({behavior: 'smooth', block: 'center'});
+  }
+}
+function setSeqUI(on){
+  var play = document.getElementById('pb-play'), stop = document.getElementById('pb-stop');
+  if(play) play.disabled = on;
+  if(stop){ if(on) stop.removeAttribute('hidden'); else stop.setAttribute('hidden',''); }
+}
+function stopSequence(){
+  seqStop = true;
+  try{ if(window.speechSynthesis) window.speechSynthesis.cancel(); }catch(e){}
+  if(curAudio){ try{ curAudio.pause(); }catch(e){} curAudio = null; }
+  highlight(null); setSeqUI(false); seqRunning = false;
+}
+function playSequence(){
+  if(seqRunning) return;
+  var keys = pickedKeys();
+  if(!keys.length){ toast2('Please tick a few lines first.'); return; }
+  var gapEl = document.getElementById('pb-gap');
+  var gap = gapEl ? parseInt(gapEl.value, 10) : 1500;
+  var twice = document.getElementById('pb-twice');
+  var repeat = twice && twice.checked ? 2 : 1;
+  seqStop = false; seqRunning = true; setSeqUI(true);
+  var i = 0;
+  function step(){
+    if(seqStop || i >= keys.length){
+      if(!seqStop) toast2('Finished \u2661');
+      stopSequence();
+      return;
+    }
+    var key = keys[i];
+    var item = JP_INDEX[key];
+    if(!item){ i++; step(); return; }
+    highlight(key);
+    var r = 0;
+    function once(){
+      if(seqStop){ stopSequence(); return; }
+      playOnce(key, item.jp).then(function(){
+        r++;
+        if(seqStop){ stopSequence(); return; }
+        if(r < repeat){ wait(Math.min(gap, 1200)).then(once); return; }
+        i++;
+        wait(gap).then(step);
+      });
+    }
+    once();
+  }
+  step();
+}
+document.addEventListener('change', function(e){
+  if(e.target && e.target.classList && e.target.classList.contains('jl-pick')) refreshPickBar();
+});
+document.addEventListener('click', function(e){
+  var gp = e.target.closest('.grp-pick');
+  if(gp){
+    var card = gp.closest('.card');
+    if(!card) return;
+    var boxes = card.querySelectorAll('.jl-pick');
+    var allOn = true;
+    boxes.forEach(function(b){ if(!b.checked) allOn = false; });
+    boxes.forEach(function(b){ b.checked = !allOn; });
+    gp.textContent = allOn ? 'select these' : 'unselect these';
+    refreshPickBar();
+    return;
+  }
+});
+(function(){
+  var play = document.getElementById('pb-play');
+  var stop = document.getElementById('pb-stop');
+  var all = document.getElementById('pb-all');
+  var none = document.getElementById('pb-none');
+  if(play) play.addEventListener('click', playSequence);
+  if(stop) stop.addEventListener('click', function(){ stopSequence(); toast2('Stopped.'); });
+  if(all) all.addEventListener('click', function(){
+    document.querySelectorAll('#jp-groups .jl-pick').forEach(function(b){ b.checked = true; });
+    document.querySelectorAll('.grp-pick').forEach(function(g){ g.textContent = 'unselect these'; });
+    refreshPickBar();
+  });
+  if(none) none.addEventListener('click', function(){
+    document.querySelectorAll('#jp-groups .jl-pick').forEach(function(b){ b.checked = false; });
+    document.querySelectorAll('.grp-pick').forEach(function(g){ g.textContent = 'select these'; });
+    refreshPickBar();
+  });
+  refreshPickBar();
+})();
 
 /* small self-contained prefs store for this tab */
 function jpStore(k, v){ try{ window.localStorage.setItem(k, v); }catch(e){} }
