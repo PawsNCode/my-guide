@@ -45,18 +45,15 @@ header h1 em{font-style:italic;color:var(--magenta)}
 
 /* ---------- tabs ---------- */
 nav.tabs{margin-top:0;position:sticky;top:0;z-index:40;background:rgba(255,244,251,.94);backdrop-filter:blur(8px);
-  display:flex;align-items:center;gap:8px;padding:5px 8px;border-bottom:1px solid var(--petal)}
-.tab-strip{flex:1 1 auto;min-width:0;display:flex;gap:5px;overflow-x:auto;overflow-y:hidden;
-  scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding:1px 0}
-.tab-strip::-webkit-scrollbar{display:none}
-.tab-btn{font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.02em;
+  display:flex;justify-content:center;align-items:center;gap:4px;padding:5px 6px;
+  border-bottom:1px solid var(--petal);flex-wrap:wrap}
+.tab-btn{font-family:'Quicksand',sans-serif;font-weight:700;font-size:11px;letter-spacing:.01em;
   border:1px solid var(--petal);background:#fff;color:var(--ink-soft);border-radius:999px;
-  padding:5px 12px;cursor:pointer;transition:all .2s;white-space:nowrap;flex:0 0 auto}
-@media(max-width:600px){.tab-btn{font-size:11.5px;padding:4px 10px}nav.tabs{gap:6px;padding:4px 6px}}
-.ver-chip{flex:0 0 auto;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--mauve);font-weight:600}
-@media(max-width:820px){.ver-chip #app-version{display:none}}
+  padding:3px 9px;cursor:pointer;transition:all .2s;white-space:nowrap}
+@media(max-width:600px){.tab-btn{font-size:10.5px;padding:3px 8px}nav.tabs{gap:3px;padding:4px 5px}}
+.ver-chip{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--mauve);font-weight:600}
 .ver-chip button{border:1px solid var(--petal);background:#fff;color:var(--magenta);border-radius:999px;
-  padding:4px 11px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:11.5px;cursor:pointer;
+  padding:3px 9px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:10.5px;cursor:pointer;
   transition:all .15s;white-space:nowrap}
 .ver-chip button:hover{background:var(--magenta);color:#fff;border-color:var(--magenta)}
 .tab-btn:hover{border-color:var(--magenta);color:var(--magenta)}
@@ -472,7 +469,6 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 <body>
 
 <nav class="tabs">
-  <div class="tab-strip" id="tab-strip">
   <button class="tab-btn active" data-tab="companion">🌷 Lesson Companion</button>
   <button class="tab-btn" data-tab="notes">✒️ Notes Builder</button>
   <button class="tab-btn" data-tab="jitsuyo">📗 Jitsuyo Eikaiwa</button>
@@ -483,8 +479,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  </div>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 28, 2026 · 11:05 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 28, 2026 · 11:40 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -2436,25 +2431,13 @@ tabBtns.forEach(function(btn){
     btn.classList.add('active');
     document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
     document.getElementById('tab-' + btn.getAttribute('data-tab')).classList.add('active');
-    centerTab(btn);
     window.scrollTo({top:0, behavior:'smooth'});
   });
 });
-/* keep the chosen tab visible inside the scrolling strip */
-function centerTab(btn){
-  var strip = document.getElementById('tab-strip');
-  if(!strip || !btn) return;
-  var left = btn.offsetLeft - (strip.clientWidth / 2) + (btn.offsetWidth / 2);
-  if(strip.scrollTo) strip.scrollTo({left: Math.max(0, left), behavior: 'smooth'});
-  else strip.scrollLeft = Math.max(0, left);
-}
-/* the version text is hidden on narrow screens, so keep it on the Refresh button */
 (function(){
   var v = document.getElementById('app-version');
   var hr = document.getElementById('hard-refresh');
   if(v && hr) hr.title = v.textContent + ' \u00b7 Reload the newest version from GitHub';
-  var act = document.querySelector('.tab-btn.active');
-  if(act) setTimeout(function(){ centerTab(act); }, 60);
 })();
 
 /* ═══════════════ NOTES BUILDER ═══════════════ */
