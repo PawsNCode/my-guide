@@ -357,6 +357,8 @@ select.g-picker{width:100%;font-weight:600}
 .jq-verdict.no{background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.3);color:#8e3b31}
 .jq-verdict .ans{font-size:21px;font-weight:700;margin:7px 0 3px}
 .jq-verdict .ro{font-style:italic;opacity:.85;font-size:13.5px}
+.jq-listen{display:flex;gap:8px;margin-top:11px}
+.jq-listen .say-btn,.jq-listen .copy-mini{font-size:12.5px;padding:6px 13px}
 .jq-score{text-align:center;padding:10px 0}
 .jq-score .big{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--magenta);line-height:1}
 .jq-missed{margin-top:16px}
@@ -365,6 +367,7 @@ select.g-picker{width:100%;font-weight:600}
 .jq-missed .m-en{color:var(--ink-soft)}
 .jq-missed .m-jp{color:var(--plum);font-weight:700}
 .jq-missed .m-ro{font-style:italic;color:var(--mauve);font-size:12.5px}
+.jq-missed .jq-listen{margin-top:7px}
 
 /* mock interview: all questions list */
 .mi-cat-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
@@ -455,7 +458,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 28, 2026 · 08:50 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 28, 2026 · 09:30 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -4242,7 +4245,11 @@ document.addEventListener('click', function(e){
     v.className = 'jq-verdict show ' + (ok ? 'ok' : 'no');
     v.innerHTML = '<b>' + (ok ? 'Correct \u2661' : (note || 'Not quite.')) + '</b>' +
       '<div class="ans">' + esc(it.jp) + '</div>' +
-      '<div class="ro">' + esc(it.ro) + '</div>';
+      '<div class="ro">' + esc(it.ro) + '</div>' +
+      '<div class="jq-listen">' +
+        '<button class="say-btn" data-say="' + esc(it.jp) + '" data-key="' + it._k + '">🔊 Listen</button>' +
+        '<button class="copy-mini" data-copytext="' + esc(it.jp) + '">Copy</button>' +
+      '</div>';
   }
   function advance(){
     idx++;
@@ -4280,7 +4287,11 @@ document.addEventListener('click', function(e){
       m.innerHTML = '<h4>Worth another look (' + missed.length + ')</h4>' + missed.map(function(it){
         return '<div class="m-row"><div class="m-en">' + esc(it.en) + '</div>' +
                '<div class="m-jp">' + esc(it.jp) + '</div>' +
-               '<div class="m-ro">' + esc(it.ro) + '</div></div>';
+               '<div class="m-ro">' + esc(it.ro) + '</div>' +
+               '<div class="jq-listen">' +
+                 '<button class="say-btn" data-say="' + esc(it.jp) + '" data-key="' + it._k + '">🔊 Listen</button>' +
+                 '<button class="copy-mini" data-copytext="' + esc(it.jp) + '">Copy</button>' +
+               '</div></div>';
       }).join('');
     } else m.innerHTML = '';
     $q('jq-retry-missed').style.display = missed.length ? '' : 'none';
