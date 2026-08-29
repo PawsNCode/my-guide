@@ -389,6 +389,37 @@ select.g-picker{width:100%;font-weight:600}
 .grp-pick{font-size:12px;font-weight:700;background:var(--petal-soft);border:1px solid transparent;
   color:var(--plum);border-radius:999px;padding:4px 11px;cursor:pointer;margin-left:10px;vertical-align:middle}
 .grp-pick:hover{border-color:var(--magenta);color:var(--magenta);background:#fff}
+/* ── kana training: hide the romaji ── */
+#jp-groups.hide-ro .jl-ro{display:none}
+#jp-groups.hide-ro .jp-line.peek .jl-ro{display:block;animation:roFade .18s ease-out}
+@keyframes roFade{from{opacity:0}to{opacity:1}}
+#jp-groups.hide-ro .jl-jp{cursor:pointer}
+#jp-groups.hide-ro .jl-jp:hover{color:var(--magenta)}
+#jp-groups.hide-ro .jp-line.peek .jl-jp{color:var(--plum)}
+/* ── mastery ── */
+.jl-mast{margin-top:5px;display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700}
+.mast-pill{border-radius:999px;padding:2px 9px;border:1px solid transparent;white-space:nowrap}
+.mast-pill.m-new{background:#f0eef2;color:#8b8195;border-color:#e2dde6}
+.mast-pill.m-weak{background:rgba(192,57,43,.10);color:#a8392e;border-color:rgba(192,57,43,.28)}
+.mast-pill.m-mid{background:rgba(214,138,44,.13);color:#8d5a12;border-color:rgba(214,138,44,.3)}
+.mast-pill.m-near{background:rgba(60,130,180,.12);color:#2f6488;border-color:rgba(60,130,180,.3)}
+.mast-pill.m-master{background:rgba(126,163,120,.16);color:#3f6639;border-color:rgba(126,163,120,.42)}
+.mast-tries{color:var(--mauve);font-weight:600;font-size:11px}
+.jp-line.m-row-master{box-shadow:inset 3px 0 0 rgba(126,163,120,.55)}
+.jp-line.m-row-weak{box-shadow:inset 3px 0 0 rgba(192,57,43,.45)}
+.mast-panel{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.mast-big{font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--magenta);line-height:1;margin-right:4px}
+.mast-filter{font-size:12px;font-weight:700;background:#fff;border:1px solid var(--petal);color:var(--mauve);
+  border-radius:999px;padding:5px 12px;cursor:pointer;transition:all .15s}
+.mast-filter:hover{border-color:var(--magenta);color:var(--magenta)}
+.mast-filter.on{background:var(--magenta);border-color:var(--magenta);color:#fff}
+.mast-bar{height:9px;border-radius:999px;overflow:hidden;display:flex;width:100%;background:#f0eef2;margin-top:10px}
+.mast-bar i{display:block;height:100%}
+.mast-bar .s-master{background:rgba(126,163,120,.85)}
+.mast-bar .s-near{background:rgba(60,130,180,.75)}
+.mast-bar .s-mid{background:rgba(214,138,44,.8)}
+.mast-bar .s-weak{background:rgba(192,57,43,.7)}
+.card.card-empty{display:none}
 
 /* mock interview: all questions list */
 .mi-cat-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
@@ -479,7 +510,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Aug 29, 2026 · 09:25 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Aug 29, 2026 · 11:20 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -2169,6 +2200,11 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <label class="vb-toggle"><input type="checkbox" id="jp-use-mine" checked> Play my own recording when I have one</label>
       <span class="vb-count" id="jp-clip-count">No recordings yet</span>
     </div>
+    <div class="voice-bar" style="margin-top:8px">
+      <label class="vb-toggle"><input type="checkbox" id="jp-hide-ro"> Hide the romaji so I read the kana</label>
+      <button class="pb-mini" id="jp-peek-all" hidden>Show every romaji</button>
+    </div>
+    <div class="hint" id="jp-ro-hint" style="margin-top:6px;display:none">Romaji is hidden. Tap any Japanese line to peek at its reading, then tap again to hide it.</div>
     <div class="hint" style="margin-top:8px">Tap 🎙 on any line to record your own voice, then tap it again to stop. After that, 🔊 plays your recording instead of the robot voice. Your clips stay on this device, so please back them up.</div>
 
     <div class="voice-bar" style="margin-top:12px">
@@ -2181,6 +2217,21 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
     <div class="voice-bar" style="margin-top:14px">
       <button class="jq-btn" id="jp-quiz-open">🧠 Quiz me on these phrases</button>
     </div>
+
+    <div class="mast-panel" id="mast-panel">
+      <span class="mast-big" id="mast-overall">0%</span>
+      <span class="vb-count" id="mast-summary">No quiz results yet</span>
+    </div>
+    <div class="mast-bar" id="mast-bar"></div>
+    <div class="mast-panel" style="margin-top:9px">
+      <button class="mast-filter on" data-filter="all">Show all</button>
+      <button class="mast-filter" data-filter="weak">Needs work</button>
+      <button class="mast-filter" data-filter="mid">Reviewing</button>
+      <button class="mast-filter" data-filter="near">Almost</button>
+      <button class="mast-filter" data-filter="master">Mastered</button>
+      <button class="mast-filter" data-filter="new">Not tried</button>
+    </div>
+    <div class="hint" style="margin-top:7px">Each phrase shows how often you got it right in the quiz. Green means mastered, blue almost, amber still reviewing, red needs work.</div>
   </div>
 
   <div class="card" id="jp-quiz">
@@ -2191,7 +2242,9 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <div class="jq-setup">
         <select id="jq-group"></select>
         <select id="jq-count">
-          <option value="10">10 questions</option>
+          <option value="3">3 questions</option>
+          <option value="5">5 questions</option>
+          <option value="10" selected>10 questions</option>
           <option value="20">20 questions</option>
           <option value="0">All of them</option>
         </select>
@@ -3896,7 +3949,8 @@ JPLINES.forEach(function(g){
     return '<div class="jp-line" data-key="' + it._k + '">' +
       '<div><div class="jl-en">' + esc(it.en) + '</div>' +
       '<div class="jl-jp">' + esc(it.jp) + '</div>' +
-      '<div class="jl-ro">' + esc(it.ro) + '</div></div>' +
+      '<div class="jl-ro">' + esc(it.ro) + '</div>' +
+      '<div class="jl-mast" data-mk="' + it._k + '"></div></div>' +
       '<div class="jl-actions">' +
       '<input type="checkbox" class="jl-pick" data-key="' + it._k + '" title="Select this line for playback">' +
       '<button class="say-btn" data-say="' + esc(it.jp) + '" data-key="' + it._k + '">🔊</button>' +
@@ -4033,6 +4087,43 @@ document.addEventListener('click', function(e){
     return;
   }
 });
+/* ── hide romaji, with tap-to-peek on a single line ── */
+(function(){
+  var box = document.getElementById('jp-hide-ro');
+  var wrap = document.getElementById('jp-groups');
+  var hint = document.getElementById('jp-ro-hint');
+  var peekAll = document.getElementById('jp-peek-all');
+  if(!box || !wrap) return;
+  function apply(on){
+    wrap.classList.toggle('hide-ro', on);
+    if(hint) hint.style.display = on ? '' : 'none';
+    if(peekAll){ if(on) peekAll.removeAttribute('hidden'); else peekAll.setAttribute('hidden',''); }
+    if(!on) wrap.querySelectorAll('.jp-line.peek').forEach(function(r){ r.classList.remove('peek'); });
+  }
+  if(jpRead('tutor6348-jp-hide-ro') === '1') box.checked = true;
+  apply(box.checked);
+  box.addEventListener('change', function(){
+    jpStore('tutor6348-jp-hide-ro', box.checked ? '1' : '0');
+    apply(box.checked);
+    if(peekAll) peekAll.textContent = 'Show every romaji';
+  });
+  /* tap the Japanese text to reveal just that line */
+  wrap.addEventListener('click', function(e){
+    if(!wrap.classList.contains('hide-ro')) return;
+    var jp = e.target.closest('.jl-jp');
+    if(!jp) return;
+    var row = jp.closest('.jp-line');
+    if(row) row.classList.toggle('peek');
+  });
+  if(peekAll) peekAll.addEventListener('click', function(){
+    var rows = wrap.querySelectorAll('.jp-line');
+    var anyHidden = false;
+    rows.forEach(function(r){ if(!r.classList.contains('peek')) anyHidden = true; });
+    rows.forEach(function(r){ r.classList.toggle('peek', anyHidden); });
+    peekAll.textContent = anyHidden ? 'Hide every romaji' : 'Show every romaji';
+  });
+})();
+
 (function(){
   var play = document.getElementById('pb-play');
   var stop = document.getElementById('pb-stop');
@@ -4342,6 +4433,101 @@ document.addEventListener('click', function(e){
   if(cb && cb.hasAttribute('data-copytext')){ copy2(cb.getAttribute('data-copytext')); }
 });
 
+/* ═══════════ mastery: how well each phrase is known ═══════════ */
+var MAST_KEY = 'tutor6348-jp-mastery';
+var MAST = {};
+(function(){
+  var v = jpRead(MAST_KEY);
+  if(v){ try{ MAST = JSON.parse(v) || {}; }catch(e){ MAST = {}; } }
+})();
+function saveMastery(){ jpStore(MAST_KEY, JSON.stringify(MAST)); }
+function recordResult(key, wasRight){
+  if(!key) return;
+  var m = MAST[key] || {a: 0, c: 0};
+  m.a++; if(wasRight) m.c++;
+  MAST[key] = m;
+}
+function bandOf(key){
+  var m = MAST[key];
+  if(!m || !m.a) return {band: 'new', pct: null, a: 0, c: 0};
+  var pct = Math.round(m.c / m.a * 100);
+  var band;
+  if(pct < 50) band = 'weak';
+  else if(pct < 80) band = 'mid';
+  else if(m.a < 3) band = 'near';
+  else band = 'master';
+  return {band: band, pct: pct, a: m.a, c: m.c};
+}
+var BAND_LABEL = {'new': 'not tried', weak: 'needs work', mid: 'reviewing', near: 'almost', master: 'mastered'};
+function paintMastery(){
+  var counts = {'new': 0, weak: 0, mid: 0, near: 0, master: 0};
+  var totA = 0, totC = 0;
+  document.querySelectorAll('#jp-groups .jl-mast').forEach(function(el){
+    var key = el.getAttribute('data-mk');
+    var b = bandOf(key);
+    counts[b.band]++;
+    totA += b.a; totC += b.c;
+    var row = el.closest('.jp-line');
+    if(row){
+      row.setAttribute('data-band', b.band);
+      row.classList.toggle('m-row-master', b.band === 'master');
+      row.classList.toggle('m-row-weak', b.band === 'weak');
+    }
+    if(b.pct === null){
+      el.innerHTML = '<span class="mast-pill m-new">not tried yet</span>';
+    } else {
+      el.innerHTML = '<span class="mast-pill m-' + b.band + '">' + b.pct + '% \u00b7 ' + BAND_LABEL[b.band] + '</span>' +
+                     '<span class="mast-tries">' + b.c + ' of ' + b.a + ' right</span>';
+    }
+  });
+  var total = counts['new'] + counts.weak + counts.mid + counts.near + counts.master;
+  var tried = total - counts['new'];
+  var big = document.getElementById('mast-overall');
+  var sum = document.getElementById('mast-summary');
+  var bar = document.getElementById('mast-bar');
+  var overall = total ? Math.round(counts.master / total * 100) : 0;
+  if(big) big.textContent = overall + '%';
+  if(sum){
+    sum.textContent = tried
+      ? (counts.master + ' of ' + total + ' phrases mastered  \u00b7  ' +
+         counts.near + ' almost, ' + counts.mid + ' reviewing, ' + counts.weak + ' need work, ' +
+         counts['new'] + ' not tried')
+      : 'No quiz results yet. Take a quiz and your progress will appear here.';
+  }
+  if(bar){
+    if(!total){ bar.innerHTML = ''; }
+    else {
+      var pc = function(n){ return (n / total * 100) + '%'; };
+      bar.innerHTML =
+        '<i class="s-master" style="width:' + pc(counts.master) + '"></i>' +
+        '<i class="s-near" style="width:' + pc(counts.near) + '"></i>' +
+        '<i class="s-mid" style="width:' + pc(counts.mid) + '"></i>' +
+        '<i class="s-weak" style="width:' + pc(counts.weak) + '"></i>';
+    }
+  }
+}
+function applyMastFilter(f){
+  var wrap = document.getElementById('jp-groups');
+  if(!wrap) return;
+  wrap.querySelectorAll('.jp-line').forEach(function(row){
+    var show = (f === 'all') || (row.getAttribute('data-band') === f);
+    row.style.display = show ? '' : 'none';
+  });
+  wrap.querySelectorAll('.card').forEach(function(card){
+    var any = false;
+    card.querySelectorAll('.jp-line').forEach(function(r){ if(r.style.display !== 'none') any = true; });
+    card.classList.toggle('card-empty', !any);
+  });
+}
+document.addEventListener('click', function(e){
+  var f = e.target.closest('.mast-filter');
+  if(!f) return;
+  document.querySelectorAll('.mast-filter').forEach(function(b){ b.classList.remove('on'); });
+  f.classList.add('on');
+  applyMastFilter(f.getAttribute('data-filter'));
+});
+paintMastery();
+
 /* ═══════════ Japanese phrase quiz ═══════════ */
 (function(){
   var box = document.getElementById('jp-quiz');
@@ -4355,6 +4541,7 @@ document.addEventListener('click', function(e){
   /* group picker */
   var gsel = $q('jq-group');
   gsel.innerHTML = '<option value="*">All groups (' + Object.keys(JP_INDEX).length + ' phrases)</option>' +
+    '<option value="!weak">\u26a0 Weakest first (what needs review)</option>' +
     JPLINES.map(function(g){
       return '<option value="' + esc(g.group) + '">' + esc(g.icon + ' ' + g.group) + ' (' + g.items.length + ')</option>';
     }).join('');
@@ -4362,6 +4549,10 @@ document.addEventListener('click', function(e){
   function showBest(){
     var el = $q('jq-best'); if(!el) return;
     var g = gsel.value || '*';
+    if(g === '!weak'){
+      el.textContent = 'Puts your untried and lowest-scoring phrases first.';
+      return;
+    }
     var b = best[g];
     el.textContent = b ? ('Your best on this set: ' + b.score + ' out of ' + b.total + '.') : '';
   }
@@ -4450,6 +4641,7 @@ document.addEventListener('click', function(e){
     if($q('jq-check').textContent === 'Next'){ advance(); return; }
     var ok = !revealed && isRight(a.value, it);
     if(ok) score++; else missed.push(it);
+    recordResult(it._k, ok); saveMastery();
     verdict(ok, it, revealed ? 'Here it is again.' : 'Not quite.');
     a.disabled = true;
     $q('jq-check').textContent = 'Next';
@@ -4483,6 +4675,7 @@ document.addEventListener('click', function(e){
       }).join('');
     } else m.innerHTML = '';
     $q('jq-retry-missed').style.display = missed.length ? '' : 'none';
+    paintMastery();
   }
 
   /* ── buttons ── */
@@ -4495,10 +4688,19 @@ document.addEventListener('click', function(e){
   $q('jq-start').addEventListener('click', function(){
     var g = gsel.value, pool = [];
     JPLINES.forEach(function(grp){
-      if(g === '*' || grp.group === g) grp.items.forEach(function(it){ pool.push(it); });
+      if(g === '*' || g === '!weak' || grp.group === g) grp.items.forEach(function(it){ pool.push(it); });
     });
     if(!pool.length){ toast2('That set is empty.'); return; }
-    shuffle(pool);
+    if(g === '!weak'){
+      /* what needs work first, then never-tried, then the ones nearly learned */
+      var ORDER = {weak: 0, mid: 1, 'new': 2, near: 3, master: 4};
+      var rank = function(it){
+        var b = bandOf(it._k);
+        return ORDER[b.band] * 1000 + (b.pct === null ? 0 : b.pct);
+      };
+      shuffle(pool);
+      pool.sort(function(x, y){ return rank(x) - rank(y); });
+    } else shuffle(pool);
     var n = parseInt($q('jq-count').value, 10);
     if(n > 0 && pool.length > n) pool = pool.slice(0, n);
     begin(pool, g);
@@ -4517,6 +4719,7 @@ document.addEventListener('click', function(e){
     if($q('jq-check').textContent === 'Next'){ advance(); return; }
     revealed = true;
     missed.push(it);
+    recordResult(it._k, false); saveMastery();
     verdict(false, it, 'Skipped.');
     $q('jq-answer').disabled = true;
     $q('jq-check').textContent = 'Next';
