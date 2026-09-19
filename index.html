@@ -519,7 +519,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Sep 19, 2026 · 10:40 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Sep 19, 2026 · 10:55 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -2342,6 +2342,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
     <label><input type="checkbox" id="pb-twice"> Say each twice</label>
     <label><input type="checkbox" id="pb-enfirst"> English first, then Japanese</label>
     <label><input type="checkbox" id="pb-loop"> Loop until I stop</label>
+    <label><input type="checkbox" id="pb-shuffle"> Shuffle</label>
     <label><input type="checkbox" id="pb-bg"> Keep playing in the background</label>
     <label><input type="checkbox" id="pb-mine"> Only my Japanese recordings (skip the rest)</label>
   </div>
@@ -4079,12 +4080,21 @@ function pickedKeys(){
     function(c){ return c.getAttribute('data-key'); });
 }
 function refreshPickBar(){
-  seqIndex = 0;
+  seqIndex = 0; seqOrder = null;
   var n = pickedKeys().length;
   var c = document.getElementById('pb-count');
   if(c) c.textContent = n ? (n + (n === 1 ? ' line selected' : ' lines selected')) : 'Nothing selected';
 }
 var seqStop = false, seqRunning = false, seqJump = 0, seqIndex = 0, curResolve = null;
+/* the shuffled order is kept so a paused playlist resumes in the same order */
+var seqOrder = null, seqOrderSig = '';
+function shuffleKeys(arr, avoidFirst){
+  var a = arr.slice(), i, j, t;
+  for(i = a.length - 1; i > 0; i--){ j = Math.floor(Math.random() * (i + 1)); t = a[i]; a[i] = a[j]; a[j] = t; }
+  /* on a new loop pass, don't repeat the line that just played */
+  if(avoidFirst && a.length > 1 && a[0] === avoidFirst){ t = a[0]; a[0] = a[1]; a[1] = t; }
+  return a;
+}
 
 /* one persistent player: reusing a single media element is what lets the
    phone keep the audio session alive when the screen locks */
@@ -4287,6 +4297,14 @@ function playSequence(startAt){
   var enFirst = !!(enFirstEl && enFirstEl.checked);
   var loopEl = document.getElementById('pb-loop');
   var loop = !!(loopEl && loopEl.checked);
+  var shufEl = document.getElementById('pb-shuffle');
+  var shuffle = !!(shufEl && shufEl.checked);
+  if(shuffle){
+    var sig = keys.slice().sort().join('|');
+    var resuming = typeof startAt === 'number' && startAt > 0;
+    if(resuming && seqOrder && seqOrderSig === sig) keys = seqOrder.slice();
+    else { keys = shuffleKeys(keys); seqOrder = keys.slice(); seqOrderSig = sig; }
+  } else seqOrder = null;
   seqStop = false; seqRunning = true; seqJump = 0; setSeqUI(true);
   if(bgOn()) keepAlive(true);
   var i = (typeof startAt === 'number' && startAt >= 0 && startAt < keys.length) ? startAt : 0;
@@ -4294,7 +4312,10 @@ function playSequence(startAt){
     if(seqJump){ i += seqJump; seqJump = 0; if(i < 0) i = loop ? keys.length - 1 : 0; }
     else i++;
     if(i >= keys.length){
-      if(loop) i = 0;
+      if(loop){
+        i = 0;
+        if(shuffle){ keys = shuffleKeys(keys, keys[keys.length - 1]); seqOrder = keys.slice(); }
+      }
       else { toast2('Finished \u2661'); stopSequence(false); return; }
     }
     step();
@@ -4399,7 +4420,9 @@ document.addEventListener('click', function(e){
     primeAudio().then(function(){ playSequence(seqIndex); });
   });
   if(stop) stop.addEventListener('click', function(){ stopSequence(false); toast2('Stopped.'); });
-  ['pb-enfirst', 'pb-loop', 'pb-bg', 'pb-twice', 'pb-mine'].forEach(function(id){
+  var shufBox = document.getElementById('pb-shuffle');
+  if(shufBox) shufBox.addEventListener('change', function(){ if(!seqRunning){ seqIndex = 0; seqOrder = null; } });
+  ['pb-enfirst', 'pb-loop', 'pb-bg', 'pb-twice', 'pb-mine', 'pb-shuffle'].forEach(function(id){
     var el = document.getElementById(id); if(!el) return;
     if(jpRead('tutor6348-' + id) === '1') el.checked = true;
     el.addEventListener('change', function(){ jpStore('tutor6348-' + id, el.checked ? '1' : '0'); });
