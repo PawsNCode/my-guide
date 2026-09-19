@@ -331,7 +331,8 @@ select.g-picker{width:100%;font-weight:600}
 .jl-actions .rec-btn:hover,.jl-actions .del-rec:hover{border-color:var(--magenta);color:var(--magenta)}
 .jl-actions .rec-btn.recording{background:#c0392b;border-color:#c0392b;color:#fff;animation:recpulse 1s infinite}
 @keyframes recpulse{0%,100%{opacity:1}50%{opacity:.55}}
-.jp-line.has-clip .jl-en::after{content:"\1F3A4";font-size:11px;margin-left:6px;opacity:.75}
+.jp-line.has-clip .jl-jp::after{content:"\1F3A4";font-size:11px;margin-left:6px;opacity:.75}
+.jp-line.has-clip-en .jl-en::after{content:"\1F3A4";font-size:10px;margin-left:6px;opacity:.75}
 .jp-line.has-clip{background:linear-gradient(90deg,rgba(214,51,132,.05),transparent)}
 .voice-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
 .vb-toggle{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--plum);cursor:pointer}
@@ -383,6 +384,9 @@ select.g-picker{width:100%;font-weight:600}
 .play-bar select{width:auto;min-width:0;padding:6px 10px;font-size:12.5px}
 .play-bar label{font-size:12.5px;font-weight:700;color:var(--mauve);display:flex;align-items:center;gap:6px}
 .play-bar label input{width:auto;margin:0}
+.jl-actions .en-btn i{font-style:normal;font-size:8px;font-weight:800;vertical-align:super;margin-left:1px;letter-spacing:.02em}
+.jl-actions .say-btn.en-btn{color:var(--plum)}
+.pb-hint{font-size:12px;color:var(--mauve);margin:-6px 0 12px;line-height:1.45}
 .pb-mini{font-size:12.5px;font-weight:700;background:#fff;border:1px solid var(--petal);
   color:var(--mauve);border-radius:999px;padding:6px 13px;cursor:pointer;transition:all .15s}
 .pb-mini:hover{border-color:var(--magenta);color:var(--magenta)}
@@ -413,6 +417,11 @@ select.g-picker{width:100%;font-weight:600}
   border-radius:999px;padding:5px 12px;cursor:pointer;transition:all .15s}
 .mast-filter:hover{border-color:var(--magenta);color:var(--magenta)}
 .mast-filter.on{background:var(--magenta);border-color:var(--magenta);color:#fff}
+.filt-panel{margin-top:14px;border:1px solid var(--petal);border-radius:14px;padding:12px 14px;background:rgba(255,255,255,.6)}
+.filt-title{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mauve);margin-bottom:8px}
+.filt-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.filt-row input,.filt-row select{padding:8px 11px;font-size:13px}
+.filt-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
 .mast-bar{height:9px;border-radius:999px;overflow:hidden;display:flex;width:100%;background:#f0eef2;margin-top:10px}
 .mast-bar i{display:block;height:100%}
 .mast-bar .s-master{background:rgba(126,163,120,.85)}
@@ -510,7 +519,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Sep 19, 2026 · 09:00 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Sep 19, 2026 · 10:15 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -2205,7 +2214,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <button class="pb-mini" id="jp-peek-all" hidden>Show every romaji</button>
     </div>
     <div class="hint" id="jp-ro-hint" style="margin-top:6px;display:none">Romaji is hidden. Tap any Japanese line to peek at its reading, then tap again to hide it.</div>
-    <div class="hint" style="margin-top:8px">Tap 🎙 on any line to record your own voice, then tap it again to stop. After that, 🔊 plays your recording instead of the robot voice. Your clips stay on this device, so please back them up.</div>
+    <div class="hint" style="margin-top:8px">Tap 🎙 to record your Japanese, or 🎙EN to record the English, then tap again to stop. After that, 🔊 plays your recording instead of the robot voice. Your clips stay on this device, so please back them up.</div>
 
     <div class="voice-bar" style="margin-top:12px">
       <button class="jq-btn ghost" id="jp-backup" style="padding:8px 16px;font-size:13px">⬇ Back up everything</button>
@@ -2223,15 +2232,47 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <span class="vb-count" id="mast-summary">No quiz results yet</span>
     </div>
     <div class="mast-bar" id="mast-bar"></div>
-    <div class="mast-panel" style="margin-top:9px">
-      <button class="mast-filter on" data-filter="all">Show all</button>
-      <button class="mast-filter" data-filter="weak">Needs work</button>
-      <button class="mast-filter" data-filter="mid">Reviewing</button>
-      <button class="mast-filter" data-filter="near">Almost</button>
-      <button class="mast-filter" data-filter="master">Mastered</button>
-      <button class="mast-filter" data-filter="new">Not tried</button>
-    </div>
     <div class="hint" style="margin-top:7px">Each phrase shows how often you got it right in the quiz. Green means mastered, blue almost, amber still reviewing, red needs work.</div>
+
+    <div class="filt-panel" id="jp-filters">
+      <div class="filt-title">Filter the lines</div>
+      <div class="filt-row">
+        <input type="search" id="fl-q" placeholder="Search English, kana, or romaji…" autocomplete="off">
+        <select id="fl-cat"><option value="*">All categories</option></select>
+        <select id="fl-rec">
+          <option value="*">Any recording status</option>
+          <option value="jp">Japanese recorded</option>
+          <option value="en">English recorded</option>
+          <option value="both">Both recorded</option>
+          <option value="jp-no">Japanese not recorded yet</option>
+          <option value="none">No recordings</option>
+        </select>
+        <select id="fl-len">
+          <option value="*">Any length</option>
+          <option value="short">Short (easier)</option>
+          <option value="medium">Medium</option>
+          <option value="long">Long (harder)</option>
+        </select>
+        <select id="fl-sel">
+          <option value="*">Selected or not</option>
+          <option value="sel">Selected only</option>
+          <option value="unsel">Not selected</option>
+        </select>
+      </div>
+      <div class="mast-panel" style="margin-top:9px">
+        <button class="mast-filter on" data-filter="all">Any mastery</button>
+        <button class="mast-filter" data-filter="weak">Needs work</button>
+        <button class="mast-filter" data-filter="mid">Reviewing</button>
+        <button class="mast-filter" data-filter="near">Almost</button>
+        <button class="mast-filter" data-filter="master">Mastered</button>
+        <button class="mast-filter" data-filter="new">Not tried</button>
+      </div>
+      <div class="filt-foot">
+        <span class="vb-count" id="fl-count"></span>
+        <button class="pb-mini" id="fl-clear">Clear filters</button>
+      </div>
+      <div class="hint" style="margin-top:6px">Filters change what you see below. “Select all” in the play bar selects only the lines you can see, so filter first, then select, then play.</div>
+    </div>
   </div>
 
   <div class="card" id="jp-quiz">
@@ -2299,7 +2340,12 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       </select>
     </label>
     <label><input type="checkbox" id="pb-twice"> Say each twice</label>
+    <label><input type="checkbox" id="pb-enfirst"> English first, then Japanese</label>
+    <label><input type="checkbox" id="pb-loop"> Loop until I stop</label>
+    <label><input type="checkbox" id="pb-bg"> Keep playing in the background</label>
+    <label><input type="checkbox" id="pb-mine"> Only my Japanese recordings (skip the rest)</label>
   </div>
+  <div class="pb-hint">Background mode keeps your own recordings playing when the screen locks or you switch apps, with play, pause, and skip on the lock screen. The robot voice cannot run in the background, so record the lines you want to drill.</div>
 
   <div id="jp-groups"></div>
 
@@ -3503,11 +3549,13 @@ loadStudents(function(){ renderStudents(); });
 "use strict";
 
 /* ───────────── Japanese text-to-speech ───────────── */
-var jaVoice = null;
+var jaVoice = null, enVoice = null;
 function pickVoice(){
   if(!('speechSynthesis' in window)) return;
   var vs = window.speechSynthesis.getVoices() || [];
   jaVoice = vs.find(function(v){ return v.lang && v.lang.toLowerCase().indexOf('ja') === 0; }) || null;
+  enVoice = vs.find(function(v){ return v.lang && /^en[-_]us/i.test(v.lang); }) ||
+            vs.find(function(v){ return v.lang && v.lang.toLowerCase().indexOf('en') === 0; }) || null;
 }
 if('speechSynthesis' in window){
   pickVoice();
@@ -3526,6 +3574,19 @@ function speakJa(text, btn){
   u.lang = 'ja-JP';
   if(jaVoice) u.voice = jaVoice;
   u.rate = 0.85;
+  if(btn){
+    btn.classList.add('speaking');
+    u.onend = u.onerror = function(){ btn.classList.remove('speaking'); };
+  }
+  window.speechSynthesis.speak(u);
+}
+function speakEnLine(text, btn){
+  if(!('speechSynthesis' in window)){ return; }
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  if(enVoice) u.voice = enVoice;
+  u.rate = 0.9;
   if(btn){
     btn.classList.add('speaking');
     u.onend = u.onerror = function(){ btn.classList.remove('speaking'); };
@@ -3876,7 +3937,7 @@ var JPLINES = [
 {en:"Let's do one more question.", jp:"もう ひとつ しつもんを しましょう。", ro:"Mou hitotsu shitsumon o shimashou."},
 {en:"Shall we go slowly today?", jp:"きょうは ゆっくり すすめましょうか？", ro:"Kyou wa yukkuri susumemashou ka?"},
 {en:"We still have time.", jp:"まだ じかんが ありますよ。", ro:"Mada jikan ga arimasu yo."},
-{en:"Time is almost up.", jp:"そろそろ じかんです。", ro:"Sorosoro jikan desu."}
+{en:"Time is almost up.", jp:"そろそろ おわりの じかんです。", ro:"Sorosoro owari no jikan desu."}
 ]},
 {group:'Homework & next lesson', icon:'📅', items:[
 {en:"Please review today's words.", jp:"きょうの たんごを ふくしゅうして ください。", ro:"Kyou no tango o fukushuu shite kudasai."},
@@ -3907,6 +3968,38 @@ var JPLINES = [
 {en:"Please leave the room and enter again.", jp:"いちど たいしつして、もういちど はいって みてください。", ro:"Ichido taishitsu shite, mou ichido haitte mite kudasai."},
 {en:"I can hear you now.", jp:"いま きこえます。", ro:"Ima kikoemasu."},
 {en:"I'm sorry, my connection was unstable.", jp:"すみません、せつぞくが ふあんていでした。", ro:"Sumimasen, setsuzoku ga fuantei deshita."}
+]},
+{group:'Guiding the lesson step by step', icon:'🧭', items:[
+{en:"Listen and repeat after me.", jp:"きいて、わたしの あとに くりかえしてください。", ro:"Kiite, watashi no ato ni kurikaeshite kudasai."},
+{en:"Please read this part.", jp:"この ぶぶんを よんでください。", ro:"Kono bubun o yonde kudasai."},
+{en:"Please read from here to here.", jp:"ここから ここまで よんでください。", ro:"Koko kara koko made yonde kudasai."},
+{en:"Please read the title.", jp:"タイトルを よんでください。", ro:"Taitoru o yonde kudasai."},
+{en:"Please read the first paragraph.", jp:"さいしょの だんらくを よんでください。", ro:"Saisho no danraku o yonde kudasai."},
+{en:"Please read the next paragraph.", jp:"つぎの だんらくを よんでください。", ro:"Tsugi no danraku o yonde kudasai."},
+{en:"Please read the question.", jp:"しつもんを よんでください。", ro:"Shitsumon o yonde kudasai."},
+{en:"Please answer the question.", jp:"しつもんに こたえてください。", ro:"Shitsumon ni kotaete kudasai."},
+{en:"Please answer with yes or no first.", jp:"まず はい か いいえ で こたえてください。", ro:"Mazu hai ka iie de kotaete kudasai."},
+{en:"Please tell me why.", jp:"りゆうを おしえてください。", ro:"Riyuu o oshiete kudasai."},
+{en:"Please look at number three.", jp:"さんばんを みてください。", ro:"Sanban o mite kudasai."},
+{en:"Let's check the vocabulary first.", jp:"まず たんごを かくにんしましょう。", ro:"Mazu tango o kakunin shimashou."},
+{en:"Please read the word and the example sentence.", jp:"たんごと れいぶんを よんでください。", ro:"Tango to reibun o yonde kudasai."},
+{en:"I'll read first, then you.", jp:"さきに わたしが よみます。つぎは あなたです。", ro:"Saki ni watashi ga yomimasu. Tsugi wa anata desu."},
+{en:"Now it's your turn.", jp:"つぎは あなたの ばんです。", ro:"Tsugi wa anata no ban desu."},
+{en:"Please say the whole sentence.", jp:"ぶんを ぜんぶ いってください。", ro:"Bun o zenbu itte kudasai."},
+{en:"Let's read it together.", jp:"いっしょに よみましょう。", ro:"Issho ni yomimashou."},
+{en:"Let's do the warm-up questions.", jp:"ウォームアップの しつもんを しましょう。", ro:"Woomuappu no shitsumon o shimashou."},
+{en:"Let's move on to the discussion.", jp:"ディスカッションに すすみましょう。", ro:"Disukasshon ni susumimashou."},
+{en:"Please choose one topic.", jp:"トピックを ひとつ えらんでください。", ro:"Topikku o hitotsu erande kudasai."},
+{en:"Let's check the answer together.", jp:"いっしょに こたえを かくにんしましょう。", ro:"Issho ni kotae o kakunin shimashou."},
+{en:"Please read it once more, a little slower.", jp:"もういちど、すこし ゆっくり よんでください。", ro:"Mou ichido, sukoshi yukkuri yonde kudasai."},
+{en:"Please try again from the beginning.", jp:"さいしょから もういちど やってみてください。", ro:"Saisho kara mou ichido yatte mite kudasai."},
+{en:"Let's practice the pronunciation of this word.", jp:"この たんごの はつおんを れんしゅうしましょう。", ro:"Kono tango no hatsuon o renshuu shimashou."},
+{en:"I wrote the word in the chat box. Please read it.", jp:"チャットボックスに たんごを かきました。よんでください。", ro:"Chatto bokkusu ni tango o kakimashita. Yonde kudasai."},
+{en:"Please summarize the article in your own words.", jp:"じぶんの ことばで きじを まとめてください。", ro:"Jibun no kotoba de kiji o matomete kudasai."},
+{en:"Let's skip this part and go to the next one.", jp:"ここは とばして、つぎに いきましょう。", ro:"Koko wa tobashite, tsugi ni ikimashou."},
+{en:"Please look at the picture and describe it.", jp:"えを みて、せつめいしてください。", ro:"E o mite, setsumei shite kudasai."},
+{en:"Please read it with feeling.", jp:"きもちを こめて よんでください。", ro:"Kimochi o komete yonde kudasai."},
+{en:"Let's stop here for today.", jp:"きょうは ここまでに しましょう。", ro:"Kyou wa koko made ni shimashou."}
 ]}
 ];
 
@@ -3946,23 +4039,38 @@ JPLINES.forEach(function(g){
   var card = document.createElement('div');
   card.className = 'card';
   var rows = g.items.map(function(it){
-    return '<div class="jp-line" data-key="' + it._k + '">' +
+    var kl = it.jp.replace(/[\s\u3000]/g, '').length;
+    var len = kl <= 10 ? 'short' : (kl <= 20 ? 'medium' : 'long');
+    return '<div class="jp-line" data-key="' + it._k + '" data-group="' + esc(g.group) + '" data-len="' + len + '">' +
       '<div><div class="jl-en">' + esc(it.en) + '</div>' +
       '<div class="jl-jp">' + esc(it.jp) + '</div>' +
       '<div class="jl-ro">' + esc(it.ro) + '</div>' +
       '<div class="jl-mast" data-mk="' + it._k + '"></div></div>' +
       '<div class="jl-actions">' +
       '<input type="checkbox" class="jl-pick" data-key="' + it._k + '" title="Select this line for playback">' +
-      '<button class="say-btn" data-say="' + esc(it.jp) + '" data-key="' + it._k + '">🔊</button>' +
-      '<button class="rec-btn" data-key="' + it._k + '" title="Record your own voice">🎙</button>' +
-      '<button class="del-rec" data-key="' + it._k + '" title="Delete my recording" hidden>🗑</button>' +
+      '<button class="say-btn" data-say="' + esc(it.jp) + '" data-key="' + it._k + '" title="Listen (Japanese)">🔊</button>' +
+      '<button class="rec-btn" data-key="' + it._k + '" data-lbl="🎙" title="Record my Japanese">🎙</button>' +
+      '<button class="del-rec" data-key="' + it._k + '" title="Delete my Japanese recording" hidden>🗑</button>' +
+      '<button class="say-btn en-btn" data-say="' + esc(it.en) + '" data-key="' + it._k + '_en" data-lang="en" title="Listen (English)">🔊<i>EN</i></button>' +
+      '<button class="rec-btn en-btn" data-key="' + it._k + '_en" data-lbl="🎙&lt;i&gt;EN&lt;/i&gt;" title="Record my English">🎙<i>EN</i></button>' +
+      '<button class="del-rec en-btn" data-key="' + it._k + '_en" title="Delete my English recording" hidden>🗑<i>EN</i></button>' +
       '<button class="copy-mini" data-copytext="' + esc(it.jp) + '">Copy</button>' +
       '</div></div>';
   }).join('');
   card.innerHTML = '<h2 style="font-size:23px">' + g.icon + ' ' + esc(g.group) +
     '<button class="grp-pick" data-grp="1">select these</button></h2>' + rows;
+  card.setAttribute('data-group', g.group);
   jpWrap.appendChild(card);
 });
+(function(){
+  var sel = document.getElementById('fl-cat');
+  if(!sel) return;
+  JPLINES.forEach(function(g){
+    var o = document.createElement('option');
+    o.value = g.group; o.textContent = g.icon + ' ' + g.group;
+    sel.appendChild(o);
+  });
+})();
 
 /* ═══════════ play the selected lines, one after another ═══════════ */
 function pickedKeys(){
@@ -3971,50 +4079,125 @@ function pickedKeys(){
     function(c){ return c.getAttribute('data-key'); });
 }
 function refreshPickBar(){
+  seqIndex = 0;
   var n = pickedKeys().length;
   var c = document.getElementById('pb-count');
   if(c) c.textContent = n ? (n + (n === 1 ? ' line selected' : ' lines selected')) : 'Nothing selected';
 }
-var seqStop = false, seqRunning = false;
-function playOnce(key, jp){
+var seqStop = false, seqRunning = false, seqJump = 0, seqIndex = 0, curResolve = null;
+
+/* one persistent player: reusing a single media element is what lets the
+   phone keep the audio session alive when the screen locks */
+var jpAudio = document.createElement('audio');
+jpAudio.setAttribute('playsinline', '');
+jpAudio.setAttribute('preload', 'auto');
+jpAudio.style.display = 'none';
+document.body.appendChild(jpAudio);
+
+function playOnce(key, text, lang){
   return new Promise(function(resolve){
+    var fired = false;
+    var done = function(){ if(!fired){ fired = true; if(curResolve === done) curResolve = null; resolve(); } };
+    curResolve = done;
     var useMine = document.getElementById('jp-use-mine');
     var wantMine = HAVE_CLIP[key] && (!useMine || useMine.checked);
     if(wantMine){
       vGet(key, function(blob){
-        if(!blob || seqStop) return ttsOnce(jp, resolve);
+        if(!blob || seqStop) return ttsOnce(text, lang, done);
         try{
-          if(curAudio){ curAudio.pause(); curAudio = null; }
           var url = URL.createObjectURL(blob);
-          curAudio = new Audio(url);
-          var done = function(){ URL.revokeObjectURL(url); resolve(); };
-          curAudio.onended = done;
-          curAudio.onerror = function(){ URL.revokeObjectURL(url); ttsOnce(jp, resolve); };
-          curAudio.play().catch(function(){ URL.revokeObjectURL(url); ttsOnce(jp, resolve); });
-        }catch(e){ ttsOnce(jp, resolve); }
+          curAudio = jpAudio;
+          jpAudio.onended = function(){ URL.revokeObjectURL(url); done(); };
+          jpAudio.onerror = function(){ URL.revokeObjectURL(url); ttsOnce(text, lang, done); };
+          jpAudio.src = url;
+          jpAudio.play().catch(function(){ URL.revokeObjectURL(url); ttsOnce(text, lang, done); });
+        }catch(e){ ttsOnce(text, lang, done); }
       });
-    } else ttsOnce(jp, resolve);
+    } else ttsOnce(text, lang, done);
   });
 }
-function ttsOnce(jp, resolve){
+function ttsOnce(text, lang, resolve){
   if(!('speechSynthesis' in window)){ setTimeout(resolve, 400); return; }
   try{
     window.speechSynthesis.cancel();
-    var u = new SpeechSynthesisUtterance(jp);
-    u.lang = 'ja-JP';
-    if(jaVoice) u.voice = jaVoice;
-    u.rate = 0.85;
+    var u = new SpeechSynthesisUtterance(text);
+    if(lang === 'en'){ u.lang = 'en-US'; if(enVoice) u.voice = enVoice; u.rate = 0.9; }
+    else { u.lang = 'ja-JP'; if(jaVoice) u.voice = jaVoice; u.rate = 0.85; }
     var fired = false;
     var finish = function(){ if(!fired){ fired = true; resolve(); } };
     u.onend = finish; u.onerror = finish;
     /* safety net: some browsers never fire onend */
-    setTimeout(finish, Math.max(2500, jp.length * 260));
+    setTimeout(finish, Math.max(2500, text.length * (lang === 'en' ? 90 : 260)));
     window.speechSynthesis.speak(u);
   }catch(e){ setTimeout(resolve, 400); }
 }
+var seqWaitT = null, seqWaitR = null;
 function wait(ms){
-  return new Promise(function(r){ setTimeout(r, ms); });
+  return new Promise(function(r){
+    seqWaitR = r;
+    seqWaitT = setTimeout(function(){ seqWaitT = null; seqWaitR = null; r(); }, ms);
+  });
 }
+function interruptCurrent(){
+  try{ if(window.speechSynthesis) window.speechSynthesis.cancel(); }catch(e){}
+  try{ jpAudio.pause(); }catch(e){}
+  if(curResolve){ var r = curResolve; curResolve = null; r(); }
+  /* a skip or stop during the pause between lines should not wait out the gap */
+  if(seqWaitT){ clearTimeout(seqWaitT); seqWaitT = null; }
+  if(seqWaitR){ var wr = seqWaitR; seqWaitR = null; wr(); }
+}
+
+/* ── background playback: a silent loop holds the audio session between
+   clips, and the Media Session API puts controls on the lock screen ── */
+var keepAudio = null;
+function silentWavUrl(){
+  var sr = 8000, n = sr, buf = new ArrayBuffer(44 + n), v = new DataView(buf), i;
+  function tag(o, t){ for(var k = 0; k < t.length; k++) v.setUint8(o + k, t.charCodeAt(k)); }
+  tag(0, 'RIFF'); v.setUint32(4, 36 + n, true); tag(8, 'WAVE'); tag(12, 'fmt ');
+  v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, sr, true); v.setUint32(28, sr, true); v.setUint16(32, 1, true); v.setUint16(34, 8, true);
+  tag(36, 'data'); v.setUint32(40, n, true);
+  for(i = 0; i < n; i++) v.setUint8(44 + i, 128);
+  return URL.createObjectURL(new Blob([buf], {type: 'audio/wav'}));
+}
+function bgOn(){ var b = document.getElementById('pb-bg'); return !!(b && b.checked); }
+function keepAlive(on){
+  if(!on){ if(keepAudio){ try{ keepAudio.pause(); }catch(e){} } return; }
+  try{
+    if(!keepAudio){
+      keepAudio = document.createElement('audio');
+      keepAudio.setAttribute('playsinline', '');
+      keepAudio.loop = true; keepAudio.volume = 0.01;
+      keepAudio.src = silentWavUrl();
+      keepAudio.style.display = 'none';
+      document.body.appendChild(keepAudio);
+    }
+    var pr = keepAudio.play(); if(pr && pr.catch) pr.catch(function(){});
+  }catch(e){}
+}
+function msSet(item){
+  if(!('mediaSession' in navigator)) return;
+  try{
+    if(typeof MediaMetadata !== 'undefined'){
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: item ? item.jp : 'Japanese Lines',
+        artist: item ? item.en : 'Tutor Sanctuary',
+        album: 'Japanese Lines'
+      });
+    }
+    navigator.mediaSession.playbackState = 'playing';
+  }catch(e){}
+}
+(function(){
+  if(!('mediaSession' in navigator)) return;
+  var set = function(a, fn){ try{ navigator.mediaSession.setActionHandler(a, fn); }catch(e){} };
+  set('play', function(){ if(!seqRunning) playSequence(seqIndex); });
+  set('pause', function(){ if(seqRunning) stopSequence(true); });
+  set('stop', function(){ stopSequence(false); });
+  set('nexttrack', function(){ if(seqRunning){ seqJump = 1; interruptCurrent(); } });
+  set('previoustrack', function(){ if(seqRunning){ seqJump = -1; interruptCurrent(); } });
+})();
+
 function highlight(key){
   document.querySelectorAll('#jp-groups .jp-line.playing').forEach(function(el){ el.classList.remove('playing'); });
   if(!key) return;
@@ -4029,44 +4212,73 @@ function setSeqUI(on){
   if(play) play.disabled = on;
   if(stop){ if(on) stop.removeAttribute('hidden'); else stop.setAttribute('hidden',''); }
 }
-function stopSequence(){
+function stopSequence(keepPlace){
   seqStop = true;
-  try{ if(window.speechSynthesis) window.speechSynthesis.cancel(); }catch(e){}
-  if(curAudio){ try{ curAudio.pause(); }catch(e){} curAudio = null; }
+  interruptCurrent();
+  keepAlive(false);
+  if(!keepPlace) seqIndex = 0;
+  if('mediaSession' in navigator){ try{ navigator.mediaSession.playbackState = keepPlace ? 'paused' : 'none'; }catch(e){} }
   highlight(null); setSeqUI(false); seqRunning = false;
 }
-function playSequence(){
+function playSequence(startAt){
   if(seqRunning) return;
   var keys = pickedKeys();
   if(!keys.length){ toast2('Please tick a few lines first.'); return; }
+  var mineEl = document.getElementById('pb-mine');
+  if(mineEl && mineEl.checked){
+    var total = keys.length;
+    keys = keys.filter(function(k){ return !!HAVE_CLIP[k]; });
+    if(!keys.length){ toast2('None of the selected lines has a Japanese recording yet.'); return; }
+    if(keys.length < total) toast2('Playing ' + keys.length + ' of ' + total + ' selected lines (your recordings only).');
+  }
   var gapEl = document.getElementById('pb-gap');
   var gap = gapEl ? parseInt(gapEl.value, 10) : 1500;
   var twice = document.getElementById('pb-twice');
   var repeat = twice && twice.checked ? 2 : 1;
-  seqStop = false; seqRunning = true; setSeqUI(true);
-  var i = 0;
-  function step(){
-    if(seqStop || i >= keys.length){
-      if(!seqStop) toast2('Finished \u2661');
-      stopSequence();
-      return;
+  var enFirstEl = document.getElementById('pb-enfirst');
+  var enFirst = !!(enFirstEl && enFirstEl.checked);
+  var loopEl = document.getElementById('pb-loop');
+  var loop = !!(loopEl && loopEl.checked);
+  seqStop = false; seqRunning = true; seqJump = 0; setSeqUI(true);
+  if(bgOn()) keepAlive(true);
+  var i = (typeof startAt === 'number' && startAt >= 0 && startAt < keys.length) ? startAt : 0;
+  function advance(){
+    if(seqJump){ i += seqJump; seqJump = 0; if(i < 0) i = loop ? keys.length - 1 : 0; }
+    else i++;
+    if(i >= keys.length){
+      if(loop) i = 0;
+      else { toast2('Finished \u2661'); stopSequence(false); return; }
     }
+    step();
+  }
+  function step(){
+    if(seqStop) return;
+    if(i >= keys.length){ if(loop) i = 0; else { stopSequence(false); return; } }
+    seqIndex = i;
     var key = keys[i];
     var item = JP_INDEX[key];
     if(!item){ i++; step(); return; }
     highlight(key);
+    msSet(item);
+    var chain = Promise.resolve();
+    if(enFirst){
+      chain = chain.then(function(){ if(seqStop || seqJump) return; return playOnce(key + '_en', item.en, 'en'); })
+                   .then(function(){ if(seqStop || seqJump) return; return wait(Math.min(gap, 900)); });
+    }
     var r = 0;
-    function once(){
-      if(seqStop){ stopSequence(); return; }
-      playOnce(key, item.jp).then(function(){
+    function jpOnce(){
+      if(seqStop || seqJump) return Promise.resolve();
+      return playOnce(key, item.jp, 'ja').then(function(){
         r++;
-        if(seqStop){ stopSequence(); return; }
-        if(r < repeat){ wait(Math.min(gap, 1200)).then(once); return; }
-        i++;
-        wait(gap).then(step);
+        if(seqStop || seqJump) return;
+        if(r < repeat) return wait(Math.min(gap, 1200)).then(jpOnce);
       });
     }
-    once();
+    chain.then(jpOnce).then(function(){
+      if(seqStop) return;
+      if(seqJump){ advance(); return; }
+      wait(gap).then(function(){ if(seqStop) return; advance(); });
+    });
   }
   step();
 }
@@ -4078,8 +4290,12 @@ document.addEventListener('click', function(e){
   if(gp){
     var card = gp.closest('.card');
     if(!card) return;
-    var boxes = card.querySelectorAll('.jl-pick');
-    var allOn = true;
+    var boxes = [];
+    card.querySelectorAll('.jp-line').forEach(function(row){
+      if(row.style.display === 'none') return;
+      var b = row.querySelector('.jl-pick'); if(b) boxes.push(b);
+    });
+    var allOn = boxes.length > 0;
     boxes.forEach(function(b){ if(!b.checked) allOn = false; });
     boxes.forEach(function(b){ b.checked = !allOn; });
     gp.textContent = allOn ? 'select these' : 'unselect these';
@@ -4129,16 +4345,31 @@ document.addEventListener('click', function(e){
   var stop = document.getElementById('pb-stop');
   var all = document.getElementById('pb-all');
   var none = document.getElementById('pb-none');
-  if(play) play.addEventListener('click', playSequence);
-  if(stop) stop.addEventListener('click', function(){ stopSequence(); toast2('Stopped.'); });
+  if(play) play.addEventListener('click', function(){ playSequence(seqIndex); });
+  if(stop) stop.addEventListener('click', function(){ stopSequence(false); toast2('Stopped.'); });
+  ['pb-enfirst', 'pb-loop', 'pb-bg', 'pb-twice', 'pb-mine'].forEach(function(id){
+    var el = document.getElementById(id); if(!el) return;
+    if(jpRead('tutor6348-' + id) === '1') el.checked = true;
+    el.addEventListener('change', function(){ jpStore('tutor6348-' + id, el.checked ? '1' : '0'); });
+  });
+  var gapSel = document.getElementById('pb-gap');
+  if(gapSel){
+    var sg = jpRead('tutor6348-pb-gap'); if(sg) gapSel.value = sg;
+    gapSel.addEventListener('change', function(){ jpStore('tutor6348-pb-gap', gapSel.value); });
+  }
   if(all) all.addEventListener('click', function(){
-    document.querySelectorAll('#jp-groups .jl-pick').forEach(function(b){ b.checked = true; });
-    document.querySelectorAll('.grp-pick').forEach(function(g){ g.textContent = 'unselect these'; });
+    var n = 0;
+    document.querySelectorAll('#jp-groups .jp-line').forEach(function(row){
+      if(row.style.display === 'none') return;
+      var b = row.querySelector('.jl-pick'); if(b){ b.checked = true; n++; }
+    });
+    if(typeof refreshGrpLabels === 'function') refreshGrpLabels();
     refreshPickBar();
+    if(!n) toast2('No lines are visible with the current filters.');
   });
   if(none) none.addEventListener('click', function(){
     document.querySelectorAll('#jp-groups .jl-pick').forEach(function(b){ b.checked = false; });
-    document.querySelectorAll('.grp-pick').forEach(function(g){ g.textContent = 'select these'; });
+    if(typeof refreshGrpLabels === 'function') refreshGrpLabels();
     refreshPickBar();
   });
   refreshPickBar();
@@ -4210,15 +4441,23 @@ var HAVE_CLIP = {};
 function markClips(){
   vKeys(function(keys){
     HAVE_CLIP = {};
-    keys.forEach(function(k){ HAVE_CLIP[k] = true; });
+    var nJp = 0, nEn = 0;
+    keys.forEach(function(k){ HAVE_CLIP[k] = true; if(/_en$/.test(k)) nEn++; else nJp++; });
     document.querySelectorAll('.jp-line[data-key]').forEach(function(row){
-      var has = !!HAVE_CLIP[row.getAttribute('data-key')];
-      row.classList.toggle('has-clip', has);
-      var del = row.querySelector('.del-rec');
-      if(del){ if(has) del.removeAttribute('hidden'); else del.setAttribute('hidden',''); }
+      var k = row.getAttribute('data-key');
+      row.classList.toggle('has-clip', !!HAVE_CLIP[k]);
+      row.classList.toggle('has-clip-en', !!HAVE_CLIP[k + '_en']);
+      row.querySelectorAll('.del-rec').forEach(function(del){
+        if(HAVE_CLIP[del.getAttribute('data-key')]) del.removeAttribute('hidden'); else del.setAttribute('hidden','');
+      });
     });
+    if(typeof applyFilters === 'function') applyFilters();
     var c = document.getElementById('jp-clip-count');
-    if(c) c.textContent = keys.length ? (keys.length + (keys.length === 1 ? ' recording saved' : ' recordings saved')) : 'No recordings yet';
+    if(c){
+      if(!keys.length) c.textContent = 'No recordings yet';
+      else c.textContent = nJp + ' Japanese' + (nEn ? ' \u00b7 ' + nEn + ' English' : '') +
+        ((nJp + nEn) === 1 ? ' recording saved' : ' recordings saved');
+    }
   });
 }
 var jpUseMine = document.getElementById('jp-use-mine');
@@ -4227,23 +4466,25 @@ if(jpUseMine) jpUseMine.addEventListener('change', function(){
   jpStore('tutor6348-jp-usemine', jpUseMine.checked ? '1' : '0');
 });
 var curAudio = null;
-function playClip(key, btn, fallbackText){
+function playClip(key, btn, fallbackText, lang){
+  var speak = (lang === 'en') ? speakEnLine : speakJa;
   vGet(key, function(blob){
-    if(!blob){ speakJa(fallbackText, btn); return; }
+    if(!blob){ speak(fallbackText, btn); return; }
     try{
-      if(curAudio){ curAudio.pause(); curAudio = null; }
+      try{ jpAudio.pause(); }catch(e2){}
       var url = URL.createObjectURL(blob);
-      curAudio = new Audio(url);
+      curAudio = jpAudio;
       if(btn) btn.classList.add('speaking');
-      curAudio.onended = curAudio.onerror = function(){
+      jpAudio.onended = jpAudio.onerror = function(){
         if(btn) btn.classList.remove('speaking');
         URL.revokeObjectURL(url);
       };
-      curAudio.play().catch(function(){
+      jpAudio.src = url;
+      jpAudio.play().catch(function(){
         if(btn) btn.classList.remove('speaking');
-        speakJa(fallbackText, btn);
+        speak(fallbackText, btn);
       });
-    }catch(e){ speakJa(fallbackText, btn); }
+    }catch(e){ speak(fallbackText, btn); }
   });
 }
 var mediaRec = null, recKey = null, recBtn = null, recChunks = [], recStream = null, recTimer = null;
@@ -4264,12 +4505,13 @@ function startRec(key, btn){
     mediaRec.ondataavailable = function(ev){ if(ev.data && ev.data.size) recChunks.push(ev.data); };
     mediaRec.onstop = function(){
       var blob = new Blob(recChunks, {type: mediaRec.mimeType || 'audio/webm'});
-      if(recBtn) recBtn.classList.remove('recording');
+      if(recBtn){ recBtn.classList.remove('recording'); recBtn.innerHTML = recBtn.getAttribute('data-lbl') || '🎙'; }
       if(recStream){ recStream.getTracks().forEach(function(t){ t.stop(); }); recStream = null; }
       if(blob.size < 400){ toast2('That clip was too short. Please try again.'); mediaRec = null; return; }
+      var isEn = /_en$/.test(recKey);
       vPut(recKey, blob, function(ok){
         mediaRec = null;
-        if(ok){ markClips(); toast2('Saved your voice for this line \u2661'); }
+        if(ok){ markClips(); toast2(isEn ? 'Saved your English for this line \u2661' : 'Saved your Japanese for this line \u2661'); }
         else toast2('Sorry, saving failed on this device.');
       });
     };
@@ -4289,8 +4531,8 @@ document.addEventListener('click', function(e){
       var wasSame = (recKey === k);
       stopRec();
       if(!wasSame) setTimeout(function(){ startRec(k, rb); }, 350);
-      rb.textContent = '🎙';
-      if(recBtn && recBtn !== rb) recBtn.textContent = '🎙';
+      rb.innerHTML = rb.getAttribute('data-lbl') || '🎙';
+      if(recBtn && recBtn !== rb) recBtn.innerHTML = recBtn.getAttribute('data-lbl') || '🎙';
       return;
     }
     startRec(k, rb);
@@ -4425,7 +4667,9 @@ document.addEventListener('click', function(e){
   if(sb && sb.hasAttribute('data-say')){
     var sk = sb.getAttribute('data-key');
     var mine = document.getElementById('jp-use-mine');
-    if(sk && HAVE_CLIP[sk] && (!mine || mine.checked)) playClip(sk, sb, sb.getAttribute('data-say'));
+    var lang = sb.getAttribute('data-lang') || 'ja';
+    if(sk && HAVE_CLIP[sk] && (!mine || mine.checked)) playClip(sk, sb, sb.getAttribute('data-say'), lang);
+    else if(lang === 'en') speakEnLine(sb.getAttribute('data-say'), sb);
     else speakJa(sb.getAttribute('data-say'), sb);
     return;
   }
@@ -4506,19 +4750,67 @@ function paintMastery(){
     }
   }
 }
-function applyMastFilter(f){
+var mastBand = 'all';
+function normQ(t){ return (t || '').toLowerCase().replace(/[\s\u3000]/g, ''); }
+function applyFilters(){
   var wrap = document.getElementById('jp-groups');
   if(!wrap) return;
+  var qEl = document.getElementById('fl-q'), catEl = document.getElementById('fl-cat');
+  var recEl = document.getElementById('fl-rec'), lenEl = document.getElementById('fl-len'), selEl = document.getElementById('fl-sel');
+  var q = normQ(qEl ? qEl.value : '');
+  var cat = catEl ? catEl.value : '*';
+  var rec = recEl ? recEl.value : '*';
+  var len = lenEl ? lenEl.value : '*';
+  var sel = selEl ? selEl.value : '*';
+  var shown = 0, total = 0;
   wrap.querySelectorAll('.jp-line').forEach(function(row){
-    var show = (f === 'all') || (row.getAttribute('data-band') === f);
+    total++;
+    var k = row.getAttribute('data-key');
+    var it = JP_INDEX[k] || {};
+    var show = true;
+    if(mastBand !== 'all' && row.getAttribute('data-band') !== mastBand) show = false;
+    if(show && cat !== '*' && row.getAttribute('data-group') !== cat) show = false;
+    if(show && len !== '*' && row.getAttribute('data-len') !== len) show = false;
+    if(show && rec !== '*'){
+      var hj = !!HAVE_CLIP[k], he = !!HAVE_CLIP[k + '_en'];
+      if(rec === 'jp' && !hj) show = false;
+      else if(rec === 'en' && !he) show = false;
+      else if(rec === 'both' && !(hj && he)) show = false;
+      else if(rec === 'jp-no' && hj) show = false;
+      else if(rec === 'none' && (hj || he)) show = false;
+    }
+    if(show && sel !== '*'){
+      var cb = row.querySelector('.jl-pick');
+      var on = !!(cb && cb.checked);
+      if(sel === 'sel' && !on) show = false;
+      if(sel === 'unsel' && on) show = false;
+    }
+    if(show && q){
+      var hay = normQ((it.en || '') + ' ' + (it.jp || '') + ' ' + (it.ro || ''));
+      if(hay.indexOf(q) < 0) show = false;
+    }
     row.style.display = show ? '' : 'none';
+    if(show) shown++;
   });
   wrap.querySelectorAll('.card').forEach(function(card){
     var any = false;
     card.querySelectorAll('.jp-line').forEach(function(r){ if(r.style.display !== 'none') any = true; });
     card.classList.toggle('card-empty', !any);
   });
+  var c = document.getElementById('fl-count');
+  if(c) c.textContent = (shown === total) ? ('Showing all ' + total + ' lines') : ('Showing ' + shown + ' of ' + total + ' lines');
+  refreshGrpLabels();
 }
+function refreshGrpLabels(){
+  document.querySelectorAll('#jp-groups .card').forEach(function(card){
+    var g = card.querySelector('.grp-pick'); if(!g) return;
+    var vis = Array.prototype.filter.call(card.querySelectorAll('.jp-line'), function(r){ return r.style.display !== 'none'; });
+    var allOn = vis.length > 0;
+    vis.forEach(function(r){ var cb = r.querySelector('.jl-pick'); if(!cb || !cb.checked) allOn = false; });
+    g.textContent = allOn ? 'unselect these' : 'select these';
+  });
+}
+function applyMastFilter(f){ mastBand = f; applyFilters(); }
 document.addEventListener('click', function(e){
   var f = e.target.closest('.mast-filter');
   if(!f) return;
@@ -4526,6 +4818,29 @@ document.addEventListener('click', function(e){
   f.classList.add('on');
   applyMastFilter(f.getAttribute('data-filter'));
 });
+(function(){
+  ['fl-q', 'fl-cat', 'fl-rec', 'fl-len', 'fl-sel'].forEach(function(id){
+    var el = document.getElementById(id); if(!el) return;
+    el.addEventListener('input', applyFilters);
+    el.addEventListener('change', applyFilters);
+  });
+  var clr = document.getElementById('fl-clear');
+  if(clr) clr.addEventListener('click', function(){
+    ['fl-q'].forEach(function(id){ var el = document.getElementById(id); if(el) el.value = ''; });
+    ['fl-cat', 'fl-rec', 'fl-len', 'fl-sel'].forEach(function(id){ var el = document.getElementById(id); if(el) el.value = '*'; });
+    document.querySelectorAll('.mast-filter').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-filter') === 'all'); });
+    mastBand = 'all';
+    applyFilters();
+  });
+  /* selection changes affect the "Selected only" filter and group labels */
+  document.addEventListener('change', function(e){
+    if(e.target && e.target.classList && e.target.classList.contains('jl-pick')){
+      var selEl = document.getElementById('fl-sel');
+      if(selEl && selEl.value !== '*') applyFilters(); else refreshGrpLabels();
+    }
+  });
+  applyFilters();
+})();
 paintMastery();
 
 /* ═══════════ Japanese phrase quiz ═══════════ */
