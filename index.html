@@ -519,7 +519,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Sep 19, 2026 · 10:15 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Sep 19, 2026 · 10:40 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -4103,14 +4103,33 @@ function playOnce(key, text, lang){
     var wantMine = HAVE_CLIP[key] && (!useMine || useMine.checked);
     if(wantMine){
       vGet(key, function(blob){
-        if(!blob || seqStop) return ttsOnce(text, lang, done);
+        /* stopped or skipped while the clip was loading: say nothing */
+        if(seqStop || seqJump) return done();
+        if(!blob) return ttsOnce(text, lang, done);
         try{
           var url = URL.createObjectURL(blob);
           curAudio = jpAudio;
+          jpAudio._silent = false;
           jpAudio.onended = function(){ URL.revokeObjectURL(url); done(); };
-          jpAudio.onerror = function(){ URL.revokeObjectURL(url); ttsOnce(text, lang, done); };
+          jpAudio.onerror = function(){
+            URL.revokeObjectURL(url);
+            if(seqStop || seqJump) return done();
+            ttsOnce(text, lang, done);
+          };
           jpAudio.src = url;
-          jpAudio.play().catch(function(){ URL.revokeObjectURL(url); ttsOnce(text, lang, done); });
+          jpAudio.play().catch(function(err){
+            URL.revokeObjectURL(url);
+            var name = err && err.name;
+            if(seqStop || seqJump || name === 'AbortError') return done();
+            if(name === 'NotAllowedError'){
+              /* the phone refused to start audio: pause on this line rather
+                 than swapping the robot voice in for your own recording */
+              stopSequence(true);
+              toast2('Your phone paused the audio. Tap \u25b6 Play to continue from this line.');
+              return done();
+            }
+            ttsOnce(text, lang, done);
+          });
         }catch(e){ ttsOnce(text, lang, done); }
       });
     } else ttsOnce(text, lang, done);
@@ -4150,8 +4169,8 @@ function interruptCurrent(){
 /* ── background playback: a silent loop holds the audio session between
    clips, and the Media Session API puts controls on the lock screen ── */
 var keepAudio = null;
-function silentWavUrl(){
-  var sr = 8000, n = sr, buf = new ArrayBuffer(44 + n), v = new DataView(buf), i;
+function silentWavUrl(secs){
+  var sr = 8000, n = Math.max(80, Math.round(sr * (secs || 1))), buf = new ArrayBuffer(44 + n), v = new DataView(buf), i;
   function tag(o, t){ for(var k = 0; k < t.length; k++) v.setUint8(o + k, t.charCodeAt(k)); }
   tag(0, 'RIFF'); v.setUint32(4, 36 + n, true); tag(8, 'WAVE'); tag(12, 'fmt ');
   v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
@@ -4161,6 +4180,31 @@ function silentWavUrl(){
   return URL.createObjectURL(new Blob([buf], {type: 'audio/wav'}));
 }
 function bgOn(){ var b = document.getElementById('pb-bg'); return !!(b && b.checked); }
+
+/* Phones only let a page start sound shortly after a tap. Playing the shared
+   player once inside the tap unlocks it, so recordings can start later in the
+   playlist (for example after the English line). Call this straight from a tap. */
+var primeUrl = null;
+function primeAudio(){
+  return new Promise(function(res){
+    var settled = false;
+    var finish = function(){ if(!settled){ settled = true; res(); } };
+    try{
+      if(!primeUrl) primeUrl = silentWavUrl(0.1);
+      jpAudio.onended = null; jpAudio.onerror = null;
+      jpAudio._silent = true;
+      jpAudio.src = primeUrl;
+      var pr = jpAudio.play();
+      if(pr && pr.then){
+        pr.then(function(){
+          if(jpAudio._silent){ try{ jpAudio.pause(); }catch(e){} }
+          finish();
+        }, finish);
+      } else finish();
+      setTimeout(finish, 400);
+    }catch(e){ finish(); }
+  });
+}
 function keepAlive(on){
   if(!on){ if(keepAudio){ try{ keepAudio.pause(); }catch(e){} } return; }
   try{
@@ -4191,7 +4235,11 @@ function msSet(item){
 (function(){
   if(!('mediaSession' in navigator)) return;
   var set = function(a, fn){ try{ navigator.mediaSession.setActionHandler(a, fn); }catch(e){} };
-  set('play', function(){ if(!seqRunning) playSequence(seqIndex); });
+  set('play', function(){
+    if(seqRunning) return;
+    if(bgOn()) keepAlive(true);
+    primeAudio().then(function(){ playSequence(seqIndex); });
+  });
   set('pause', function(){ if(seqRunning) stopSequence(true); });
   set('stop', function(){ stopSequence(false); });
   set('nexttrack', function(){ if(seqRunning){ seqJump = 1; interruptCurrent(); } });
@@ -4345,7 +4393,11 @@ document.addEventListener('click', function(e){
   var stop = document.getElementById('pb-stop');
   var all = document.getElementById('pb-all');
   var none = document.getElementById('pb-none');
-  if(play) play.addEventListener('click', function(){ playSequence(seqIndex); });
+  if(play) play.addEventListener('click', function(){
+    if(seqRunning) return;
+    if(bgOn()) keepAlive(true);
+    primeAudio().then(function(){ playSequence(seqIndex); });
+  });
   if(stop) stop.addEventListener('click', function(){ stopSequence(false); toast2('Stopped.'); });
   ['pb-enfirst', 'pb-loop', 'pb-bg', 'pb-twice', 'pb-mine'].forEach(function(id){
     var el = document.getElementById(id); if(!el) return;
@@ -4479,9 +4531,13 @@ function playClip(key, btn, fallbackText, lang){
         if(btn) btn.classList.remove('speaking');
         URL.revokeObjectURL(url);
       };
+      jpAudio._silent = false;
       jpAudio.src = url;
-      jpAudio.play().catch(function(){
+      jpAudio.play().catch(function(err){
         if(btn) btn.classList.remove('speaking');
+        var name = err && err.name;
+        if(name === 'AbortError') return;
+        if(name === 'NotAllowedError'){ toast2('Your phone blocked the audio. Please tap 🔊 again.'); return; }
         speak(fallbackText, btn);
       });
     }catch(e){ speak(fallbackText, btn); }
@@ -4668,9 +4724,14 @@ document.addEventListener('click', function(e){
     var sk = sb.getAttribute('data-key');
     var mine = document.getElementById('jp-use-mine');
     var lang = sb.getAttribute('data-lang') || 'ja';
-    if(sk && HAVE_CLIP[sk] && (!mine || mine.checked)) playClip(sk, sb, sb.getAttribute('data-say'), lang);
-    else if(lang === 'en') speakEnLine(sb.getAttribute('data-say'), sb);
-    else speakJa(sb.getAttribute('data-say'), sb);
+    var txt = sb.getAttribute('data-say');
+    /* the playlist and this button share one player, so pause the playlist */
+    if(seqRunning) stopSequence(true);
+    if(sk && HAVE_CLIP[sk] && (!mine || mine.checked)){
+      primeAudio().then(function(){ playClip(sk, sb, txt, lang); });
+    }
+    else if(lang === 'en') speakEnLine(txt, sb);
+    else speakJa(txt, sb);
     return;
   }
   var cb = e.target.closest('.copy-mini');
