@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sweeties Pawprints · Tutor Sanctuary · Tutor 6348</title>
+<title>Tutor Sanctuary</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -497,6 +500,47 @@ details.mi-q[open] summary{background:var(--petal-soft)}
 #float-dict.hidden{display:none}
 #float-dict.hidden ~ #fd-restore{display:none}
 @media(max-width:600px){#float-dict{left:14px;right:14px;bottom:14px;width:auto}}
+
+/* ── interview prep ── */
+.iv-rules{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-top:8px}
+.iv-rule{background:#fff;border:1px solid var(--petal);border-radius:14px;padding:11px 13px}
+.iv-rule b{display:block;color:var(--plum);margin-bottom:3px;font-size:14px}
+.iv-rule span{font-size:13px;color:var(--mauve)}
+.iv-group{padding:20px 22px}
+.iv-q{border-top:1px dashed var(--petal);padding:8px 0}
+.iv-q:first-of-type{border-top:none}
+.iv-row{display:flex;gap:10px;align-items:flex-start}
+.iv-row details{flex:1;min-width:0}
+.iv-row summary{list-style:none;cursor:pointer;display:flex;gap:9px;align-items:baseline;font-weight:700;color:var(--ink);font-size:14.5px;line-height:1.45;padding:4px 0}
+.iv-row summary::-webkit-details-marker{display:none}
+.iv-row summary::after{content:"+";margin-left:auto;color:var(--magenta);font-weight:700;flex:none;padding-left:8px}
+.iv-row details[open] summary::after{content:"\2212"}
+.iv-n{flex:none;background:var(--petal-soft);color:var(--magenta);border-radius:8px;padding:1px 8px;font-size:12px;font-weight:800}
+.iv-pick,.th-pick{width:18px !important;height:18px;margin:6px 0 0 !important;padding:0 !important;accent-color:var(--magenta);cursor:pointer;flex:none}
+.th-pick{margin-top:0 !important;align-self:center}
+.iv-body{padding:4px 0 8px}
+.iv-line{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:4px 0}
+.iv-lbl{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mauve)}
+.iv-ctl{display:inline-flex;gap:6px;align-items:center}
+.iv-ctl.has-rec .iv-say{border-color:var(--magenta);color:var(--magenta)}
+.iv-ctl.has-rec .iv-say::after{content:" \1F3A4";font-size:10px}
+.iv-rec,.iv-del{font-size:13px;background:#fff;border:1px solid var(--petal);color:var(--mauve);border-radius:999px;padding:4px 9px;cursor:pointer;font-family:'Quicksand',sans-serif;transition:all .15s}
+.iv-rec:hover,.iv-del:hover{border-color:var(--magenta);color:var(--magenta)}
+.iv-rec.recording{background:#c0392b;border-color:#c0392b;color:#fff;animation:recpulse 1s infinite}
+.iv-said{background:#fff5d6;border-left:4px solid #d6a52c;padding:8px 12px;border-radius:0 10px 10px 0;font-size:13.5px;margin:6px 0}
+.iv-best{background:var(--sage-soft);border-left:4px solid var(--sage);padding:8px 12px;border-radius:0 10px 10px 0;font-size:15px;color:var(--ink);margin:6px 0;line-height:1.6}
+.iv-why{font-size:13px;color:var(--mauve);margin-top:4px}
+.iv-why b{color:var(--plum)}
+#iv-list.hide-said .iv-said,#iv-list.hide-said .iv-why{display:none}
+.iv-q.playing{background:rgba(214,51,132,.08);border-radius:10px;box-shadow:inset 3px 0 0 var(--magenta)}
+.iv-fix{display:grid;grid-template-columns:1fr;gap:6px;margin-top:8px}
+.fixrow{background:#fff;border:1px solid var(--petal);border-radius:12px;padding:10px 12px;display:grid;grid-template-columns:1fr;gap:4px}
+.fixrow .bad{color:#b3261e;text-decoration:line-through;font-size:14px}
+.fixrow .good{color:var(--sage);font-weight:700;font-size:15px}
+.fixrow .r{font-size:13px;color:var(--mauve)}
+@media(min-width:700px){.fixrow{grid-template-columns:1fr 1fr 1.3fr;align-items:center}}
+.th-line .jl-actions{align-items:center}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
 #toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);opacity:0;
   background:var(--plum);color:#fff;font-weight:600;font-size:14px;border-radius:999px;padding:10px 24px;
   transition:all .3s;z-index:200;pointer-events:none}
@@ -513,13 +557,13 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="notes">✒️ Notes Builder</button>
   <button class="tab-btn" data-tab="jitsuyo">📗 Jitsuyo Eikaiwa</button>
   <button class="tab-btn" data-tab="bcc">💼 BCC</button>
-  <button class="tab-btn" data-tab="premium">🎓 Premium Prep</button>
+  <button class="tab-btn" data-tab="premium">🎓 Interview Prep</button>
   <button class="tab-btn" data-tab="freetalk">💬 Free Talk</button>
   <button class="tab-btn" data-tab="japanese">🌸 Japanese Lines</button>
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Sep 29, 2026 · 05:20 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Sep 29, 2026 · 03:05 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -531,11 +575,10 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
     <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;justify-content:space-between">
       <div>
         <h2>Chat box intros, ready to paste</h2>
-        <p class="sub">Warm little openers (with kaomoji!) for the Lesson Room chat. Kaomoji live here, never in the Tutoring Notes comment.</p>
       </div>
       <div>
         <label class="f-label" for="intro-name" style="margin:0 0 5px">Your name in the messages</label>
-        <input type="text" id="intro-name" value="Niza" style="max-width:220px">
+        <input type="text" id="intro-name" value="" placeholder="Your first name" style="max-width:220px">
       </div>
     </div>
     <div id="intro-list"></div>
@@ -1924,15 +1967,156 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 <section id="tab-premium" class="panel">
 
   <div class="card">
+    <h2>Interview prep, round two</h2>
+    <p class="sub">Short answers, clean grammar, point first. Every question and every model answer below has a play button and a record button, so you can hear the question in your own voice, answer it, and replay the whole set like a podcast.</p>
+    <div class="iv-rules">
+      <div class="iv-rule"><b>Two to four sentences. Then stop.</b><span>Answer, one reason, one example if needed. Silence after a complete answer is confidence, not a gap.</span></div>
+      <div class="iv-rule"><b>Point first, then explain.</b><span>"Yes, I can." "The know-it-all student." "Eight out of ten." Say the answer, then the reason.</span></div>
+      <div class="iv-rule"><b>Never rewind a sentence.</b><span>If a word comes out wrong, finish the sentence and move on. A wobble is invisible. A restart is audible.</span></div>
+      <div class="iv-rule"><b>Delete "Actually."</b><span>It opened seven answers last time. Start with the content word instead.</span></div>
+      <div class="iv-rule"><b>Use "the student" or "they."</b><span>Never "he or she." "Depending on how the student responds." One less decision per sentence.</span></div>
+      <div class="iv-rule"><b>Breathe before the nouns.</b><span>Pre-load the key facts: math major, bank, US and UK clients, six-year-old student. No word hunting mid-sentence.</span></div>
+      <div class="iv-rule"><b>Land the word endings.</b><span>Convenient. Experience. Available. Say the last syllable clearly. Cheap insurance against mishearing.</span></div>
+      <div class="iv-rule"><b>Have one closing question ready.</b><span>"That's all" cost a cohesion point. Four options are in the last group below.</span></div>
+    </div>
+
+    <div class="voice-bar" style="margin-top:14px">
+      <label class="vb-toggle"><input type="checkbox" id="iv-use-mine" checked> Play my own recording when I have one</label>
+      <span class="vb-count" id="iv-clip-count">No interview recordings yet</span>
+    </div>
+    <div class="hint" style="margin-top:6px">Tap 🎙 next to a question to record yourself asking it, and 🎙 under a model answer to record yourself answering. Tap again to stop. Answers can be up to two minutes long. After that, 🔊 plays your recording instead of the device voice. Recordings stay on this device, so please back them up.</div>
+    <div class="voice-bar" style="margin-top:12px">
+      <button class="jq-btn ghost" id="iv-backup" style="padding:8px 16px;font-size:13px">⬇ Back up all recordings</button>
+      <button class="jq-btn ghost" id="iv-restore" style="padding:8px 16px;font-size:13px">⬆ Restore from a backup</button>
+      <input type="file" id="iv-restore-file" accept="application/json" style="display:none">
+    </div>
+    <div class="hint" style="margin-top:6px">One backup file covers everything: interview recordings, TH drill recordings, Japanese Lines recordings, note drafts, history, students, and quiz scores. The same file restores here or on the Japanese Lines tab.</div>
+    <div class="tools" style="margin-top:12px">
+      <button class="pb-mini" id="iv-open-all">Open all</button>
+      <button class="pb-mini" id="iv-close-all">Close all</button>
+      <button class="pb-mini" id="iv-toggle-said">Hide my old answers</button>
+    </div>
+  </div>
+
+  <div class="play-bar" id="iv-play-bar">
+    <span class="pb-count" id="iv-pb-count">Nothing selected</span>
+    <button class="jq-btn" id="iv-pb-play" style="padding:8px 18px;font-size:13px">▶ Play selected</button>
+    <button class="jq-btn ghost" id="iv-pb-stop" style="padding:8px 16px;font-size:13px" hidden>⏹ Stop</button>
+    <button class="pb-mini" id="iv-pb-all">Select all</button>
+    <button class="pb-mini" id="iv-pb-none">Clear</button>
+    <label>Play
+      <select id="iv-pb-mode">
+        <option value="qa" selected>question, then answer</option>
+        <option value="q">questions only</option>
+        <option value="a">answers only</option>
+      </select>
+    </label>
+    <label>Pause after the question
+      <select id="iv-pb-pause">
+        <option value="0">none</option>
+        <option value="5000">5s</option>
+        <option value="15000">15s</option>
+        <option value="30000" selected>30s (answer it yourself)</option>
+        <option value="45000">45s</option>
+        <option value="60000">60s</option>
+      </select>
+    </label>
+    <label>Repeat each
+      <select id="iv-pb-repeat">
+        <option value="1" selected>once</option>
+        <option value="2">twice</option>
+      </select>
+    </label>
+    <label>Gap
+      <select id="iv-pb-gap">
+        <option value="800">short</option>
+        <option value="2000" selected>2s</option>
+        <option value="4000">4s</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="iv-pb-loop"> Loop until I stop</label>
+    <label><input type="checkbox" id="iv-pb-shuffle"> Shuffle</label>
+    <label><input type="checkbox" id="iv-pb-bg"> Keep playing in the background</label>
+  </div>
+  <div class="pb-hint">Tick the questions you want, press Play, and the app reads each question, waits for your pause, then plays the model answer. Background mode keeps your own recordings playing when the screen locks or you switch apps, with play, pause, and skip on the lock screen. The device voice cannot run in the background, so record the questions and answers you want to drill.</div>
+
+  <div id="iv-list"></div>
+
+  <div class="card">
+    <h2>The twelve fixes, plus the rule behind each</h2>
+    <p class="sub">Read the original sentence, say the fix out loud, then read the rule. Do this daily until the green version is the one that comes out first.</p>
+    <div class="iv-fix">
+      <div class="fixrow"><span class="bad">Everything is filled up</span><span class="good">Everything is filled out</span><span class="r">You fill out forms and notes. You fill up a tank.</span></div>
+      <div class="fixrow"><span class="bad">really convenince for tutors</span><span class="good">really convenient for tutors</span><span class="r">Convenient is the adjective. Land the ending: con-VEE-nyent.</span></div>
+      <div class="fixrow"><span class="bad">I have my niece during weekends</span><span class="good">My niece stays at our house on weekends</span><span class="r">Say what actually happens. "On weekends," not "during weekends."</span></div>
+      <div class="fixrow"><span class="bad">I already have a work at the bank</span><span class="good">I worked at a bank before</span><span class="r">Work is uncountable. Use "a job" or the verb "worked."</span></div>
+      <div class="fixrow"><span class="bad">She gives me the guide and scanned the books</span><span class="good">She gave me the guide and scanned the books</span><span class="r">Parallelism: both verbs in the same tense.</span></div>
+      <div class="fixrow"><span class="bad">The student is really good</span><span class="good">The student was very good</span><span class="r">Past story, past tense. Stay in one tense per story.</span></div>
+      <div class="fixrow"><span class="bad">expand on the explanation</span><span class="good">explain it further / expound on it</span><span class="r">Both are fine. Pick one and say it cleanly.</span></div>
+      <div class="fixrow"><span class="bad">I would like to decline it at first, politely of course</span><span class="good">I would politely suggest a better fit first</span><span class="r">One clause, one idea. No tag on the end.</span></div>
+      <div class="fixrow"><span class="bad">even though I don't have much students</span><span class="good">even though I did not have many students</span><span class="r">Many for countable nouns. Much for uncountable.</span></div>
+      <div class="fixrow"><span class="bad">I'm... I have been facing difficult clients</span><span class="good">I have worked with difficult clients</span><span class="r">The grammar was right. The restart blurred it. Never rewind.</span></div>
+      <div class="fixrow"><span class="bad">When they said wrong...</span><span class="good">When they make a mistake...</span><span class="r">"Say something wrong" or "make a mistake." Not "said wrong."</span></div>
+      <div class="fixrow"><span class="bad">That's all. I have nothing...</span><span class="good">Yes, I have one question.</span><span class="r">End with a question, then thank them. Never trail off.</span></div>
+    </div>
+    <div class="note-box"><b>Five more traps to avoid:</b> "give her a feedback" (feedback is uncountable), "advices" (advice is uncountable), "he or he or she" (use "the student" or "they"), "I'm teaching since" (use "I have been teaching since"), and "in the last minutes" (say "in the last few minutes").</div>
+  </div>
+
+  <div class="card">
+    <h2>TH drill</h2>
+    <p class="sub">They flagged that, third, and thinks. Tongue lightly between the teeth, air through. Voiced TH (that, the, they) buzzes. Voiceless TH (third, thinks, thank) does not. Listen, record yourself, compare, and drill the list on loop.</p>
+    <div class="voice-bar">
+      <label class="vb-toggle"><input type="checkbox" id="th-use-mine" checked> Play my own recording when I have one</label>
+      <span class="vb-count" id="th-clip-count">No TH recordings yet</span>
+    </div>
+    <div class="play-bar" id="th-play-bar" style="position:static;margin-top:12px">
+      <span class="pb-count" id="th-pb-count">Nothing selected</span>
+      <button class="jq-btn" id="th-pb-play" style="padding:8px 18px;font-size:13px">▶ Play selected</button>
+      <button class="jq-btn ghost" id="th-pb-stop" style="padding:8px 16px;font-size:13px" hidden>⏹ Stop</button>
+      <button class="pb-mini" id="th-pb-all">Select all</button>
+      <button class="pb-mini" id="th-pb-none">Clear</button>
+      <label>Repeat each
+        <select id="th-pb-repeat">
+          <option value="1">once</option>
+          <option value="2" selected>twice</option>
+          <option value="3">three times</option>
+        </select>
+      </label>
+      <label>Gap
+        <select id="th-pb-gap">
+          <option value="600">short</option>
+          <option value="1500" selected>1.5s</option>
+          <option value="3000">3s (say it back)</option>
+          <option value="5000">5s</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="th-pb-loop"> Loop until I stop</label>
+      <label><input type="checkbox" id="th-pb-shuffle"> Shuffle</label>
+      <label><input type="checkbox" id="th-pb-bg"> Keep playing in the background</label>
+    </div>
+    <div id="th-list" style="margin-top:8px"></div>
+  </div>
+
+  <div class="card">
+    <h2>Night-before checklist</h2>
+    <ul class="soft">
+      <li>Speed test sent to the group chat ten minutes before; camera and mic tested; unmuted before the interviewer joins.</li>
+      <li>Water within reach, plain background, this tab open on a second screen.</li>
+      <li>Three facts loaded and said out loud: math major, bank, US and UK clients.</li>
+      <li>One closing question chosen from the last group above.</li>
+      <li>Reread the eight rules at the top once, then close the laptop and rest.</li>
+    </ul>
+  </div>
+
+  <div class="card">
     <h2>The official enlistment roadmap</h2>
-    <p class="sub">Taken directly from your coordinator's BCC Enlistment site, so this is the authoritative version. Business team hours: Mondays to Fridays, 8:00 AM to 5:00 PM PH time, closed weekends and holidays.</p>
+    <p class="sub">Taken from the coordinator's enlistment site, so this is the authoritative version. Business team hours: Mondays to Fridays, 8:00 AM to 5:00 PM PH time, closed weekends and holidays.</p>
 
     <h3>Stage 1 · After signup: what they check</h3>
     <ul class="soft">
       <li><b>Metrics (monthly):</b> at least 80 bookable lessons, less than 2% cancellation ratio, no more than two 204s, 100% Tutoring Notes Input Ratio, and no valid student complaints. Other qualifications may also be checked.</li>
       <li><b>Tutor profile:</b> your photo, video introduction, and written introduction must follow the latest guidelines; refresh them if they're old.</li>
       <li><b>Commitment:</b> availability for interview and onboarding within business hours, the ability to conduct <b>at least 110 lessons every month</b> with minimal cancellations, and prompt replies in the Viber group chat.</li>
-      <li><b>NTE shortcut:</b> tutors who passed the New Tutor Evaluation with flying colors within the last 3 months skip the interview entirely; the NTE is judged from Lesson Room Recordings, so every lesson you conduct is quietly part of your application.</li>
     </ul>
 
     <h3>Stage 2 · Before the interview</h3>
@@ -1950,211 +2134,6 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
     <ul class="soft">
       <li>Answer the NPS survey from your interviewer honestly, <b>within 24 hours</b> (answers are confidential).</li>
       <li>Your coordinator sends the next instructions to the Viber group chat on the same day, <b>no later than 5:00 PM</b>. Reply promptly; attitude is still being evaluated.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>The Premium Tutor path, mapped out</h2>
-    <p class="sub">Compiled from RareJob's official materials, the Ideal Free Trial Lesson guide, and experiences shared by tutors who passed (blogs and YouTube). The exact steps can vary slightly per batch, so treat your invitation email as the final word.</p>
-    <div class="flow-grid">
-      <div class="flow-step"><div class="fs-min">Step 1</div><div class="fs-title">Invitation &amp; application</div><div class="fs-body">You've been invited to the BCC pool, likely because of strong ratings. Reply promptly, confirm your slot, and note every requirement in the email.</div></div>
-      <div class="flow-step"><div class="fs-min">Step 2</div><div class="fs-title">Orientation &amp; self-study</div><div class="fs-body">The business team sends the program guidelines and sample materials (Jissen Business is structured differently from regular materials). Read every page, including the scoring rubric printed at the end of the material.</div></div>
-      <div class="flow-step"><div class="fs-min">Step 3</div><div class="fs-title">Mock / demo lesson</div><div class="fs-body">An evaluator plays your student for a timed demo. You're scored on English proficiency, time management, teaching ability, and politeness. Camera on, smart casual, clean background, zero background noise.</div></div>
-      <div class="flow-step"><div class="fs-min">Step 4</div><div class="fs-title">Coaching session</div><div class="fs-body">A coach reviews your demo and gives targeted feedback. Take notes eagerly and apply every point; showing coachability is part of passing.</div></div>
-      <div class="flow-step"><div class="fs-min">Step 5</div><div class="fs-title">Certification</div><div class="fs-body">Pass and you're added to the Premium pool for your track (BCC / FTL / Teens), with access to premium materials, premium rates, and premium-only incentives.</div></div>
-      <div class="flow-step"><div class="fs-min">Always</div><div class="fs-title">The 5 premium rules</div><div class="fs-body">1. Right material, honor the student's request. 2. Video camera in ALL premium lessons. 3. Good sound throughout. 4. Smart casual attire. 5. Clean, quiet teaching environment.</div></div>
-    </div>
-    <div class="note-box"><b>Golden insider tip (from a passer's blog):</b> keep a notepad template ready with OVERALL SCORE / Vocabulary &amp; Phrases / Grammar / Pronunciation, paste every correction into it DURING the lesson, and send the accomplished note to the student <b>before</b> you verbally deliver your feedback. Evaluators watch for exactly this.</div>
-  </div>
-
-  <div class="card">
-    <h2>Mock interview simulator</h2>
-    <p class="sub">Draw a question, hit the timer, and answer out loud as if the evaluator is watching. Then reveal the model answer to compare. Repeat daily until answers flow without thinking.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-      <button class="btn btn-magenta" id="mi-draw" style="font-size:14.5px;padding:11px 24px">🎲 Draw a question</button>
-      <button class="btn btn-ghost" id="mi-timer-btn">▶ Start 90s timer</button>
-      <span id="mi-timer" style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--magenta);min-width:70px"></span>
-      <select id="mi-cat" style="width:auto">
-        <option value="all">All categories</option>
-        <option value="interview">Interview questions</option>
-        <option value="personal">Your story (background)</option>
-        <option value="bcc">BCC scenarios</option>
-        <option value="ftl">Free Trial scenarios</option>
-        <option value="youth">Teens &amp; young learners</option>
-      </select>
-    </div>
-    <div class="gq" id="mi-card" style="display:none">
-      <div class="gq-q" id="mi-q"></div>
-      <div class="hint" id="mi-tip"></div>
-      <button class="btn btn-soft" id="mi-reveal" style="margin-top:10px">Show a model answer</button>
-      <div class="note-box" id="mi-answer" style="display:none"></div>
-    </div>
-
-    <h3 style="margin-top:22px">All questions &amp; model answers <small style="font-weight:500;color:var(--mauve)">(click a question to show or hide its answer)</small></h3>
-    <div id="mi-all"></div>
-  </div>
-
-  <div class="card">
-    <h2>Your story, ready to tell</h2>
-    <p class="sub">Your background is a genuine BCC advantage; most tutors have never lived the business world their students work in. You have, twice. Rehearse these until they sound like conversation, not recitation.</p>
-
-    <h3>Your 60-second elevator pitch</h3>
-    <div class="script-card">
-      <p class="script-text">"I bring two careers into my teaching. I spent two years in banking as a teller and loans specialist, where accuracy, confidentiality, and professional client handling were non-negotiable. For the past decade, I've managed e-commerce operations for US and UK business owners across Shopify, Amazon, eBay, and Etsy: fully remote and client-facing, so professional communication, deadlines across time zones, and working without close supervision are my daily normal. That's exactly the world BCC students live in: emails to overseas partners, meetings across time zones, professional pressure. I don't just teach business English; I've been using it professionally for over ten years."</p>
-      <button class="btn btn-magenta copy-btn" data-copy-text="I bring two careers into my teaching. I spent two years in banking as a teller and loans specialist, where accuracy, confidentiality, and professional client handling were non-negotiable. For the past decade, I've managed e-commerce operations for US and UK business owners across Shopify, Amazon, eBay, and Etsy: fully remote and client-facing, so professional communication, deadlines across time zones, and working without close supervision are my daily normal. That's exactly the world BCC students live in: emails to overseas partners, meetings across time zones, professional pressure. I don't just teach business English; I've been using it professionally for over ten years.">Copy pitch</button>
-    </div>
-
-    <h3>Two STAR stories to prepare tonight</h3>
-    <p style="font-size:14px">Interviewers love "tell me about a time...". Fill these skeletons with one REAL moment each from your own experience, then say them out loud twice. Keep each under 90 seconds: Situation, Task, Action, Result.</p>
-    <ul class="soft">
-      <li><b>The difficult client story (e-commerce):</b> "While managing [platform] operations for a [US/UK] client, [a real problem: a suspended listing, a missed shipment, an angry buyer] happened. My job was to [task]. I [the specific professional actions: documented, communicated proactively across the time difference, stayed calm]. In the end, [result], and the client [continued working with me / thanked me]." Then the bridge: "That's the same calm, structured communication I bring when a business student is frustrated or under pressure."</li>
-      <li><b>The confidentiality story (banking):</b> "As a loans specialist, I handled [type of sensitive information] daily. When [a real moment where discretion mattered], I [action]. Nothing sensitive ever left my desk." Bridge: "So RareJob's rules on student privacy and professional boundaries are second nature to me."</li>
-    </ul>
-
-    <h3>Where each part of your background wins points</h3>
-    <table>
-      <thead><tr><th>They ask about…</th><th>You deploy…</th></tr></thead>
-      <tbody>
-        <tr><td>Professionalism, handling executives</td><td>Banking: client handling where every interaction had to be precise and courteous.</td></tr>
-        <tr><td>Reliability, working independently</td><td>A decade fully remote without close supervision; deadlines never missed across time zones.</td></tr>
-        <tr><td>Understanding business students' needs</td><td>You WERE the overseas counterpart their emails go to; you know what natural professional English sounds like on the receiving end.</td></tr>
-        <tr><td>Accuracy of corrections</td><td>Teller-level accuracy: numbers, names, and details checked twice, always.</td></tr>
-        <tr><td>Privacy and boundaries</td><td>Banking confidentiality standards, stricter than any tutoring rule.</td></tr>
-        <tr><td>Cross-cultural communication</td><td>Ten years bridging Filipino, US, and UK working styles; now bridging Japanese learners to global English.</td></tr>
-      </tbody>
-    </table>
-    <div class="note-box"><b>The simulator now has a "Your story" category</b> with these questions and full model answers built from your real background. Drill it tonight and again tomorrow morning.</div>
-  </div>
-
-  <div class="card">
-    <h2>Questions to ask THEM</h2>
-    <p class="sub">When they say "Do you have any questions?", never say no. Pick two or three of these; they signal growth mindset and long-term commitment. Asking about feedback on your own demo is the strongest closer.</p>
-    <ul class="soft">
-      <li>"How will my performance be evaluated as a BCC tutor, and how can I receive regular feedback on my lessons so I keep improving?"</li>
-      <li>"What do BCC students most commonly struggle with, and which materials would you recommend I master first?"</li>
-      <li>"Are there coaching sessions, workshops, or resources available for Premium Tutors who want to keep sharpening their skills?"</li>
-      <li>"In your experience, what separates the most requested BCC tutors from the rest?"</li>
-      <li>"If I'm certified, what should I focus on during my first month of BCC lessons to serve students well from day one?"</li>
-      <li>"Are there opportunities to grow into other premium tracks later, such as Free Trial Lessons or the teens course?"</li>
-      <li>"If I notice a pattern of difficulty students have with a material, what's the best way to share that feedback with the team?"</li>
-      <li>"Is there anything from today's session you'd suggest I refine before my first real BCC lesson?" <b>(save this one for last; it shows you welcome criticism)</b></li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Your next 23 hours</h2>
-    <ul class="timeline">
-      <li><span class="when">Tonight</span><br>Read the demo material end to end, including the scoring rubric at the back. Run the simulator: 3 questions from "Your story", 3 from "BCC scenarios". Say the elevator pitch out loud twice. Prepare the smart casual outfit and clear your background. Sleep properly; a rested face teaches better than a rehearsed one.</li>
-      <li><span class="when">Tomorrow morning</span><br>Voice warm-up: read one Daily News Article aloud. One more simulator round on your weakest category. Reread the 5 premium rules and the minute-22 feedback ritual.</li>
-      <li><span class="when">1 hour before</span><br>Full tech check: camera at eye level, headset with an EXTERNAL mic (the official site says earbuds are not recommended), wired connection if possible. Sit in the exact area where you usually conduct RareJob lessons; the site says your teaching area is part of the evaluation. Open your notepad with: elevator pitch, BCC feedback template, and the Google Meet link from your email or Calendar. Confirm no lesson slot is open during the interview window.</li>
-      <li><span class="when">10 min before</span><br>Run speedtest.net and <b>send the result to your Viber group chat</b>; this is the official attendance confirmation. Then join the Meet calm and early.</li>
-      <li><span class="when">During</span><br>Smile with your eyes. Structure answers: point first, then example, then bridge to teaching. If asked something unexpected, it's fine to take a breath: "That's a great question; let me think for a moment." End with 2–3 of your prepared questions.</li>
-      <li><span class="when">After</span><br>Answer the interviewer's NPS survey honestly within 24 hours, and watch Viber: your coordinator's instructions arrive the same day by 5:00 PM; reply promptly and warmly, since attitude is evaluated through the whole process. And write down every question they asked while it's fresh (My Memo works).</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>BCC mock lesson guide</h2>
-    <p class="sub">Business students expect polish. Warmth stays in your eyes; the delivery stays crisp.</p>
-    <div class="grid-2">
-      <div>
-        <h3>The BCC lesson shape</h3>
-        <ul class="soft">
-          <li><b>Open professionally (min 0–1):</b> "Hello! Thank you for joining today's lesson. Shall we begin?" Brief, confident, no long chit-chat unless the student initiates.</li>
-          <li><b>Follow the Jissen material faithfully:</b> its Tutor Guide and flow differ from regular materials, so read the whole lesson beforehand, including the scoring rubric at the end.</li>
-          <li><b>Correct like a coach:</b> note errors silently in your notepad as the student speaks; deliver corrections at natural pauses via the chat box. Never interrupt an executive mid-thought.</li>
-          <li><b>Guard the clock:</b> business lessons are graded on time management. Reserve the final 3 minutes for scores and feedback, no matter what.</li>
-          <li><b>Feedback ritual:</b> paste the accomplished score note into the chat first, then walk through it verbally: strengths, then one or two sharp improvement points with examples.</li>
-        </ul>
-        <h3>Professional demeanor</h3>
-        <ul class="soft">
-          <li>Smart casual attire, tidy background, camera on and at eye level.</li>
-          <li>"Smile with your eyes"; attentive nods over big reactions.</li>
-          <li>Precise praise ("Your phrasing of the proposal was very natural") instead of "very good" on repeat.</li>
-          <li>Neutral topics only; redirect gracefully if conversation drifts.</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Assessment &amp; scoring reminders</h3>
-        <ul class="soft">
-          <li>The scoring system for each BCC lesson is printed <b>at the end of the material itself</b>; read it before the lesson so your score is defensible.</li>
-          <li>You're evaluated on English proficiency, time management, teaching ability, and politeness, so protect all four in every mock.</li>
-          <li>Send the accomplished feedback note in the chat <b>before</b> delivering your verbal feedback.</li>
-          <li>Base every score comment on evidence: the student's exact words, captured during the lesson.</li>
-        </ul>
-        <div class="note-box"><b>For your real BCC lessons,</b> use the dedicated 💼 BCC tab: it's your live workspace for capturing corrections and building the score note while you teach.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Free Trial Lesson (FTL) mock guide</h2>
-    <p class="sub">Straight from RareJob's Ideal FTL Lesson flow. A trial student is nervous, unsure, and deciding whether to subscribe; your job is to make them feel capable and cared for.</p>
-    <ul class="timeline">
-      <li><span class="when">Before the lesson</span><br>Prepare a notepad with your greeting message, the links of the materials you may use, and your recommendation scripts. Dead air while hunting for links is a classic demo killer.</li>
-      <li><span class="when">Min 0–2 · Introduction</span><br>Check audio ("Can you hear me clearly? Koe wa kikoemasu ka?"), give a warm brief self-introduction, and find one thread to connect on (anime, travel, food).</li>
-      <li><span class="when">Min 2–10 · Small talk</span><br>Student-centered conversation with genuine follow-ups. Top FTL student interests: travel, movies, music, shopping, food, sports, cooking, reading. Quietly assess their level and their reason for learning English; it decides your recommendation later.</li>
-      <li><span class="when">Min 10–23 · Lesson proper</span><br>Send the material link, confirm they can open it. Correct only repeating mistakes, always positively phrased, never interrupting. Vary your praise: "Good job!", "Wonderful!", "That's great!", "Yoku dekimashita!". You don't need to finish the material; you DO need to keep time for the ending.</li>
-      <li><span class="when">Min 23–24 · Feedback</span><br>Sandwich method with specifics: a concrete strength, one concrete improvement with an example sentence, then encouragement. Ask: "How was the lesson today?"</li>
-      <li><span class="when">Min 24–25 · Recommendation</span><br>Summarize their need, give assurance ("Don't worry, I will help you!"), then recommend 1–2 materials with the reason and the link in the chat box. Close by warmly encouraging them to continue with RareJob.</li>
-    </ul>
-    <h3>Recommendation scripts (copy-ready)</h3>
-    <div class="script-card">
-      <p class="script-text">"Based on today's lesson, I recommend the Conversation Materials. You will learn words and expressions you can use when speaking with other English speakers, and every lesson gives you real speaking practice. I think it matches your goal perfectly."</p>
-      <button class="btn btn-magenta copy-btn" data-copy-text="Based on today's lesson, I recommend the Conversation Materials. You will learn words and expressions you can use when speaking with other English speakers, and every lesson gives you real speaking practice. I think it matches your goal perfectly.">Copy</button>
-    </div>
-    <div class="script-card">
-      <p class="script-text">"I recommend the Grammar Materials for you. Each lesson teaches a grammar pattern that will help you build better sentences, and I could see today that stronger sentence construction will unlock your speaking."</p>
-      <button class="btn btn-magenta copy-btn" data-copy-text="I recommend the Grammar Materials for you. Each lesson teaches a grammar pattern that will help you build better sentences, and I could see today that stronger sentence construction will unlock your speaking.">Copy</button>
-    </div>
-    <div class="script-card">
-      <p class="script-text">"You did wonderfully today. English learning works best little by little, and RareJob makes it easy and fun to practice every day. I would be truly happy to see you continue. I hope to have a lesson with you again soon!"</p>
-      <button class="btn btn-magenta copy-btn" data-copy-text="You did wonderfully today. English learning works best little by little, and RareJob makes it easy and fun to practice every day. I would be truly happy to see you continue. I hope to have a lesson with you again soon!">Copy</button>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Teens &amp; young learners mock guide</h2>
-    <p class="sub">RareJob's junior/senior high and teens track (including the Teens Free Trial with its Level Check). The core skill: energy calibrated to a shy teenager, not a business adult.</p>
-    <div class="grid-2">
-      <div>
-        <h3>What changes with young learners</h3>
-        <ul class="soft">
-          <li><b>Level Check first:</b> the teens FTL includes a level check; keep questions short and concrete ("What subject do you like?" not "Tell me about your academic interests").</li>
-          <li><b>Shorter turns, more turns:</b> teens fade during long explanations. One instruction at a time, then let them do.</li>
-          <li><b>Energy up, pressure down:</b> bigger smiles, expressive reactions, visible patience. Count five silently after every question; teen silence is thinking plus shyness.</li>
-          <li><b>Scaffold, don't rescue:</b> offer sentence starters ("I like... because...") instead of answering for them.</li>
-          <li><b>Their world:</b> games, anime, club activities (bukatsu), school festivals, favorite YouTubers. One genuine question about their club buys ten minutes of goodwill.</li>
-          <li><b>Praise effort loudly and specifically:</b> "You made that whole sentence by yourself!" builds the confidence the parents are paying for.</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Openers that work with teens</h3>
-        <div class="script-card">
-          <p class="script-text">"Hi! I'm Teacher Niza. Don't worry, we will go slowly and mistakes are totally okay here. First, easy question: do you like games or sports?"</p>
-          <button class="btn btn-magenta copy-btn" data-copy-text="Hi! I'm Teacher Niza. Don't worry, we will go slowly and mistakes are totally okay here. First, easy question: do you like games or sports?">Copy</button>
-        </div>
-        <div class="script-card">
-          <p class="script-text">"Wow, you're in the basketball club? That's cool! Is practice hard? Tell me one word about your club: fun, hard, or tiring?"</p>
-          <button class="btn btn-magenta copy-btn" data-copy-text="Wow, you're in the basketball club? That's cool! Is practice hard? Tell me one word about your club: fun, hard, or tiring?">Copy</button>
-        </div>
-        <div class="script-card">
-          <p class="script-text">"You did such a great job today! You spoke English for 25 minutes. That's amazing. Next time, let's talk about your favorite game, okay? See you!"</p>
-          <button class="btn btn-magenta copy-btn" data-copy-text="You did such a great job today! You spoke English for 25 minutes. That's amazing. Next time, let's talk about your favorite game, okay? See you!">Copy</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Demo-day readiness checklist</h2>
-    <ul class="soft">
-      <li>Read the ENTIRE demo material including the scoring rubric at the end; know the lesson flow cold.</li>
-      <li>Smart casual outfit ready; camera at eye level; bright, plain background; every noise source silenced.</li>
-      <li>Environment Check passed; wired connection if possible; Chrome updated; headset with noise-cancelling mic tested.</li>
-      <li>Notepad open with: greeting message, material links, the BCC feedback template, and your recommendation scripts.</li>
-      <li>Ran at least three timed mock rounds with the simulator above; practiced ending feedback exactly on time.</li>
-      <li>Slept well, water nearby, phone silenced. You already teach beautifully; the demo just needs to see it.</li>
     </ul>
   </div>
 
@@ -2482,9 +2461,23 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
 
 <div id="toast">Copied ♡</div>
 
-<footer class="wrap">🐾 Tutor Sanctuary · Tutor 6348 · Go gently, teach warmly.</footer>
 
 <script>
+/* one-time move of settings saved under the old key prefix */
+(function(){
+  try{
+    var old = 'tutor' + (6300 + 48) + '-', i, k, moves = [];
+    for(i = 0; i < window.localStorage.length; i++){
+      k = window.localStorage.key(i);
+      if(k && k.indexOf(old) === 0) moves.push(k);
+    }
+    moves.forEach(function(k){
+      var nk = 'ts-' + k.slice(old.length);
+      if(window.localStorage.getItem(nk) === null) window.localStorage.setItem(nk, window.localStorage.getItem(k));
+      window.localStorage.removeItem(k);
+    });
+  }catch(e){}
+})();
 (function(){
 "use strict";
 
@@ -3265,12 +3258,19 @@ var INTROS = [
 {label:'After a reconnect', text:"Welcome back! I'm glad you're here again (^_^) Don't worry, let's simply continue our lesson!"},
 {label:'Warm goodbye', text:"Thank you for the wonderful lesson today! (´•‿•`)ノ Please check my feedback later. See you next time!"}
 ];
+function introText(text){
+  var name = $('intro-name').value.trim();
+  if(name) return text.replace(/\{tutor\}/g, name);
+  return text.replace(/I'm Teacher \{tutor\}, your tutor for today/g, "I'm your tutor for today")
+             .replace(/, I'm Teacher \{tutor\}\./g, '.')
+             .replace(/Teacher \{tutor\}/g, 'your tutor');
+}
 function renderIntros(){
   var list = $('intro-list');
   if(!list) return;
-  var tutor = ($('intro-name').value.trim() || 'your tutor');
+  try{ var saved = window.localStorage.getItem('ts-tutor-name'); if(saved && !$('intro-name').value) $('intro-name').value = saved; }catch(e){}
   list.innerHTML = INTROS.map(function(it, i){
-    var txt = it.text.replace(/\{tutor\}/g, tutor);
+    var txt = introText(it.text);
     return '<div class="intro-card">' +
       '<div class="intro-label">' + it.label + '</div>' +
       '<div class="intro-text">' + txt.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>' +
@@ -3280,17 +3280,19 @@ function renderIntros(){
 }
 if($('intro-name')){
   renderIntros();
-  $('intro-name').addEventListener('input', renderIntros);
+  $('intro-name').addEventListener('input', function(){
+    try{ window.localStorage.setItem('ts-tutor-name', $('intro-name').value.trim()); }catch(e){}
+    renderIntros();
+  });
   document.addEventListener('click', function(e){
     var b = e.target.closest('.intro-copy'); if(!b) return;
     var i = parseInt(b.getAttribute('data-i'), 10);
-    var tutor = ($('intro-name').value.trim() || 'your tutor');
-    copyText(INTROS[i].text.replace(/\{tutor\}/g, tutor), b);
+    copyText(introText(INTROS[i].text), b);
   });
 }
 
 /* ═══════════════ STUDENT TRACKER ═══════════════ */
-var STORE_KEY = 'tutor6348-students';
+var STORE_KEY = 'ts-students';
 var students = [];
 var memoryOnly = false;
 
@@ -3515,7 +3517,7 @@ $('stu-export').addEventListener('click', function(){
   var blob = new Blob([JSON.stringify(students, null, 2)], {type:'application/json'});
   var a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'tutor6348-students-backup.json';
+  a.download = 'tutor-sanctuary-students-backup.json';
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   setTimeout(function(){ URL.revokeObjectURL(a.href); }, 500);
   toast('Backup downloaded ♡');
@@ -4280,6 +4282,7 @@ function stopSequence(keepPlace){
 }
 function playSequence(startAt){
   if(seqRunning) return;
+  if(window.TSIV && window.TSIV.stop) window.TSIV.stop();
   var keys = pickedKeys();
   if(!keys.length){ toast2('Please tick a few lines first.'); return; }
   var mineEl = document.getElementById('pb-mine');
@@ -4385,10 +4388,10 @@ document.addEventListener('click', function(e){
     if(peekAll){ if(on) peekAll.removeAttribute('hidden'); else peekAll.setAttribute('hidden',''); }
     if(!on) wrap.querySelectorAll('.jp-line.peek').forEach(function(r){ r.classList.remove('peek'); });
   }
-  if(jpRead('tutor6348-jp-hide-ro') === '1') box.checked = true;
+  if(jpRead('ts-jp-hide-ro') === '1') box.checked = true;
   apply(box.checked);
   box.addEventListener('change', function(){
-    jpStore('tutor6348-jp-hide-ro', box.checked ? '1' : '0');
+    jpStore('ts-jp-hide-ro', box.checked ? '1' : '0');
     apply(box.checked);
     if(peekAll) peekAll.textContent = 'Show every romaji';
   });
@@ -4424,13 +4427,13 @@ document.addEventListener('click', function(e){
   if(shufBox) shufBox.addEventListener('change', function(){ if(!seqRunning){ seqIndex = 0; seqOrder = null; } });
   ['pb-enfirst', 'pb-loop', 'pb-bg', 'pb-twice', 'pb-mine', 'pb-shuffle'].forEach(function(id){
     var el = document.getElementById(id); if(!el) return;
-    if(jpRead('tutor6348-' + id) === '1') el.checked = true;
-    el.addEventListener('change', function(){ jpStore('tutor6348-' + id, el.checked ? '1' : '0'); });
+    if(jpRead('ts-' + id) === '1') el.checked = true;
+    el.addEventListener('change', function(){ jpStore('ts-' + id, el.checked ? '1' : '0'); });
   });
   var gapSel = document.getElementById('pb-gap');
   if(gapSel){
-    var sg = jpRead('tutor6348-pb-gap'); if(sg) gapSel.value = sg;
-    gapSel.addEventListener('change', function(){ jpStore('tutor6348-pb-gap', gapSel.value); });
+    var sg = jpRead('ts-pb-gap'); if(sg) gapSel.value = sg;
+    gapSel.addEventListener('change', function(){ jpStore('ts-pb-gap', gapSel.value); });
   }
   if(all) all.addEventListener('click', function(){
     var n = 0;
@@ -4455,18 +4458,50 @@ function jpStore(k, v){ try{ window.localStorage.setItem(k, v); }catch(e){} }
 function jpRead(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
 
 /* ═══════════ my own voice: recording + storage ═══════════ */
+/* one-time move of recordings saved under the old database name */
+function migrateOldVoice(db, cb){
+  if(jpRead('ts-voice-migrated') === '1') return cb();
+  var finished = false;
+  function fin(){ if(!finished){ finished = true; jpStore('ts-voice-migrated', '1'); cb(); } }
+  try{
+    var created = false;
+    var rq = indexedDB.open('tutor' + (6300 + 48) + '-voice', 1);
+    rq.onupgradeneeded = function(){ created = true; };
+    rq.onsuccess = function(){
+      var old = rq.result;
+      if(created || !old.objectStoreNames.contains('clips')){
+        old.close(); try{ indexedDB.deleteDatabase(old.name); }catch(e){} return fin();
+      }
+      try{
+        var tx = old.transaction('clips', 'readonly'), st = tx.objectStore('clips');
+        var ks = st.getAllKeys(), vs = st.getAll();
+        tx.oncomplete = function(){
+          var keys = ks.result || [], vals = vs.result || [];
+          old.close();
+          if(!keys.length) return fin();
+          var w = db.transaction('clips', 'readwrite'), ws = w.objectStore('clips');
+          keys.forEach(function(k, i){ ws.put(vals[i], k); });
+          w.oncomplete = fin; w.onerror = fin;
+        };
+        tx.onerror = function(){ old.close(); fin(); };
+      }catch(e){ try{ old.close(); }catch(e2){} fin(); }
+    };
+    rq.onerror = fin; rq.onblocked = fin;
+    setTimeout(fin, 4000);
+  }catch(e){ fin(); }
+}
 var VDB = null, VDB_TRIED = false;
 function vdb(cb){
   if(VDB) return cb(VDB);
   if(VDB_TRIED) return cb(null);
   if(!('indexedDB' in window) || !window.indexedDB){ VDB_TRIED = true; return cb(null); }
   try{
-    var rq = indexedDB.open('tutor6348-voice', 1);
+    var rq = indexedDB.open('ts-voice', 1);
     rq.onupgradeneeded = function(e){
       var db = e.target.result;
       if(!db.objectStoreNames.contains('clips')) db.createObjectStore('clips');
     };
-    rq.onsuccess = function(){ VDB = rq.result; cb(VDB); };
+    rq.onsuccess = function(){ VDB = rq.result; migrateOldVoice(VDB, function(){ cb(VDB); }); };
     rq.onerror = function(){ cb(null); };
   }catch(err){ cb(null); }
 }
@@ -4527,6 +4562,7 @@ function markClips(){
       });
     });
     if(typeof applyFilters === 'function') applyFilters();
+    if(window.TSIV && window.TSIV.refresh) window.TSIV.refresh();
     var c = document.getElementById('jp-clip-count');
     if(c){
       if(!keys.length) c.textContent = 'No recordings yet';
@@ -4536,9 +4572,9 @@ function markClips(){
   });
 }
 var jpUseMine = document.getElementById('jp-use-mine');
-if(jpUseMine && jpRead('tutor6348-jp-usemine') === '0') jpUseMine.checked = false;
+if(jpUseMine && jpRead('ts-jp-usemine') === '0') jpUseMine.checked = false;
 if(jpUseMine) jpUseMine.addEventListener('change', function(){
-  jpStore('tutor6348-jp-usemine', jpUseMine.checked ? '1' : '0');
+  jpStore('ts-jp-usemine', jpUseMine.checked ? '1' : '0');
 });
 var curAudio = null;
 function playClip(key, btn, fallbackText, lang){
@@ -4642,13 +4678,12 @@ function collectPrefs(){
   try{
     for(i = 0; i < window.localStorage.length; i++){
       k = window.localStorage.key(i);
-      if(k && k.indexOf('tutor6348') === 0) o[k] = window.localStorage.getItem(k);
+      if(k && k.indexOf('ts-') === 0) o[k] = window.localStorage.getItem(k);
     }
   }catch(e){}
   return o;
 }
-var backupBtn = document.getElementById('jp-backup');
-if(backupBtn) backupBtn.addEventListener('click', function(){
+function doBackup(backupBtn){
   backupBtn.disabled = true;
   var original = backupBtn.textContent;
   backupBtn.textContent = 'Preparing\u2026';
@@ -4692,15 +4727,10 @@ if(backupBtn) backupBtn.addEventListener('click', function(){
       toast2('Sorry, the backup could not be built.');
     });
   });
-});
-var restoreBtn = document.getElementById('jp-restore');
-var restoreFile = document.getElementById('jp-restore-file');
-if(restoreBtn && restoreFile){
-  restoreBtn.addEventListener('click', function(){ restoreFile.click(); });
-  restoreFile.addEventListener('change', function(){
-    var f = this.files[0];
-    this.value = '';
-    if(!f) return;
+}
+var backupBtn = document.getElementById('jp-backup');
+if(backupBtn) backupBtn.addEventListener('click', function(){ doBackup(backupBtn); });
+function doRestore(f){
     var r = new FileReader();
     r.onload = function(){
       var data;
@@ -4714,7 +4744,8 @@ if(restoreBtn && restoreFile){
         'Anything already here with the same name will be replaced.')) return;
       try{
         Object.keys(data.prefs || {}).forEach(function(k){
-          window.localStorage.setItem(k, data.prefs[k]);
+          var nk = k.indexOf('tutor' + (6300 + 48) + '-') === 0 ? 'ts-' + k.slice(10) : k;
+          window.localStorage.setItem(nk, data.prefs[k]);
         });
       }catch(e){}
       var keys = Object.keys(data.clips || {});
@@ -4729,6 +4760,15 @@ if(restoreBtn && restoreFile){
       });
     };
     r.readAsText(f);
+}
+var restoreBtn = document.getElementById('jp-restore');
+var restoreFile = document.getElementById('jp-restore-file');
+if(restoreBtn && restoreFile){
+  restoreBtn.addEventListener('click', function(){ restoreFile.click(); });
+  restoreFile.addEventListener('change', function(){
+    var f = this.files[0];
+    this.value = '';
+    if(f) doRestore(f);
   });
 }
 function afterRestore(n){
@@ -4740,6 +4780,11 @@ function afterRestore(n){
   }, 600);
 }
 markClips();
+window.TSVoice = {
+  get: vGet, put: vPut, del: vDel, keys: vKeys, refresh: markClips,
+  backup: doBackup, restore: doRestore,
+  stopJP: function(){ if(seqRunning) stopSequence(true); try{ jpAudio.pause(); }catch(e){} }
+};
 
 document.addEventListener('click', function(e){
   var sb = e.target.closest('.say-btn');
@@ -4750,6 +4795,7 @@ document.addEventListener('click', function(e){
     var txt = sb.getAttribute('data-say');
     /* the playlist and this button share one player, so pause the playlist */
     if(seqRunning) stopSequence(true);
+    if(window.TSIV && window.TSIV.stop) window.TSIV.stop();
     if(sk && HAVE_CLIP[sk] && (!mine || mine.checked)){
       primeAudio().then(function(){ playClip(sk, sb, txt, lang); });
     }
@@ -4762,7 +4808,7 @@ document.addEventListener('click', function(e){
 });
 
 /* ═══════════ mastery: how well each phrase is known ═══════════ */
-var MAST_KEY = 'tutor6348-jp-mastery';
+var MAST_KEY = 'ts-jp-mastery';
 var MAST = {};
 (function(){
   var v = jpRead(MAST_KEY);
@@ -4933,7 +4979,7 @@ paintMastery();
   if(!box) return;
   var $q = function(id){ return document.getElementById(id); };
   var setupV = $q('jq-setup-view'), playV = $q('jq-play-view'), doneV = $q('jq-done-view');
-  var BEST_KEY = 'tutor6348-jp-quiz-best';
+  var BEST_KEY = 'ts-jp-quiz-best';
   var best = {};
   (function(){ var v = jpRead(BEST_KEY); if(v){ try{ best = JSON.parse(v) || {}; }catch(e){ best = {}; } } })();
 
@@ -5158,7 +5204,7 @@ function setOut(html){
 var lastEntry = null;
 
 /* ── search history (last 10) ── */
-var DICT_KEY = 'tutor6348-dicthistory';
+var DICT_KEY = 'ts-dicthistory';
 var dictHist = [];
 function dictStoreMode(){
   if(typeof window.storage !== 'undefined' && window.storage && window.storage.get) return 'artifact';
@@ -7602,7 +7648,7 @@ window.dictLastQuery = function(){ return lastQuery; };
 var dictCache = {};
 var lastDictWord = '';
 /* ═══ persistent offline dictionary: every online lookup saves itself ═══ */
-var OFF_KEY = 'tutor6348-dict-offline';
+var OFF_KEY = 'ts-dict-offline';
 var offCache = {};
 function offSave(){
   var json = JSON.stringify(offCache);
@@ -8218,7 +8264,7 @@ var CHK = [
   {id:'speedtest', t:'10 minutes before: speedtest.net result sent to the Viber group chat to confirm attendance'},
   {id:'english', t:'Mindset set: English only, professional at all times, answer every question honestly'}
 ];
-var CHK_KEY = 'tutor6348-enlist-checklist';
+var CHK_KEY = 'ts-enlist-checklist';
 function chkMode(){
   if(typeof window.storage !== 'undefined' && window.storage && window.storage.get) return 'artifact';
   try{ var k='__ck'; window.localStorage.setItem(k,'1'); window.localStorage.removeItem(k); return 'local'; }
@@ -8260,157 +8306,13 @@ document.addEventListener('change', function(e){
 });
 chkLoad();
 
-/* ═══ Mock interview simulator ═══ */
-var MIQ = [
-{c:'interview', q:"Tell me about yourself and your teaching experience.",
- t:"60 seconds max. Present, past, why premium: current role, proudest teaching wins, why business/trial/teens students excite you.",
- a:"I'm Niza, a RareJob tutor with a strong record of repeat students. I specialize in conversation and Daily News Article lessons, and my students often mention that my corrections are clear and encouraging. I keep detailed notes on every learner so each lesson builds on the last. I'm applying for the Premium program because I want to bring that same structured, personalized care to business learners, who need results they can use at work the next day."},
-{c:'interview', q:"Why do you want to become a BCC Premium Tutor?",
- t:"Connect THEIR needs to YOUR strengths. Mention professionalism, structure, and growth, not just higher pay.",
- a:"Business students have concrete goals: a presentation next month, a meeting with overseas clients. I love that clarity. My teaching style is already structured, with corrections logged and delivered systematically, so the BCC format of scored, professional feedback fits how I naturally work. Becoming a Premium Tutor lets me grow with more challenging learners while representing RareJob at its highest standard."},
-{c:'interview', q:"What's the difference between teaching a regular student and a business student?",
- t:"Show you understand the register shift: warmth stays, delivery sharpens.",
- a:"With regular students, rapport and comfort lead; with business students, efficiency and precision lead. I stay warm, but I trim small talk, follow the material's structure closely, correct at pauses instead of interrupting, and give scored, specific feedback they can act on immediately. A business learner's time is expensive, so every minute must visibly move them forward."},
-{c:'bcc', q:"Your business student gives a long answer full of errors. How do you correct them?",
- t:"Never interrupt. Prioritize. Notepad. Chat box.",
- a:"I let them finish completely; interrupting an executive damages trust. While they speak, I note errors in my notepad. Then I pick the two or three that most affect clarity or professionalism, acknowledge the strength of their answer first, and deliver the corrections through the chat box: 'You said... / Correct...'. Everything I noted goes into their feedback so nothing is lost, but the flow of their thinking is never broken."},
-{c:'bcc', q:"How do you manage time so the lesson ends with proper scores and feedback?",
- t:"Time management is an explicit BCC scoring criterion. Give checkpoints.",
- a:"I set mental checkpoints from the material before the lesson: where I should be at minute 10 and minute 18. I keep the feedback template open from the start and fill it as we go, so feedback needs no preparation time. At the 22-minute mark I begin closing regardless of where we are, paste the accomplished note in the chat, then deliver it verbally. An unfinished exercise is fine; missing feedback is not."},
-{c:'bcc', q:"How would you give critical feedback to a high-level executive without offending them?",
- t:"Respect + specificity + framing improvement as leverage.",
- a:"I frame everything around their goals. First a genuine, specific strength: 'Your argument structure was very persuasive.' Then improvement framed as polish: 'To make it even more impactful in a native setting, try X instead of Y,' with their exact sentence as the example. Executives respect precision; vague praise or vague criticism both waste their time. Tone stays collegial, like a trusted advisor, never like a schoolteacher."},
-{c:'ftl', q:"A trial student is very nervous and can barely speak. What do you do?",
- t:"The FTL guide says most trial students are anxious. Show the softening toolkit.",
- a:"I slow everything down. I smile, lower my speaking speed, and start with yes/no questions about their interests so they win early: 'Do you like traveling?'. I use the chat box heavily so they can read what they hear, sprinkle simple Japanese like 'Daijoubu desu yo' to signal safety, and praise every attempt specifically. Confidence first; accuracy second. A trial student who feels successful subscribes."},
-{c:'ftl', q:"How would you encourage a trial student to continue with RareJob?",
- t:"The recommendation minute: summarize need, assure, recommend with reasons, emphasize benefits. Never pushy.",
- a:"In the final minutes I summarize what I observed: 'You want to speak with foreign coworkers, and today I saw your listening is already strong.' Then assurance: 'Don't worry, I will help you.' I recommend one or two specific materials with the reason and paste the links in the chat so they can review after the lesson. I close with the honest benefit: RareJob makes daily practice easy and fun, and steady daily practice is exactly what will get them to their goal."},
-{c:'ftl', q:"The student wants free conversation, but they can barely form sentences. What do you recommend?",
- t:"The official guide: what the student wants is not always what's best. Diplomacy + long-term benefit.",
- a:"I honor the want while guiding to the need. I'd say: 'I love that you want to talk freely, and we will! To make your conversations even smoother, I recommend the Conversation Materials for Beginners; each lesson gives you expressions and then we practice them in real conversation.' They still get speaking practice, but scaffolded, and I explain that this route gets them to comfortable free talk faster."},
-{c:'youth', q:"A teenage student answers everything with one word. How do you draw them out?",
- t:"Choice questions, their interests, sentence starters, patience.",
- a:"One-word answers usually mean shyness plus not knowing how to expand, so I make expanding easy. I switch to choice questions: 'Fun or tiring?', then build: 'Why?'. I offer sentence starters in the chat: 'I like ___ because ___.' I mine their world: games, club activities, anime. And I wait a full five seconds after each question; teens often have the answer but need runway. Every attempt gets loud, specific praise."},
-{c:'youth', q:"How do you adapt your teaching for a junior high school student versus an adult?",
- t:"Energy, chunk size, concreteness, praise, and the invisible audience: parents.",
- a:"Shorter instructions, one at a time, with gestures and chat box support. More energy in my face and voice, but zero pressure. Concrete topics from their daily life: school, club, games, instead of abstract ones. Frequent specific praise, because confidence is the product parents are hoping for. And structure with variety: quick reading, quick game-like practice, quick talk, so attention never has time to drift."},
-{c:'youth', q:"What would you do in a teens Level Check to assess accurately without stressing the student?",
- t:"Warm-up first, ladder the difficulty, note evidence.",
- a:"I open with two easy warm-up questions they'll surely answer, so the check starts with success. Then I ladder upward: self-introduction, daily life questions, then an opinion question, noting exactly where fluency and structure change. I keep my face encouraging at every level so they never feel they failed a question. My notes record concrete evidence: what they could do, not just a number, so the level assignment and next materials are defensible."},
-{c:'interview', q:"Your internet becomes unstable in the middle of the demo. What do you do?",
- t:"Calm SOP knowledge is what's being tested, not luck.",
- a:"I stay calm and communicate immediately through whichever channel survives, usually the chat box: 'I apologize, my connection is unstable. One moment please.' I'd re-enter the lesson room, and continue with the chat box supporting audio if needed. Afterward I'd follow the SOP: complete the tutoring notes with the situation documented, respond to any trouble report within 24 hours, and take steps so it can't recur, like a wired connection."},
-{c:'personal', q:"Tell me about your professional background.",
- t:"Your elevator pitch. Point first, then the two careers, then the bridge to BCC. Under 60 seconds.",
- a:"I bring two careers into my teaching. I spent two years in banking as a teller and loans specialist, where accuracy, confidentiality, and professional client handling were non-negotiable. Then for the past decade I've managed e-commerce operations for US and UK business owners across Shopify, Amazon, eBay, and Etsy, fully remote and client-facing. So professional communication, deadlines across time zones, and working without close supervision are my daily normal. That's exactly the world BCC students live in, which is why this program is such a natural fit for me."},
-{c:'personal', q:"How does your banking experience help you as a business English tutor?",
- t:"Three transfers: accuracy, confidentiality, client professionalism. Land each with a teaching consequence.",
- a:"Banking trained three habits I use in every lesson. Accuracy: as a teller and loans specialist, every number and name had to be exact, and that's how I treat corrections; I never let an error slide half-fixed. Confidentiality: I handled sensitive financial information daily, so RareJob's rules on student privacy are second nature. And client professionalism: I served demanding customers face to face, which is why a high-level business student doesn't intimidate me; that's simply the standard I was trained to."},
-{c:'personal', q:"How does your e-commerce experience connect to teaching business English?",
- t:"You LIVED business English with native-speaker clients for a decade. That's rare among tutors; say it confidently.",
- a:"For ten years, my daily work has been professional English with US and UK business owners: emails, negotiations, status reports, and problem-solving across Shopify, Amazon, eBay, and Etsy. I've been on the receiving end of the exact communication my BCC students are trying to master, so I know what natural, professional English sounds like to a native-speaker client, and what sounds off. When I correct a student's business email or role play, I'm drawing on a decade of real examples, not just a textbook."},
-{c:'personal', q:"Have you worked with foreign clients before? How was it?",
- t:"Decade of proof. Mention time zones, communication norms, and long-term client relationships.",
- a:"Yes, for over ten years, fully remote with US and UK business owners. I learned to communicate clearly across cultures and time zones: confirming things in writing, being direct but courteous, and giving proactive updates before clients need to ask. Several clients have worked with me for years, which I think is the best evidence that my professional communication holds up. Working with Japanese students now, I apply the same care in the opposite direction: bridging their English toward what international clients expect."},
-{c:'personal', q:"How do you handle working without supervision?",
- t:"Reliability evidence: a decade remote. Connect to tutor discipline: attendance, notes, standards.",
- a:"It's been my normal for a decade. Nobody stood over my shoulder while I managed stores for clients sleeping on the other side of the world, so I built my own systems: task lists, deadline buffers, and end-of-day reports. As a tutor, that shows up as discipline nobody has to enforce: I'm in the lesson room early, my tutoring notes are submitted immediately after lessons, and I hold my own standards higher than the minimum."},
-{c:'personal', q:"Tell me about a time you handled a difficult client or customer.",
- t:"Use YOUR real story in STAR form: Situation, Task, Action, Result, then bridge to teaching. Fill the skeleton from the Story card tonight.",
- a:"(Tell your real story here, shaped like this:) While managing a US client's store, a serious problem hit right before their busiest sales period. My job was to fix it fast despite the time difference. I stayed calm, documented everything, communicated proactively so the client never had to chase me, and resolved it. The client stayed with me for years afterward. That's the same calm, structured communication I bring when a business student is frustrated or under pressure in a lesson."},
-{c:'personal', q:"Why should we choose you for the BCC program?",
- t:"The closer. Stack the three proofs: lived business English, banking-grade professionalism, proven tutor record. End forward-looking.",
- a:"Because my students would be learning business English from someone who has actually used it in business, every day, for over a decade. I bring banking-grade accuracy and confidentiality, e-commerce-tested professional communication with native speakers, and a tutoring record built on personalized notes and returning students. I'll represent the Premium standard well, and I intend to keep improving through every coaching session you offer."},
-{c:'interview', q:"Can you commit to conducting at least 110 lessons every month with minimal cancellations?",
- t:"This is an OFFICIAL commitment requirement from the enlistment site. Answer with numbers and your track record, not just 'yes'.",
- a:"Yes, comfortably. I already maintain a full, consistent schedule; my cancellation ratio is well under the 2% requirement, and my Tutoring Notes Input Ratio is 100%. I've structured my work life around tutoring, so 110 lessons a month isn't a stretch target; it's close to my existing rhythm. And after a decade of meeting client deadlines without supervision, protecting a committed schedule is simply how I operate."},
-{c:'interview', q:"Are you available for onboarding activities during business hours, Monday to Friday?",
- t:"Commitment check. Confirm clearly, mention Viber responsiveness since prompt replies are explicitly required.",
- a:"Yes. I work from home on my own schedule, so I can attend onboarding sessions within business hours without conflict. I also keep Viber notifications on and reply promptly; I understand the coordinators work Monday to Friday, eight to five, and I make a point of responding within their working day so nothing about my enlistment is ever waiting on me."},
-{c:'interview', q:"Your metrics are checked monthly. How do you keep them strong?",
- t:"Show you know the actual numbers: 80+ bookable lessons, under 2% cancellation, max two 204s, 100% notes ratio, zero valid complaints.",
- a:"By treating the metrics as a floor, not a ceiling. I open slots consistently to stay well above 80 bookable lessons, I protect my schedule so cancellations stay near zero, my equipment and connection are maintained so 204s don't happen, and I submit complete Tutoring Notes immediately after every lesson, which keeps my input ratio at 100%. Complaints are prevented upstream: clear communication, professional conduct, and notes that show students I take their progress seriously."},
-{c:'interview', q:"A student asks you a question you can't answer. What do you do?",
- t:"Honesty + resourcefulness + follow-through beats bluffing.",
- a:"I never bluff; students trust tutors who are honest. I'd say: 'That's an excellent question. Let me make sure I give you the correct answer,' check quickly if it's checkable, and if not: 'I'll confirm this and include it in your lesson notes.' Then I actually put the verified answer in the tutoring notes. It turns a gap into proof of reliability."}
-];
-/* full reference list: every question with its hidden answer */
-function miEsc(t){ var d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; }
-(function renderAllQ(){
-  var box = document.getElementById('mi-all');
-  if(!box) return;
-  var CATS = [
-    {c:'personal', label:'Your story (background)'},
-    {c:'interview', label:'Interview questions'},
-    {c:'bcc', label:'BCC scenarios'},
-    {c:'ftl', label:'Free Trial scenarios'},
-    {c:'youth', label:'Teens & young learners'}
-  ];
-  box.innerHTML = CATS.map(function(cat){
-    var qs = MIQ.filter(function(q){ return q.c === cat.c; });
-    if(!qs.length) return '';
-    return '<div class="mi-cat-label">' + cat.label + '</div>' +
-      '<div class="mi-grid">' +
-      qs.map(function(q){
-        return '<details class="mi-q"><summary>' + miEsc(q.q) + '</summary>' +
-          '<div class="mi-a"><div class="mi-hint">' + miEsc(q.t) + '</div>' + miEsc(q.a) + '</div></details>';
-      }).join('') +
-      '</div>';
-  }).join('');
-})();
-
-var lastIdx = -1;
-function drawQ(){
-  var cat = document.getElementById('mi-cat').value;
-  var pool = MIQ.map(function(q, i){ return {q:q, i:i}; })
-    .filter(function(x){ return cat === 'all' || x.q.c === cat; });
-  if(!pool.length) return;
-  var pick;
-  do { pick = pool[Math.floor(Math.random() * pool.length)]; }
-  while(pool.length > 1 && pick.i === lastIdx);
-  lastIdx = pick.i;
-  document.getElementById('mi-card').style.display = '';
-  document.getElementById('mi-q').textContent = pick.q.q;
-  document.getElementById('mi-tip').textContent = 'Coach\u2019s hint: ' + pick.q.t;
-  var ans = document.getElementById('mi-answer');
-  ans.style.display = 'none';
-  ans.textContent = pick.q.a;
-  stopTimer(); document.getElementById('mi-timer').textContent = '';
-}
-document.getElementById('mi-draw').addEventListener('click', drawQ);
-document.getElementById('mi-reveal').addEventListener('click', function(){
-  document.getElementById('mi-answer').style.display = '';
-});
-var timerId = null, timeLeft = 0;
-function stopTimer(){
-  if(timerId){ clearInterval(timerId); timerId = null; }
-  document.getElementById('mi-timer-btn').textContent = '\u25B6 Start 90s timer';
-}
-document.getElementById('mi-timer-btn').addEventListener('click', function(){
-  if(timerId){ stopTimer(); return; }
-  timeLeft = 90;
-  var disp = document.getElementById('mi-timer');
-  disp.textContent = timeLeft + 's';
-  this.textContent = '\u25A0 Stop';
-  timerId = setInterval(function(){
-    timeLeft--;
-    disp.textContent = timeLeft + 's';
-    if(timeLeft <= 0){
-      stopTimer();
-      disp.textContent = 'Time!';
-      T('Time! How did it feel? Draw another \u2661');
-    }
-  }, 1000);
-});
-
 })();
 </script>
 <script>
 (function(){
 "use strict";
 var IDS = ['bw-context','bw-score','bw-vocab','bw-grammar','bw-pron','bw-strength','bw-advice','bw-greet','bw-close'];
-var KEY = 'tutor6348-bcc-draft';
+var KEY = 'ts-bcc-draft';
 function $(id){ return document.getElementById(id); }
 function T(msg){
   var t = $('toast');
@@ -8621,7 +8523,7 @@ $('nh-storage-note').textContent = MODE === 'memory'
   : 'Drafts and history are saved in this browser on this device; they survive restarts as long as you open this same file in the same browser and don\u2019t clear browsing data. Use “Back up everything” in the Japanese Lines tab now and then, just in case.';
 
 /* ═══ 1. auto-draft for the Notes Builder and JE builder fields ═══ */
-var DRAFT_KEY = 'tutor6348-notes-drafts';
+var DRAFT_KEY = 'ts-notes-drafts';
 var DRAFT_IDS = [
   'nb-name','nb-material','nb-greet','nb-feedback','nb-corrections','nb-good','nb-advice','nb-close','nb-words','nb-memo',
   'nb-vocab-pairs','nb-gram-pairs','nb-pron-pairs','nb-wna-range','nb-wna-coh','nb-wna-phon',
@@ -8659,7 +8561,7 @@ DRAFT_IDS.forEach(function(id){
 restoreDrafts();
 
 /* ═══ 2. notes history archive ═══ */
-var HIST_KEY = 'tutor6348-notes-history';
+var HIST_KEY = 'ts-notes-history';
 var hist = [];
 function saveHist(){ store(HIST_KEY, JSON.stringify(hist)); }
 function loadHist(cb){
@@ -8741,7 +8643,7 @@ $('nh-export').addEventListener('click', function(){
   var blob = new Blob([JSON.stringify(hist, null, 2)], {type:'application/json'});
   var a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'tutor6348-notes-history.json';
+  a.download = 'tutor-sanctuary-notes-history.json';
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   setTimeout(function(){ URL.revokeObjectURL(a.href); }, 500);
   T('History exported \u2661');
@@ -9158,6 +9060,705 @@ document.addEventListener('click', function(e){
       : 'Offline check found nothing to change. Please edit the line yourself.');
   });
 });
+})();
+</script>
+<script>
+(function(){
+"use strict";
+/* ═══════════ Interview prep: questions, recordings, and playlists ═══════════ */
+function $(id){ return document.getElementById(id); }
+function E(t){ var d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; }
+function T(msg){
+  var t = $('toast');
+  if(!t) return;
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(function(){ t.classList.remove('show'); }, 2200);
+}
+function store(k, v){ try{ window.localStorage.setItem(k, v); }catch(e){} }
+function read(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
+
+var IVQ = [
+/* ── what they asked last time ── */
+{id:'q01', g:'Opening and logistics', q:"Can you confirm you received the BCC Premium invitation? Is it okay if I record this session and keep my video off?",
+ s:"\"Of course, please do.\" The speed test was also sent beforehand, which she thanked you for.",
+ a:"Yes, I received the invitation. Thank you for having me. Recording is fine, and please keep your video off if that is easier for you.",
+ w:"This was already good. Keep it exactly this short. Check that you are unmuted before she joins."},
+{id:'q02', g:'Opening and logistics', q:"How has your experience been as a RareJob tutor?",
+ s:"\"Actually, it's been a lot easier...\" with details about the lesson room being \"really convenient for tutors\" and everything being \"filled up\" already.",
+ a:"It has been a positive experience. The lesson room makes teaching convenient, and I have built a base of repeat students who book me regularly. I enjoy the work, so I am ready to take on more.",
+ w:"Removes \"Actually,\" avoids \"filled up,\" and lands \"convenient\" with a clear ending. Three sentences and done."},
+{id:'q03', g:'Opening and logistics', q:"What is your teaching schedule? What time do you start?",
+ s:"\"Actually, I've been starting to teach at eight thirty...\" plus realistic details about the day.",
+ a:"I start at nine in the morning and teach until one to three in the afternoon, depending on my full-time work that day. My schedule is consistent from week to week, so students can rely on it.",
+ w:"If asked further: \"My full-time job has flexible hours, but sometimes I need to attend meetings with my boss, so my afternoon end time varies.\" One sentence, then stop."},
+{id:'q04', g:'Opening and logistics', q:"Do you teach on Sundays?",
+ s:"\"Actually, I started teaching on Sundays just recently... sometimes I have my niece at the during weekends.\"",
+ a:"Yes, I teach on Sundays. Weekend slots have a higher chance of getting booked, so I keep them open.",
+ w:"No niece, no weekday detail. One reason, then stop. Say \"weekend slots\" if you mean Saturday and Sunday; say \"Sunday slots\" if you only open Sundays."},
+{id:'q05', g:'Opening and logistics', q:"Do you have work outside RareJob? What is your background?",
+ s:"\"I already have a work at the bank...\" and \"I've been working online for US and UK clients.\"",
+ a:"Yes. I have a full-time online job with flexible hours, and before that I worked at a bank. Because my hours are flexible, my lesson schedule is protected, and my English is in daily professional use with clients in the US and the UK.",
+ w:"Yes, the flexible-hours line belongs here; it answers the worry behind the question. \"I worked at a bank\" or \"I had a job at a bank.\" Never \"have a work.\""},
+{id:'q06', g:'Commitment questions (say yes, then give one line of proof)', q:"Do you use video during lessons?",
+ s:"\"I use video 100%, unless the student asks me to turn it off.\"",
+ a:"Yes, always. My video is on for every lesson unless the student asks me to turn it off.",
+ w:"Already perfect. Keep it."},
+{id:'q07', g:'Commitment questions (say yes, then give one line of proof)', q:"Where do you conduct your lessons? Is this your usual teaching environment?",
+ s:"\"I always conduct my lessons right here.\"",
+ a:"Yes. This is my dedicated workstation, and I teach every lesson from here. It is quiet, with a plain background and stable internet."},
+{id:'q08', g:'Commitment questions (say yes, then give one line of proof)', q:"Premium tutors need to open at least 110 bookable slots a month. Can you commit to that?",
+ s:"Yes, \"so that I will receive the incentives.\"",
+ a:"Yes. One hundred ten bookable slots a month is my personal minimum goal, so it fits my existing rhythm.",
+ w:"Frames you as reliable rather than incentive-driven."},
+{id:'q09', g:'Commitment questions (say yes, then give one line of proof)', q:"Premium tutors must submit 100% of their tutoring notes. Can you commit to that?",
+ s:"\"I made it a habit to submit the tutoring notes right after my lesson, before I get out of my workstation.\"",
+ a:"Yes. I submit my tutoring notes right after each lesson, before I leave my workstation. It is already a habit."},
+{id:'q10', g:'Commitment questions (say yes, then give one line of proof)', q:"Do you have any issues with punctuality or tardiness?",
+ s:"\"Not at all. That should be basic, whether you're a premium tutor or not.\"",
+ a:"No. I am in the lesson room before the lesson starts. Punctuality is basic, whether you are a premium tutor or not.",
+ w:"The line was strong. Kept it, just with the point first."},
+{id:'q11', g:'Commitment questions (say yes, then give one line of proof)', q:"The program requires a six-month commitment. Are you able to agree to that?",
+ s:"Yes.",
+ a:"Yes. I plan to stay with RareJob long term, so six months is not a concern."},
+{id:'q12', g:'Commitment questions (say yes, then give one line of proof)', q:"Training must be completed within 30 days of passing. Do you have any conflicts?",
+ s:"No conflicts. You also asked what the training would be like and whether you could choose your schedule.",
+ a:"No conflicts. I can start as soon as the coach is assigned. May I ask how the training sessions are scheduled?",
+ w:"Asking a real question here worked well last time. Keep it."},
+{id:'q13', g:'Teaching judgment', q:"How would you handle a beginner student who speaks very little English?",
+ s:"A full sequence: slow down, read the level from the self-introduction, let the student choose material, recommend a better fit, \"decline it at first, politely of course,\" honor the choice if the student insists, then guide next-lesson material. AI translation tools were also mentioned.",
+ a:"I slow down, use simple words, and type key phrases in the chat box. I check the student's level from the self-introduction, then recommend material that matches it. If the student insists on harder material, I respect that and adjust my pace.",
+ w:"Same judgment, half the length. Drop the AI-translation mention. \"I would like to decline it at first, politely of course\" becomes \"I politely recommend a better fit.\""},
+{id:'q14', g:'Teaching judgment', q:"Here are three difficult students: a shy one, a know-it-all, and a demanding one. Which would you prefer to teach, and why?",
+ s:"\"Actually, I want the third student... I've been facing difficult clients before, so I'm not that intimidated. I'd like to challenge them more instead.\"",
+ a:"The know-it-all. I have worked with demanding clients in the US and the UK, so I am not intimidated by confident students. I would use that confidence and give the student more challenging tasks.",
+ w:"\"I have worked with\" cannot be misheard as \"I have facing.\" No \"Actually.\""},
+{id:'q15', g:'Teaching judgment', q:"On a scale of one to ten, how good are you at multitasking during a lesson?",
+ s:"\"Eight. When the student speaks too fast, I need more time to type corrections. I prepared my notes so I can quickly do corrections while listening.\"",
+ a:"Eight out of ten. I can listen, correct, and type at the same time. When a student speaks very fast, I need a little more time to type, so I prepare my notes in advance to stay ahead.",
+ w:"Already excellent. Kept the number, the gap, and the fix."},
+{id:'q16', g:'Teaching judgment', q:"What is your most unforgettable lesson?",
+ s:"The mother who scanned math workbooks so her six-year-old could learn math and English. This is where the \"um\" burst happened, before \"a math major.\" Also flagged: \"She gives me the guide and scanned the books\" and \"The student is really good.\"",
+ a:"A lesson with a six-year-old student. Her mother knew I was a math major, so she gave me a guide and scanned math workbooks for us. The student was very good, and she learned math and English at the same time.",
+ w:"\"Gave... and scanned\" fixes the parallelism flag. \"The student was very good\" fixes the tense flag. Rehearse \"math major\" out loud until it is automatic."},
+{id:'q17', g:'Teaching judgment', q:"Who was your most challenging student?",
+ s:"\"Throughout the lesson I've been nervous if I'm actually connecting with the student,\" then the countermeasures.",
+ a:"A very quiet student who gave one-word answers. I was not sure I was connecting, so I asked simpler follow-up questions and used the chat box more. By the end of the lesson, the student was giving full sentences.",
+ w:"Problem, action, result. One story, three sentences."},
+{id:'q18', g:'Teaching judgment', q:"Have you ever been upset with a student?",
+ s:"\"No, your students are so lovely.\"",
+ a:"No. RareJob students are respectful and motivated. If a lesson gets difficult, I treat it as a teaching challenge, not a personal one."},
+{id:'q19', g:'Teaching judgment', q:"Have you looked into RareJob's other premium programs?",
+ s:"\"I've read that you have the Young Learners and the Free Trial Lesson... I'd love to try those as well.\"",
+ a:"Yes. I have read about the Young Learners and Free Trial Lesson programs, and I would be glad to try those too."},
+{id:'q20', g:'Teaching judgment', q:"Do you have any questions for me?",
+ s:"\"That's all. I have nothing...\" This got the cohesion flag.",
+ a:"Yes, one question. How do I qualify for the Young Learners and Free Trial Lesson programs? Thank you. That answers everything I wanted to ask.",
+ w:"Always have one question. This one also shows long-term interest in the premium programs. More options in the closing group below."},
+/* ── likely new questions ── */
+{id:'q21', g:'Likely new questions this round', q:"You applied before. What have you worked on since your last interview?",
+ a:"Two things. First, I worked on speaking more concisely, so my answers are clearer under pressure. Second, I practiced specific grammar and pronunciation points from the feedback, such as the TH sound. I appreciated the detailed feedback, and I used it.",
+ w:"Do not dispute the old list. Show growth and gratitude. Say \"the TH sound\" with a clean TH."},
+{id:'q22', g:'Likely new questions this round', q:"Why do you want to become a BCC Premium Tutor?",
+ a:"Two reasons. Recently, several of my students asked to use the Jissen Business material, and I had to decline because I am not a premium tutor and I do not have access to it. That was disappointing for both of us, so I want to be able to teach what they request. Also, business students have clear goals, and my teaching is already structured, so the BCC format fits how I work.",
+ w:"Yes, add the student story; it is specific and true. Keep it neutral: \"I had to decline\" rather than \"it made me sad.\" Students likely only see that a material request was declined, so there is no need to explain the premium system to the interviewer."},
+{id:'q23', g:'Likely new questions this round', q:"Tell me about yourself and your teaching experience.",
+ a:"I first taught at RareJob from 2010 to 2015, part-time while I was in college. I stopped when I started working at a bank. Now that I work online with a flexible schedule, I came back to RareJob part-time in July this year. I focus on conversation and Daily News Article lessons, and my students often book me again.",
+ w:"\"From 2010 to 2015,\" not \"on 2010 until 2015.\" \"I came back... in July\" is cleaner than \"I decided to try... since July.\" Sixty seconds maximum."},
+{id:'q24', g:'Likely new questions this round', q:"What is the difference between teaching a regular student and a business student?",
+ a:"With regular students, comfort and rapport lead. With business students, precision and efficiency lead. The warmth stays, but the feedback becomes more direct and more focused on language they will use for business."},
+{id:'q25', g:'Likely new questions this round', q:"What are your strengths as a tutor?",
+ a:"Consistency and clear corrections, plus warmth and patience. I am also learning Japanese and Arabic in my free time, so I know how it feels to learn a new language, and that makes me more patient with my students.",
+ w:"\"As a person who also work hard\" becomes \"I know how it feels to learn a new language.\" Same idea, simpler grammar."},
+{id:'q26', g:'Likely new questions this round', q:"What is one weakness, or something you are still improving?",
+ a:"Speaking concisely under pressure. Sometimes my mouth cannot keep up with the ideas in my head, so I stutter or make grammar mistakes. I am still working on it, and I have learned to slow down.",
+ w:"\"I end stuttering\" becomes \"I stutter\" or \"I end up stuttering.\" Naming the exact thing they flagged, then showing the fix by speaking slowly, is powerful."},
+{id:'q27', g:'Likely new questions this round', q:"How do you give corrections without interrupting the student?",
+ a:"I note the error in the chat box while the student is speaking, then give the correction at a natural pause. For small errors, I repeat the sentence correctly in my reply, so the conversation keeps flowing.",
+ w:"\"Recast\" is the teaching term; \"repeat the sentence correctly in my reply\" says the same thing in plain words."},
+{id:'q28', g:'Likely new questions this round', q:"How do you keep up with business topics?",
+ a:"I read the RareJob Daily and Weekly News Articles, and NHK World news about Japan and anything else I find interesting. I also keep a personal dictionary of business vocabulary from those articles."},
+{id:'q29', g:'Likely new questions this round', q:"What would you do if you could not meet the 110-slot requirement one month?",
+ a:"I would inform my coach early, explain the reason, and make up the slots in the following weeks. I do not expect this, because my schedule is already stable and I always do my best to reach my goals."},
+{id:'q30', g:'Likely new questions this round', q:"Why should we choose you for the program?",
+ a:"Because I already meet the requirements in practice: video on, notes submitted every time, and consistent slots. For the students, I bring real business experience from banking and from working with overseas clients, so I understand what they need. For RareJob, my students already request business material, so I can serve that demand right away.",
+ w:"Yes, mention the students and the company, but tie each benefit to proof. Three short parts: requirements, students, company."},
+/* ── scenarios ── */
+{id:'q31', g:'Scenario questions (answer with action, in order, in three sentences)', q:"The student joins five minutes late. What do you do?",
+ a:"I welcome the student normally and do not mention the delay. I shorten the warm-up and go straight to the main material so we still finish the key parts. I keep the feedback time at the end."},
+{id:'q32', g:'Scenario questions (answer with action, in order, in three sentences)', q:"The student keeps talking and you cannot get a word in. How do you handle it?",
+ a:"I let the student finish the thought, then step in at the next pause with a focused question. I say something like, \"Great point. Let me give you one correction before we continue.\" That keeps control without cutting the student off."},
+{id:'q33', g:'Scenario questions (answer with action, in order, in three sentences)', q:"The student is a senior manager who disagrees with your correction. What do you do?",
+ a:"I stay calm and explain the rule briefly with one example. If the student still disagrees, I note it and move on, then confirm it in the tutoring notes. The goal is the student's improvement, not winning the point."},
+{id:'q34', g:'Scenario questions (answer with action, in order, in three sentences)', q:"The student asks to skip the material and just chat about their weekend.",
+ a:"I use the request as material. We talk about the weekend, but I keep correcting and pushing for business-level vocabulary. At the end, I recommend the next lesson's material so we stay on track."},
+{id:'q35', g:'Scenario questions (answer with action, in order, in three sentences)', q:"Your internet drops in the middle of a lesson.",
+ a:"I reconnect immediately using my backup connection, apologize once, and continue where we stopped. If time was lost, I focus on the most important part of the material and mention it in the tutoring notes."},
+{id:'q36', g:'Scenario questions (answer with action, in order, in three sentences)', q:"The student's English is much lower than the material level.",
+ a:"I simplify the questions and use the chat box for key words. I know basic Japanese, so I can add a few Japanese words to support the student when needed. I still cover the material at the student's pace, and at the end I recommend material that matches the student's level.",
+ w:"Say \"a few Japanese words to support,\" not \"communicate in Japanese.\" The interviewer wants English immersion, so Japanese is a safety net, not the language of the lesson."},
+{id:'q37', g:'Scenario questions (answer with action, in order, in three sentences)', q:"The student asks a grammar question you are not sure about.",
+ a:"I give the answer I am confident about and say I will confirm the detail. I check it right after the lesson and put the correct explanation in the tutoring notes. Students trust honesty more than guessing."},
+{id:'q38', g:'Scenario questions (answer with action, in order, in three sentences)', q:"A student is preparing for a job interview in English. How would you structure the lesson?",
+ a:"I would ask for the role and the company first, then run a mock interview with three or four common questions. After each answer, I give one correction and one stronger phrase. We end by repeating the improved answers once."},
+{id:'q39', g:'Scenario questions (answer with action, in order, in three sentences)', q:"How would you give feedback at the end of a BCC lesson?",
+ a:"I type the key corrections in the chat box a few minutes before the end, then explain them verbally. I start with one strength, give the corrections, and close with one thing to practice before the next lesson."},
+{id:'q40', g:'Scenario questions (answer with action, in order, in three sentences)', q:"What would you do if a student seemed upset or stressed during the lesson?",
+ a:"I would slow down and lower the pressure, with easier questions and more encouragement. If the student wants to talk about it, I listen briefly, then guide us back to the lesson gently."},
+/* ── closing questions ── */
+{id:'c01', g:'Closing questions to keep in your pocket (pick one, ask it, listen, then thank them)', q:"Do you have any questions for me? (closing option 1)",
+ a:"Yes, one question. What should I focus on most during my first month as a BCC tutor?"},
+{id:'c02', g:'Closing questions to keep in your pocket (pick one, ask it, listen, then thank them)', q:"Do you have any questions for me? (closing option 2)",
+ a:"Yes, one question. What do the most successful BCC tutors do differently in their lessons?"},
+{id:'c03', g:'Closing questions to keep in your pocket (pick one, ask it, listen, then thank them)', q:"Do you have any questions for me? (closing option 3)",
+ a:"Yes, one question. How is the mock lesson evaluated, so I can prepare well for it?"},
+{id:'c04', g:'Closing questions to keep in your pocket (pick one, ask it, listen, then thank them)', q:"Do you have any questions for me? (closing option 4)",
+ a:"Yes, one question. Is there anything from today's interview you would like me to work on before the training?",
+ w:"Then close with: \"Thank you for your time today. I look forward to hearing from you.\""}
+];
+var IVMAP = {}; IVQ.forEach(function(q){ IVMAP[q.id] = q; });
+
+var TH = [
+{id:'that', w:'that', h:'not dat'},
+{id:'third', w:'third', h:'not turd'},
+{id:'thinks', w:'thinks', h:'not tinks'},
+{id:'thank', w:'thank you', h:'not tank you'},
+{id:'they', w:'they', h:'not day'},
+{id:'thestudent', w:'the student', h:'not de student'},
+{id:'three', w:'three', h:'not tree'},
+{id:'with', w:'with', h:'not wit'},
+{id:'month', w:'month', h:'not mont'},
+{id:'although', w:'although', h:'not aldough'},
+{id:'s1', w:'I think the third student is the one that I would choose.', h:'drill sentence'},
+{id:'s2', w:'Thank you. That is everything I wanted to ask.', h:'drill sentence'},
+{id:'s3', w:'They think that this method works.', h:'drill sentence'},
+{id:'s4', w:'I have been teaching for three years this month.', h:'drill sentence'}
+];
+var THMAP = {}; TH.forEach(function(t){ THMAP[t.id] = t; });
+
+/* ═══ voice storage (shared with the Japanese Lines tab) ═══ */
+function V(){ return window.TSVoice || null; }
+var HAVE = {};
+function refreshHave(){
+  var v = V();
+  if(!v){ paintHave(); return; }
+  v.keys(function(keys){
+    HAVE = {};
+    keys.forEach(function(k){ HAVE[k] = true; });
+    paintHave();
+  });
+}
+function paintHave(){
+  var nq = 0, na = 0, nt = 0;
+  Object.keys(HAVE).forEach(function(k){
+    if(k.indexOf('iv_q_') === 0) nq++;
+    else if(k.indexOf('iv_a_') === 0) na++;
+    else if(k.indexOf('th_') === 0) nt++;
+  });
+  document.querySelectorAll('[data-vkey]').forEach(function(el){
+    var has = !!HAVE[el.getAttribute('data-vkey')];
+    el.classList.toggle('has-rec', has);
+    var del = el.querySelector('.iv-del');
+    if(del){ if(has) del.removeAttribute('hidden'); else del.setAttribute('hidden', ''); }
+  });
+  var c = $('iv-clip-count');
+  if(c) c.textContent = (nq + na) ? (nq + ' question' + (nq === 1 ? '' : 's') + ' and ' + na + ' answer' + (na === 1 ? '' : 's') + ' recorded') : 'No interview recordings yet';
+  var tc = $('th-clip-count');
+  if(tc) tc.textContent = nt ? (nt + ' TH ' + (nt === 1 ? 'recording' : 'recordings') + ' saved') : 'No TH recordings yet';
+}
+
+/* ═══ text-to-speech (English) ═══ */
+var enVoice = null;
+function pickVoice(){
+  if(!('speechSynthesis' in window)) return;
+  var vs = window.speechSynthesis.getVoices() || [];
+  enVoice = vs.find(function(v){ return v.lang && /^en[-_]us/i.test(v.lang); }) ||
+            vs.find(function(v){ return v.lang && v.lang.toLowerCase().indexOf('en') === 0; }) || null;
+}
+if('speechSynthesis' in window){ pickVoice(); window.speechSynthesis.addEventListener('voiceschanged', pickVoice); }
+function tts(text, btn, done){
+  var finished = false;
+  function fin(){ if(!finished){ finished = true; if(btn) btn.classList.remove('speaking'); if(done) done(); } }
+  if(!('speechSynthesis' in window)){ setTimeout(fin, 300); return; }
+  try{
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US'; if(enVoice) u.voice = enVoice; u.rate = 0.92;
+    u.onend = fin; u.onerror = fin;
+    if(btn) btn.classList.add('speaking');
+    setTimeout(fin, Math.max(3000, text.length * 95));
+    window.speechSynthesis.speak(u);
+  }catch(e){ fin(); }
+}
+
+/* ═══ playback engine: one instance per playlist ═══ */
+function silentWav(secs){
+  var sr = 8000, n = Math.max(80, Math.round(sr * (secs || 1))), buf = new ArrayBuffer(44 + n), v = new DataView(buf), i;
+  function tag(o, t){ for(var k = 0; k < t.length; k++) v.setUint8(o + k, t.charCodeAt(k)); }
+  tag(0, 'RIFF'); v.setUint32(4, 36 + n, true); tag(8, 'WAVE'); tag(12, 'fmt ');
+  v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, sr, true); v.setUint32(28, sr, true); v.setUint16(32, 1, true); v.setUint16(34, 8, true);
+  tag(36, 'data'); v.setUint32(40, n, true);
+  for(i = 0; i < n; i++) v.setUint8(44 + i, 128);
+  return URL.createObjectURL(new Blob([buf], {type: 'audio/wav'}));
+}
+var active = null;
+function Player(name){
+  this.name = name;
+  var a = document.createElement('audio');
+  a.setAttribute('playsinline', ''); a.setAttribute('preload', 'auto'); a.style.display = 'none';
+  document.body.appendChild(a);
+  this.audio = a;
+  this.keep = null; this.primeUrl = null;
+  this.running = false; this.stopFlag = false; this.jump = 0; this.idx = 0;
+  this.resolve = null; this.waitT = null; this.waitR = null;
+  this.order = null; this.orderSig = '';
+  this.onItem = function(){}; this.onEnd = function(){};
+}
+Player.prototype.prime = function(){
+  var self = this;
+  return new Promise(function(res){
+    var done = false; function fin(){ if(!done){ done = true; res(); } }
+    try{
+      if(!self.primeUrl) self.primeUrl = silentWav(0.1);
+      self.audio.onended = null; self.audio.onerror = null;
+      self.audio._silent = true; self.audio.src = self.primeUrl;
+      var p = self.audio.play();
+      if(p && p.then) p.then(function(){ if(self.audio._silent){ try{ self.audio.pause(); }catch(e){} } fin(); }, fin); else fin();
+      setTimeout(fin, 400);
+    }catch(e){ fin(); }
+  });
+};
+Player.prototype.keepAlive = function(on){
+  if(!on){ if(this.keep){ try{ this.keep.pause(); }catch(e){} } return; }
+  try{
+    if(!this.keep){
+      var k = document.createElement('audio');
+      k.setAttribute('playsinline', ''); k.loop = true; k.volume = 0.01; k.src = silentWav(1); k.style.display = 'none';
+      document.body.appendChild(k); this.keep = k;
+    }
+    var p = this.keep.play(); if(p && p.catch) p.catch(function(){});
+  }catch(e){}
+};
+Player.prototype.playOne = function(key, text, useMine){
+  var self = this;
+  return new Promise(function(resolve){
+    var fired = false;
+    var done = function(){ if(!fired){ fired = true; if(self.resolve === done) self.resolve = null; resolve(); } };
+    self.resolve = done;
+    var v = V();
+    if(useMine && v && HAVE[key]){
+      v.get(key, function(blob){
+        if(self.stopFlag || self.jump) return done();
+        if(!blob) return tts(text, null, done);
+        try{
+          var url = URL.createObjectURL(blob);
+          self.audio._silent = false;
+          self.audio.onended = function(){ URL.revokeObjectURL(url); done(); };
+          self.audio.onerror = function(){ URL.revokeObjectURL(url); if(self.stopFlag || self.jump) return done(); tts(text, null, done); };
+          self.audio.src = url;
+          self.audio.play().catch(function(err){
+            URL.revokeObjectURL(url);
+            var nm = err && err.name;
+            if(self.stopFlag || self.jump || nm === 'AbortError') return done();
+            if(nm === 'NotAllowedError'){ self.stop(true); T('Your phone paused the audio. Tap ▶ Play to continue from this item.'); return done(); }
+            tts(text, null, done);
+          });
+        }catch(e){ tts(text, null, done); }
+      });
+    } else tts(text, null, done);
+  });
+};
+Player.prototype.wait = function(ms){
+  var self = this;
+  return new Promise(function(r){
+    if(ms <= 0) return r();
+    self.waitR = r;
+    self.waitT = setTimeout(function(){ self.waitT = null; self.waitR = null; r(); }, ms);
+  });
+};
+Player.prototype.interrupt = function(){
+  try{ if(window.speechSynthesis) window.speechSynthesis.cancel(); }catch(e){}
+  try{ this.audio.pause(); }catch(e){}
+  if(this.resolve){ var r = this.resolve; this.resolve = null; r(); }
+  if(this.waitT){ clearTimeout(this.waitT); this.waitT = null; }
+  if(this.waitR){ var w = this.waitR; this.waitR = null; w(); }
+};
+Player.prototype.stop = function(keepPlace){
+  this.stopFlag = true;
+  this.interrupt();
+  this.keepAlive(false);
+  if(!keepPlace) this.idx = 0;
+  if('mediaSession' in navigator){ try{ navigator.mediaSession.playbackState = keepPlace ? 'paused' : 'none'; }catch(e){} }
+  this.running = false;
+  this.onItem(null);
+  this.onEnd();
+  if(active === this) active = null;
+};
+Player.prototype.msSet = function(title, artist){
+  if(!('mediaSession' in navigator)) return;
+  try{
+    if(typeof MediaMetadata !== 'undefined'){
+      navigator.mediaSession.metadata = new MediaMetadata({title: title, artist: artist, album: 'Tutor Sanctuary'});
+    }
+    navigator.mediaSession.playbackState = 'playing';
+    var self = this;
+    var set = function(a, fn){ try{ navigator.mediaSession.setActionHandler(a, fn); }catch(e){} };
+    set('play', function(){ if(!self.running && self.lastRun) self.lastRun(self.idx); });
+    set('pause', function(){ if(self.running) self.stop(true); });
+    set('stop', function(){ self.stop(false); });
+    set('nexttrack', function(){ if(self.running){ self.jump = 1; self.interrupt(); } });
+    set('previoustrack', function(){ if(self.running){ self.jump = -1; self.interrupt(); } });
+  }catch(e){}
+};
+/* items: array of ids; steps(id) -> [{key, text, after}] ; opts: {gap, loop, shuffle, bg, useMine, title(id), artist(id)} */
+Player.prototype.run = function(items, steps, opts, startAt){
+  var self = this;
+  if(self.running) return;
+  if(!items.length){ T('Please tick a few items first.'); return; }
+  if(active && active !== self) active.stop(false);
+  if(window.TSVoice && window.TSVoice.stopJP) window.TSVoice.stopJP();
+  active = self;
+  var keys = items.slice();
+  if(opts.shuffle){
+    var sig = keys.slice().sort().join('|');
+    var resuming = typeof startAt === 'number' && startAt > 0;
+    if(resuming && self.order && self.orderSig === sig) keys = self.order.slice();
+    else { keys = shuffle(keys); self.order = keys.slice(); self.orderSig = sig; }
+  } else self.order = null;
+  self.stopFlag = false; self.running = true; self.jump = 0;
+  self.lastRun = function(at){ self.run(items, steps, opts, at); };
+  if(opts.bg) self.keepAlive(true);
+  var i = (typeof startAt === 'number' && startAt >= 0 && startAt < keys.length) ? startAt : 0;
+  function advance(){
+    if(self.jump){ i += self.jump; self.jump = 0; if(i < 0) i = opts.loop ? keys.length - 1 : 0; }
+    else i++;
+    if(i >= keys.length){
+      if(opts.loop){ i = 0; if(opts.shuffle){ keys = shuffle(keys, keys[keys.length - 1]); self.order = keys.slice(); } }
+      else { T('Finished ♡'); self.stop(false); return; }
+    }
+    step();
+  }
+  function step(){
+    if(self.stopFlag) return;
+    self.idx = i;
+    var id = keys[i];
+    var list = steps(id);
+    self.onItem(id);
+    self.msSet(opts.title(id), opts.artist(id));
+    var chain = Promise.resolve();
+    list.forEach(function(st){
+      chain = chain.then(function(){
+        if(self.stopFlag || self.jump) return;
+        return self.playOne(st.key, st.text, opts.useMine).then(function(){
+          if(self.stopFlag || self.jump) return;
+          return self.wait(st.after || 0);
+        });
+      });
+    });
+    chain.then(function(){
+      if(self.stopFlag) return;
+      if(self.jump){ advance(); return; }
+      self.wait(opts.gap).then(function(){ if(self.stopFlag) return; advance(); });
+    });
+  }
+  step();
+};
+function shuffle(arr, avoidFirst){
+  var a = arr.slice(), i, j, t;
+  for(i = a.length - 1; i > 0; i--){ j = Math.floor(Math.random() * (i + 1)); t = a[i]; a[i] = a[j]; a[j] = t; }
+  if(avoidFirst && a.length > 1 && a[0] === avoidFirst){ t = a[0]; a[0] = a[1]; a[1] = t; }
+  return a;
+}
+var ivPlayer = new Player('interview');
+var thPlayer = new Player('th');
+var single = new Player('single');
+window.TSIV = { stop: function(){ [ivPlayer, thPlayer, single].forEach(function(p){ if(p.running) p.stop(true); try{ p.audio.pause(); }catch(e){} }); } };
+
+/* single play button: my recording if I have one, else the device voice */
+function playSingle(key, text, btn, useMine){
+  if(ivPlayer.running) ivPlayer.stop(true);
+  if(thPlayer.running) thPlayer.stop(true);
+  if(window.TSVoice && window.TSVoice.stopJP) window.TSVoice.stopJP();
+  var v = V();
+  if(useMine && v && HAVE[key]){
+    single.prime().then(function(){
+      v.get(key, function(blob){
+        if(!blob){ tts(text, btn); return; }
+        try{
+          try{ single.audio.pause(); }catch(e2){}
+          var url = URL.createObjectURL(blob);
+          if(btn) btn.classList.add('speaking');
+          single.audio._silent = false;
+          single.audio.onended = single.audio.onerror = function(){ if(btn) btn.classList.remove('speaking'); URL.revokeObjectURL(url); };
+          single.audio.src = url;
+          single.audio.play().catch(function(err){
+            if(btn) btn.classList.remove('speaking');
+            if(err && err.name === 'AbortError') return;
+            if(err && err.name === 'NotAllowedError'){ T('Your phone blocked the audio. Please tap 🔊 again.'); return; }
+            tts(text, btn);
+          });
+        }catch(e){ tts(text, btn); }
+      });
+    });
+  } else {
+    try{ single.audio.pause(); }catch(e){}
+    tts(text, btn);
+  }
+}
+
+/* ═══ recording ═══ */
+var mediaRec = null, recKey = null, recBtn = null, recChunks = [], recStream = null, recTimer = null;
+function stopRec(){
+  if(mediaRec && mediaRec.state !== 'inactive'){ try{ mediaRec.stop(); }catch(e){} }
+  clearTimeout(recTimer);
+}
+function startRec(key, btn, maxMs){
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || typeof MediaRecorder === 'undefined'){
+    T('Recording is not supported in this browser.'); return;
+  }
+  var v = V();
+  if(!v){ T('Recordings cannot be saved in this browser.'); return; }
+  navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream){
+    recStream = stream; recChunks = []; recKey = key; recBtn = btn;
+    var opts = {};
+    if(MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported('audio/webm')) opts.mimeType = 'audio/webm';
+    try{ mediaRec = new MediaRecorder(stream, opts); }catch(e){ mediaRec = new MediaRecorder(stream); }
+    mediaRec.ondataavailable = function(ev){ if(ev.data && ev.data.size) recChunks.push(ev.data); };
+    mediaRec.onstop = function(){
+      var blob = new Blob(recChunks, {type: mediaRec.mimeType || 'audio/webm'});
+      if(recBtn){ recBtn.classList.remove('recording'); recBtn.textContent = '🎙'; }
+      if(recStream){ recStream.getTracks().forEach(function(t){ t.stop(); }); recStream = null; }
+      if(blob.size < 400){ T('That clip was too short. Please try again.'); mediaRec = null; return; }
+      v.put(recKey, blob, function(ok){
+        mediaRec = null;
+        if(ok){ refreshHave(); if(window.TSVoice && window.TSVoice.refresh) window.TSVoice.refresh(); T('Recording saved ♡'); }
+        else T('Sorry, saving failed on this device.');
+      });
+    };
+    mediaRec.start();
+    btn.classList.add('recording'); btn.textContent = '⏹';
+    recTimer = setTimeout(stopRec, maxMs || 120000);
+  }).catch(function(){ T('Please allow microphone access to record.'); });
+}
+
+/* ═══ render: interview questions ═══ */
+function ctl(key, text, kind){
+  return '<span class="iv-ctl" data-vkey="' + E(key) + '">' +
+    '<button class="say-btn iv-say" data-key="' + E(key) + '" data-text="' + E(text) + '" title="Listen (' + kind + ')">🔊</button>' +
+    '<button class="iv-rec" data-key="' + E(key) + '" data-max="' + (kind === 'answer' ? 120000 : 30000) + '" title="Record my ' + kind + '">🎙</button>' +
+    '<button class="iv-del" data-key="' + E(key) + '" title="Delete this recording" hidden>🗑</button>' +
+    '</span>';
+}
+function renderIV(){
+  var box = $('iv-list');
+  if(!box) return;
+  var groups = [], byG = {};
+  IVQ.forEach(function(q){ if(!byG[q.g]){ byG[q.g] = []; groups.push(q.g); } byG[q.g].push(q); });
+  var n = 0;
+  box.innerHTML = groups.map(function(g){
+    return '<div class="card iv-group">' +
+      '<div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;justify-content:space-between">' +
+      '<h2 style="font-size:22px">' + E(g) + '</h2>' +
+      '<button class="grp-pick iv-grp-pick">select these</button></div>' +
+      byG[g].map(function(q){
+        n++;
+        return '<div class="iv-q" data-id="' + q.id + '">' +
+          '<div class="iv-row">' +
+          '<input type="checkbox" class="iv-pick" data-id="' + q.id + '" title="Add to the playlist">' +
+          '<details class="iv-d"><summary><span class="iv-n">' + n + '</span><span class="iv-qtext">' + E(q.q) + '</span></summary>' +
+          '<div class="iv-body">' +
+          '<div class="iv-line"><span class="iv-lbl">Question</span>' + ctl('iv_q_' + q.id, q.q, 'question') + '</div>' +
+          (q.s ? '<div class="iv-said"><div class="iv-lbl" style="color:#9a6a00">What you said last time</div>' + E(q.s) + '</div>' : '') +
+          '<div class="iv-best"><div class="iv-line"><span class="iv-lbl" style="color:var(--sage)">Best answer</span>' + ctl('iv_a_' + q.id, q.a, 'answer') + '</div>' + E(q.a) + '</div>' +
+          (q.w ? '<div class="iv-why"><b>Why:</b> ' + E(q.w) + '</div>' : '') +
+          '</div></details></div></div>';
+      }).join('') +
+      '</div>';
+  }).join('');
+}
+function renderTH(){
+  var box = $('th-list');
+  if(!box) return;
+  box.innerHTML = TH.map(function(t){
+    return '<div class="jp-line th-line" data-id="' + t.id + '" style="grid-template-columns:1fr auto">' +
+      '<div><div class="jl-jp" style="font-size:16px">' + E(t.w) + '</div><div class="jl-ro">' + E(t.h) + '</div></div>' +
+      '<div class="jl-actions" style="grid-row:auto">' +
+      '<input type="checkbox" class="th-pick" data-id="' + t.id + '" title="Add to the TH playlist">' +
+      ctl('th_' + t.id, t.w, 'TH sound') +
+      '</div></div>';
+  }).join('');
+}
+renderIV(); renderTH();
+
+/* ═══ buttons ═══ */
+document.addEventListener('click', function(e){
+  var sb = e.target.closest('.iv-say');
+  if(sb){
+    var key = sb.getAttribute('data-key');
+    var mineEl = key.indexOf('th_') === 0 ? $('th-use-mine') : $('iv-use-mine');
+    playSingle(key, sb.getAttribute('data-text'), sb, !mineEl || mineEl.checked);
+    return;
+  }
+  var rb = e.target.closest('.iv-rec');
+  if(rb){
+    var k = rb.getAttribute('data-key');
+    if(ivPlayer.running) ivPlayer.stop(true);
+    if(thPlayer.running) thPlayer.stop(true);
+    if(mediaRec && mediaRec.state !== 'inactive'){
+      var same = (recKey === k);
+      stopRec();
+      if(recBtn && recBtn !== rb){ recBtn.classList.remove('recording'); recBtn.textContent = '🎙'; }
+      if(!same) setTimeout(function(){ startRec(k, rb, parseInt(rb.getAttribute('data-max'), 10)); }, 350);
+      return;
+    }
+    startRec(k, rb, parseInt(rb.getAttribute('data-max'), 10));
+    return;
+  }
+  var db = e.target.closest('.iv-del');
+  if(db){
+    var v = V(); if(!v) return;
+    if(!window.confirm('Delete this recording?')) return;
+    v.del(db.getAttribute('data-key'), function(){ refreshHave(); if(v.refresh) v.refresh(); T('Recording deleted.'); });
+    return;
+  }
+  var gp = e.target.closest('.iv-grp-pick');
+  if(gp){
+    var boxes = gp.closest('.iv-group').querySelectorAll('.iv-pick');
+    var allOn = boxes.length > 0;
+    boxes.forEach(function(b){ if(!b.checked) allOn = false; });
+    boxes.forEach(function(b){ b.checked = !allOn; });
+    gp.textContent = allOn ? 'select these' : 'unselect these';
+    refreshIVBar();
+    return;
+  }
+});
+document.addEventListener('change', function(e){
+  if(e.target.classList && e.target.classList.contains('iv-pick')) refreshIVBar();
+  if(e.target.classList && e.target.classList.contains('th-pick')) refreshTHBar();
+});
+
+/* ═══ interview playlist ═══ */
+function ivPicked(){
+  return Array.prototype.map.call(document.querySelectorAll('.iv-pick:checked'), function(c){ return c.getAttribute('data-id'); });
+}
+function refreshIVBar(){
+  ivPlayer.idx = 0; ivPlayer.order = null;
+  var n = ivPicked().length;
+  $('iv-pb-count').textContent = n ? (n + (n === 1 ? ' question selected' : ' questions selected')) : 'Nothing selected';
+}
+function highlightIV(id){
+  document.querySelectorAll('.iv-q.playing').forEach(function(el){ el.classList.remove('playing'); });
+  if(!id) return;
+  var row = document.querySelector('.iv-q[data-id="' + id + '"]');
+  if(row){ row.classList.add('playing'); var d = row.querySelector('details'); if(d) d.open = true; if(row.scrollIntoView) row.scrollIntoView({behavior: 'smooth', block: 'center'}); }
+}
+ivPlayer.onItem = highlightIV;
+ivPlayer.onEnd = function(){ $('iv-pb-play').disabled = false; $('iv-pb-stop').setAttribute('hidden', ''); };
+function ivSteps(id){
+  var q = IVMAP[id]; if(!q) return [];
+  var mode = $('iv-pb-mode').value, pause = parseInt($('iv-pb-pause').value, 10), rep = parseInt($('iv-pb-repeat').value, 10);
+  var out = [];
+  for(var r = 0; r < rep; r++){
+    if(mode !== 'a') out.push({key: 'iv_q_' + id, text: q.q, after: (mode === 'qa' ? pause : 800)});
+    if(mode !== 'q') out.push({key: 'iv_a_' + id, text: q.a, after: (r < rep - 1 ? 800 : 0)});
+  }
+  return out;
+}
+function ivOpts(){
+  var mine = $('iv-use-mine');
+  return {
+    gap: parseInt($('iv-pb-gap').value, 10), loop: $('iv-pb-loop').checked, shuffle: $('iv-pb-shuffle').checked,
+    bg: $('iv-pb-bg').checked, useMine: !mine || mine.checked,
+    title: function(id){ return IVMAP[id] ? IVMAP[id].q : 'Interview prep'; }, artist: function(){ return 'Interview prep'; }
+  };
+}
+$('iv-pb-play').addEventListener('click', function(){
+  if(ivPlayer.running) return;
+  var items = ivPicked();
+  if(!items.length){ T('Please tick a few questions first.'); return; }
+  $('iv-pb-play').disabled = true; $('iv-pb-stop').removeAttribute('hidden');
+  var o = ivOpts();
+  if(o.bg) ivPlayer.keepAlive(true);
+  ivPlayer.prime().then(function(){ ivPlayer.run(items, ivSteps, o, ivPlayer.idx); });
+});
+$('iv-pb-stop').addEventListener('click', function(){ ivPlayer.stop(false); T('Stopped.'); });
+$('iv-pb-all').addEventListener('click', function(){ document.querySelectorAll('.iv-pick').forEach(function(b){ b.checked = true; }); refreshIVBar(); });
+$('iv-pb-none').addEventListener('click', function(){ document.querySelectorAll('.iv-pick').forEach(function(b){ b.checked = false; }); refreshIVBar(); });
+$('iv-open-all').addEventListener('click', function(){ document.querySelectorAll('.iv-d').forEach(function(d){ d.open = true; }); });
+$('iv-close-all').addEventListener('click', function(){ document.querySelectorAll('.iv-d').forEach(function(d){ d.open = false; }); });
+$('iv-toggle-said').addEventListener('click', function(){
+  var box = $('iv-list');
+  box.classList.toggle('hide-said');
+  this.textContent = box.classList.contains('hide-said') ? 'Show my old answers' : 'Hide my old answers';
+});
+
+/* ═══ TH playlist ═══ */
+function thPicked(){
+  return Array.prototype.map.call(document.querySelectorAll('.th-pick:checked'), function(c){ return c.getAttribute('data-id'); });
+}
+function refreshTHBar(){
+  thPlayer.idx = 0; thPlayer.order = null;
+  var n = thPicked().length;
+  $('th-pb-count').textContent = n ? (n + (n === 1 ? ' item selected' : ' items selected')) : 'Nothing selected';
+}
+thPlayer.onItem = function(id){
+  document.querySelectorAll('.th-line.playing').forEach(function(el){ el.classList.remove('playing'); });
+  if(!id) return;
+  var row = document.querySelector('.th-line[data-id="' + id + '"]');
+  if(row) row.classList.add('playing');
+};
+thPlayer.onEnd = function(){ $('th-pb-play').disabled = false; $('th-pb-stop').setAttribute('hidden', ''); };
+function thSteps(id){
+  var t = THMAP[id]; if(!t) return [];
+  var rep = parseInt($('th-pb-repeat').value, 10), gap = parseInt($('th-pb-gap').value, 10);
+  var out = [];
+  for(var r = 0; r < rep; r++) out.push({key: 'th_' + id, text: t.w, after: (r < rep - 1 ? Math.min(gap, 1500) : 0)});
+  return out;
+}
+$('th-pb-play').addEventListener('click', function(){
+  if(thPlayer.running) return;
+  var items = thPicked();
+  if(!items.length){ T('Please tick a few items first.'); return; }
+  $('th-pb-play').disabled = true; $('th-pb-stop').removeAttribute('hidden');
+  var mine = $('th-use-mine');
+  var o = {gap: parseInt($('th-pb-gap').value, 10), loop: $('th-pb-loop').checked, shuffle: $('th-pb-shuffle').checked,
+    bg: $('th-pb-bg').checked, useMine: !mine || mine.checked,
+    title: function(id){ return THMAP[id] ? THMAP[id].w : 'TH drill'; }, artist: function(){ return 'TH drill'; }};
+  if(o.bg) thPlayer.keepAlive(true);
+  thPlayer.prime().then(function(){ thPlayer.run(items, thSteps, o, thPlayer.idx); });
+});
+$('th-pb-stop').addEventListener('click', function(){ thPlayer.stop(false); T('Stopped.'); });
+$('th-pb-all').addEventListener('click', function(){ document.querySelectorAll('.th-pick').forEach(function(b){ b.checked = true; }); refreshTHBar(); });
+$('th-pb-none').addEventListener('click', function(){ document.querySelectorAll('.th-pick').forEach(function(b){ b.checked = false; }); refreshTHBar(); });
+
+/* remember the playlist settings */
+['iv-pb-loop','iv-pb-shuffle','iv-pb-bg','iv-use-mine','th-pb-loop','th-pb-shuffle','th-pb-bg','th-use-mine'].forEach(function(id){
+  var el = $(id); if(!el) return;
+  var s = read('ts-' + id); if(s === '1') el.checked = true; else if(s === '0') el.checked = false;
+  el.addEventListener('change', function(){ store('ts-' + id, el.checked ? '1' : '0'); });
+});
+['iv-pb-mode','iv-pb-pause','iv-pb-repeat','iv-pb-gap','th-pb-repeat','th-pb-gap'].forEach(function(id){
+  var el = $(id); if(!el) return;
+  var s = read('ts-' + id); if(s) el.value = s;
+  el.addEventListener('change', function(){ store('ts-' + id, el.value); });
+});
+
+/* ═══ backup and restore (same file as the Japanese Lines tab) ═══ */
+$('iv-backup').addEventListener('click', function(){
+  var v = V();
+  if(v && v.backup) v.backup(this); else T('Backup is not available in this browser.');
+});
+$('iv-restore').addEventListener('click', function(){ $('iv-restore-file').click(); });
+$('iv-restore-file').addEventListener('change', function(){
+  var f = this.files[0]; this.value = '';
+  if(!f) return;
+  var v = V();
+  if(v && v.restore) v.restore(f); else T('Restore is not available in this browser.');
+});
+
+refreshIVBar(); refreshTHBar();
+refreshHave();
+window.TSIV.refresh = refreshHave;
 })();
 </script>
 </body>
