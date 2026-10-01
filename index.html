@@ -532,6 +532,15 @@ details.mi-q[open] summary{background:var(--petal-soft)}
 .iv-why{font-size:13px;color:var(--mauve);margin-top:4px}
 .iv-why b{color:var(--plum)}
 #iv-list.hide-said .iv-said,#iv-list.hide-said .iv-why{display:none}
+.iv-mast{display:inline-flex;gap:6px;align-items:center;margin-left:8px;font-size:11px;font-weight:700;vertical-align:middle}
+#iv-quiz,#gr-quiz{display:none}
+#iv-quiz.open,#gr-quiz.open{display:block}
+.tq-ok{color:#3f6639}.tq-bad{color:#b3261e;text-decoration:underline wavy;font-weight:700}
+.tq-miss{background:#fff;border:1px solid var(--petal);border-radius:12px;padding:9px 12px;margin-top:6px;font-size:13.5px}
+.tq-miss div{color:var(--sage);font-weight:600;margin-top:3px}
+.gr-mast{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:6px;font-size:11.5px;font-weight:700}
+.gr-quiz-pt{font-size:12px;font-weight:700;background:#fff;border:1px solid var(--petal);color:var(--magenta);border-radius:999px;padding:4px 11px;cursor:pointer;font-family:'Quicksand',sans-serif}
+.gr-quiz-pt:hover{background:var(--blush)}
 .iv-q.playing{background:rgba(214,51,132,.08);border-radius:10px;box-shadow:inset 3px 0 0 var(--magenta)}
 .iv-fix{display:grid;grid-template-columns:1fr;gap:6px;margin-top:8px}
 .fixrow{background:#fff;border:1px solid var(--petal);border-radius:12px;padding:10px 12px;display:grid;grid-template-columns:1fr;gap:4px}
@@ -563,7 +572,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Oct 01, 2026 · 07:29 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Oct 01, 2026 · 11:19 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -786,39 +795,39 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
                   <select class="g-picker" data-pick="good-reading">
                     <option value="">Choose a strength…</option>
                     <option value="read the passage clearly">read the passage clearly</option>
-                    <option value="read numbers, dates, and names smoothly">read numbers, dates, and names smoothly</option>
-                    <option value="read with natural pausing at commas and periods">read with natural pausing at commas and periods</option>
-                    <option value="kept a steady reading pace without rushing">kept a steady reading pace without rushing</option>
-                    <option value="read long sentences without losing the meaning">read long sentences without losing the meaning</option>
-                    <option value="noticed and fixed your own small reading slips">noticed and fixed your own small reading slips</option>
-                    <option value="read new words bravely instead of skipping them">read new words bravely instead of skipping them</option>
-                    <option value="matched your reading tone to the article's mood">matched your reading tone to the article's mood</option>
-                    <option value="read the difficult paragraph smoothly on the first try">read the difficult paragraph smoothly on the first try</option>
-                    <option value="finished the whole article within the lesson time">finished the whole article within the lesson time</option>
-                    <option value="read the passage with clear expression">read the passage with clear expression</option>
-                    <option value="sounded confident while reading aloud">sounded confident while reading aloud</option>
-                    <option value="kept going smoothly through unfamiliar names">kept going smoothly through unfamiliar names</option>
-                    <option value="understood the article without needing translation">understood the article without needing translation</option>
-                    <option value="read the whole passage without losing focus">read the whole passage without losing focus</option>
-                    <option value="used punctuation to guide your phrasing">used punctuation to guide your phrasing</option>
-                    <option value="self-corrected a misread word right away">self-corrected a misread word right away</option>
-                    <option value="improved noticeably from the first paragraph to the last">improved noticeably from the first paragraph to the last</option>
-                    <option value="read the dialogue parts with natural feeling">read the dialogue parts with natural feeling</option>
-                    <option value="handled long numbers and statistics accurately">handled long numbers and statistics accurately</option>
-                    <option value="moved through the article at a comfortable, natural pace">moved through the article at a comfortable, natural pace</option>
-                    <option value="pronounced the technical terms in the article carefully">pronounced the technical terms in the article carefully</option>
-                    <option value="paused in the right places to make the meaning clear">paused in the right places to make the meaning clear</option>
-                    <option value="kept your voice steady to the end of every sentence">kept your voice steady to the end of every sentence</option>
-                    <option value="read the headline and predicted the topic accurately">read the headline and predicted the topic accurately</option>
-                    <option value="picked out the key sentence in each paragraph">picked out the key sentence in each paragraph</option>
-                    <option value="read quoted speech with natural feeling">read quoted speech with natural feeling</option>
-                    <option value="did not stop even when a word looked unfamiliar">did not stop even when a word looked unfamiliar</option>
-                    <option value="checked back in the text to support your answer">checked back in the text to support your answer</option>
-                    <option value="read the second time much more smoothly than the first">read the second time much more smoothly than the first</option>
-                    <option value="kept your eyes moving ahead instead of stopping at each word">kept your eyes moving ahead instead of stopping at each word</option>
-                    <option value="handled the long noun phrases in the article well">handled the long noun phrases in the article well</option>
-                    <option value="read the closing paragraph with real confidence">read the closing paragraph with real confidence</option>
-                    <option value="understood the writer&rsquo;s main point straight away">understood the writer&rsquo;s main point straight away</option>
+                    <option value="read the numbers, dates, and names without stopping">read the numbers, dates, and names without stopping</option>
+                    <option value="paused at the commas and periods, so your reading sounded natural">paused at the commas and periods, so your reading sounded natural</option>
+                    <option value="read at a steady speed and did not rush">read at a steady speed and did not rush</option>
+                    <option value="read the long sentences and kept the meaning clear">read the long sentences and kept the meaning clear</option>
+                    <option value="noticed your own small reading mistakes and fixed them">noticed your own small reading mistakes and fixed them</option>
+                    <option value="tried to read the new words instead of skipping them">tried to read the new words instead of skipping them</option>
+                    <option value="read with a tone that matched the feeling of the article">read with a tone that matched the feeling of the article</option>
+                    <option value="read the hard paragraph smoothly on your first try">read the hard paragraph smoothly on your first try</option>
+                    <option value="finished reading the whole article in our lesson time">finished reading the whole article in our lesson time</option>
+                    <option value="read the passage with good expression">read the passage with good expression</option>
+                    <option value="sounded confident when you read aloud">sounded confident when you read aloud</option>
+                    <option value="kept reading smoothly even through the unfamiliar names">kept reading smoothly even through the unfamiliar names</option>
+                    <option value="understood the article without needing a translation">understood the article without needing a translation</option>
+                    <option value="stayed focused from the first line to the last">stayed focused from the first line to the last</option>
+                    <option value="used the punctuation to group your words naturally">used the punctuation to group your words naturally</option>
+                    <option value="fixed a misread word right away by yourself">fixed a misread word right away by yourself</option>
+                    <option value="read much better by the last paragraph than in the first">read much better by the last paragraph than in the first</option>
+                    <option value="read the dialogue lines with natural feeling">read the dialogue lines with natural feeling</option>
+                    <option value="read the long numbers and statistics correctly">read the long numbers and statistics correctly</option>
+                    <option value="read the article at a comfortable, natural speed">read the article at a comfortable, natural speed</option>
+                    <option value="pronounced the technical words in the article carefully">pronounced the technical words in the article carefully</option>
+                    <option value="paused in the right places, so the meaning was clear">paused in the right places, so the meaning was clear</option>
+                    <option value="kept your voice steady until the end of each sentence">kept your voice steady until the end of each sentence</option>
+                    <option value="read the headline and guessed the topic correctly">read the headline and guessed the topic correctly</option>
+                    <option value="found the key sentence in each paragraph">found the key sentence in each paragraph</option>
+                    <option value="read the quotes with natural feeling">read the quotes with natural feeling</option>
+                    <option value="kept going even when a word looked new to you">kept going even when a word looked new to you</option>
+                    <option value="looked back at the text to support your answer">looked back at the text to support your answer</option>
+                    <option value="read much more smoothly the second time">read much more smoothly the second time</option>
+                    <option value="read in phrases instead of stopping at each word">read in phrases instead of stopping at each word</option>
+                    <option value="read the long noun phrases in the article well">read the long noun phrases in the article well</option>
+                    <option value="read the last paragraph with real confidence">read the last paragraph with real confidence</option>
+                    <option value="understood the writer&#x27;s main point right away">understood the writer&#x27;s main point right away</option>
                   </select>
                   <div class="picked" id="good-reading"></div>
                 </div>
@@ -828,39 +837,39 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
                   <select class="g-picker" data-pick="good-speaking-fluency">
                     <option value="">Choose a strength…</option>
                     <option value="spoke with real confidence">spoke with real confidence</option>
-                    <option value="kept the conversation flowing naturally">kept the conversation flowing naturally</option>
+                    <option value="kept the conversation going naturally">kept the conversation going naturally</option>
                     <option value="gave detailed answers instead of short ones">gave detailed answers instead of short ones</option>
                     <option value="explained a difficult idea in simple English">explained a difficult idea in simple English</option>
                     <option value="spoke in full sentences instead of single words">spoke in full sentences instead of single words</option>
                     <option value="answered quickly without long pauses">answered quickly without long pauses</option>
-                    <option value="found another way to say it when a word didn't come">found another way to say it when a word didn't come</option>
-                    <option value="kept talking even after making a small mistake">kept talking even after making a small mistake</option>
-                    <option value="expanded your answers without being asked">expanded your answers without being asked</option>
+                    <option value="found another way to say it when you could not remember a word">found another way to say it when you could not remember a word</option>
+                    <option value="kept talking even after a small mistake">kept talking even after a small mistake</option>
+                    <option value="added more to your answers without being asked">added more to your answers without being asked</option>
                     <option value="told a short story with a clear beginning and ending">told a short story with a clear beginning and ending</option>
                     <option value="spoke at a comfortable, natural speed">spoke at a comfortable, natural speed</option>
                     <option value="shared your thoughts without waiting to be asked">shared your thoughts without waiting to be asked</option>
                     <option value="kept your answers going for several sentences">kept your answers going for several sentences</option>
-                    <option value="described something unfamiliar using words you already knew">described something unfamiliar using words you already knew</option>
-                    <option value="sounded relaxed and natural throughout the lesson">sounded relaxed and natural throughout the lesson</option>
+                    <option value="described something new using words you already knew">described something new using words you already knew</option>
+                    <option value="sounded relaxed and natural during the whole lesson">sounded relaxed and natural during the whole lesson</option>
                     <option value="started your sentences confidently instead of hesitating">started your sentences confidently instead of hesitating</option>
-                    <option value="gave a clear opinion and then supported it">gave a clear opinion and then supported it</option>
+                    <option value="gave a clear opinion and then gave your reasons">gave a clear opinion and then gave your reasons</option>
                     <option value="moved smoothly from one topic to the next">moved smoothly from one topic to the next</option>
-                    <option value="spoke even more than in our previous lessons">spoke even more than in our previous lessons</option>
-                    <option value="recovered quickly whenever you paused to think">recovered quickly whenever you paused to think</option>
-                    <option value="built your answer step by step instead of stopping at the first idea">built your answer step by step instead of stopping at the first idea</option>
-                    <option value="used a natural filler phrase while thinking">used a natural filler phrase while thinking</option>
-                    <option value="restated your point clearly when I asked for more">restated your point clearly when I asked for more</option>
-                    <option value="spoke for a full minute without losing the thread">spoke for a full minute without losing the thread</option>
-                    <option value="adjusted your wording when it sounded unclear to you">adjusted your wording when it sounded unclear to you</option>
-                    <option value="gave examples to make your point easier to follow">gave examples to make your point easier to follow</option>
-                    <option value="balanced speaking and listening beautifully">balanced speaking and listening beautifully</option>
+                    <option value="spoke even more than in our last lessons">spoke even more than in our last lessons</option>
+                    <option value="continued quickly after you paused to think">continued quickly after you paused to think</option>
+                    <option value="built your answer step by step instead of stopping at your first idea">built your answer step by step instead of stopping at your first idea</option>
+                    <option value="used a natural phrase like &quot;let me see&quot; while thinking">used a natural phrase like &quot;let me see&quot; while thinking</option>
+                    <option value="explained your point again clearly when I asked for more">explained your point again clearly when I asked for more</option>
+                    <option value="spoke for a full minute without losing your main idea">spoke for a full minute without losing your main idea</option>
+                    <option value="changed your words when they sounded unclear to you">changed your words when they sounded unclear to you</option>
+                    <option value="gave examples to make your point easy to follow">gave examples to make your point easy to follow</option>
+                    <option value="balanced speaking and listening very well">balanced speaking and listening very well</option>
                     <option value="answered a difficult question without switching to Japanese">answered a difficult question without switching to Japanese</option>
-                    <option value="used your own words rather than repeating the article&rsquo;s">used your own words rather than repeating the article&rsquo;s</option>
-                    <option value="carried the conversation forward whenever I paused">carried the conversation forward whenever I paused</option>
-                    <option value="kept your ideas organized from start to finish">kept your ideas organized from start to finish</option>
+                    <option value="used your own words instead of repeating the article">used your own words instead of repeating the article</option>
+                    <option value="kept the conversation going whenever I paused">kept the conversation going whenever I paused</option>
+                    <option value="kept your ideas in a clear order from start to finish">kept your ideas in a clear order from start to finish</option>
                     <option value="spoke more and more freely as the lesson went on">spoke more and more freely as the lesson went on</option>
                     <option value="explained a Japanese custom clearly in English">explained a Japanese custom clearly in English</option>
-                    <option value="summed up your opinion in one clean sentence">summed up your opinion in one clean sentence</option>
+                    <option value="summed up your opinion in one clear sentence">summed up your opinion in one clear sentence</option>
                   </select>
                   <div class="picked" id="good-speaking-fluency"></div>
                 </div>
@@ -869,39 +878,39 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
                 <div class="pickwrap">
                   <select class="g-picker" data-pick="good-pronunciation-intonation">
                     <option value="">Choose a strength…</option>
-                    <option value="pronounced difficult words clearly">pronounced difficult words clearly</option>
-                    <option value="sounded more natural in your intonation">sounded more natural in your intonation</option>
+                    <option value="pronounced the difficult words clearly">pronounced the difficult words clearly</option>
+                    <option value="used more natural intonation">used more natural intonation</option>
                     <option value="stressed the important words in your sentences">stressed the important words in your sentences</option>
                     <option value="pronounced the "th" sound correctly today">pronounced the "th" sound correctly today</option>
-                    <option value="made the /L/ and /R/ sounds clearly">made the /L/ and /R/ sounds clearly</option>
+                    <option value="made the L and R sounds clearly">made the L and R sounds clearly</option>
                     <option value="pronounced word endings like "-ed" and "-s" clearly">pronounced word endings like "-ed" and "-s" clearly</option>
-                    <option value="spoke loudly and clearly through the whole lesson">spoke loudly and clearly through the whole lesson</option>
-                    <option value="copied my pronunciation accurately after one model">copied my pronunciation accurately after one model</option>
-                    <option value="improved a word's pronunciation right after my tip">improved a word's pronunciation right after my tip</option>
-                    <option value="kept a natural rhythm instead of word-by-word reading">kept a natural rhythm instead of word-by-word reading</option>
-                    <option value="pronounced today’s new vocabulary accurately">pronounced today’s new vocabulary accurately</option>
-                    <option value="used rising intonation naturally in questions">used rising intonation naturally in questions</option>
-                    <option value="separated similar sounds clearly">separated similar sounds clearly</option>
+                    <option value="spoke loudly and clearly for the whole lesson">spoke loudly and clearly for the whole lesson</option>
+                    <option value="copied my pronunciation correctly after hearing it once">copied my pronunciation correctly after hearing it once</option>
+                    <option value="pronounced a word better right after my tip">pronounced a word better right after my tip</option>
+                    <option value="kept a natural rhythm instead of reading word by word">kept a natural rhythm instead of reading word by word</option>
+                    <option value="pronounced today&#x27;s new words correctly">pronounced today&#x27;s new words correctly</option>
+                    <option value="made your voice go up naturally in questions">made your voice go up naturally in questions</option>
+                    <option value="made similar sounds clearly different">made similar sounds clearly different</option>
                     <option value="kept your voice clear and easy to understand">kept your voice clear and easy to understand</option>
-                    <option value="linked words together smoothly">linked words together smoothly</option>
-                    <option value="placed the stress correctly in long words">placed the stress correctly in long words</option>
-                    <option value="pronounced consonant clusters clearly">pronounced consonant clusters clearly</option>
-                    <option value="corrected your pronunciation right after hearing the model">corrected your pronunciation right after hearing the model</option>
-                    <option value="read numbers, dates, and place names clearly">read numbers, dates, and place names clearly</option>
-                    <option value="sounded noticeably more natural than in earlier lessons">sounded noticeably more natural than in earlier lessons</option>
-                    <option value="kept the /v/ and /b/ sounds clearly separate">kept the /v/ and /b/ sounds clearly separate</option>
-                    <option value="pronounced silent letters correctly">pronounced silent letters correctly</option>
-                    <option value="avoided adding extra vowel sounds at the end of words">avoided adding extra vowel sounds at the end of words</option>
-                    <option value="shortened the unstressed syllables naturally">shortened the unstressed syllables naturally</option>
-                    <option value="used falling intonation to sound confident and finished">used falling intonation to sound confident and finished</option>
-                    <option value="paused naturally between thought groups">paused naturally between thought groups</option>
-                    <option value="pronounced the &ldquo;-tion&rdquo; ending accurately">pronounced the &ldquo;-tion&rdquo; ending accurately</option>
-                    <option value="kept your volume steady through the whole lesson">kept your volume steady through the whole lesson</option>
-                    <option value="pronounced medical and technical vocabulary carefully">pronounced medical and technical vocabulary carefully</option>
+                    <option value="linked your words together smoothly">linked your words together smoothly</option>
+                    <option value="put the stress in the right place in long words">put the stress in the right place in long words</option>
+                    <option value="pronounced groups of consonants, like &quot;str&quot; and &quot;spl&quot;, clearly">pronounced groups of consonants, like &quot;str&quot; and &quot;spl&quot;, clearly</option>
+                    <option value="fixed your pronunciation right after hearing the model">fixed your pronunciation right after hearing the model</option>
+                    <option value="said the numbers, dates, and place names clearly">said the numbers, dates, and place names clearly</option>
+                    <option value="sounded much more natural than in earlier lessons">sounded much more natural than in earlier lessons</option>
+                    <option value="kept the V and B sounds clearly different">kept the V and B sounds clearly different</option>
+                    <option value="stayed quiet on the silent letters, as in &quot;listen&quot; and &quot;climb&quot;">stayed quiet on the silent letters, as in &quot;listen&quot; and &quot;climb&quot;</option>
+                    <option value="did not add extra vowel sounds at the end of words">did not add extra vowel sounds at the end of words</option>
+                    <option value="made the weak syllables short and natural">made the weak syllables short and natural</option>
+                    <option value="let your voice fall at the end of sentences, which sounded confident">let your voice fall at the end of sentences, which sounded confident</option>
+                    <option value="paused naturally between groups of words">paused naturally between groups of words</option>
+                    <option value="pronounced the &quot;-tion&quot; ending correctly">pronounced the &quot;-tion&quot; ending correctly</option>
+                    <option value="kept your volume steady for the whole lesson">kept your volume steady for the whole lesson</option>
+                    <option value="pronounced the medical and technical words carefully">pronounced the medical and technical words carefully</option>
                     <option value="matched the rhythm of my model sentence">matched the rhythm of my model sentence</option>
-                    <option value="pronounced difficult place names clearly">pronounced difficult place names clearly</option>
-                    <option value="said long compound words smoothly">said long compound words smoothly</option>
-                    <option value="used stress to highlight exactly the word you meant">used stress to highlight exactly the word you meant</option>
+                    <option value="pronounced the difficult place names clearly">pronounced the difficult place names clearly</option>
+                    <option value="said the long compound words smoothly">said the long compound words smoothly</option>
+                    <option value="used stress to point out exactly the word you meant">used stress to point out exactly the word you meant</option>
                     <option value="were easy to understand from the first minute to the last">were easy to understand from the first minute to the last</option>
                   </select>
                   <div class="picked" id="good-pronunciation-intonation"></div>
@@ -911,40 +920,40 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
                 <div class="pickwrap">
                   <select class="g-picker" data-pick="good-vocabulary">
                     <option value="">Choose a strength…</option>
-                    <option value="used the new vocabulary right away">used the new vocabulary right away</option>
-                    <option value="guessed the meaning of new words from context">guessed the meaning of new words from context</option>
-                    <option value="remembered expressions from our previous lessons">remembered expressions from our previous lessons</option>
-                    <option value="chose precise words instead of easy general ones">chose precise words instead of easy general ones</option>
-                    <option value="used a natural idiom in the right situation">used a natural idiom in the right situation</option>
+                    <option value="used the new words right away">used the new words right away</option>
+                    <option value="guessed the meaning of new words from the sentences around them">guessed the meaning of new words from the sentences around them</option>
+                    <option value="remembered expressions from our last lessons">remembered expressions from our last lessons</option>
+                    <option value="chose exact words instead of easy, general ones">chose exact words instead of easy, general ones</option>
+                    <option value="used an idiom naturally in the right situation">used an idiom naturally in the right situation</option>
                     <option value="made your own example sentences with the new words">made your own example sentences with the new words</option>
-                    <option value="asked smart questions about word nuances">asked smart questions about word nuances</option>
-                    <option value="replaced a simple word with a richer synonym">replaced a simple word with a richer synonym</option>
-                    <option value="used business words accurately in context">used business words accurately in context</option>
-                    <option value="connected today's new words to words you already know">connected today's new words to words you already know</option>
-                    <option value="used today’s target words in your own original sentences">used today’s target words in your own original sentences</option>
-                    <option value="recalled vocabulary from previous lessons without hints">recalled vocabulary from previous lessons without hints</option>
+                    <option value="asked good questions about the small differences between words">asked good questions about the small differences between words</option>
+                    <option value="replaced a simple word with a better one">replaced a simple word with a better one</option>
+                    <option value="used business words correctly">used business words correctly</option>
+                    <option value="connected today&#x27;s new words to words you already know">connected today&#x27;s new words to words you already know</option>
+                    <option value="used today&#x27;s target words in your own sentences">used today&#x27;s target words in your own sentences</option>
+                    <option value="remembered words from past lessons without any hints">remembered words from past lessons without any hints</option>
                     <option value="chose the perfect word for the situation">chose the perfect word for the situation</option>
                     <option value="used a phrasal verb naturally in conversation">used a phrasal verb naturally in conversation</option>
                     <option value="understood a new word from my explanation alone">understood a new word from my explanation alone</option>
-                    <option value="upgraded a simple word into a more advanced one">upgraded a simple word into a more advanced one</option>
+                    <option value="changed a simple word into a more advanced one">changed a simple word into a more advanced one</option>
                     <option value="used word combinations that sounded very natural">used word combinations that sounded very natural</option>
                     <option value="asked about the difference between two similar words">asked about the difference between two similar words</option>
-                    <option value="used descriptive adjectives to make your answers vivid">used descriptive adjectives to make your answers vivid</option>
+                    <option value="used descriptive adjectives to make your answers more colorful">used descriptive adjectives to make your answers more colorful</option>
                     <option value="noticed and used the correct form of a word">noticed and used the correct form of a word</option>
-                    <option value="explained a new word&rsquo;s meaning back to me correctly">explained a new word&rsquo;s meaning back to me correctly</option>
-                    <option value="chose a formal word where the situation needed one">chose a formal word where the situation needed one</option>
-                    <option value="noticed the word family, for example the noun and verb forms">noticed the word family, for example the noun and verb forms</option>
-                    <option value="used today&rsquo;s words again later in the discussion">used today&rsquo;s words again later in the discussion</option>
+                    <option value="explained the meaning of a new word back to me correctly">explained the meaning of a new word back to me correctly</option>
+                    <option value="chose a formal word when the situation needed one">chose a formal word when the situation needed one</option>
+                    <option value="noticed the word family, such as the noun and verb forms">noticed the word family, such as the noun and verb forms</option>
+                    <option value="used today&#x27;s words again later in the discussion">used today&#x27;s words again later in the discussion</option>
                     <option value="guessed the part of speech correctly">guessed the part of speech correctly</option>
-                    <option value="built a natural word partnership without any help">built a natural word partnership without any help</option>
-                    <option value="used a good synonym when the exact word would not come">used a good synonym when the exact word would not come</option>
+                    <option value="put words together naturally without any help">put words together naturally without any help</option>
+                    <option value="used a good similar word when the exact word did not come">used a good similar word when the exact word did not come</option>
                     <option value="remembered a word from several lessons ago">remembered a word from several lessons ago</option>
-                    <option value="used vocabulary from your own field accurately">used vocabulary from your own field accurately</option>
-                    <option value="understood the nuance between a positive and a negative word">understood the nuance between a positive and a negative word</option>
-                    <option value="expanded a basic word into a full natural expression">expanded a basic word into a full natural expression</option>
-                    <option value="used a word Japanese speakers often confuse, correctly">used a word Japanese speakers often confuse, correctly</option>
+                    <option value="used words from your own field of work correctly">used words from your own field of work correctly</option>
+                    <option value="understood the small difference between a positive and a negative word">understood the small difference between a positive and a negative word</option>
+                    <option value="turned a basic word into a full, natural expression">turned a basic word into a full, natural expression</option>
+                    <option value="used a word that Japanese speakers often mix up, and got it right">used a word that Japanese speakers often mix up, and got it right</option>
                     <option value="picked up a phrase from my speech and used it yourself">picked up a phrase from my speech and used it yourself</option>
-                    <option value="showed a noticeably wider vocabulary range today">showed a noticeably wider vocabulary range today</option>
+                    <option value="showed a much wider vocabulary today">showed a much wider vocabulary today</option>
                   </select>
                   <div class="picked" id="good-vocabulary"></div>
                 </div>
@@ -953,40 +962,40 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
                 <div class="pickwrap">
                   <select class="g-picker" data-pick="good-grammar-sentences">
                     <option value="">Choose a strength…</option>
-                    <option value="used the past tense correctly while telling stories">used the past tense correctly while telling stories</option>
-                    <option value="built long sentences with correct word order">built long sentences with correct word order</option>
+                    <option value="used the past tense correctly when telling stories">used the past tense correctly when telling stories</option>
+                    <option value="made long sentences with correct word order">made long sentences with correct word order</option>
                     <option value="used articles like "a" and "the" more accurately">used articles like "a" and "the" more accurately</option>
-                    <option value="kept subject-verb agreement in your sentences">kept subject-verb agreement in your sentences</option>
+                    <option value="matched your subjects and verbs correctly, like &quot;she works&quot;">matched your subjects and verbs correctly, like &quot;she works&quot;</option>
                     <option value="used linking words like "however" and "for example"">used linking words like "however" and "for example"</option>
-                    <option value="formed questions correctly on your own">formed questions correctly on your own</option>
-                    <option value="used comparative forms accurately">used comparative forms accurately</option>
-                    <option value="used the present perfect naturally">used the present perfect naturally</option>
+                    <option value="made questions correctly on your own">made questions correctly on your own</option>
+                    <option value="used comparing words like &quot;bigger&quot; and &quot;more useful&quot; correctly">used comparing words like &quot;bigger&quot; and &quot;more useful&quot; correctly</option>
+                    <option value="used the present perfect, like &quot;I have been&quot;, naturally">used the present perfect, like &quot;I have been&quot;, naturally</option>
                     <option value="corrected yourself without my help">corrected yourself without my help</option>
-                    <option value="combined short sentences into one smooth sentence">combined short sentences into one smooth sentence</option>
-                    <option value="used a variety of sentence structures">used a variety of sentence structures</option>
-                    <option value="kept your tenses consistent throughout your story">kept your tenses consistent throughout your story</option>
-                    <option value="used prepositions accurately today">used prepositions accurately today</option>
-                    <option value="formed negative sentences correctly">formed negative sentences correctly</option>
-                    <option value="used conditional sentences naturally">used conditional sentences naturally</option>
+                    <option value="joined short sentences into one smooth sentence">joined short sentences into one smooth sentence</option>
+                    <option value="used different kinds of sentences">used different kinds of sentences</option>
+                    <option value="kept the same tense through your whole story">kept the same tense through your whole story</option>
+                    <option value="used prepositions like &quot;in&quot;, &quot;on&quot;, and &quot;at&quot; correctly today">used prepositions like &quot;in&quot;, &quot;on&quot;, and &quot;at&quot; correctly today</option>
+                    <option value="made negative sentences correctly">made negative sentences correctly</option>
+                    <option value="used &quot;if&quot; sentences naturally">used &quot;if&quot; sentences naturally</option>
                     <option value="used modal verbs like "should" and "would" accurately">used modal verbs like "should" and "would" accurately</option>
-                    <option value="kept correct word order even in longer sentences">kept correct word order even in longer sentences</option>
-                    <option value="used plural and singular forms accurately">used plural and singular forms accurately</option>
-                    <option value="applied a grammar point right after we reviewed it">applied a grammar point right after we reviewed it</option>
-                    <option value="made noticeably fewer grammar slips than before">made noticeably fewer grammar slips than before</option>
-                    <option value="used relative clauses to add detail smoothly">used relative clauses to add detail smoothly</option>
-                    <option value="kept your pronouns clear and consistent">kept your pronouns clear and consistent</option>
-                    <option value="used the passive voice correctly where it fit">used the passive voice correctly where it fit</option>
-                    <option value="formed indirect questions politely">formed indirect questions politely</option>
-                    <option value="used gerunds and infinitives correctly">used gerunds and infinitives correctly</option>
-                    <option value="used &ldquo;that&rdquo; clauses to report ideas naturally">used &ldquo;that&rdquo; clauses to report ideas naturally</option>
-                    <option value="used quantifiers like &ldquo;most&rdquo; and &ldquo;a few&rdquo; accurately">used quantifiers like &ldquo;most&rdquo; and &ldquo;a few&rdquo; accurately</option>
-                    <option value="kept your articles correct even in longer sentences">kept your articles correct even in longer sentences</option>
-                    <option value="matched time expressions with the right tense">matched time expressions with the right tense</option>
-                    <option value="built a clear cause-and-effect sentence">built a clear cause-and-effect sentence</option>
-                    <option value="used &ldquo;used to&rdquo; naturally for past habits">used &ldquo;used to&rdquo; naturally for past habits</option>
-                    <option value="kept parallel structure when listing ideas">kept parallel structure when listing ideas</option>
-                    <option value="expressed a hypothetical situation correctly">expressed a hypothetical situation correctly</option>
-                    <option value="noticed a grammar slip in your own speech and fixed it">noticed a grammar slip in your own speech and fixed it</option>
+                    <option value="kept the correct word order even in longer sentences">kept the correct word order even in longer sentences</option>
+                    <option value="used singular and plural forms correctly">used singular and plural forms correctly</option>
+                    <option value="used a grammar point right after we reviewed it">used a grammar point right after we reviewed it</option>
+                    <option value="made far fewer grammar mistakes than before">made far fewer grammar mistakes than before</option>
+                    <option value="used &quot;who&quot; and &quot;which&quot; to add detail smoothly">used &quot;who&quot; and &quot;which&quot; to add detail smoothly</option>
+                    <option value="kept your pronouns clear, so I always knew who you meant">kept your pronouns clear, so I always knew who you meant</option>
+                    <option value="used the passive voice, like &quot;was built&quot;, correctly">used the passive voice, like &quot;was built&quot;, correctly</option>
+                    <option value="asked polite indirect questions, like &quot;Could you tell me where...&quot;">asked polite indirect questions, like &quot;Could you tell me where...&quot;</option>
+                    <option value="used &quot;-ing&quot; and &quot;to&quot; forms correctly after verbs">used &quot;-ing&quot; and &quot;to&quot; forms correctly after verbs</option>
+                    <option value="used &quot;that&quot; sentences, like &quot;I think that...&quot;, naturally">used &quot;that&quot; sentences, like &quot;I think that...&quot;, naturally</option>
+                    <option value="used amount words like &quot;most&quot; and &quot;a few&quot; correctly">used amount words like &quot;most&quot; and &quot;a few&quot; correctly</option>
+                    <option value="used &quot;a&quot;, &quot;an&quot;, and &quot;the&quot; correctly even in longer sentences">used &quot;a&quot;, &quot;an&quot;, and &quot;the&quot; correctly even in longer sentences</option>
+                    <option value="matched time words like &quot;yesterday&quot; with the right tense">matched time words like &quot;yesterday&quot; with the right tense</option>
+                    <option value="made a clear cause-and-effect sentence with &quot;because&quot; or &quot;so&quot;">made a clear cause-and-effect sentence with &quot;because&quot; or &quot;so&quot;</option>
+                    <option value="used &quot;used to&quot; naturally for past habits">used &quot;used to&quot; naturally for past habits</option>
+                    <option value="kept the same form when listing ideas, like &quot;reading, writing, and speaking&quot;">kept the same form when listing ideas, like &quot;reading, writing, and speaking&quot;</option>
+                    <option value="talked about an imaginary situation correctly with &quot;If I were...&quot;">talked about an imaginary situation correctly with &quot;If I were...&quot;</option>
+                    <option value="noticed a grammar mistake in your own speech and fixed it">noticed a grammar mistake in your own speech and fixed it</option>
                   </select>
                   <div class="picked" id="good-grammar-sentences"></div>
                 </div>
@@ -995,40 +1004,40 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
                 <div class="pickwrap">
                   <select class="g-picker" data-pick="good-listening-comprehension">
                     <option value="">Choose a strength…</option>
-                    <option value="understood my questions on the first try">understood my questions on the first try</option>
-                    <option value="answered the comprehension questions accurately">answered the comprehension questions accurately</option>
+                    <option value="understood my questions the first time">understood my questions the first time</option>
+                    <option value="answered the comprehension questions correctly">answered the comprehension questions correctly</option>
                     <option value="summarized the article in your own words">summarized the article in your own words</option>
                     <option value="caught the key numbers and details while listening">caught the key numbers and details while listening</option>
-                    <option value="understood my natural speaking speed">understood my natural speaking speed</option>
-                    <option value="responded correctly to unexpected questions">responded correctly to unexpected questions</option>
-                    <option value="picked up the main idea after one reading">picked up the main idea after one reading</option>
-                    <option value="followed my instructions without needing repeats">followed my instructions without needing repeats</option>
+                    <option value="understood me at my natural speaking speed">understood me at my natural speaking speed</option>
+                    <option value="answered unexpected questions correctly">answered unexpected questions correctly</option>
+                    <option value="understood the main idea after one reading">understood the main idea after one reading</option>
+                    <option value="followed my instructions without needing me to repeat">followed my instructions without needing me to repeat</option>
                     <option value="noticed the small difference between similar questions">noticed the small difference between similar questions</option>
                     <option value="understood a new phrase from my explanation alone">understood a new phrase from my explanation alone</option>
-                    <option value="understood every question without repetition">understood every question without repetition</option>
-                    <option value="answered follow-up questions accurately">answered follow-up questions accurately</option>
+                    <option value="understood every question without any repeating">understood every question without any repeating</option>
+                    <option value="answered my follow-up questions correctly">answered my follow-up questions correctly</option>
                     <option value="caught the details in my longer explanations">caught the details in my longer explanations</option>
                     <option value="understood me even when I spoke quickly">understood me even when I spoke quickly</option>
-                    <option value="identified the main point of each paragraph">identified the main point of each paragraph</option>
-                    <option value="answered deeper thinking questions thoughtfully">answered deeper thinking questions thoughtfully</option>
-                    <option value="noticed my correction and applied it immediately">noticed my correction and applied it immediately</option>
+                    <option value="found the main point of each paragraph">found the main point of each paragraph</option>
+                    <option value="answered the deeper questions thoughtfully">answered the deeper questions thoughtfully</option>
+                    <option value="noticed my correction and used it right away">noticed my correction and used it right away</option>
                     <option value="followed the article from start to finish">followed the article from start to finish</option>
-                    <option value="asked for clarification politely when needed">asked for clarification politely when needed</option>
-                    <option value="understood new expressions from context alone">understood new expressions from context alone</option>
-                    <option value="caught the correction I slipped into my reply">caught the correction I slipped into my reply</option>
-                    <option value="understood a question with unfamiliar vocabulary in it">understood a question with unfamiliar vocabulary in it</option>
-                    <option value="inferred the writer&rsquo;s opinion from the wording">inferred the writer&rsquo;s opinion from the wording</option>
+                    <option value="asked politely when you needed me to explain again">asked politely when you needed me to explain again</option>
+                    <option value="understood new expressions from the situation alone">understood new expressions from the situation alone</option>
+                    <option value="caught the correction I quietly put into my reply">caught the correction I quietly put into my reply</option>
+                    <option value="understood a question even with new words in it">understood a question even with new words in it</option>
+                    <option value="understood the writer&#x27;s opinion from the way it was written">understood the writer&#x27;s opinion from the way it was written</option>
                     <option value="told the difference between fact and opinion in the article">told the difference between fact and opinion in the article</option>
-                    <option value="followed a multi-part question and answered every part">followed a multi-part question and answered every part</option>
-                    <option value="understood my example even when the idea was abstract">understood my example even when the idea was abstract</option>
-                    <option value="recognized a word by sound alone">recognized a word by sound alone</option>
+                    <option value="followed a question with several parts and answered every part">followed a question with several parts and answered every part</option>
+                    <option value="understood my example even when the idea was not concrete">understood my example even when the idea was not concrete</option>
+                    <option value="recognized a word just by hearing it">recognized a word just by hearing it</option>
                     <option value="kept up when I spoke at natural native speed">kept up when I spoke at natural native speed</option>
                     <option value="understood the joke and laughed at just the right moment">understood the joke and laughed at just the right moment</option>
-                    <option value="rephrased my question to confirm your understanding">rephrased my question to confirm your understanding</option>
-                    <option value="connected today&rsquo;s article to something we read before">connected today&rsquo;s article to something we read before</option>
+                    <option value="repeated my question in your own words to check your understanding">repeated my question in your own words to check your understanding</option>
+                    <option value="connected today&#x27;s article to something we read before">connected today&#x27;s article to something we read before</option>
                     <option value="remembered details from earlier in the lesson">remembered details from earlier in the lesson</option>
-                    <option value="understood the instruction on the very first listen">understood the instruction on the very first listen</option>
-                    <option value="picked up the meaning of an idiom from the situation">picked up the meaning of an idiom from the situation</option>
+                    <option value="understood the instruction the very first time">understood the instruction the very first time</option>
+                    <option value="understood the meaning of an idiom from the situation">understood the meaning of an idiom from the situation</option>
                   </select>
                   <div class="picked" id="good-listening-comprehension"></div>
                 </div>
@@ -1037,40 +1046,40 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
                 <div class="pickwrap">
                   <select class="g-picker" data-pick="good-conversation-attitude">
                     <option value="">Choose a strength…</option>
-                    <option value="shared opinions with supporting reasons">shared opinions with supporting reasons</option>
+                    <option value="shared your opinions with reasons">shared your opinions with reasons</option>
                     <option value="asked thoughtful follow-up questions">asked thoughtful follow-up questions</option>
-                    <option value="opened up new topics to discuss">opened up new topics to discuss</option>
+                    <option value="brought up new topics to talk about">brought up new topics to talk about</option>
                     <option value="stayed relaxed and clearly enjoyed the conversation">stayed relaxed and clearly enjoyed the conversation</option>
                     <option value="reacted naturally with phrases like "Really?" and "I see"">reacted naturally with phrases like "Really?" and "I see"</option>
                     <option value="disagreed politely and explained your view">disagreed politely and explained your view</option>
-                    <option value="kept wonderful eye contact and smiled through the lesson">kept wonderful eye contact and smiled through the lesson</option>
-                    <option value="showed great focus from start to finish">showed great focus from start to finish</option>
-                    <option value="took notes actively during the lesson">took notes actively during the lesson</option>
-                    <option value="welcomed corrections positively and tried again right away">welcomed corrections positively and tried again right away</option>
+                    <option value="kept good eye contact and smiled through the lesson">kept good eye contact and smiled through the lesson</option>
+                    <option value="stayed focused from start to finish">stayed focused from start to finish</option>
+                    <option value="took notes during the lesson">took notes during the lesson</option>
+                    <option value="took corrections well and tried again right away">took corrections well and tried again right away</option>
                     <option value="connected the topic to your own experiences">connected the topic to your own experiences</option>
                     <option value="gave honest and thoughtful opinions">gave honest and thoughtful opinions</option>
                     <option value="asked me questions to keep the conversation going">asked me questions to keep the conversation going</option>
-                    <option value="showed genuine curiosity about the topic">showed genuine curiosity about the topic</option>
+                    <option value="showed real interest in the topic">showed real interest in the topic</option>
                     <option value="stayed positive even with difficult questions">stayed positive even with difficult questions</option>
-                    <option value="smiled and looked relaxed throughout our lesson">smiled and looked relaxed throughout our lesson</option>
+                    <option value="smiled and looked relaxed during our whole lesson">smiled and looked relaxed during our whole lesson</option>
                     <option value="joined the discussion with real energy">joined the discussion with real energy</option>
                     <option value="listened carefully and responded to what I said">listened carefully and responded to what I said</option>
-                    <option value="shared an interesting story I really enjoyed hearing">shared an interesting story I really enjoyed hearing</option>
+                    <option value="shared an interesting story that I enjoyed hearing">shared an interesting story that I enjoyed hearing</option>
                     <option value="came to the lesson prepared and ready to speak">came to the lesson prepared and ready to speak</option>
-                    <option value="kept the conversation warm and friendly throughout">kept the conversation warm and friendly throughout</option>
+                    <option value="kept the conversation warm and friendly the whole time">kept the conversation warm and friendly the whole time</option>
                     <option value="shared a personal example that fit the topic perfectly">shared a personal example that fit the topic perfectly</option>
-                    <option value="took a challenging question with a smile">took a challenging question with a smile</option>
+                    <option value="took a hard question with a smile">took a hard question with a smile</option>
                     <option value="kept trying even when the word was hard to find">kept trying even when the word was hard to find</option>
-                    <option value="responded to my opinion instead of only stating your own">responded to my opinion instead of only stating your own</option>
-                    <option value="brought real curiosity to a topic outside your usual interests">brought real curiosity to a topic outside your usual interests</option>
+                    <option value="responded to my opinion instead of only giving your own">responded to my opinion instead of only giving your own</option>
+                    <option value="showed real interest in a topic outside your usual interests">showed real interest in a topic outside your usual interests</option>
                     <option value="made me laugh with a very natural joke">made me laugh with a very natural joke</option>
-                    <option value="used our 25 minutes efficiently and calmly">used our 25 minutes efficiently and calmly</option>
+                    <option value="used our 25 minutes well and calmly">used our 25 minutes well and calmly</option>
                     <option value="came back to an earlier point to explain it better">came back to an earlier point to explain it better</option>
-                    <option value="were open about which parts felt difficult">were open about which parts felt difficult</option>
-                    <option value="thanked me for a correction and used it immediately">thanked me for a correction and used it immediately</option>
+                    <option value="told me openly which parts felt difficult">told me openly which parts felt difficult</option>
+                    <option value="thanked me for a correction and used it right away">thanked me for a correction and used it right away</option>
                     <option value="kept great energy right to the last minute">kept great energy right to the last minute</option>
-                    <option value="treated every mistake as practice rather than failure">treated every mistake as practice rather than failure</option>
-                    <option value="made this lesson a real joy with your positive attitude">made this lesson a real joy with your positive attitude</option>
+                    <option value="treated every mistake as practice, not failure">treated every mistake as practice, not failure</option>
+                    <option value="made this lesson a joy with your positive attitude">made this lesson a joy with your positive attitude</option>
                   </select>
                   <div class="picked" id="good-conversation-attitude"></div>
                 </div>
@@ -1079,22 +1088,22 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
                 <div class="pickwrap">
                   <select class="g-picker" data-pick="good-discussion-opinion">
                     <option value="">Choose a strength…</option>
-                    <option value="took a clear position and defended it well">took a clear position and defended it well</option>
-                    <option value="considered both sides before giving your opinion">considered both sides before giving your opinion</option>
-                    <option value="used &ldquo;in my opinion&rdquo; and &ldquo;I believe&rdquo; naturally">used &ldquo;in my opinion&rdquo; and &ldquo;I believe&rdquo; naturally</option>
-                    <option value="supported your argument with a real example">supported your argument with a real example</option>
-                    <option value="politely challenged an idea in the article">politely challenged an idea in the article</option>
+                    <option value="took a clear position and supported it well">took a clear position and supported it well</option>
+                    <option value="looked at both sides before giving your opinion">looked at both sides before giving your opinion</option>
+                    <option value="used &quot;in my opinion&quot; and &quot;I believe&quot; naturally">used &quot;in my opinion&quot; and &quot;I believe&quot; naturally</option>
+                    <option value="supported your point with a real example">supported your point with a real example</option>
+                    <option value="politely questioned an idea in the article">politely questioned an idea in the article</option>
                     <option value="suggested a practical solution to the problem">suggested a practical solution to the problem</option>
-                    <option value="compared the situation in Japan with the article&rsquo;s country">compared the situation in Japan with the article&rsquo;s country</option>
+                    <option value="compared the situation in Japan with the country in the article">compared the situation in Japan with the country in the article</option>
                     <option value="explained clearly why you changed your mind">explained clearly why you changed your mind</option>
-                    <option value="answered a hypothetical question thoughtfully">answered a hypothetical question thoughtfully</option>
+                    <option value="answered a &quot;what if&quot; question thoughtfully">answered a &quot;what if&quot; question thoughtfully</option>
                     <option value="gave a balanced answer instead of a simple yes or no">gave a balanced answer instead of a simple yes or no</option>
                     <option value="linked the topic to a bigger social issue">linked the topic to a bigger social issue</option>
                     <option value="asked a question I had not thought of myself">asked a question I had not thought of myself</option>
-                    <option value="gave a concise answer and then expanded when asked">gave a concise answer and then expanded when asked</option>
+                    <option value="gave a short answer first and then added more when asked">gave a short answer first and then added more when asked</option>
                     <option value="explained a complex idea in clear, simple English">explained a complex idea in clear, simple English</option>
                     <option value="reached a thoughtful conclusion at the end of the discussion">reached a thoughtful conclusion at the end of the discussion</option>
-                    <option value="kept your reasoning easy to follow throughout">kept your reasoning easy to follow throughout</option>
+                    <option value="kept your reasons easy to follow the whole time">kept your reasons easy to follow the whole time</option>
                   </select>
                   <div class="picked" id="good-discussion-opinion"></div>
                 </div>
@@ -1106,19 +1115,19 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
                     <option value="showed clear improvement since our last lesson">showed clear improvement since our last lesson</option>
                     <option value="used the phrase we practiced last time correctly">used the phrase we practiced last time correctly</option>
                     <option value="made far fewer of the mistakes we worked on before">made far fewer of the mistakes we worked on before</option>
-                    <option value="remembered vocabulary from our earlier lessons">remembered vocabulary from our earlier lessons</option>
-                    <option value="have grown noticeably more confident over our lessons">have grown noticeably more confident over our lessons</option>
-                    <option value="kept up your wonderful habit of coming prepared">kept up your wonderful habit of coming prepared</option>
-                    <option value="applied last lesson&rsquo;s feedback right away">applied last lesson&rsquo;s feedback right away</option>
+                    <option value="remembered words from our earlier lessons">remembered words from our earlier lessons</option>
+                    <option value="have become much more confident over our lessons">have become much more confident over our lessons</option>
+                    <option value="kept up your good habit of coming prepared">kept up your good habit of coming prepared</option>
+                    <option value="used last lesson&#x27;s feedback right away">used last lesson&#x27;s feedback right away</option>
                     <option value="speak at a much more natural speed now">speak at a much more natural speed now</option>
                     <option value="handled a topic that used to feel difficult for you">handled a topic that used to feel difficult for you</option>
-                    <option value="reached a level of detail you would not have tried before">reached a level of detail you would not have tried before</option>
-                    <option value="now pronounce a long-difficult word solidly">now pronounce a long-difficult word solidly</option>
-                    <option value="have kept a steady lesson rhythm week after week">have kept a steady lesson rhythm week after week</option>
-                    <option value="give longer and richer answers each time we meet">give longer and richer answers each time we meet</option>
-                    <option value="built on what we discussed in our previous lesson">built on what we discussed in our previous lesson</option>
-                    <option value="need far fewer repeats than before when listening">need far fewer repeats than before when listening</option>
-                    <option value="are clearly seeing your consistency pay off">are clearly seeing your consistency pay off</option>
+                    <option value="gave more detail than you would have tried before">gave more detail than you would have tried before</option>
+                    <option value="now pronounce a word that used to be difficult with no problem">now pronounce a word that used to be difficult with no problem</option>
+                    <option value="have kept a steady lesson schedule week after week">have kept a steady lesson schedule week after week</option>
+                    <option value="give longer and fuller answers each time we meet">give longer and fuller answers each time we meet</option>
+                    <option value="built on what we talked about in our last lesson">built on what we talked about in our last lesson</option>
+                    <option value="need me to repeat far less than before">need me to repeat far less than before</option>
+                    <option value="are clearly seeing your steady practice pay off">are clearly seeing your steady practice pay off</option>
                   </select>
                   <div class="picked" id="good-progress-consistency"></div>
                 </div>
@@ -1127,20 +1136,20 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
                 <div class="pickwrap">
                   <select class="g-picker" data-pick="good-effort-character">
                     <option value="">Choose a strength…</option>
-                    <option value="stayed focused even when the topic was demanding">stayed focused even when the topic was demanding</option>
+                    <option value="stayed focused even when the topic was hard">stayed focused even when the topic was hard</option>
                     <option value="kept a calm, steady pace when things got tricky">kept a calm, steady pace when things got tricky</option>
                     <option value="asked for help at exactly the right moment">asked for help at exactly the right moment</option>
                     <option value="showed real patience while working out a hard sentence">showed real patience while working out a hard sentence</option>
                     <option value="were honest about what you did not understand yet">were honest about what you did not understand yet</option>
-                    <option value="kept your sense of humor through a challenging article">kept your sense of humor through a challenging article</option>
+                    <option value="kept your sense of humor through a difficult article">kept your sense of humor through a difficult article</option>
                     <option value="pushed yourself to try the harder answer">pushed yourself to try the harder answer</option>
-                    <option value="stayed curious and asked &ldquo;why&rdquo; more than once">stayed curious and asked &ldquo;why&rdquo; more than once</option>
-                    <option value="listened to feedback openly and without discouragement">listened to feedback openly and without discouragement</option>
-                    <option value="kept going after a small stumble, which is real strength">kept going after a small stumble, which is real strength</option>
-                    <option value="made time for this lesson despite a busy schedule">made time for this lesson despite a busy schedule</option>
-                    <option value="took notes you can genuinely use later">took notes you can genuinely use later</option>
-                    <option value="showed lovely respect and warmth throughout our lesson">showed lovely respect and warmth throughout our lesson</option>
-                    <option value="brought your full attention to every activity">brought your full attention to every activity</option>
+                    <option value="stayed curious and asked &quot;why&quot; more than once">stayed curious and asked &quot;why&quot; more than once</option>
+                    <option value="listened to feedback openly and did not get discouraged">listened to feedback openly and did not get discouraged</option>
+                    <option value="kept going after a small stumble, which shows real strength">kept going after a small stumble, which shows real strength</option>
+                    <option value="made time for this lesson even with a busy schedule">made time for this lesson even with a busy schedule</option>
+                    <option value="took notes that you can really use later">took notes that you can really use later</option>
+                    <option value="showed respect and warmth during our whole lesson">showed respect and warmth during our whole lesson</option>
+                    <option value="gave your full attention to every activity">gave your full attention to every activity</option>
                     <option value="were a pleasure to teach from beginning to end">were a pleasure to teach from beginning to end</option>
                     <option value="set a clear goal for yourself and worked toward it">set a clear goal for yourself and worked toward it</option>
                   </select>
@@ -1636,6 +1645,22 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
         </div>
 
         <label class="f-label" for="je-greet">Greeting <small>(kept short; "Hello!" only, no names)</small></label>
+        <select id="je-greet-pick" style="margin-bottom:6px">
+          <option value="">Pick how the lesson felt, or write your own below…</option>
+          <option value="Hello! Thank you for taking my lesson today!">Hello! Thank you for taking my lesson today!</option>
+          <option value="Hello! Thank you for joining my lesson today. It was a pleasure to talk with you!">Hello! Thank you for joining my lesson today. It was a pleasure to talk with you!</option>
+          <option value="Hello! Thank you for today&#x27;s lesson. We had a lively and productive session!">Hello! Thank you for today&#x27;s lesson. We had a lively and productive session!</option>
+          <option value="Hello! Thank you for your time today. You worked hard, and it showed!">Hello! Thank you for your time today. You worked hard, and it showed!</option>
+          <option value="Hello! Thank you for taking my lesson. Today&#x27;s topic was a fun one, and you handled it well!">Hello! Thank you for taking my lesson. Today&#x27;s topic was a fun one, and you handled it well!</option>
+          <option value="Hello! Thank you for another lesson together. I enjoyed our conversation today!">Hello! Thank you for another lesson together. I enjoyed our conversation today!</option>
+          <option value="Hello! Thank you for joining today. You stayed focused from start to finish!">Hello! Thank you for joining today. You stayed focused from start to finish!</option>
+          <option value="Hello! Thank you for today&#x27;s lesson. You brought great energy to the conversation!">Hello! Thank you for today&#x27;s lesson. You brought great energy to the conversation!</option>
+          <option value="Hello! Thank you for your effort today. It was a relaxed and enjoyable session!">Hello! Thank you for your effort today. It was a relaxed and enjoyable session!</option>
+          <option value="Hello! Thank you for your lesson today. You tried every expression with confidence!">Hello! Thank you for your lesson today. You tried every expression with confidence!</option>
+          <option value="Hello! Thank you for taking my lesson. Even though today&#x27;s topic was challenging, you did not give up!">Hello! Thank you for taking my lesson. Even though today&#x27;s topic was challenging, you did not give up!</option>
+          <option value="Hello! Thank you for today. It was a calm and steady lesson, and you made good progress!">Hello! Thank you for today. It was a calm and steady lesson, and you made good progress!</option>
+          <option value="__random">Surprise me (random)</option>
+        </select>
         <input type="text" id="je-greet" value="Hello! Thank you for taking my lesson today!">
 
         <div class="gq">
@@ -1648,12 +1673,18 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
             <span class="chip fix-btn" data-fix="je-range-pairs" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
           <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made RANGE feedback</summary><div class="chips">
-            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You used today's target expressions correctly and naturally in your own sentences. Excellent work!">used targets naturally</span>
-            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You have a wide vocabulary and chose precise words throughout the lesson. Keep collecting one new expression a day!">wide vocabulary</span>
-            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You applied all of today's expressions in the exercises without any help. Wonderful!">no help needed</span>
-            <span class="chip je-chip" data-target="je-range-pairs" data-ins="Your word choices were natural and fit the topic well. To go further, try upgrading one everyday word into a richer synonym each lesson.">natural word choices</span>
-            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You remembered and reused expressions from our previous lessons, which shows real progress.">reused past expressions</span>
-            <span class="chip je-chip" data-target="je-range-pairs" data-ins="No corrections needed here today. Try using today's expressions in a real conversation this week to make them fully yours!">use them this week</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You used today&#x27;s target expressions correctly and naturally in your own sentences. Excellent work!">used targets naturally</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You have a wide vocabulary, and you chose clear and exact words during the whole lesson. Keep collecting one new expression a day!">wide vocabulary</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You used all of today&#x27;s expressions in the exercises without any help from me. Wonderful!">no help needed</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="Your word choices were natural and fit the topic well. To go further, try to upgrade one everyday word into a richer one in each lesson.">natural word choices</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You remembered and reused expressions from our past lessons, which shows real progress.">reused past expressions</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="No corrections were needed here today. Try to use today&#x27;s expressions in a real conversation this week to make them fully yours!">use them this week</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You made your own example sentences with the new expressions, and they all sounded natural. Great job!">own examples</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You explained the meaning of each expression in your own words before using it. That is the best way to remember them.">explained meanings</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You chose the right expression for each situation, even in the challenge task. Well done!">right situation</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="When a word did not come to mind, you found a good similar word and kept going. That is a real skill!">good synonyms</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="You used business words correctly and in the right tone for the situation. Impressive!">business words</span>
+            <span class="chip je-chip" data-target="je-range-pairs" data-ins="Your range was strong today. One small tip: try to add one adjective to each sentence to make your ideas more colorful.">one tip</span>
           </div></details>
         </div>
 
@@ -1665,12 +1696,41 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
             <span class="chip fix-btn" data-fix="je-acc-pairs" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
           <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made ACCURACY feedback</summary><div class="chips">
-            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="Your grammar was accurate throughout the lesson, and I did not need to make any corrections today. Excellent!">no corrections needed</span>
-            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You built your sentences with correct word order and verb tenses. Keep it up!">correct tenses</span>
-            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You maintained subject-verb agreement even in long sentences. Impressive accuracy!">subject-verb agreement</span>
-            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="Your sentences were grammatically solid today. For extra polish, keep an eye on small words like 'a' and 'the' when reading.">solid sentences</span>
-            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You corrected yourself quickly whenever you noticed a small slip, which is the habit of an advanced learner.">self-corrected</span>
-            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="No grammar corrections today! Challenge yourself next time with longer, more complex sentences.">try longer sentences</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="Your grammar was correct during the whole lesson, and I did not need to make any corrections today. Excellent!">no corrections needed</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You built your sentences with the correct word order and verb tenses. Keep it up!">correct tenses</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You matched your subjects and verbs correctly, even in long sentences. Great accuracy!">subject-verb agreement</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="Your sentences were grammatically solid today. For extra polish, keep an eye on the small words &quot;a&quot; and &quot;the&quot; when you speak.">solid sentences</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You corrected yourself quickly whenever you noticed a small slip. That is the habit of an advanced learner.">self-corrected</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="No grammar corrections today! Next time, challenge yourself with longer and more complex sentences.">try longer sentences</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You used the past tense correctly when you talked about your experiences. Well done!">past tense</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You made your questions correctly and naturally, which kept the conversation flowing.">questions</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You used &quot;a&quot;, &quot;an&quot;, and &quot;the&quot; correctly today, which is not easy. Great job!">articles</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="Your prepositions were correct, such as &quot;on Monday&quot; and &quot;at the station.&quot; Keep it up!">prepositions</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="You used singular and plural forms correctly in every sentence. Excellent!">plurals</span>
+            <span class="chip je-chip" data-target="je-acc-pairs" data-ins="Your accuracy was good today. One small tip: when you tell a story, keep the same tense from the beginning to the end.">one tip</span>
+          </div></details>
+        </div>
+
+        <div class="gq">
+          <div class="gq-q">PRONUNCIATION PRACTICE <small style="font-weight:500;color:var(--mauve)">(sounds, stress, and intonation)</small></div>
+          <label class="f-label" for="je-pron-pairs">Corrections <small>(as many as you need)</small></label>
+          <textarea id="je-pron-pairs" rows="4" placeholder="You said: sink (for think)&#10;Correct: think [THINGK] - tongue between the teeth"></textarea>
+          <div class="chips"><span class="chip je-chip" data-target="je-pron-pairs" data-ins="You said: &#10;Correct: ">+ add another pair</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins=" [] - ">+ word [pronunciation] - tip</span>
+          </div>
+          <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made PRONUNCIATION feedback</summary><div class="chips">
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="Your pronunciation was clear and easy to understand during the whole lesson. Excellent!">clear and easy</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="You pronounced today&#x27;s target sounds correctly after one model. Well done!">target sounds</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="You put the stress on the right syllable in the long words today. Great job!">word stress</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="You read the dialogue with a natural rhythm instead of word by word. Wonderful!">natural rhythm</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="Your intonation sounded natural, with your voice going up in questions and down at the end of statements.">intonation</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="You fixed your pronunciation right after hearing my model. That is a great habit!">fixed right away</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="You made the L and R sounds clearly different today, which is a big step. Keep it up!">L and R</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="You pronounced the TH sound well today, as in &quot;think&quot; and &quot;that.&quot; Keep practicing it out loud!">TH sound</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="You pronounced the word endings clearly, such as &quot;-ed&quot; and &quot;-s.&quot; Excellent!">word endings</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="You linked your words together smoothly, which made your speech sound natural.">linking</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="No pronunciation corrections today! To keep this up, try shadowing a short audio clip for five minutes a day.">shadow daily</span>
+            <span class="chip je-chip" data-target="je-pron-pairs" data-ins="Your pronunciation was clear today. One small tip: slow down a little on long words so that every syllable is heard.">one tip</span>
           </div></details>
         </div>
 
@@ -1682,12 +1742,18 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
             <span class="chip fix-btn" data-fix="je-flu-pairs" title="Suggest a corrected version of the last You said line">✨ Suggest correction</span>
           </div>
           <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made FLUENCY feedback</summary><div class="chips">
-            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You spoke smoothly and kept a natural pace through the whole lesson. Wonderful fluency!">smooth and natural</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You spoke smoothly and kept a natural pace during the whole lesson. Wonderful fluency!">smooth and natural</span>
             <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You answered without long pauses and connected your ideas clearly.">no long pauses</span>
-            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="Your reading was smooth, with natural pausing and rhythm.">smooth reading</span>
-            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You kept the conversation flowing even on a new topic. To build further, try shadowing a short clip daily.">flowing conversation</span>
-            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You expressed your ideas directly in English without translating word by word, which shows growing fluency.">thought in English</span>
-            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="No fluency issues today! Keep speaking English aloud a little every day to maintain this momentum.">keep the momentum</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="Your reading was smooth, with natural pauses and rhythm.">smooth reading</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You kept the conversation flowing even on a new topic. To build further, try shadowing a short clip every day.">flowing conversation</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You expressed your ideas directly in English without translating word by word. This shows growing fluency.">thought in English</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="No fluency issues today! Keep speaking English out loud a little every day to keep this momentum.">keep the momentum</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You answered in full sentences instead of single words, which made the conversation feel natural.">full sentences</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You kept talking even after a small mistake, which is exactly what fluent speakers do.">kept going</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="Your answers were longer and more detailed than before. I can hear your fluency growing!">longer answers</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You used natural phrases like &quot;let me think&quot; while you were thinking, instead of going silent. Great!">natural fillers</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="You started each sentence confidently instead of hesitating. Well done!">confident start</span>
+            <span class="chip je-chip" data-target="je-flu-pairs" data-ins="Your fluency was good today. One small tip: when you finish a sentence, add one more detail before you stop.">one tip</span>
           </div></details>
         </div>
 
@@ -1697,16 +1763,38 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
           <textarea id="je-int-pairs" rows="4" placeholder="You: (answered with one word) Yes.&#10;Correct: Yes, I do! Actually, I saw my old classmate last month."></textarea>
           <div class="chips"><span class="chip je-chip" data-target="je-int-pairs" data-ins="You: &#10;Correct: ">+ add another pair</span></div>
           <details class="gcat" style="margin-top:8px"><summary>✨ No corrections? Ready-made INTERACTION feedback</summary><div class="chips">
-            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You responded actively to my questions and kept the conversation engaging. Excellent interaction!">active responses</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You responded actively to my questions and kept the conversation interesting. Excellent interaction!">active responses</span>
             <span class="chip je-chip" data-target="je-int-pairs" data-ins="You asked thoughtful follow-up questions, which made our discussion feel natural.">good follow-ups</span>
-            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You reacted naturally with phrases like 'I see' and 'Really?', just like a fluent speaker.">natural reactions</span>
-            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You shared your opinions with clear reasons and invited mine as well. Wonderful two-way conversation!">two-way conversation</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You reacted naturally with phrases like &quot;I see&quot; and &quot;Really?&quot;, just like a fluent speaker.">natural reactions</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You shared your opinions with clear reasons and asked for mine as well. Wonderful two-way conversation!">two-way conversation</span>
             <span class="chip je-chip" data-target="je-int-pairs" data-ins="You handled unexpected questions confidently and expanded the topic on your own.">handled surprises</span>
             <span class="chip je-chip" data-target="je-int-pairs" data-ins="Your engagement was excellent today. Next time, try leading the conversation with your own questions from the start!">try leading next time</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You listened carefully and responded to what I said, not only to the question. That made our talk feel real.">listened carefully</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You asked me questions back, which turned the lesson into a real conversation. Great job!">asked back</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You played your role in the dialogue naturally and reacted to each line. Excellent!">role play</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You asked politely when you needed me to repeat or explain. That is a great communication skill.">clarified politely</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="You connected the topic to your own experiences and shared them openly. I enjoyed listening!">shared experiences</span>
+            <span class="chip je-chip" data-target="je-int-pairs" data-ins="Your interaction was strong today. One small tip: when I share an opinion, try to agree or disagree before adding your own.">one tip</span>
           </div></details>
         </div>
 
         <label class="f-label" for="je-close">Closing &amp; encouragement</label>
+        <select id="je-close-pick" style="margin-bottom:6px">
+          <option value="">Pick a closing, or write your own below…</option>
+          <option value="You did a great job with today&#x27;s expressions. Keep practicing them in your daily conversations! See you next time!">You did a great job with today&#x27;s expressions. Keep practicing them in your daily conversations! See you next time!</option>
+          <option value="Great work today! Please try today&#x27;s expressions with a friend or coworker this week. See you next time!">Great work today! Please try today&#x27;s expressions with a friend or coworker this week. See you next time!</option>
+          <option value="Thank you for your hard work today. Review the expressions once more before our next lesson, and they will stay with you. See you soon!">Thank you for your hard work today. Review the expressions once more before our next lesson, and they will stay with you. See you soon!</option>
+          <option value="You handled today&#x27;s lesson goal very well. Keep speaking English a little every day, and see you in our next lesson!">You handled today&#x27;s lesson goal very well. Keep speaking English a little every day, and see you in our next lesson!</option>
+          <option value="Well done today! Please read today&#x27;s dialogue aloud once more at home. I look forward to our next lesson!">Well done today! Please read today&#x27;s dialogue aloud once more at home. I look forward to our next lesson!</option>
+          <option value="Thank you for a lively lesson. Your effort today will pay off in your real conversations. See you next time!">Thank you for a lively lesson. Your effort today will pay off in your real conversations. See you next time!</option>
+          <option value="Good job today! Try to use at least one of today&#x27;s expressions before our next lesson. See you soon!">Good job today! Try to use at least one of today&#x27;s expressions before our next lesson. See you soon!</option>
+          <option value="Thank you for today. You are making steady progress, and I am happy to be part of it. See you in the next lesson!">Thank you for today. You are making steady progress, and I am happy to be part of it. See you in the next lesson!</option>
+          <option value="You did very well today. Keep your confidence up, and keep practicing out loud. See you next time!">You did very well today. Keep your confidence up, and keep practicing out loud. See you next time!</option>
+          <option value="Thank you for your focus today. A short daily review will help today&#x27;s expressions stay fresh. See you soon!">Thank you for your focus today. A short daily review will help today&#x27;s expressions stay fresh. See you soon!</option>
+          <option value="It was a pleasure to teach you today. Keep enjoying English, and see you in our next lesson!">It was a pleasure to teach you today. Keep enjoying English, and see you in our next lesson!</option>
+          <option value="Great effort today! Please keep today&#x27;s new expressions close by, and use them whenever you can. See you next time!">Great effort today! Please keep today&#x27;s new expressions close by, and use them whenever you can. See you next time!</option>
+          <option value="__random">Surprise me (random)</option>
+        </select>
         <input type="text" id="je-close" value="You did a great job with today's expressions. Keep practicing them in your daily conversations! See you next time!">
       </div>
 
@@ -1998,6 +2086,65 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
     </div>
   </div>
 
+  <div class="card">
+    <h2>Typing quiz</h2>
+    <p class="sub">Type the model answer word for word. A wrong answer stays open until you type it correctly, so every quiz ends with the right sentences in your fingers. First-try answers build your mastery score.</p>
+    <div class="mast-panel" id="ivq-mastery"></div>
+    <div class="jq-setup" style="margin-top:12px">
+      <button class="jq-btn" id="ivq-open">⌨ Open the quiz</button>
+      <button class="jq-btn ghost" id="ivq-reset">Reset mastery</button>
+    </div>
+  </div>
+
+  <div class="card" id="iv-quiz">
+    <h2 style="font-size:23px">⌨ Interview typing quiz</h2>
+    <p class="sub">Capitalization and punctuation do not count against you. Everything else must match.</p>
+    <div id="ivq-setup-view">
+      <div class="jq-setup">
+        <select id="ivq-group"></select>
+        <select id="ivq-count">
+          <option value="5">5 questions</option>
+          <option value="10" selected>10 questions</option>
+          <option value="20">20 questions</option>
+          <option value="0">All in the group</option>
+        </select>
+        <label style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--plum)"><input type="checkbox" id="ivq-auto" checked> Read each question aloud</label>
+        <button class="jq-btn" id="ivq-start">Start</button>
+        <button class="jq-btn ghost" id="ivq-close">Close</button>
+      </div>
+      <div class="hint" style="margin-top:10px">Tip: tick a few questions in the list below, then choose “Only the questions I ticked” to drill exactly those.</div>
+    </div>
+    <div id="ivq-play-view" style="display:none">
+      <div class="jq-prog" id="ivq-prog"></div>
+      <div class="jq-bar"><i id="ivq-fill"></i></div>
+      <div style="display:flex;gap:10px;align-items:flex-start">
+        <div class="jq-en" id="ivq-en" style="flex:1;font-size:22px"></div>
+        <button class="say-btn" id="ivq-say" title="Hear the question">🔊</button>
+      </div>
+      <div class="jq-hintline" id="ivq-hint"></div>
+      <textarea class="jq-input" id="ivq-answer" rows="3" placeholder="Type the model answer here, then press Enter" autocomplete="off" autocorrect="off" spellcheck="false" style="text-align:left;font-size:16px !important;line-height:1.5"></textarea>
+      <div class="jq-actions">
+        <button class="jq-btn" id="ivq-check">Check</button>
+        <button class="jq-btn ghost" id="ivq-hint-btn">Hint</button>
+        <button class="jq-btn ghost" id="ivq-reveal">Show answer</button>
+        <button class="jq-btn ghost" id="ivq-quit">Quit</button>
+      </div>
+      <div class="jq-verdict" id="ivq-verdict"></div>
+    </div>
+    <div id="ivq-done-view" style="display:none">
+      <div class="jq-score">
+        <div class="big" id="ivq-final"></div>
+        <div id="ivq-final-msg" style="margin-top:6px;color:var(--mauve);font-weight:700"></div>
+      </div>
+      <div class="jq-actions" style="justify-content:center">
+        <button class="jq-btn" id="ivq-again">Try again</button>
+        <button class="jq-btn ghost" id="ivq-retry-missed">Practice the missed ones</button>
+        <button class="jq-btn ghost" id="ivq-back">Back</button>
+      </div>
+      <div class="jq-missed" id="ivq-missed"></div>
+    </div>
+  </div>
+
   <div class="play-bar" id="iv-play-bar">
     <span class="pb-count" id="iv-pb-count">Nothing selected</span>
     <button class="jq-btn" id="iv-pb-play" style="padding:8px 18px;font-size:13px">▶ Play selected</button>
@@ -2037,6 +2184,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
     <label><input type="checkbox" id="iv-pb-loop"> Loop until I stop</label>
     <label><input type="checkbox" id="iv-pb-shuffle"> Shuffle</label>
     <label><input type="checkbox" id="iv-pb-bg"> Keep playing in the background</label>
+    <label><input type="checkbox" id="iv-pb-mine"> Only questions and answers with my recordings (skip the rest)</label>
   </div>
   <div class="pb-hint">Tick the questions you want, press Play, and the app reads each question, waits for your pause, then plays the model answer. Background mode keeps your own recordings playing when the screen locks or you switch apps, with play, pause, and skip on the lock screen. The device voice cannot run in the background, so record the questions and answers you want to drill.</div>
 
@@ -2338,6 +2486,61 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
     <h2>Grammar, from first steps to mastery</h2>
     <p class="sub">Your explanation guide, ordered easiest to most advanced. Each point has a student-friendly explanation, the pattern, examples, and the trap Japanese learners most often fall into. Parts of speech include the Japanese grammar term, since your students learned grammar in Japanese at school.</p>
     <input type="text" id="gr-search" placeholder="Find a grammar point… (e.g., adverb, perfect, conditional)">
+  </div>
+
+  <div class="card">
+    <h2>Grammar quiz</h2>
+    <p class="sub">Fill the blank with the missing word or words. Each grammar point below has two questions, and each card has its own “Quiz me” button. First-try answers build your mastery.</p>
+    <div class="mast-panel" id="gq-mastery"></div>
+    <div class="jq-setup" style="margin-top:12px">
+      <button class="jq-btn" id="gq-open">⌨ Open the quiz</button>
+      <button class="jq-btn ghost" id="gq-reset">Reset mastery</button>
+    </div>
+  </div>
+
+  <div class="card" id="gr-quiz">
+    <h2 style="font-size:23px">⌨ Grammar quiz</h2>
+    <p class="sub">Type only the missing part. Contractions and their full forms both count where they fit.</p>
+    <div id="gq-setup-view">
+      <div class="jq-setup">
+        <select id="gq-group"></select>
+        <select id="gq-count">
+          <option value="5">5 questions</option>
+          <option value="10" selected>10 questions</option>
+          <option value="20">20 questions</option>
+          <option value="0">All in the group</option>
+        </select>
+        <button class="jq-btn" id="gq-start">Start</button>
+        <button class="jq-btn ghost" id="gq-close">Close</button>
+      </div>
+    </div>
+    <div id="gq-play-view" style="display:none">
+      <div class="jq-prog" id="gq-prog"></div>
+      <div class="jq-bar"><i id="gq-fill"></i></div>
+      <div class="iv-lbl" id="gq-sub2" style="margin-bottom:4px"></div>
+      <div class="jq-en" id="gq-en" style="font-size:22px"></div>
+      <div class="jq-hintline" id="gq-hint"></div>
+      <input type="text" class="jq-input" id="gq-answer" placeholder="Type the missing word(s)" autocomplete="off" autocorrect="off" spellcheck="false">
+      <div class="jq-actions">
+        <button class="jq-btn" id="gq-check">Check</button>
+        <button class="jq-btn ghost" id="gq-hint-btn">Hint</button>
+        <button class="jq-btn ghost" id="gq-reveal">Show answer</button>
+        <button class="jq-btn ghost" id="gq-quit">Quit</button>
+      </div>
+      <div class="jq-verdict" id="gq-verdict"></div>
+    </div>
+    <div id="gq-done-view" style="display:none">
+      <div class="jq-score">
+        <div class="big" id="gq-final"></div>
+        <div id="gq-final-msg" style="margin-top:6px;color:var(--mauve);font-weight:700"></div>
+      </div>
+      <div class="jq-actions" style="justify-content:center">
+        <button class="jq-btn" id="gq-again">Try again</button>
+        <button class="jq-btn ghost" id="gq-retry-missed">Practice the missed ones</button>
+        <button class="jq-btn ghost" id="gq-back">Back</button>
+      </div>
+      <div class="jq-missed" id="gq-missed"></div>
+    </div>
   </div>
 
   <div id="gr-list"></div>
@@ -3052,7 +3255,9 @@ document.getElementById('g-generate').addEventListener('click', function(){
   $('nb-advice').value = advice;
   $('nb-close').value = close;
   var gw = document.getElementById('g-words').value.trim();
-  if(gw) $('nb-words').value = gw;
+  $('nb-words').value = gw;
+  /* tell the auto-draft about every field we just filled, including the blank ones */
+  nbFields.concat(['nb-words']).forEach(function(id){ $(id).dispatchEvent(new Event('input')); });
   updatePreview();
   toast('Your notes are ready in the preview \u2661');
   var pv = document.getElementById('nb-preview');
@@ -3069,6 +3274,9 @@ document.getElementById('g-reset').addEventListener('click', function(){
   ['g-corrections','g-words'].forEach(function(id){ document.getElementById(id).value = ''; });
   ['g-greet-pick','g-close-pick'].forEach(function(id){ var el = document.getElementById(id); if(el) el.selectedIndex = 0; });
   nbFields.concat(['nb-words']).forEach(function(id){ $(id).value = ''; });
+  ['g-name','g-material','g-good-extra','g-advice-extra','g-corrections','g-words'].concat(nbFields, ['nb-words']).forEach(function(id){
+    var el = document.getElementById(id); if(el) el.dispatchEvent(new Event('input'));
+  });
   updatePreview();
 });
 
@@ -8162,7 +8370,7 @@ if(dictGo){
 <script>
 (function(){
 "use strict";
-var jeIds = ['je-greet','je-range-words','je-range-pairs','je-acc-pairs','je-flu-pairs','je-int-pairs','je-close'];
+var jeIds = ['je-greet','je-range-words','je-range-pairs','je-acc-pairs','je-pron-pairs','je-flu-pairs','je-int-pairs','je-close'];
 function V(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
 function jeScore(){
   var el = document.querySelector('[data-je-score].sel');
@@ -8181,6 +8389,7 @@ function buildJE(){
     fb.push(r);
   }
   if(V('je-acc-pairs')) fb.push('*ACCURACY*\n' + V('je-acc-pairs'));
+  if(V('je-pron-pairs')) fb.push('*PRONUNCIATION PRACTICE*\n' + V('je-pron-pairs'));
   if(V('je-flu-pairs')) fb.push('*FLUENCY*\n' + V('je-flu-pairs'));
   if(V('je-int-pairs')) fb.push('*INTERACTION*\n' + V('je-int-pairs'));
   if(fb.length) parts.push('*Personalized FEEDBACK*\n\n' + fb.join('\n\n'));
@@ -8235,6 +8444,21 @@ document.getElementById('je-copy').addEventListener('click', function(){
     document.body.removeChild(ta); done();
   }
 });
+function jePick(selId, inputId){
+  var sel = document.getElementById(selId), inp = document.getElementById(inputId);
+  if(!sel || !inp) return;
+  sel.addEventListener('change', function(){
+    var v = sel.value;
+    if(v === '__random'){
+      var opts = Array.prototype.filter.call(sel.options, function(o){ return o.value && o.value !== '__random' && o.value !== inp.value; });
+      v = opts.length ? opts[Math.floor(Math.random() * opts.length)].value : inp.value;
+    }
+    if(v){ inp.value = v; inp.dispatchEvent(new Event('input')); }
+    sel.selectedIndex = 0;
+  });
+}
+jePick('je-greet-pick', 'je-greet');
+jePick('je-close-pick', 'je-close');
 document.getElementById('je-clear').addEventListener('click', function(){
   jeIds.forEach(function(id){
     var el = document.getElementById(id);
@@ -8615,7 +8839,7 @@ var DRAFT_IDS = [
   'nb-name','nb-material','nb-greet','nb-feedback','nb-corrections','nb-good','nb-advice','nb-close','nb-words','nb-memo',
   'nb-vocab-pairs','nb-gram-pairs','nb-pron-pairs','nb-wna-range','nb-wna-coh','nb-wna-phon',
   'g-name','g-material','g-good-extra','g-corrections','g-advice-extra','g-words',
-  'je-greet','je-range-words','je-range-pairs','je-acc-pairs','je-flu-pairs','je-int-pairs','je-close'
+  'je-greet','je-range-words','je-range-pairs','je-acc-pairs','je-pron-pairs','je-flu-pairs','je-int-pairs','je-close'
 ];
 var draftTimer = null;
 function saveDrafts(){
@@ -8824,6 +9048,106 @@ var GRAMMAR = [
 {t:'Discourse markers', x:'The words that make speech sound human: actually, to be honest, by the way, anyway, I mean.', p:'marker + sentence', e:['Actually, I have a different idea.','To be honest, the first plan was better.'], tr:'The fastest route from "textbook English" to natural English; sprinkle one new marker per lesson.'}
 ]}
 ];
+window.TSGRAMMAR = {levels: GRAMMAR, quiz: [
+{k:'Noun · 名詞 (meishi)',q:'Tokyo is a busy ___. (noun: a large town)',a:['city'],h:'a place word'},
+{k:'Noun · 名詞 (meishi)',q:'I have two ___. (plural of cat)',a:['cats'],h:'add -s'},
+{k:'Pronoun · 代名詞 (daimeishi)',q:'Ken is my friend. ___ works in Osaka.',a:['He'],h:'replaces "Ken"'},
+{k:'Pronoun · 代名詞 (daimeishi)',q:'This is my bag. ___ is heavy.',a:['It'],h:'replaces "my bag"'},
+{k:'Verb · 動詞 (doushi)',q:'She ___ at a bank. (work)',a:['works'],h:'he/she/it adds -s'},
+{k:'Verb · 動詞 (doushi)',q:'I ___ tired today. (be)',a:['am'],h:'I + ?'},
+{k:'Adjective · 形容詞 (keiyoushi)',q:'The movie was long, so I was ___. (bore)',a:['bored'],h:'-ed is the feeling'},
+{k:'Adjective · 形容詞 (keiyoushi)',q:'The movie was ___. I almost fell asleep. (bore)',a:['boring'],h:'-ing describes the thing'},
+{k:'Adverb · 副詞 (fukushi)',q:'You speak English ___. (good)',a:['well'],h:'the adverb of good'},
+{k:'Adverb · 副詞 (fukushi)',q:'She speaks ___ and clearly. (slow)',a:['slowly'],h:'add -ly'},
+{k:'Preposition · 前置詞 (zenchishi)',q:'The meeting is ___ Monday.',a:['on'],h:'days take...'},
+{k:'Preposition · 前置詞 (zenchishi)',q:'The meeting is ___ three o\'clock.',a:['at'],h:'clock times take...'},
+{k:'Preposition · 前置詞 (zenchishi)',q:'She was born ___ April.',a:['in'],h:'months take...'},
+{k:'Conjunction · 接続詞 (setsuzokushi)',q:'I was tired, ___ I went home early. (result)',a:['so'],h:'gives the result'},
+{k:'Conjunction · 接続詞 (setsuzokushi)',q:'I went home early ___ I was tired. (reason)',a:['because'],h:'gives the reason'},
+{k:'Article · 冠詞 (kanshi)',q:'I read ___ article about a new company.',a:['an'],h:'vowel sound follows'},
+{k:'Article · 冠詞 (kanshi)',q:'___ meeting we planned was canceled. (specific one)',a:['The'],h:'we both know which meeting'},
+{k:'Interjection · 感動詞 (kandoushi)',q:'___! Your presentation was excellent. (surprise word)',a:['Wow'],h:'a short emotion word'},
+{k:'Word order: S + V + O',q:'Put in order: coffee / I / like → I ___ coffee.',a:['like'],h:'subject, verb, object'},
+{k:'Word order: S + V + O',q:'Correct the order: "I every day English study." → I study English ___.',a:['every day'],h:'time goes at the end'},
+{k:'The verb "be": am / is / are',q:'They ___ from Nagoya.',a:['are'],h:'they + ?'},
+{k:'The verb "be": am / is / are',q:'My brother ___ a doctor.',a:['is'],h:'he + ?'},
+{k:'Present simple',q:'He ___ to work by train. (go)',a:['goes'],h:'he/she/it: add -es'},
+{k:'Present simple',q:'Water ___ at 100 degrees. (boil)',a:['boils'],h:'a fact: present simple'},
+{k:'Negatives: don’t / doesn’t',q:'She ___ like coffee.',a:['doesn\'t','does not'],h:'she + ?'},
+{k:'Negatives: don’t / doesn’t',q:'I ___ eat breakfast on weekdays.',a:['don\'t','do not'],h:'I + ?'},
+{k:'Questions: do / does',q:'___ you play tennis?',a:['Do'],h:'you + ?'},
+{k:'Questions: do / does',q:'___ she work on Saturdays?',a:['Does'],h:'she + ?'},
+{k:'Plural nouns',q:'One child, two ___.',a:['children'],h:'irregular plural'},
+{k:'Plural nouns',q:'One box, three ___.',a:['boxes'],h:'-x adds -es'},
+{k:'This / that / these / those',q:'___ shoes here are mine. (near, plural)',a:['These'],h:'near + plural'},
+{k:'This / that / these / those',q:'___ building over there is my office. (far, singular)',a:['That'],h:'far + singular'},
+{k:'Possessives',q:'This is ___ car. (she)',a:['her'],h:'possessive adjective'},
+{k:'Possessives',q:'This car is ___. (she, no noun after)',a:['hers'],h:'possessive pronoun'},
+{k:'Present continuous',q:'Please be quiet. The baby ___ . (sleep)',a:['is sleeping'],h:'happening now'},
+{k:'Present continuous',q:'I ___ for the bus right now. (wait)',a:['am waiting'],h:'am + -ing'},
+{k:'Past simple: regular verbs',q:'Yesterday I ___ TV for two hours. (watch)',a:['watched'],h:'add -ed'},
+{k:'Past simple: regular verbs',q:'We ___ in Kyoto last year. (live)',a:['lived'],h:'ends in -e: add -d'},
+{k:'Past simple: irregular verbs',q:'I ___ to Kyoto last week. (go)',a:['went'],h:'irregular'},
+{k:'Past simple: irregular verbs',q:'She ___ a new phone yesterday. (buy)',a:['bought'],h:'irregular'},
+{k:'Future: will vs be going to',q:'I\'ve decided. I ___ study abroad next year. (plan already made)',a:['am going to','\'m going to'],h:'a plan: be going to'},
+{k:'Future: will vs be going to',q:'The phone is ringing. I ___ answer it. (decided right now)',a:['will','\'ll'],h:'instant decision: will'},
+{k:'Can / could',q:'I ___ swim when I was five. (past ability)',a:['could'],h:'past of can'},
+{k:'Can / could',q:'___ you help me with this report? (polite request)',a:['Could','Can'],h:'a request'},
+{k:'Countable vs uncountable',q:'Can you give me some ___? (advice is uncountable)',a:['advice'],h:'no -s'},
+{k:'Countable vs uncountable',q:'How ___ money do you need?',a:['much'],h:'uncountable: much'},
+{k:'Countable vs uncountable',q:'How ___ students are in your class?',a:['many'],h:'countable: many'},
+{k:'Comparatives & superlatives',q:'Tokyo is ___ than Osaka. (big)',a:['bigger'],h:'short adjective: -er'},
+{k:'Comparatives & superlatives',q:'This is the ___ restaurant in town. (good)',a:['best'],h:'irregular superlative'},
+{k:'Comparatives & superlatives',q:'English is ___ than I thought. (difficult)',a:['more difficult'],h:'long adjective: more'},
+{k:'Adverbs of frequency',q:'I ___ drink coffee in the morning. (100%)',a:['always'],h:'every single time'},
+{k:'Adverbs of frequency',q:'Put the adverb in place: "She late is never." → She ___ late.',a:['is never'],h:'after "be"'},
+{k:'Present perfect',q:'I ___ sushi many times. (eat, life experience)',a:['have eaten','\'ve eaten'],h:'have + past participle'},
+{k:'Present perfect',q:'___ you ever been to Hokkaido?',a:['Have'],h:'experience question'},
+{k:'Prepositions of time & place: in / on / at',q:'I\'ll see you ___ the station.',a:['at'],h:'a point/place: at'},
+{k:'Prepositions of time & place: in / on / at',q:'My birthday is ___ October 5.',a:['on'],h:'a date: on'},
+{k:'Linking words',q:'The price is high. ___, the quality is excellent. (contrast)',a:['However'],h:'a contrast word'},
+{k:'Linking words',q:'I was sick. ___, I stayed home. (result)',a:['Therefore','So'],h:'a result word'},
+{k:'Gerund vs infinitive',q:'I enjoy ___ to music. (listen)',a:['listening'],h:'enjoy + -ing'},
+{k:'Gerund vs infinitive',q:'I want ___ English fluently. (speak)',a:['to speak'],h:'want + to'},
+{k:'Should / must / have to',q:'You look tired. You ___ get some rest. (advice)',a:['should'],h:'advice'},
+{k:'Should / must / have to',q:'In Japan, you ___ take off your shoes inside the house. (rule)',a:['have to','must'],h:'a rule'},
+{k:'There is / there are',q:'___ many people at the station today.',a:['There are'],h:'plural'},
+{k:'There is / there are',q:'___ a convenience store near here?',a:['Is there'],h:'question, singular'},
+{k:'Question tags',q:'You\'re from Osaka, ___?',a:['aren\'t you'],h:'positive → negative tag'},
+{k:'Question tags',q:'She doesn\'t eat meat, ___?',a:['does she'],h:'negative → positive tag'},
+{k:'Some / any',q:'Do you have ___ questions? (question)',a:['any'],h:'questions use any'},
+{k:'Some / any',q:'I need ___ water. (positive)',a:['some'],h:'positive uses some'},
+{k:'Past continuous',q:'I ___ dinner when you called. (cook)',a:['was cooking'],h:'was/were + -ing'},
+{k:'Past continuous',q:'They ___ TV at 9 p.m. last night. (watch)',a:['were watching'],h:'they: were + -ing'},
+{k:'Past perfect',q:'When I arrived, the meeting ___ already ___. (start)',a:['had already started','had started'],h:'had + past participle'},
+{k:'Past perfect',q:'She ___ never ___ sushi before she came to Japan. (eat)',a:['had never eaten','had eaten'],h:'had + past participle'},
+{k:'Conditionals: zero & first',q:'If it ___ tomorrow, I will stay home. (rain)',a:['rains'],h:'first conditional: present'},
+{k:'Conditionals: zero & first',q:'If you heat ice, it ___. (melt, always true)',a:['melts'],h:'zero conditional'},
+{k:'Conditionals: second & third',q:'If I ___ rich, I would travel the world. (be, imaginary now)',a:['were','was'],h:'second conditional'},
+{k:'Conditionals: second & third',q:'If I had studied harder, I ___ the exam. (pass, past regret)',a:['would have passed'],h:'third conditional'},
+{k:'Passive voice',q:'This temple ___ in 1600. (build)',a:['was built'],h:'was + past participle'},
+{k:'Passive voice',q:'English ___ all over the world. (speak)',a:['is spoken'],h:'is + past participle'},
+{k:'Relative clauses',q:'The woman ___ lives next door is a doctor. (person)',a:['who','that'],h:'for people'},
+{k:'Relative clauses',q:'This is the book ___ I told you about. (thing)',a:['which','that'],h:'for things'},
+{k:'Reported speech',q:'Direct: "I am tired." → She said that she ___ tired.',a:['was'],h:'tense goes back one step'},
+{k:'Reported speech',q:'Direct: "I will call you." → He said he ___ call me.',a:['would'],h:'will → would'},
+{k:'Phrasal verbs',q:'Please ___ the form before you leave. (complete)',a:['fill out','fill in'],h:'fill + ?'},
+{k:'Phrasal verbs',q:'Could you ___ the light? It\'s dark in here. (switch on)',a:['turn on'],h:'turn + ?'},
+{k:'Mixed conditionals',q:'If I had taken that job, I ___ in Tokyo now. (live)',a:['would be living','would live'],h:'past condition, present result'},
+{k:'Mixed conditionals',q:'If she ___ more careful, she wouldn\'t have made that mistake. (be, general trait)',a:['were','was'],h:'present trait, past result'},
+{k:'Wish / if only',q:'I wish I ___ more free time. (have, now)',a:['had'],h:'wish + past simple'},
+{k:'Wish / if only',q:'I wish I ___ harder in school. (study, past regret)',a:['had studied'],h:'wish + past perfect'},
+{k:'Causatives: have / get something done',q:'I ___ my hair ___ yesterday. (cut, someone did it for me)',a:['had my hair cut','got my hair cut'],h:'have + object + past participle'},
+{k:'Causatives: have / get something done',q:'We need to ___ the car repaired before the trip. (get/have)',a:['get','have'],h:'get/have + object + done'},
+{k:'Inversion for emphasis',q:'___ have I seen such a beautiful view. (never, formal emphasis)',a:['Never'],h:'negative adverb first, then verb + subject'},
+{k:'Inversion for emphasis',q:'Not only ___ she speak English, but she also speaks French.',a:['does'],h:'not only + auxiliary + subject'},
+{k:'Cleft sentences',q:'___ I need is a good night\'s sleep. (emphasize the thing)',a:['What'],h:'What + clause + is'},
+{k:'Cleft sentences',q:'It was my manager ___ suggested the idea. (emphasize the person)',a:['who','that'],h:'It was X who...'},
+{k:'Modals of deduction (past)',q:'The lights are off. They ___ have gone to bed. (I\'m almost sure)',a:['must'],h:'strong certainty'},
+{k:'Modals of deduction (past)',q:'He ___ have missed the train. That\'s why he\'s late. (possible)',a:['might','may','could'],h:'possibility'},
+{k:'Discourse markers',q:'___, I\'d like to thank everyone for coming. (opening a speech)',a:['First of all','Firstly','First'],h:'an opening marker'},
+{k:'Discourse markers',q:'The project was difficult. ___, we finished it on time. (contrast)',a:['Nevertheless','However','Even so'],h:'a contrast marker'}
+]};
 var wrap = document.getElementById('gr-list');
 function renderGrammar(){
   if(!wrap) return;
@@ -8841,12 +9165,15 @@ function renderGrammar(){
         '<div class="q-ans" style="margin-top:5px"><b>1.</b> ' + E(it.e[0]) + '</div>' +
         (it.e[1] ? '<div class="q-ans"><b>2.</b> ' + E(it.e[1]) + '</div>' : '') +
         (it.tr ? '<div class="q-fu" style="margin-top:4px"><b>Japanese-learner trap:</b> ' + E(it.tr) + '</div>' : '') +
+        '<div class="gr-mast" data-t="' + E(it.t) + '"></div>' +
+        '<div style="margin-top:7px"><button class="gr-quiz-pt" data-t="' + E(it.t) + '">\u2328 Quiz me on this point</button></div>' +
         '</div>';
     }).join('');
     return '<details class="topic"' + (q ? ' open' : '') + '><summary><span class="t-icon">' + g.icon + '</span><h3>' + E(g.lvl) + '</h3></summary>' +
       '<div class="topic-body">' + body + '</div></details>';
   }).join('');
   if(!wrap.innerHTML) wrap.innerHTML = '<div class="card"><div class="dict-status">No grammar point matches that search.</div></div>';
+  if(window.TSGRAMMAR && window.TSGRAMMAR.paintMastery) window.TSGRAMMAR.paintMastery();
 }
 if(document.getElementById('gr-search')){
   document.getElementById('gr-search').addEventListener('input', renderGrammar);
@@ -9559,7 +9886,7 @@ function shuffle(arr, avoidFirst){
 var ivPlayer = new Player('interview');
 var thPlayer = new Player('th');
 var single = new Player('single');
-window.TSIV = { stop: function(){ [ivPlayer, thPlayer, single].forEach(function(p){ if(p.running) p.stop(true); try{ p.audio.pause(); }catch(e){} }); } };
+window.TSIV = { stop: function(){ [ivPlayer, thPlayer, single].forEach(function(p){ if(p.running) p.stop(true); try{ p.audio.pause(); }catch(e){} }); }, questions: IVQ };
 
 /* single play button: my recording if I have one, else the device voice */
 function playSingle(key, text, btn, useMine){
@@ -9592,6 +9919,11 @@ function playSingle(key, text, btn, useMine){
     tts(text, btn);
   }
 }
+
+window.TSIV.playSingle = function(key, text, btn){
+  var mineEl = key.indexOf('th_') === 0 ? $('th-use-mine') : $('iv-use-mine');
+  playSingle(key, text, btn, !mineEl || mineEl.checked);
+};
 
 /* ═══ recording ═══ */
 var mediaRec = null, recKey = null, recBtn = null, recChunks = [], recStream = null, recTimer = null;
@@ -9652,7 +9984,7 @@ function renderIV(){
         return '<div class="iv-q" data-id="' + q.id + '">' +
           '<div class="iv-row">' +
           '<input type="checkbox" class="iv-pick" data-id="' + q.id + '" title="Add to the playlist">' +
-          '<details class="iv-d"><summary><span class="iv-n">' + n + '</span><span class="iv-qtext">' + E(q.q) + '</span></summary>' +
+          '<details class="iv-d"><summary><span class="iv-n">' + n + '</span><span class="iv-qtext">' + E(q.q) + '<span class="iv-mast"></span></span></summary>' +
           '<div class="iv-body">' +
           '<div class="iv-line"><span class="iv-lbl">Question</span>' + ctl('iv_q_' + q.id, q.q, 'question') + '</div>' +
           (q.s ? '<div class="iv-said"><div class="iv-lbl" style="color:#9a6a00">What you said last time</div>' + E(q.s) + '</div>' : '') +
@@ -9763,6 +10095,15 @@ $('iv-pb-play').addEventListener('click', function(){
   if(ivPlayer.running) return;
   var items = ivPicked();
   if(!items.length){ T('Please tick a few questions first.'); return; }
+  if($('iv-pb-mine').checked){
+    var mode = $('iv-pb-mode').value, total = items.length;
+    items = items.filter(function(id){
+      var hq = !!HAVE['iv_q_' + id], ha = !!HAVE['iv_a_' + id];
+      return mode === 'q' ? hq : mode === 'a' ? ha : (hq && ha);
+    });
+    if(!items.length){ T(mode === 'qa' ? 'None of the ticked questions has both a question and an answer recording yet.' : 'None of the ticked questions has that recording yet.'); return; }
+    if(items.length < total) T('Playing ' + items.length + ' of ' + total + ' (your recordings only).');
+  }
   $('iv-pb-play').disabled = true; $('iv-pb-stop').removeAttribute('hidden');
   var o = ivOpts();
   if(o.bg) ivPlayer.keepAlive(true);
@@ -9819,7 +10160,7 @@ $('th-pb-all').addEventListener('click', function(){ document.querySelectorAll('
 $('th-pb-none').addEventListener('click', function(){ document.querySelectorAll('.th-pick').forEach(function(b){ b.checked = false; }); refreshTHBar(); });
 
 /* remember the playlist settings */
-['iv-pb-loop','iv-pb-shuffle','iv-pb-bg','iv-use-mine','th-pb-loop','th-pb-shuffle','th-pb-bg','th-use-mine'].forEach(function(id){
+['iv-pb-loop','iv-pb-shuffle','iv-pb-bg','iv-pb-mine','iv-use-mine','th-pb-loop','th-pb-shuffle','th-pb-bg','th-use-mine'].forEach(function(id){
   var el = $(id); if(!el) return;
   var s = read('ts-' + id); if(s === '1') el.checked = true; else if(s === '0') el.checked = false;
   el.addEventListener('change', function(){ store('ts-' + id, el.checked ? '1' : '0'); });
@@ -9846,6 +10187,326 @@ $('iv-restore-file').addEventListener('change', function(){
 refreshIVBar(); refreshTHBar();
 refreshHave();
 window.TSIV.refresh = refreshHave;
+})();
+</script>
+<script>
+(function(){
+"use strict";
+/* ═══════════ shared typing-quiz engine (interview + grammar) ═══════════ */
+function $(id){ return document.getElementById(id); }
+function E(t){ var d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; }
+function T(msg){
+  var t = $('toast'); if(!t) return;
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(function(){ t.classList.remove('show'); }, 2200);
+}
+function store(k, v){ try{ window.localStorage.setItem(k, v); }catch(e){} }
+function read(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
+function norm(t){
+  return (t || '').toLowerCase()
+    .replace(/[‘’ʼ`]/g, "'").replace(/[“”]/g, '"')
+    .replace(/[\u2013\u2014]/g, '-')
+    .replace(/[.,!?;:"()\[\]]/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+}
+function shuffle(a){ a = a.slice(); for(var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+/* word-level diff: marks words in the typed answer that differ from the target */
+function diffWords(target, typed){
+  var a = norm(target).split(' '), b = norm(typed).split(' ');
+  var seen = {}; a.forEach(function(w){ seen[w] = (seen[w] || 0) + 1; });
+  var out = b.map(function(w){
+    if(seen[w]){ seen[w]--; return '<span class="tq-ok">' + E(w) + '</span>'; }
+    return '<span class="tq-bad">' + E(w) + '</span>';
+  });
+  var missing = []; Object.keys(seen).forEach(function(w){ for(var i = 0; i < seen[w]; i++) missing.push(w); });
+  return {html: out.join(' '), missing: missing};
+}
+
+/* mastery store: key -> {a: attempts, c: first-try correct} */
+function Mastery(storeKey){
+  this.key = storeKey; this.m = {};
+  var v = read(storeKey); if(v){ try{ this.m = JSON.parse(v) || {}; }catch(e){ this.m = {}; } }
+}
+Mastery.prototype.save = function(){ store(this.key, JSON.stringify(this.m)); };
+Mastery.prototype.record = function(id, firstTryRight){
+  var r = this.m[id] || {a: 0, c: 0}; r.a++; if(firstTryRight) r.c++; this.m[id] = r; this.save();
+};
+Mastery.prototype.band = function(id){
+  var r = this.m[id];
+  if(!r || !r.a) return {band: 'new', pct: null, a: 0, c: 0};
+  var pct = Math.round(r.c / r.a * 100), band;
+  if(pct < 50) band = 'weak'; else if(pct < 80) band = 'mid'; else if(r.a < 3) band = 'near'; else band = 'master';
+  return {band: band, pct: pct, a: r.a, c: r.c};
+};
+Mastery.prototype.reset = function(){ this.m = {}; this.save(); };
+var BAND_LABEL = {'new': 'not tried', weak: 'needs work', mid: 'reviewing', near: 'almost', master: 'mastered'};
+function pill(b){
+  return '<span class="mast-pill m-' + b.band + '">' + BAND_LABEL[b.band] + (b.pct === null ? '' : ' · ' + b.pct + '%') + '</span>' +
+    (b.a ? '<span class="mast-tries">' + b.c + '/' + b.a + ' first try</span>' : '');
+}
+
+/* Quiz: ids prefix p; items [{id, prompt, answers:[...], hint, say}] ; opts {mastery, title, onDone} */
+function Quiz(p, opts){
+  this.p = p; this.o = opts; this.items = []; this.i = 0; this.firstTry = true; this.right = 0; this.missed = [];
+  var self = this;
+  $(p + '-check').addEventListener('click', function(){ self.check(); });
+  $(p + '-answer').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); self.check(); } });
+  $(p + '-hint-btn').addEventListener('click', function(){ self.showHint(); });
+  $(p + '-reveal').addEventListener('click', function(){ self.reveal(); });
+  $(p + '-quit').addEventListener('click', function(){ self.finish(true); });
+  $(p + '-again').addEventListener('click', function(){ self.start(self.src); });
+  $(p + '-retry-missed').addEventListener('click', function(){ if(self.missed.length) self.start(self.missed); });
+  $(p + '-back').addEventListener('click', function(){ self.view('setup'); });
+  var say = $(p + '-say'); if(say) say.addEventListener('click', function(){ if(self.o.say) self.o.say(self.items[self.i], say); });
+}
+Quiz.prototype.view = function(v){
+  var p = this.p;
+  $(p + '-setup-view').style.display = v === 'setup' ? '' : 'none';
+  $(p + '-play-view').style.display = v === 'play' ? '' : 'none';
+  $(p + '-done-view').style.display = v === 'done' ? '' : 'none';
+};
+Quiz.prototype.start = function(items){
+  if(!items || !items.length){ T('Nothing to quiz yet. Pick a group first.'); return; }
+  this.src = items.slice(); this.items = shuffle(items); this.i = 0; this.right = 0; this.missed = []; this.reveals = 0;
+  this.view('play'); this.show();
+};
+Quiz.prototype.show = function(){
+  var p = this.p, it = this.items[this.i];
+  this.firstTry = true; this.revealed = false; this.attempts = 0;
+  $(p + '-prog').textContent = 'Question ' + (this.i + 1) + ' of ' + this.items.length + (this.right ? ' · ' + this.right + ' right first try' : '');
+  $(p + '-fill').style.width = (this.i / this.items.length * 100) + '%';
+  $(p + '-en').innerHTML = E(it.prompt);
+  var sub = $(p + '-sub2'); if(sub) sub.textContent = it.sub || '';
+  $(p + '-hint').textContent = '';
+  var v = $(p + '-verdict'); v.className = 'jq-verdict'; v.innerHTML = '';
+  var a = $(p + '-answer'); a.value = ''; a.disabled = false; a.focus();
+  $(p + '-check').textContent = 'Check';
+  $(p + '-check').disabled = false;
+  $(p + '-reveal').style.display = '';
+  $(p + '-hint-btn').style.display = '';
+  if(this.o.onShow) this.o.onShow(it);
+};
+Quiz.prototype.showHint = function(){
+  var it = this.items[this.i];
+  var h = it.hint ? it.hint : '';
+  var target = it.answers[0];
+  var words = target.split(' ');
+  var start = words.slice(0, Math.min(3, Math.max(1, Math.ceil(words.length / 4)))).join(' ');
+  $(this.p + '-hint').textContent = (h ? 'Hint: ' + h + '. ' : '') + 'It starts with: “' + start + '…” (' + words.length + ' words)';
+  this.firstTry = false;
+};
+Quiz.prototype.isRight = function(typed){
+  var n = norm(typed); if(!n) return false;
+  return this.items[this.i].answers.some(function(ans){ return norm(ans) === n; });
+};
+Quiz.prototype.check = function(){
+  var p = this.p, it = this.items[this.i], a = $(p + '-answer');
+  if(this.done){ this.next(); return; }
+  var typed = a.value;
+  if(!norm(typed)){ a.focus(); return; }
+  this.attempts++;
+  var v = $(p + '-verdict');
+  if(this.isRight(typed)){
+    var first = this.firstTry && !this.revealed;
+    if(first) this.right++; else if(this.missed.indexOf(it) === -1) this.missed.push(it);
+    if(this.o.mastery) this.o.mastery.record(it.id, first);
+    v.className = 'jq-verdict ok show';
+    v.innerHTML = (first ? 'Correct on the first try! ' : 'Correct. ') +
+      '<div class="ans" style="font-size:16px">' + E(it.answers[0]) + '</div>' +
+      (this.o.mastery ? '<div style="margin-top:6px">' + pill(this.o.mastery.band(it.id)) + '</div>' : '');
+    this.done = true; a.disabled = true;
+    $(p + '-check').textContent = (this.i + 1 < this.items.length) ? 'Next →' : 'Finish';
+    $(p + '-reveal').style.display = 'none'; $(p + '-hint-btn').style.display = 'none';
+    if(this.o.onRight) this.o.onRight(it, first);
+  } else {
+    this.firstTry = false;
+    if(this.missed.indexOf(it) === -1) this.missed.push(it);
+    var d = diffWords(it.answers[0], typed);
+    v.className = 'jq-verdict no show';
+    v.innerHTML = 'Not yet. Fix the parts in red and try again. The question only closes when you type it correctly.' +
+      '<div style="margin-top:8px;font-size:15px;line-height:1.6">' + d.html + '</div>' +
+      (d.missing.length ? '<div style="margin-top:6px;font-size:13px">Missing: <b>' + E(d.missing.slice(0, 8).join(', ')) + (d.missing.length > 8 ? '…' : '') + '</b></div>' : '') +
+      (this.attempts >= 3 ? '<div style="margin-top:6px;font-size:13px">Stuck? Tap <b>Show answer</b>, then type it once to move on.</div>' : '');
+    a.focus();
+  }
+};
+Quiz.prototype.reveal = function(){
+  var it = this.items[this.i], v = $(this.p + '-verdict');
+  this.revealed = true; this.firstTry = false;
+  if(this.missed.indexOf(it) === -1) this.missed.push(it);
+  v.className = 'jq-verdict no show';
+  v.innerHTML = 'Here is the answer. Type it exactly to close this question:' +
+    '<div class="ans" style="font-size:16px;user-select:text">' + E(it.answers[0]) + '</div>';
+  $(this.p + '-answer').focus();
+};
+Quiz.prototype.next = function(){
+  this.done = false;
+  this.i++;
+  if(this.i >= this.items.length){ this.finish(false); return; }
+  this.show();
+};
+Quiz.prototype.finish = function(quit){
+  var p = this.p, n = quit ? this.i + (this.done ? 1 : 0) : this.items.length;
+  this.done = false;
+  this.view('done');
+  $(p + '-final').textContent = this.right + ' / ' + n;
+  var pct = n ? Math.round(this.right / n * 100) : 0;
+  $(p + '-final-msg').textContent = quit ? 'Stopped early. ' + pct + '% right on the first try so far.' :
+    (pct === 100 ? 'Perfect run. Every answer right on the first try.' :
+     pct >= 80 ? pct + '% on the first try. Nearly there.' :
+     pct >= 50 ? pct + '% on the first try. Review the missed ones below.' :
+     pct + '% on the first try. Drill the missed ones, then try again.');
+  $(p + '-missed').innerHTML = this.missed.length ?
+    '<div class="iv-lbl" style="margin:14px 0 6px">Needed more than one try</div>' +
+    this.missed.map(function(it){ return '<div class="tq-miss"><b>' + E(it.prompt) + '</b><div>' + E(it.answers[0]) + '</div></div>'; }).join('') : '';
+  $(p + '-retry-missed').style.display = this.missed.length ? '' : 'none';
+  if(this.o.onDone) this.o.onDone();
+};
+
+/* ═══════════ 1. Interview typing quiz ═══════════ */
+(function(){
+  if(!$('ivq-start') || !window.TSIV || !window.TSIV.questions) return;
+  var IVQ = window.TSIV.questions;
+  var M = new Mastery('ts-iv-mastery');
+  window.TSIV.mastery = M;
+  var groups = []; IVQ.forEach(function(q){ if(groups.indexOf(q.g) === -1) groups.push(q.g); });
+  var sel = $('ivq-group');
+  sel.innerHTML = '<option value="__all">All questions (' + IVQ.length + ')</option>' +
+    '<option value="__picked">Only the questions I ticked in the list</option>' +
+    '<option value="__weak">Only the ones I have not mastered</option>' +
+    groups.map(function(g){ var n = IVQ.filter(function(q){ return q.g === g; }).length; return '<option value="' + E(g) + '">' + E(g) + ' (' + n + ')</option>'; }).join('');
+  function pool(){
+    var v = sel.value, list;
+    if(v === '__all') list = IVQ.slice();
+    else if(v === '__picked'){
+      var ids = Array.prototype.map.call(document.querySelectorAll('.iv-pick:checked'), function(c){ return c.getAttribute('data-id'); });
+      list = IVQ.filter(function(q){ return ids.indexOf(q.id) !== -1; });
+    }
+    else if(v === '__weak') list = IVQ.filter(function(q){ return M.band(q.id).band !== 'master'; });
+    else list = IVQ.filter(function(q){ return q.g === v; });
+    var n = parseInt($('ivq-count').value, 10);
+    list = shuffle(list);
+    if(n && list.length > n) list = list.slice(0, n);
+    return list.map(function(q){ return {id: q.id, prompt: q.q, answers: [q.a], hint: q.w ? '' : '', say: q}; });
+  }
+  function paintMastery(){
+    var counts = {'new': 0, weak: 0, mid: 0, near: 0, master: 0};
+    IVQ.forEach(function(q){
+      var b = M.band(q.id); counts[b.band]++;
+      var el = document.querySelector('.iv-q[data-id="' + q.id + '"] .iv-mast');
+      if(el) el.innerHTML = pill(b);
+    });
+    var pct = Math.round(counts.master / IVQ.length * 100);
+    var box = $('ivq-mastery');
+    if(box) box.innerHTML = '<span class="mast-big">' + pct + '%</span><span style="font-weight:700;color:var(--plum)">mastered</span>' +
+      '<span class="mast-pill m-master">' + counts.master + ' mastered</span>' +
+      '<span class="mast-pill m-near">' + counts.near + ' almost</span>' +
+      '<span class="mast-pill m-mid">' + counts.mid + ' reviewing</span>' +
+      '<span class="mast-pill m-weak">' + counts.weak + ' needs work</span>' +
+      '<span class="mast-pill m-new">' + counts['new'] + ' not tried</span>';
+  }
+  var q = new Quiz('ivq', {
+    mastery: M,
+    say: function(it, btn){ if(window.TSIV.playSingle) window.TSIV.playSingle('iv_q_' + it.id, it.prompt, btn); },
+    onShow: function(it){
+      var auto = $('ivq-auto'); if(auto && auto.checked && window.TSIV.playSingle) window.TSIV.playSingle('iv_q_' + it.id, it.prompt, $('ivq-say'));
+    },
+    onRight: function(it){
+      var auto = $('ivq-auto'); if(auto && auto.checked && window.TSIV.playSingle) setTimeout(function(){ window.TSIV.playSingle('iv_a_' + it.id, it.answers[0], null); }, 300);
+      paintMastery();
+    },
+    onDone: paintMastery
+  });
+  $('ivq-start').addEventListener('click', function(){ q.start(pool()); });
+  $('ivq-reset').addEventListener('click', function(){
+    if(!window.confirm('Reset your interview mastery scores? Your recordings are not affected.')) return;
+    M.reset(); paintMastery(); T('Mastery reset.');
+  });
+  $('ivq-open').addEventListener('click', function(){
+    var box = $('iv-quiz'); box.classList.toggle('open');
+    if(box.classList.contains('open')){ q.view('setup'); if(box.scrollIntoView) box.scrollIntoView({behavior: 'smooth', block: 'start'}); }
+  });
+  $('ivq-close').addEventListener('click', function(){ $('iv-quiz').classList.remove('open'); });
+  paintMastery();
+  window.TSIV.paintMastery = paintMastery;
+})();
+
+/* ═══════════ 2. Grammar quiz ═══════════ */
+(function(){
+  if(!$('gq-start') || !window.TSGRAMMAR) return;
+  var G = window.TSGRAMMAR.levels, GQ = window.TSGRAMMAR.quiz;
+  var M = new Mastery('ts-gr-mastery');
+  var titleToLevel = {};
+  G.forEach(function(lv, li){ lv.items.forEach(function(it){ titleToLevel[it.t] = li; }); });
+  var items = GQ.map(function(x, i){
+    return {id: 'g' + i, prompt: x.q, answers: x.a, hint: x.h, sub: x.k, lvl: titleToLevel[x.k]};
+  });
+  var orphans = items.filter(function(it){ return it.lvl === undefined; });
+  if(orphans.length && window.console) console.warn('grammar quiz items without a matching point:', orphans.map(function(o){ return o.sub; }));
+  var sel = $('gq-group');
+  sel.innerHTML = '<option value="__all">All levels (' + items.length + ' questions)</option>' +
+    '<option value="__weak">Only the ones I have not mastered</option>' +
+    G.map(function(lv, li){ var n = items.filter(function(it){ return it.lvl === li; }).length; return '<option value="' + li + '">' + E(lv.lvl) + ' (' + n + ')</option>'; }).join('') +
+    '<optgroup label="One grammar point">' + G.map(function(lv){ return lv.items.map(function(it){ var n = items.filter(function(q){ return q.sub === it.t; }).length; return n ? '<option value="t:' + E(it.t) + '">' + E(it.t) + ' (' + n + ')</option>' : ''; }).join(''); }).join('') + '</optgroup>';
+  function pool(){
+    var v = sel.value, list;
+    if(v === '__all') list = items.slice();
+    else if(v === '__weak') list = items.filter(function(it){ return M.band(it.id).band !== 'master'; });
+    else if(v.indexOf('t:') === 0) list = items.filter(function(it){ return it.sub === v.slice(2); });
+    else list = items.filter(function(it){ return it.lvl === parseInt(v, 10); });
+    var n = parseInt($('gq-count').value, 10);
+    list = shuffle(list);
+    if(n && list.length > n) list = list.slice(0, n);
+    return list;
+  }
+  function paintMastery(){
+    var counts = {'new': 0, weak: 0, mid: 0, near: 0, master: 0};
+    items.forEach(function(it){ counts[M.band(it.id).band]++; });
+    var pct = Math.round(counts.master / items.length * 100);
+    $('gq-mastery').innerHTML = '<span class="mast-big">' + pct + '%</span><span style="font-weight:700;color:var(--plum)">mastered</span>' +
+      '<span class="mast-pill m-master">' + counts.master + ' mastered</span>' +
+      '<span class="mast-pill m-near">' + counts.near + ' almost</span>' +
+      '<span class="mast-pill m-mid">' + counts.mid + ' reviewing</span>' +
+      '<span class="mast-pill m-weak">' + counts.weak + ' needs work</span>' +
+      '<span class="mast-pill m-new">' + counts['new'] + ' not tried</span>';
+    /* per-point pills in the grammar list */
+    document.querySelectorAll('.gr-mast[data-t]').forEach(function(el){
+      var t = el.getAttribute('data-t');
+      var mine = items.filter(function(it){ return it.sub === t; });
+      if(!mine.length){ el.innerHTML = ''; return; }
+      var a = 0, c = 0, tried = 0;
+      mine.forEach(function(it){ var b = M.band(it.id); a += b.a; c += b.c; if(b.a) tried++; });
+      if(!a){ el.innerHTML = '<span class="mast-pill m-new">not quizzed yet</span>'; return; }
+      var p = Math.round(c / a * 100);
+      var band = p < 50 ? 'weak' : p < 80 ? 'mid' : (tried < mine.length || a < mine.length * 2) ? 'near' : 'master';
+      el.innerHTML = '<span class="mast-pill m-' + band + '">' + BAND_LABEL[band] + ' · ' + p + '%</span><span class="mast-tries">' + c + '/' + a + ' first try</span>';
+    });
+  }
+  var q = new Quiz('gq', {mastery: M, onRight: paintMastery, onDone: paintMastery});
+  $('gq-start').addEventListener('click', function(){ q.start(pool()); });
+  $('gq-reset').addEventListener('click', function(){
+    if(!window.confirm('Reset your grammar mastery scores?')) return;
+    M.reset(); paintMastery(); T('Mastery reset.');
+  });
+  $('gq-open').addEventListener('click', function(){
+    var box = $('gr-quiz'); box.classList.toggle('open');
+    if(box.classList.contains('open')){ q.view('setup'); if(box.scrollIntoView) box.scrollIntoView({behavior: 'smooth', block: 'start'}); }
+  });
+  $('gq-close').addEventListener('click', function(){ $('gr-quiz').classList.remove('open'); });
+  /* a "Quiz me on this point" button inside each grammar card */
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.gr-quiz-pt'); if(!b) return;
+    var t = b.getAttribute('data-t');
+    $('gr-quiz').classList.add('open');
+    var opt = Array.prototype.find.call(sel.options, function(o){ return o.value === 't:' + t; });
+    if(opt) sel.value = 't:' + t;
+    $('gq-count').value = '0';
+    q.start(items.filter(function(it){ return it.sub === t; }));
+    if($('gr-quiz').scrollIntoView) $('gr-quiz').scrollIntoView({behavior: 'smooth', block: 'start'});
+  });
+  window.TSGRAMMAR.paintMastery = paintMastery;
+  paintMastery();
+})();
 })();
 </script>
 </body>
