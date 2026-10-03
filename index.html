@@ -384,9 +384,17 @@ select.g-picker{width:100%;font-weight:600}
   border:1px solid var(--petal);border-radius:14px;padding:11px 14px;margin-bottom:14px;
   display:flex;flex-wrap:wrap;gap:9px;align-items:center;backdrop-filter:blur(6px)}
 .play-bar .pb-count{font-size:13px;font-weight:800;color:var(--plum);margin-right:2px}
-.play-bar select{width:auto;min-width:0;padding:6px 10px;font-size:12.5px}
-.play-bar label{font-size:12.5px;font-weight:700;color:var(--mauve);display:flex;align-items:center;gap:6px}
-.play-bar label input{width:auto;margin:0}
+.play-bar select,.pb-settings select{width:auto;min-width:0;padding:6px 10px;font-size:12.5px}
+.play-bar label,.pb-settings label{font-size:12.5px;font-weight:700;color:var(--mauve);display:flex;align-items:center;gap:6px}
+.play-bar label input,.pb-settings label input{width:auto;margin:0}
+/* slim pinned row: sits just under the tab bar and stays one line tall */
+.play-bar.pb-slim{top:var(--nav-h,0px);padding:7px 12px;gap:8px;margin-bottom:10px;box-shadow:0 4px 12px rgba(94,39,80,.08)}
+.play-bar.pb-slim .pb-count{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* settings scroll away with the page instead of covering the list */
+.pb-settings{background:#fff;border:1px solid var(--petal);border-radius:14px;padding:11px 14px;margin-bottom:14px;
+  display:flex;flex-wrap:wrap;gap:9px;align-items:center;scroll-margin-top:calc(var(--nav-h,0px) + 64px)}
+.pb-settings.flash{animation:pbflash 1.2s ease}
+@keyframes pbflash{0%,60%{box-shadow:0 0 0 3px rgba(214,51,132,.35)}100%{box-shadow:none}}
 .jl-actions .en-btn i{font-style:normal;font-size:8px;font-weight:800;vertical-align:super;margin-left:1px;letter-spacing:.02em}
 .jl-actions .say-btn.en-btn{color:var(--plum)}
 .pb-hint{font-size:12px;color:var(--mauve);margin:-6px 0 12px;line-height:1.45}
@@ -572,7 +580,7 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
   <button class="tab-btn" data-tab="grammar">🧩 Grammar</button>
   <button class="tab-btn" data-tab="dictionary">📖 Dictionary</button>
   <button class="tab-btn" data-tab="students">🐾 My Students</button>
-  <span class="ver-chip"><span id="app-version">Updated: Oct 03, 2026 · 07:09 AM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
+  <span class="ver-chip"><span id="app-version">Updated: Oct 03, 2026 · 01:40 PM PH</span><button id="hard-refresh" title="Reload the newest version from GitHub">⟳ Refresh</button></span>
 </nav>
 
 <main class="wrap">
@@ -2145,10 +2153,13 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
     </div>
   </div>
 
-  <div class="play-bar" id="iv-play-bar">
+  <div class="play-bar pb-slim" id="iv-play-bar">
     <span class="pb-count" id="iv-pb-count">Nothing selected</span>
-    <button class="jq-btn" id="iv-pb-play" style="padding:8px 18px;font-size:13px">▶ Play selected</button>
-    <button class="jq-btn ghost" id="iv-pb-stop" style="padding:8px 16px;font-size:13px" hidden>⏹ Stop</button>
+    <button class="jq-btn" id="iv-pb-play" style="padding:7px 16px;font-size:13px">▶ Play</button>
+    <button class="jq-btn ghost" id="iv-pb-stop" style="padding:7px 14px;font-size:13px" hidden>⏹ Stop</button>
+    <button class="pb-mini" id="iv-pb-settings-btn" title="Jump to the playlist settings">⚙ Settings</button>
+  </div>
+  <div class="pb-settings" id="iv-pb-settings">
     <button class="pb-mini" id="iv-pb-all">Select all</button>
     <button class="pb-mini" id="iv-pb-none">Clear</button>
     <label>Play
@@ -2172,6 +2183,14 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
       <select id="iv-pb-repeat">
         <option value="1" selected>once</option>
         <option value="2">twice</option>
+        <option value="3">thrice</option>
+        <option value="4">4 times</option>
+        <option value="5">5 times</option>
+        <option value="6">6 times</option>
+        <option value="7">7 times</option>
+        <option value="8">8 times</option>
+        <option value="9">9 times</option>
+        <option value="10">10 times</option>
       </select>
     </label>
     <label>Gap
@@ -2227,7 +2246,14 @@ footer{text-align:center;margin-top:50px;color:var(--mauve);font-family:'Cormora
         <select id="th-pb-repeat">
           <option value="1">once</option>
           <option value="2" selected>twice</option>
-          <option value="3">three times</option>
+          <option value="3">thrice</option>
+          <option value="4">4 times</option>
+          <option value="5">5 times</option>
+          <option value="6">6 times</option>
+          <option value="7">7 times</option>
+          <option value="8">8 times</option>
+          <option value="9">9 times</option>
+          <option value="10">10 times</option>
         </select>
       </label>
       <label>Gap
@@ -10193,6 +10219,20 @@ $('iv-pb-play').addEventListener('click', function(){
   ivPlayer.prime().then(function(){ ivPlayer.run(items, ivSteps, o, ivPlayer.idx); });
 });
 $('iv-pb-stop').addEventListener('click', function(){ ivPlayer.stop(false); T('Stopped.'); });
+/* keep the slim bar just below the tab bar, whatever height the tabs wrap to */
+(function(){
+  var nav = document.querySelector('nav.tabs');
+  function setNavH(){ if(nav) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px'); }
+  setNavH();
+  window.addEventListener('resize', setNavH);
+  window.addEventListener('load', setNavH);
+  if(typeof ResizeObserver !== 'undefined' && nav){ try{ new ResizeObserver(setNavH).observe(nav); }catch(e){} }
+})();
+$('iv-pb-settings-btn').addEventListener('click', function(){
+  var box = $('iv-pb-settings');
+  if(box.scrollIntoView) box.scrollIntoView({behavior: 'smooth', block: 'start'});
+  box.classList.remove('flash'); void box.offsetWidth; box.classList.add('flash');
+});
 $('iv-pb-all').addEventListener('click', function(){ document.querySelectorAll('.iv-pick').forEach(function(b){ b.checked = true; }); refreshIVBar(); });
 $('iv-pb-none').addEventListener('click', function(){ document.querySelectorAll('.iv-pick').forEach(function(b){ b.checked = false; }); refreshIVBar(); });
 $('iv-open-all').addEventListener('click', function(){ document.querySelectorAll('.iv-d').forEach(function(d){ d.open = true; }); });
